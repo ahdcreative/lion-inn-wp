@@ -1,0 +1,43 @@
+[
+    {
+        "type": "container",
+        "id": "df3ea19868",
+        "title": "Home Titles",
+        "locations": [
+            {
+                "type": "Post_Type",
+                "post_types": [
+                    "page"
+                ],
+                "templates": [
+                    "index.php"
+                ]
+            }
+        ],
+        "fields": [
+            {
+                "name": "first_line",
+                "label": "First Line",
+                "type": "WYSIWYG",
+                "description": "First Line of BIG Homepage Title.",
+                "rows": 10
+            },
+            {
+                "name": "second_line",
+                "label": "Second Line",
+                "type": "WYSIWYG",
+                "description": "Second Line of BIG Homepage Title.",
+                "rows": 10
+            },
+            {
+                "name": "third_line",
+                "label": "Third Line",
+                "type": "WYSIWYG",
+                "description": "Third Line of BIG Homepage Title.",
+                "rows": 10
+            }
+        ],
+        "hash": "df3ea19868",
+        "modified": 1543270899
+    }
+]

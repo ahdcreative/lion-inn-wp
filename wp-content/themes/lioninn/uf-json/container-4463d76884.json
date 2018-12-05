@@ -1,0 +1,19 @@
+[
+    {
+        "type": "container",
+        "id": "4463d76884",
+        "title": "Menu Additional Information",
+        "locations": [],
+        "fields": [
+            {
+                "name": "information",
+                "label": "Information",
+                "type": "WYSIWYG",
+                "description": "Provide additional information about a menu section.  Appears in italics on page.  Usually at the start or end of a section.",
+                "rows": 10
+            }
+        ],
+        "hash": "4463d76884",
+        "modified": 1543078816
+    }
+]

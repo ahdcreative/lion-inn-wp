@@ -1,0 +1,19 @@
+[
+    {
+        "type": "container",
+        "id": "7b2f19e8c1",
+        "title": "Menu Sub Title",
+        "locations": [],
+        "fields": [
+            {
+                "name": "sub_title",
+                "label": "Sub Title",
+                "type": "Text",
+                "description": "E.g. 'Pasta' or 'Toppings'.  Appears as purple bar with white text on menu.  (Optional)",
+                "placeholder": "Enter Sub Title..."
+            }
+        ],
+        "hash": "7b2f19e8c1",
+        "modified": 1543078749
+    }
+]
