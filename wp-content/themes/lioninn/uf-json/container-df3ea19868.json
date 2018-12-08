@@ -10,7 +10,8 @@
                     "page"
                 ],
                 "templates": [
-                    "index.php"
+                    "index.php",
+                    "-menu.php"
                 ]
             }
         ],
@@ -20,24 +21,27 @@
                 "label": "First Line",
                 "type": "WYSIWYG",
                 "description": "First Line of BIG Homepage Title.",
-                "rows": 10
+                "rows": 10,
+                "apply_wpautop": true
             },
             {
                 "name": "second_line",
                 "label": "Second Line",
                 "type": "WYSIWYG",
                 "description": "Second Line of BIG Homepage Title.",
-                "rows": 10
+                "rows": 10,
+                "apply_wpautop": true
             },
             {
                 "name": "third_line",
                 "label": "Third Line",
                 "type": "WYSIWYG",
                 "description": "Third Line of BIG Homepage Title.",
-                "rows": 10
+                "rows": 10,
+                "apply_wpautop": true
             }
         ],
         "hash": "df3ea19868",
-        "modified": 1543270899
+        "modified": 1544272215
     }
 ]

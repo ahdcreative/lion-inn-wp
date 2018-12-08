@@ -10,7 +10,8 @@
                     "page"
                 ],
                 "templates": [
-                    "menu.php"
+                    "menu.php",
+                    "-index.php"
                 ]
             }
         ],
@@ -294,6 +295,6 @@
             }
         ],
         "hash": "0cc474f88d",
-        "modified": 1543347932
+        "modified": 1544272242
     }
 ]

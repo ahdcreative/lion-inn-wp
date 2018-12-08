@@ -126,9 +126,9 @@
             <div class="my-auto">
                 <div class="center row">
                     <div class="col-xl-12 text-center mt-5 mb-3">
-                        <h1 class="great-vibes m-0 mr-3 main-heading"><?php the_value( 'first_line' ) ?></h1>
-                        <h4 class="m-0 to"><?php the_value( 'second_line' ) ?></h4>
-                        <h1 class="algeria m-0 main-heading w-100"><?php the_value( 'third_line' ) ?></h1>
+                        <h1 class="great-vibes m-0 mr-3 main-heading">Welcome</h1>
+                        <h4 class="m-0 to">to</h4>
+                        <h1 class="algeria m-0 main-heading w-100">THE LION INN</h1>
                     </div>
                 </div>
 
