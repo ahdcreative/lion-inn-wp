@@ -31,7 +31,6 @@ __Git__ & __GitHub__ - Source control (obviously - you're here).
 
 __WAMP__ - Local server to host WordPress installation and site.
 
-
 ## Download & Setup
 
 ### Windows
@@ -68,6 +67,7 @@ We need to check everything is working.
 
 Open the Bitnami WAMP Stack Manager Tool.  Open the 'Manage Servers' tab.  Select 'Start All'.  We need both the SQL Server and the Apache Web Server running.
 
+Now, open a web browser and navigate to ```localhost:81/lion-inn-wp/wp-admin/```.  You may be asked to sign-in.  
 
 ### Mac OSX
 
@@ -83,8 +83,6 @@ Download and install MAMP - we need this to run PHP / WordPress on our local mac
 
 We must first install ```wp-cli``` and add it to the path.
 
-
-
 ## Development
 
 ### Workflows
@@ -95,9 +93,13 @@ _After cloning and initial setup._
 
 __Standard Workflow__
 
+Make your changes - whether that be in the code or on the wp-admin page.
+
 ```git add -A```
 
 ```git commit -m "Commit Message"```
+
+When you are ready, push the changes to the remote repository on GitHub.
 
 ```git push```
 
@@ -109,22 +111,36 @@ This is slightly different to the normal git workflow as we need to pull the dat
 
 ```wp vp pull```
 
-
 #### Development
 
 Development can be done in either the WordPress wp-admin page and / or within a text editor to edit the code.
 
+### Code
 
+If you need to edit the code, open the entire project repository in a text editor.
+
+You make alterations to the code here.  Changes may take a while to update in your browser, so you may have to wait a bit longer and refresh the page again.
 
 ### WordPress
 
+A lot of the development work will need to be done within the WordPress admin dashboard.  This can be accessed at ```localhost:81/lion-inn-wp/wp-admin/```.  
+
 #### Plugins
+
+The site currently uses these plugins:
+
+__Ultimate Fields__ - Used to make the website editable by the client.  For example, the menu page uses ultimate fields - most importantly, repeaters, so that the client can add, delete and update menu items.
+
+__VersionPress__ - Used for Git version control.  Helps to keep the database synchronized between development instances.  Refer to the Development --> Workflows --> Git & GitHub section above.
 
 #### Theme
 
+The theme used for the site is located in ```C:\Bitnami\wampstack-7.1.23-0\apache2\htdocs\wordpress\wp-content\themes\lioninn```.  Most of the code changes will be in here.  There will likely be little to no need to edit the code elsewhere.  The code within this directory resembles what the website looks like.
 
+## Deployment
 
-## Deployment 
-
+_TODO_
 
 ## Documentation
+
+_TODO_
