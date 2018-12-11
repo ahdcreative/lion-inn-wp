@@ -43,7 +43,7 @@ Download and install Bitnami WAMP - we need this to run PHP / WordPress on our l
 
 #### Clone
 
-Now we need to clone the repository.  Open a cmd prompt, or Git Bash.  Navigate to the ```htdocs``` directory in your WAMP installation. It is probably something like this : ```C:\Bitnami\wampstack-7.1.23-0\apache2\htdocs```.
+Now we need to clone the repository.  Open a cmd prompt, or Git Bash.  Navigate to the ```htdocs``` directory in your WAMP installation. It is probably something like this : ```C:\Bitnami\wampstack-7.1.23-0\apache2\htdocs\```.
 
 Clone the repository into this htdocs directory with:
 
@@ -51,7 +51,15 @@ Clone the repository into this htdocs directory with:
 
 #### WP-CLI
 
-We must first install ```wp-cli``` and add it to the path.
+We also need to install ```wp-cli``` and add it to the path.
+
+Unzip the ```wp-cli.zip``` from the misc/ folder, into your C:/ drive.
+
+We need to add it to PATH now.
+
+Press the windows button --> search 'environment' --> Select 'Edit the system environment variables' --> Select 'Environment Variables' --> Click PATH under user variables --> Select 'Edit...' --> Add 'C:\wp-cli' --> OK --> OK --> OK.
+
+Run ```wp --info``` in Git Bash or a cmd prompt to check it's working.
 
 #### Restore Site & Database
 
@@ -81,7 +89,21 @@ Download and install MAMP - we need this to run PHP / WordPress on our local mac
 
 #### WP-CLI
 
-We must first install ```wp-cli``` and add it to the path.
+We also need to install ```wp-cli``` and add it to the path.
+
+Open a terminal and navigate to the Downloads directory.
+
+Run ```curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar```.
+
+Run ```php wp-cli.phar --info``` to check it's working.
+
+We need to add it to path in order to just use 'wp ...'.
+
+Run ```chmod +x wp-cli.phar```.
+
+Run ```sudo mv wp-cli.phar /usr/local/bin/wp```.
+
+Run ```wp --info``` to check it's working.
 
 ## Development
 
