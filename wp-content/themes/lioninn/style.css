@@ -226,7 +226,7 @@ body {
 }
 
 .section-heading {
-  font-size: 6vw;
+  font-size: 6vw !important;
 }
 
 .minor-heading {

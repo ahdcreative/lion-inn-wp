@@ -3,25 +3,8 @@
  * Template Name: Home
  */
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lion Inn</title>
-    <!-- Favicon -->
-    <link rel="icon" href="<?php echo get_bloginfo('template_directory'); ?>/favicon.ico" type="image/x-icon" sizes="16x16">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link href="<?php echo get_bloginfo('template_directory'); ?>/style.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-</head>
+
+<?php get_header(); ?>
 
 <body class="montserrat" data-spy="scroll" data-target="#navbar-main">
 
@@ -170,12 +153,20 @@
 
     </div> <!-- Container -->
 
-    <!-- Background image for FOOD section -->
-    <div class="food-bg-image"></div>
-
     <div class="container">
 
         <div id="food" class="food my-5">
+
+            <!-- PHP Content Loop -->
+            <?php
+                if (have_posts()) :
+                    while (have_posts()) :
+                        the_post();
+                        the_content();
+                    endwhile;
+                endif;
+            ?>
+
             <div class="title text-center">
                 <h1 class="great-vibes section-heading">Food</h1>
             </div>
@@ -628,71 +619,7 @@
 
     </div> <!-- Container Fluid -->
 
-    <div class="container-fluid footer-bg">
-        <div class="container">
-
-            <!-- <div id="gallery" class="gallery">
-
-            </div> -->
-
-
-            <div id="footer" class="footer py-2">
-                <div class="row contact text-center">
-                    <div class="col-4 order-lg-1 col-lg-1 offset-lg-2">
-                        <i class="fas fa-phone mt-2"></i>
-                        <p class="mb-0 mt-1">01600 860322</p>
-                    </div>
-                    <div class="col-4 order-lg-2 col-lg-1">
-                        <i class="fas fa-envelope mt-2"></i>
-                        <p class="mb-0 mt-1 overflow">debs@globalnet.com</p>
-                    </div>
-                    <div class="col-4 order-lg-3 col-lg-1">
-                        <i class="fas fa-map-marker-alt mt-2"></i>
-                        <a href="https://maps.google.com/?q=51.7460885,-2.7240651&t=m" target="_blank">
-                            <p class="mb-0 mt-1">Get Directions</p>
-                        </a>
-                    </div>
-                    <div class="col-12 order-first order-lg-4 col-lg-2 algeria d-flex flex-column">
-                        <h2 class="my-auto">THE LION INN</h2>
-                    </div>
-                    <div class="col-4 order-lg-5 col-lg-1">
-                        <a href="#">
-                            <i class="fab fa-google mt-2"></i>
-                        </a>
-                        <p class="mb-0 mt-1">Google</p>
-                    </div>
-                    <div class="col-4 order-lg-6 col-lg-1">
-                        <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g552009-d732964-Reviews-Lion_Inn-Monmouth_Monmouthshire_South_Wales_Wales.html">
-                            <i class="fab fa-tripadvisor mt-2"></i>
-                        </a>
-                        <p class="mb-0 mt-1">TripAdvisor</p>
-                    </div>
-                    <div class="col-4 order-lg-7 col-lg-1">
-                        <a href="https://www.facebook.com/TheLionInnTrellech/">
-                            <i class="fab fa-facebook mt-2"></i>
-                        </a>
-                        <p class="mb-0 mt-1">Facebook</p>
-                    </div>
-                </div>
-
-                <div class="copyright text-center mt-3">
-                    <p class="mb-0">Copyright &copy; 2004 - 2018 All Content of this site is property of The Lion Inn and must not be reproduced without permission.  Every effort is made to ensure the details contained on this site are correct.  However, we cannot accept responsibility for errors and omissions.</p>
-                </div>
-
-                <div class="feedback row mt-3">
-                    <div class="col-4 offset-8 col-md-3 offset-md-9">
-                        <a href="https://www.surveymonkey.co.uk/r/YWJWPG8" target="_blank">
-                            <button type="button" href="" class="btn btn-sm btn-feedback py-1 px-2">
-                                <i class="fas fa-comment"></i>
-                                Feedback
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- Container -->
-
-    </div> <!-- Container Fluid -->
+    <?php get_footer(); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
