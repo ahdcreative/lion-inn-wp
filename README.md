@@ -160,6 +160,12 @@ Open the Bitnami WAMP Stack Manager Tool.  Open the 'Manage Servers' tab.  Selec
 
 Now, open a web browser and navigate to ```localhost:81/lion-inn-wp/wp-admin/```.  You may be asked to sign-in. 
 
+### Troubleshooting
+
+#### 404 Error on Certain Pages
+
+Flush the permalinks.  Settings --> Permalinks --> Save Changes.
+
 ## Development
 
 ### Workflows
