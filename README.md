@@ -65,9 +65,25 @@ Run ```wp --info``` in Git Bash or a cmd prompt to check it's working.
 
 The reason we need the wp-cli is because we need to restore the site's database using the VersionPress plugin.
 
+Create the database:
+
+Navigate to https://localhost/phpmyadmin/.
+
+Create a new database called 'lioninn'.
+
+Create wp-config.php file:
+
+If your localhost/phpmyadmin has a password:
+
+```wp core config --dbname="lioninn" --dbuser="root" --dbpass="yourpasswordhere"```
+
+If not:
+
+```wp core config --dbname="lioninn" --dbuser="root"```
+
 Navigate to the repository and run:
 
-```wp vp restore-site```
+```wp vp restore-site --siteurl='http://localhost/lion-inn-wp/' --require=wp-content/plugins/versionpress/src/Cli/vp.php```
 
 #### Is It Working?
 
@@ -81,7 +97,7 @@ Now, open a web browser and navigate to ```localhost:81/lion-inn-wp/wp-admin/```
 
 #### MAMP
 
-Download and install MAMP - we need this to run PHP / WordPress on our local machine.
+Download and install XAMPP - we need this to run PHP / WordPress on our local machine.
 
 #### Clone
 
@@ -109,9 +125,32 @@ Run ```wp --info``` to check it's working.
 
 The reason we need the wp-cli is because we need to restore the site's database using the VersionPress plugin.
 
+Export XAMPP PATH:
+
+```
+export PATH=/Applications/XAMPP/xamppfiles/bin:$PATH
+export PATH
+```
+
+Create the database:
+
+Navigate to https://localhost/phpmyadmin/.
+
+Create a new database called 'lioninn'.
+
+Create wp-config.php file:
+
+If your localhost/phpmyadmin has a password:
+
+```wp core config --dbname="lioninn" --dbuser="root" --dbpass="yourpasswordhere"```
+
+If not:
+
+```wp core config --dbname="lioninn" --dbuser="root"```
+
 Navigate to the repository and run:
 
-```wp vp restore-site```
+```wp vp restore-site --siteurl='http://localhost/lion-inn-wp/' --require=wp-content/plugins/versionpress/src/Cli/vp.php```
 
 #### Is It Working?
 
