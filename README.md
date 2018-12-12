@@ -105,6 +105,22 @@ Run ```sudo mv wp-cli.phar /usr/local/bin/wp```.
 
 Run ```wp --info``` to check it's working.
 
+#### Restore Site & Database
+
+The reason we need the wp-cli is because we need to restore the site's database using the VersionPress plugin.
+
+Navigate to the repository and run:
+
+```wp vp restore-site```
+
+#### Is It Working?
+
+We need to check everything is working.
+
+Open the Bitnami WAMP Stack Manager Tool.  Open the 'Manage Servers' tab.  Select 'Start All'.  We need both the SQL Server and the Apache Web Server running.
+
+Now, open a web browser and navigate to ```localhost:81/lion-inn-wp/wp-admin/```.  You may be asked to sign-in. 
+
 ## Development
 
 ### Workflows
