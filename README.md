@@ -172,6 +172,10 @@ Look closer at error message - it will give a directory or file that has incorre
 
 Use ```sudo chmod -R 777 .git/objects``` to set the permissions correctly.  If the error states a different directory - use that one instead.
 
+#### ```wp vp pull``` fails with a mysql / database connection error
+
+Strangely - this is caused because the MySQL Server isn't running.  I don't think this is an issue on Windows, but appears to be an issue with my Mac OSX setup.
+
 ## Development
 
 ### Workflows
