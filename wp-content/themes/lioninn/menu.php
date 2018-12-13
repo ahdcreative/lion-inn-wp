@@ -200,23 +200,27 @@
                                             </div>
 
                                             <!-- Loop through add-ons for dish -->
-                                            <?php while( have_groups( 'add_ons' ) ): the_group() ?>
+                                            <?php if( get_sub_value( 'add_ons' ) ): ?>
+                                                
+                                                <?php while( have_groups( 'add_ons' ) ): the_group() ?>
 
-                                                <div class="sub-item row">
-                                                    <div class="col-6 col-md-8 col-lg-5 col-xl-6 pr-0">
-                                                        <?php if( get_sub_value( 'add_on_name' ) ): ?>
-                                                            <p><?php the_sub_value( 'add_on_name' ) ?></p>
-                                                        <?php endif ?>
+                                                    <div class="sub-item row">
+                                                        <div class="col-6 col-md-8 col-lg-5 col-xl-6 pr-0">
+                                                            <?php if( get_sub_value( 'add_on_name' ) ): ?>
+                                                                <p><?php the_sub_value( 'add_on_name' ) ?></p>
+                                                            <?php endif ?>
+                                                        </div>
+                                                        <div class="col-3 col-md-2 col-lg-3 col-xl-3 px-0"></div>
+                                                        <div class="col-3 col-md-2 pr-0 text-center text-md-right">
+                                                            <?php if( get_sub_value( 'add_on_price' ) ): ?>
+                                                                <p class="sub-price mr-3">+<?php the_sub_value( 'add_on_price' ) ?>p</p>
+                                                            <?php endif ?>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-3 col-md-2 col-lg-3 col-xl-3 px-0"></div>
-                                                    <div class="col-3 col-md-2 pr-0 text-center text-md-right">
-                                                        <?php if( get_sub_value( 'add_on_price' ) ): ?>
-                                                            <p class="sub-price mr-3">+<?php the_sub_value( 'add_on_price' ) ?>p</p>
-                                                        <?php endif ?>
-                                                    </div>
-                                                </div>
 
-                                            <?php endwhile ?>
+                                                <?php endwhile ?>
+
+                                            <?php endif ?>
 
                                             <hr class="mt-0" />
 

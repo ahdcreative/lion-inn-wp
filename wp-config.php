@@ -96,5 +96,7 @@ if ( !defined('ABSPATH') )
 /* Increase Memory Allocated to PHP */
 define( 'WP_MEMORY_LIMIT', '512M' );
 
+define('FS_METHOD','direct');
+
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
