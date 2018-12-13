@@ -166,6 +166,12 @@ Now, open a web browser and navigate to ```localhost:81/lion-inn-wp/wp-admin/```
 
 Flush the permalinks.  Settings --> Permalinks --> Save Changes.
 
+#### Git Add Fails - Insufficient Permission for Adding an Object to Repository Database
+
+Look closer at error message - it will give a directory or file that has incorrect permissions (probably something like .git/objects).
+
+Use ```sudo chmod -R 777 .git/objects``` to set the permissions correctly.  If the error states a different directory - use that one instead.
+
 ## Development
 
 ### Workflows
