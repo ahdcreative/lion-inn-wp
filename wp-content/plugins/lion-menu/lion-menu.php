@@ -24,7 +24,15 @@ function admin_menu_option(){
 }
 
 function menu_init(){
-    echo "<h1>Menu Page!</h1>";
+    // Title
+    echo "<h1>Menu</h1>";
+
+    // Print paragraph about what this page is and how to do something
+
+    // Print All Current Menu's (the menu's will probably print their own items)
+
+    // Print Button(s) to create a new menu (menu will probably have buttons to create sections / items
+    
 }
 
 ?>
