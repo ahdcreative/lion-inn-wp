@@ -32,7 +32,5 @@ function menu_init(){
     // Print All Current Menu's (the menu's will probably print their own items)
 
     // Print Button(s) to create a new menu (menu will probably have buttons to create sections / items
-    
-}
 
-?>
+}

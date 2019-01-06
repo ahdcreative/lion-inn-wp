@@ -9,5 +9,3 @@ function lm_add_scripts(){
 }
 
 add_action('wp_enqueue_scripts', 'lm_add_scripts');
-
-?>
