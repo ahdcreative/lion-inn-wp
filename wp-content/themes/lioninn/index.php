@@ -147,25 +147,11 @@
             </div>
         </div>
 
-        <!-- <div id="about-us" class="about-us">
-
-        </div> -->
-
     </div> <!-- Container -->
 
     <div class="container">
 
         <div id="food" class="food my-5">
-
-            <!-- PHP Content Loop -->
-            <?php
-                if (have_posts()) :
-                    while (have_posts()) :
-                        the_post();
-                        the_content();
-                    endwhile;
-                endif;
-            ?>
 
             <div class="title text-center">
                 <h1 class="great-vibes section-heading">Food</h1>

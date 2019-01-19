@@ -8,15 +8,6 @@
 
 <body class="montserrat">
 
-    <?php
-        if (have_posts()) :
-            while (have_posts()) :
-                the_post();
-                the_content();
-            endwhile;
-        endif;
-    ?>
-
     <div class="container menu">
 
         <div class="header row mt-2">
@@ -201,7 +192,7 @@
 
                                             <!-- Loop through add-ons for dish -->
                                             <?php if( get_sub_value( 'add_ons' ) ): ?>
-                                                
+
                                                 <?php while( have_groups( 'add_ons' ) ): the_group() ?>
 
                                                     <div class="sub-item row">
