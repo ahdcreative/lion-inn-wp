@@ -1,7 +1,7 @@
 <?php
+
 /**
- * Register our sidebars and widgetized areas.
- *
+ * Add widgets option to sidebar
  */
 function arphabet_widgets_init() {
 
