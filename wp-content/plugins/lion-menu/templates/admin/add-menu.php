@@ -5,4 +5,3 @@
 </div>
 
 <a href="#TB_inline?&width=600&height=550&inlineId=my-content-id" class="thickbox">View my inline content!</a>
-        
