@@ -13,6 +13,8 @@ if(!defined('ABSPATH')) exit;
 
 // Load scripts
 require_once(plugin_dir_path(__FILE__).'/includes/lm-scripts.php');
+// Load Template Class
+require_once(plugin_dir_path(__FILE__).'/views/Template.class.php');
 
 /*
  * Plugin Class
@@ -22,9 +24,6 @@ class LionMenu {
 	public function __construct() {
         // Add 'Menu' Option to Admin Menu & Init the Page
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
-
-        // Add Modal Support
-        //add_thickbox();
     }
 
 	function activate() {
@@ -53,25 +52,23 @@ class LionMenu {
     }
     
     public function menu_init(){
-        // Title
+        
+        $tpl = new Template(__DIR__ . '/templates/admin' );
+        
         echo "<h1>Menu</h1>";
+        echo "
+            Create and manage menu's from this page. <br/>
+            Click 'Add Menu' below to create a new menu. <br/>
+            Select a menu from the list below to edit a menu. <br/>
+        ";
     
-        // Print paragraph about what this page is and how to do something
-    
+        // Add Modal Support
+        add_thickbox();          
+        // Print Add Menu Button & Modal Functionality
+        print $tpl->render( 'add-menu', array() );
+
         // Print All Current Menu's (the menu's will probably print their own items)
-    
-        // Print Button(s) to create a new menu (menu will probably have buttons to create sections / items 
-        add_thickbox();
-           
-        echo '
-            <div id="my-content-id" style="display:none;">
-                <p>
-                    This is my hidden content! It will appear in ThickBox when the link is clicked.
-                </p>
-            </div>
-    
-            <a href="#TB_inline?&width=600&height=550&inlineId=my-content-id" class="thickbox">View my inline content!</a>
-        ';
+
     
     }
 
