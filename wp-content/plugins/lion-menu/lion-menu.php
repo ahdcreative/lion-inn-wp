@@ -22,6 +22,9 @@ require_once(plugin_dir_path(__FILE__).'/views/Template.class.php');
 class LionMenu {
 
 	public function __construct() {
+        // Create Databases
+        // Create 4 - 1 for each item type (if they don't already exist)
+
         // Add 'Menu' Option to Admin Menu & Init the Page
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
     }
@@ -37,13 +40,9 @@ class LionMenu {
 	}
 
 	function uninstall() {
-
-	}
-
-	function custom_post_type() {
-		//register_post_type();
+        // Delete Databases
     }
-
+    
     /*
      * Add 'Menu' Option to Admin Menu & Init the Page 
      */
@@ -68,7 +67,6 @@ class LionMenu {
         print $tpl->render( 'add-menu', array() );
 
         // Print All Current Menu's (the menu's will probably print their own items)
-
     
     }
 
