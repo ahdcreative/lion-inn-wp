@@ -6,9 +6,13 @@ CREATE TABLE tableplaceholder (
     author int(3) NOT NULL,
     editor int(3),
     price decimal(5,2),
-    desc VARCHAR(200),
+    description VARCHAR(200),
     vegetarian boolean,
     gluten_free boolean,
     parent_section mediumint(9) NOT NULL,
     PRIMARY KEY  (id)
 ) charsetplaceholder;
+
+ALTER TABLE tableplaceholder 
+ADD CONSTRAINT fk_parent_section 
+FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id);
