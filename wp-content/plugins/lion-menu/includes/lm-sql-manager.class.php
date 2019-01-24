@@ -45,7 +45,7 @@ class SQLManager {
         $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
 
         // If sql contains a foreign key - add prefix
-        if (\strpos($sql, 'FOREIGN KEY') !== false) {
+        if (strpos($sql, 'FOREIGN KEY') !== false) {
             $sql = str_replace("prefixplaceholder", $wpdb->prefix . "lm_", $sql);
         }
 
