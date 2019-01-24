@@ -15,6 +15,8 @@ if(!defined('ABSPATH')) exit;
 require_once(plugin_dir_path(__FILE__).'/includes/lm-scripts.php');
 // Load Template Class
 require_once(plugin_dir_path(__FILE__).'/views/Template.class.php');
+// Load SQL Database Class
+require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
 
 /*
  * Plugin Class
@@ -22,25 +24,29 @@ require_once(plugin_dir_path(__FILE__).'/views/Template.class.php');
 class LionMenu {
 
 	public function __construct() {
-        // Create Databases
-        // Create 4 - 1 for each item type (if they don't already exist)
-
         // Add 'Menu' Option to Admin Menu & Init the Page
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
     }
 
 	function activate() {
+        // Create DB Tables
+        $db = new SQLManager();
+        $db->initTables(); 
+
         // Flush Rewrite Rules
         flush_rewrite_rules();
 	}
 
 	function deactivate() {
+        // Print message stating that data will not be deleted from database
+        // but that there might be issues on your website.
+
         // Flush Rewrite Rules
         flush_rewrite_rules();
 	}
 
 	function uninstall() {
-        // Delete Databases
+        // Delete Databases OR Add Option of Deleting Databases 
     }
     
     /*
@@ -67,7 +73,7 @@ class LionMenu {
         print $tpl->render( 'add-menu', array() );
 
         // Print All Current Menu's (the menu's will probably print their own items)
-    
+        
     }
 
     public function test_foo_in() {
