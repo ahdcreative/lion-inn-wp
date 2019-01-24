@@ -9,3 +9,7 @@ CREATE TABLE tableplaceholder (
     parent_menu mediumint(9) NOT NULL,
     PRIMARY KEY  (id)
 ) charsetplaceholder;
+
+ALTER TABLE tableplaceholder 
+ADD CONSTRAINT fk_parent_menu 
+FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id);

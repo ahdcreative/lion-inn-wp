@@ -10,6 +10,9 @@ CREATE TABLE tableplaceholder (
     vegetarian boolean,
     gluten_free boolean,
     parent_section mediumint(9) NOT NULL,
-    PRIMARY KEY  (id),
-    FOREIGN KEY  (parent_section) REFERENCES prefixplaceholder_section(id)
+    PRIMARY KEY  (id)
 ) charsetplaceholder;
+
+ALTER TABLE tableplaceholder 
+ADD CONSTRAINT fk_parent_section 
+FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id);
