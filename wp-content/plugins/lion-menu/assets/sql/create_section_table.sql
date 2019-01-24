@@ -7,6 +7,5 @@ CREATE TABLE tableplaceholder (
     editor int(3),
     side boolean,
     parent_menu mediumint(9) NOT NULL,
-    PRIMARY KEY  (id),
-    FOREIGN KEY  (parent_menu) REFERENCES prefixplaceholder_menu(id)
+    PRIMARY KEY  (id)
 ) charsetplaceholder;
