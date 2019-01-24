@@ -11,7 +11,7 @@ class SQLManager {
     /**
      * Global WordPress Database Variable 
      */
-    private $wpdb;
+    //private $wpdb;
 	
 	/**
 	 * SQLManager Constructor
@@ -24,10 +24,10 @@ class SQLManager {
      * Create the 4 Tables Needed for the Plugin
      */
     public function initTables() {
-        createTable("menu");
-        createTable("section");
-        createTable("item");
-        createTable("subitem"); 
+        $this->createTable("menu");
+        $this->createTable("section");
+        $this->createTable("item");
+        $this->createTable("subitem"); 
     }
 
     /**
@@ -36,8 +36,10 @@ class SQLManager {
      * @param string $table The name of the database to be created
      */
     private function createTable($table) {
+        global $wpdb;
+
         // Get correct SQL file
-        $sql = file_get_contents( WP_PLUGIN_DIR  . "assets/sql/create_" . $table . "_table.sql" );
+        $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/create_" . $table . "_table.sql" );
 
         // Set table name
         $sql = str_replace("tableplaceholder", $wpdb->prefix . $table, $sql);
