@@ -12,7 +12,3 @@ CREATE TABLE tableplaceholder (
     parent_section mediumint(9) NOT NULL,
     PRIMARY KEY  (id)
 ) charsetplaceholder;
-
-ALTER TABLE tableplaceholder 
-ADD CONSTRAINT fk_parent_section 
-FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id);
