@@ -6,4 +6,4 @@ CREATE TABLE tableplaceholder (
     author int(3) NOT NULL,
     editor int(3),
     PRIMARY KEY  (id)
-) charsetplaceholder ;
+) charsetplaceholder;

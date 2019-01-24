@@ -44,6 +44,11 @@ class SQLManager {
         // Set table name
         $sql = str_replace("tableplaceholder", $wpdb->prefix . "_lm_" . $table, $sql);
 
+        // If sql contains a foreign key - add prefix
+        if (\strpos($sql, 'FOREIGN KEY') !== false) {
+            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "_lm_", $sql);
+        }
+
         // Set charset 
         $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
 
