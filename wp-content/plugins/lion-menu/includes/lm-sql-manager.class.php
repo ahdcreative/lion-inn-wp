@@ -42,7 +42,7 @@ class SQLManager {
         $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/create_" . $table . "_table.sql" );
 
         // Set table name
-        $sql = str_replace("tableplaceholder", $wpdb->prefix . $table, $sql);
+        $sql = str_replace("tableplaceholder", $wpdb->prefix . "_lm_" . $table, $sql);
 
         // Set charset 
         $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
