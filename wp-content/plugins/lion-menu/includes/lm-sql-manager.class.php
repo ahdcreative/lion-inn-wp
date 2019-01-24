@@ -42,11 +42,11 @@ class SQLManager {
         $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/create_" . $table . "_table.sql" );
 
         // Set table name
-        $sql = str_replace("tableplaceholder", $wpdb->prefix . "_lm_" . $table, $sql);
+        $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
 
         // If sql contains a foreign key - add prefix
         if (\strpos($sql, 'FOREIGN KEY') !== false) {
-            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "_lm_", $sql);
+            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "lm_", $sql);
         }
 
         // Set charset 
