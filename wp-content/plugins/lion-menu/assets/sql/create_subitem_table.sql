@@ -13,6 +13,3 @@ CREATE TABLE tableplaceholder (
 ALTER TABLE tableplaceholder 
 ADD CONSTRAINT fk_parent_item 
 FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id);
-
-ALTER TABLE tableplaceholder
-ADD INDEX parent_item (parent_item);

@@ -28,6 +28,20 @@ class SQLManager {
         $this->createTable("section");
         $this->createTable("item");
         $this->createTable("subitem"); 
+
+        $sql = "
+            ALTER TABLE tableplaceholder 
+            ADD CONSTRAINT fk_parent_menu 
+            FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id);
+
+            ALTER TABLE tableplaceholder 
+            ADD CONSTRAINT fk_parent_section 
+            FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id);
+
+            ALTER TABLE tableplaceholder 
+            ADD CONSTRAINT fk_parent_item 
+            FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id);
+        ";
     }
 
     /**
@@ -46,7 +60,7 @@ class SQLManager {
 
         // If sql contains a foreign key - add prefix
         if (strpos($sql, 'FOREIGN KEY') !== false) {
-            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "lm_", $sql);
+            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "lm", $sql);
         }
 
         // Set charset 
