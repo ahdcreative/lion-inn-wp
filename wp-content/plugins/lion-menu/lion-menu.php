@@ -90,7 +90,7 @@ class LionMenu {
         ";
     
         // Add Modal Support
-        add_thickbox();          
+        add_thickbox();
         // Print Add Menu Button & Modal Functionality
         print $tpl->render( 'add-menu' );
 

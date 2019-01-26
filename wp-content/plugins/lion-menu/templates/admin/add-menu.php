@@ -12,7 +12,9 @@
 </div>
 
 <!-- Button -->
-<button><a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox">Add Menu</a></button>
+<button>
+    <a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox">Add Menu</a>
+</button>
 
 
 <?php

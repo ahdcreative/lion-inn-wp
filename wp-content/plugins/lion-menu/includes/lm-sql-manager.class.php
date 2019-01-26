@@ -18,7 +18,7 @@ class SQLManager {
 	/**
 	 * SQLManager Constructor
 	 */
-	function __construct() {
+	public function __construct() {
         global $wpdb;
         $this->wpdb = $wpdb;
     }
@@ -89,6 +89,6 @@ class SQLManager {
         $table = $this->wpdb->prefix . "lm_" . $table;
 
         $this->wpdb->insert($table, $params);
-    }
+    }    
 
 }
