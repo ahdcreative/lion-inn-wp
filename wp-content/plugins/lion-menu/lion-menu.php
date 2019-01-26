@@ -26,7 +26,7 @@ class LionMenu {
     /**
      * SQLManager - Manage Database
      */
-    private $db;    
+    public $db;    
 
 	public function __construct() {
         $this->$db = new SQLManager(); 
