@@ -23,15 +23,21 @@ require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
  */
 class LionMenu {
 
+    /**
+     * SQLManager - Manage Database
+     */
+    private $db;    
+
 	public function __construct() {
+        $this->$db = new SQLManager(); 
+
         // Add 'Menu' Option to Admin Menu & Init the Page
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
     }
 
 	function activate() {
         // Create DB Tables
-        $db = new SQLManager();
-        $db->initTables(); 
+        $this->$db->initTables(); 
 
         // Flush Rewrite Rules
         flush_rewrite_rules();
@@ -40,6 +46,7 @@ class LionMenu {
 	function deactivate() {
         // Print message stating that data will not be deleted from database
         // but that there might be issues on your website.
+        
 
         // Flush Rewrite Rules
         flush_rewrite_rules();
