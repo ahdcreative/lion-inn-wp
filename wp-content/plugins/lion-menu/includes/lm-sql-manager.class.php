@@ -9,11 +9,6 @@ require_once(plugin_dir_path(__FILE__).'/lm-debug.php');
  * Class to Manage Database
  */
 class SQLManager {
-
-    /**
-     * Global WordPress Database Variable 
-     */
-    //private $wpdb;
 	
 	/**
 	 * SQLManager Constructor
@@ -29,21 +24,7 @@ class SQLManager {
         $this->createTable("menu");
         $this->createTable("section");
         $this->createTable("item");
-        $this->createTable("subitem"); 
-
-        $sql = "
-            ALTER TABLE tableplaceholder 
-            ADD CONSTRAINT fk_parent_menu 
-            FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id);
-
-            ALTER TABLE tableplaceholder 
-            ADD CONSTRAINT fk_parent_section 
-            FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id);
-
-            ALTER TABLE tableplaceholder 
-            ADD CONSTRAINT fk_parent_item 
-            FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id);
-        ";
+        $this->createTable("subitem");
     }
 
     /**
@@ -68,9 +49,6 @@ class SQLManager {
         // Set charset 
         $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
 
-        // Print sql to console
-        log_me($sql);
-
         // Create the table
         dbDelta($sql);
     }
@@ -88,7 +66,7 @@ class SQLManager {
     /**
      * Delete a Database Table
      * 
-     * @param string $table The name of the database to be created
+     * @param string $table The name of the database to delete
      */
     private function deleteTable($table) {
         global $wpdb;
