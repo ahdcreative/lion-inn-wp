@@ -45,12 +45,11 @@ class LionMenu {
 
 	function deactivate() {
         // TEMP - delete tables on deactivate (for debugging)
-        
+        $this->db->deleteTables(); 
 
         // Print message stating that data will not be deleted from database
         // but that there might be issues on your website.
         
-
         // Flush Rewrite Rules
         flush_rewrite_rules();
 	}

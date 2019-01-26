@@ -79,10 +79,10 @@ class SQLManager {
      * Remove Plugin Tables
      */
     public function deleteTables() {
-        $this->createTable("menu");
-        $this->createTable("section");
-        $this->createTable("item");
-        $this->createTable("subitem"); 
+        $this->deleteTable("menu");
+        $this->deleteTable("section");
+        $this->deleteTable("item");
+        $this->deleteTable("subitem"); 
     }
 
     /**
@@ -94,21 +94,10 @@ class SQLManager {
         global $wpdb;
 
         // Get correct SQL file
-        $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/create_" . $table . "_table.sql" );
+        $sql = file_get_contents( "delete_table.sql" );
 
         // Set table name
         $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
-
-        // If sql contains a foreign key - add prefix
-        if (strpos($sql, 'FOREIGN KEY') !== false) {
-            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "lm", $sql);
-        }
-
-        // Set charset 
-        $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
-
-        // Print sql to console
-        //debug_to_console( "Test" );
 
         // Create the table
         dbDelta($sql);
