@@ -59,10 +59,10 @@ class SQLManager {
      * Remove Plugin Tables
      */
     public function deleteTables() {
-        $this->deleteTable("menu");
-        $this->deleteTable("section");
+        $this->deleteTable("subitem");
         $this->deleteTable("item");
-        $this->deleteTable("subitem"); 
+        $this->deleteTable("section");
+        $this->deleteTable("menu"); 
     }
 
     /**
