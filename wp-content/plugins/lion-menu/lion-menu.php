@@ -35,6 +35,8 @@ class LionMenu {
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
     }
 
+    Notice: Undefined variable: db in C:\Bitnami\wampstack-7.1.23-0\apache2\htdocs\wordpress\wp-content\plugins\lion-menu\lion-menu.php on line 32
+    
 	function activate() {
         // Create DB Tables
         $this->$db->initTables(); 
