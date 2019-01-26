@@ -39,7 +39,6 @@ class LionMenu {
         // Create DB Tables
         $this->db->initTables(); 
 
-        // Flush Rewrite Rules
         flush_rewrite_rules();
 	}
 
@@ -50,7 +49,6 @@ class LionMenu {
         // Print message stating that data will not be deleted from database
         // but that there might be issues on your website.
         
-        // Flush Rewrite Rules
         flush_rewrite_rules();
 	}
 
