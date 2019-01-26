@@ -7,9 +7,6 @@ CREATE TABLE tableplaceholder (
     editor int(3),
     price decimal(5,2),
     parent_item mediumint(9) NOT NULL,
-    PRIMARY KEY  (id)
+    PRIMARY KEY  (id),
+    FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id)
 ) charsetplaceholder;
-
-ALTER TABLE tableplaceholder 
-ADD CONSTRAINT fk_parent_item 
-FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id);
