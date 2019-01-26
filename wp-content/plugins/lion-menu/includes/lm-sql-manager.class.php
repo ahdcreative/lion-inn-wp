@@ -69,7 +69,7 @@ class SQLManager {
         $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
 
         // Print sql to console
-        debug_to_console( "Test" );
+        //debug_to_console( "Test" );
 
         // Create the table
         dbDelta($sql);
