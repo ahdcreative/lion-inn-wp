@@ -9,7 +9,8 @@ CREATE TABLE tableplaceholder (
     description VARCHAR(200),
     vegetarian boolean,
     gluten_free boolean,
-    parent_section mediumint(9) NOT NULL,
+    subsection boolean,
+    parent_section mediumint(9) NOT NULL,    
     PRIMARY KEY  (id),
     FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id)
 ) charsetplaceholder;
