@@ -2,6 +2,8 @@
 
 // Needed for dbDelta foo 
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+// Debugging functions 
+require_once(plugin_dir_path(__FILE__).'/lm-debug.php');
 
 /**
  * Class to Manage Database
@@ -65,6 +67,9 @@ class SQLManager {
 
         // Set charset 
         $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
+
+        // Print sql to console
+        debug_to_console( "Test" );
 
         // Create the table
         dbDelta($sql);
