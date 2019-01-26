@@ -70,6 +70,7 @@ class SQLManager {
 
         // Print sql to console
         //debug_to_console( "Test" );
+        echo '<pre>'.print_r( $sql, true ).'</pre>';
 
         // Create the table
         dbDelta($sql);
@@ -93,14 +94,11 @@ class SQLManager {
     private function deleteTable($table) {
         global $wpdb;
 
-        // Get correct SQL file
         $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/delete_table.sql" );
 
         // Set table name
         $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
 
-        // Delete the table
-        //dbDelta($sql);
         $wpdb->query($sql);
     }
     
