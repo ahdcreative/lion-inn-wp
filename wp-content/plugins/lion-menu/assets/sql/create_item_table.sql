@@ -13,9 +13,9 @@ CREATE TABLE tableplaceholder (
     PRIMARY KEY  (id)
 ) charsetplaceholder;
 
-ALTER TABLE tableplaceholder
-ADD INDEX parent_section (parent_section);
-
 ALTER TABLE tableplaceholder 
 ADD CONSTRAINT fk_parent_section 
 FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id);
+
+ALTER TABLE tableplaceholder
+ADD INDEX parent_section (parent_section);

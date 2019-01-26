@@ -10,9 +10,9 @@ CREATE TABLE tableplaceholder (
     PRIMARY KEY  (id)
 ) charsetplaceholder;
 
-ALTER TABLE tableplaceholder
-ADD INDEX parent_menu (parent_menu);
-
 ALTER TABLE tableplaceholder 
 ADD CONSTRAINT fk_parent_menu 
 FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id);
+
+ALTER TABLE tableplaceholder
+ADD INDEX parent_menu (parent_menu);
