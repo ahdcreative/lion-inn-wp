@@ -11,11 +11,7 @@ Author URI:
 // Exit if accessed directly
 if(!defined('ABSPATH')) exit;
 
-// Load scripts
-require_once(plugin_dir_path(__FILE__).'/includes/lm-scripts.php');
-// Load Template Class
 require_once(plugin_dir_path(__FILE__).'/views/Template.class.php');
-// Load SQL Database Class
 require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
 
 /*
@@ -39,11 +35,18 @@ class LionMenu {
     }
 
     /**
+     * Register Assets
+     */
+    public function register() {
+        add_action('admin_enqueue_scripts', array($this, 'enqueue'));  
+    }
+
+    /**
      * Plugin Activation Hook
      */
 	function activate() {
         // Create DB Tables
-        $this->db->initTables(); 
+        $this->db->createTables(); 
 
         flush_rewrite_rules();
 	}
@@ -67,6 +70,18 @@ class LionMenu {
 	function uninstall() {
         // Delete Databases OR Add Option of Deleting Databases 
     }
+
+    /**
+     * Enqueue Assets
+     */
+    public function enqueue() {
+        // Add Main CSS
+        wp_enqueue_style('lm-style', plugins_url() . '/lion-menu/assets/css/style.css');
+
+        // Add JQuery Sortable
+        wp_register_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
+        wp_enqueue_script('jquery-sortable');
+    }
     
     /**
      * Add 'Menu' Option to Admin Menu & Init the Page 
@@ -80,21 +95,35 @@ class LionMenu {
      */
     public function menu_init(){
         
-        $tpl = new Template(__DIR__ . '/templates/admin' );
+        $tpl = new Template( __DIR__ . '/templates/admin' );
         
-        echo "<h1>Menu</h1>";
-        echo "
-            Create and manage menu's from this page. 
-            Click 'Add Menu' below to create a new menu.  
-            Select a menu from the list below to edit a menu. <br/>
-        ";
-    
+        // Print Menu's
+        $menus = $this->db->get( 'menu' );
+
         // Add Modal Support
         add_thickbox();
         // Print Add Menu Button & Modal Functionality
-        print $tpl->render( 'add-menu' );
+        echo $tpl->render( 'add-menu' );
+        
+        // Sortable Menu List
+        // TODO Mayve a ListManager class would help tidy this up? (And for the other lists that will be needed)
+        echo "<ol class='menus'>";
+            foreach($menus as $menu) { 
+                echo "<li>" . $menu->name . "</li>";
+            }    
+        echo "</ol>
+            
+            <script>
+                jQuery(document).ready(function($) {
+                    $('ol.menus').sortable();
 
-        // Print All Current Menu's (the menu's will probably print their own items)
+                    console.log('Serial:');
+                    console.log($( 'ol.menus li' ).get());
+                });
+            </script>
+        ";
+
+        
         
     }
 
@@ -112,7 +141,8 @@ function test_foo_out() {
  * Initialize the plugin
  */
 if (class_exists( 'LionMenu' )) {
-	$lionMenu = new LionMenu();
+    $lionMenu = new LionMenu();
+    $lionMenu->register();
 }
 
 /*

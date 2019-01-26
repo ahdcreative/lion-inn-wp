@@ -26,7 +26,7 @@ class SQLManager {
     /**
      * Create the 4 Tables Needed for the Plugin
      */
-    public function initTables() {
+    public function createTables() {
         $this->createTable("menu");
         $this->createTable("section");
         $this->createTable("item");
@@ -81,14 +81,32 @@ class SQLManager {
     }
 
     /**
-     * Add a Menu
+     * Insert into Database
      * 
+     * @param string $table Table to insert into
      * @param array $params To insert into database
      */
     public function insert($table, $params) {
         $table = $this->wpdb->prefix . "lm_" . $table;
 
         $this->wpdb->insert($table, $params);
-    }    
+    }
+    
+    /**
+     * Get Data from Database
+     * 
+     * @param string $table Table to select from
+     * 
+     * @return array $menus All menu's in db
+     */
+    public function get($table) {
+        $table = $this->wpdb->prefix . "lm_" . $table;
+
+        $menus = $this->wpdb->get_results(
+            "SELECT name FROM $table"
+        );
+
+        return $menus;
+    }
 
 }
