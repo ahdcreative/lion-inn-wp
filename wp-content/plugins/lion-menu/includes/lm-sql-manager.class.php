@@ -49,6 +49,8 @@ class SQLManager {
         // Set charset 
         $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
 
+        log_me($sql);
+
         // Create the table
         dbDelta($sql);
     }
