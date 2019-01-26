@@ -10,6 +10,9 @@ CREATE TABLE tableplaceholder (
     PRIMARY KEY  (id)
 ) charsetplaceholder;
 
+ALTER TABLE tableplaceholder
+ADD INDEX parent_item (parent_item);
+
 ALTER TABLE tableplaceholder 
 ADD CONSTRAINT fk_parent_item 
 FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id);
