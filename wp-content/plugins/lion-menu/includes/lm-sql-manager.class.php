@@ -99,8 +99,9 @@ class SQLManager {
         // Set table name
         $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
 
-        // Create the table
-        dbDelta($sql);
+        // Delete the table
+        //dbDelta($sql);
+        $wpdb->query($sql);
     }
     
     
