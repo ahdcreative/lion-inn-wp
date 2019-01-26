@@ -9,12 +9,18 @@ require_once(plugin_dir_path(__FILE__).'/lm-debug.php');
  * Class to Manage Database
  */
 class SQLManager {
+
+    /**
+     * WordPress Database Object
+     */
+    private $wpdb;
 	
 	/**
 	 * SQLManager Constructor
 	 */
 	function __construct() {
-		
+        global $wpdb;
+        $this->wpdb = $wpdb;
     }
 
     /**
@@ -33,25 +39,20 @@ class SQLManager {
      * @param string $table The name of the database to be created
      */
     private function createTable($table) {
-        global $wpdb;
-
         // Get correct SQL file
         $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/create_" . $table . "_table.sql" );
 
         // Set table name
-        $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
+        $sql = str_replace("tableplaceholder", $this->wpdb->prefix . "lm_" . $table, $sql);
 
         // If sql contains a foreign key - add prefix
         if (strpos($sql, 'FOREIGN KEY') !== false) {
-            $sql = str_replace("prefixplaceholder", $wpdb->prefix . "lm", $sql);
+            $sql = str_replace("prefixplaceholder", $this->wpdb->prefix . "lm", $sql);
         }
 
         // Set charset 
-        $sql = str_replace("charsetplaceholder", $wpdb->get_charset_collate(), $sql);
+        $sql = str_replace("charsetplaceholder", $this->wpdb->get_charset_collate(), $sql);
 
-        log_me($sql);
-
-        // Create the table
         dbDelta($sql);
     }
 
@@ -71,16 +72,23 @@ class SQLManager {
      * @param string $table The name of the database to delete
      */
     private function deleteTable($table) {
-        global $wpdb;
-
         $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/delete_table.sql" );
 
         // Set table name
-        $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
+        $sql = str_replace("tableplaceholder", $this->wpdb->prefix . "lm_" . $table, $sql);
 
-        $wpdb->query($sql);
+        $this->wpdb->query($sql);
     }
-    
-    
+
+    /**
+     * Add a Menu
+     * 
+     * @param array $params To insert into database
+     */
+    public function insert($table, $params) {
+        $table = $this->wpdb->prefix . "lm_" . $table;
+
+        $this->wpdb->insert($table, $params);
+    }
 
 }

@@ -28,6 +28,9 @@ class LionMenu {
      */
     public $db;    
 
+    /**
+     * Class Constructor
+     */
 	public function __construct() {
         $this->db = new SQLManager(); 
 
@@ -35,6 +38,9 @@ class LionMenu {
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
     }
 
+    /**
+     * Plugin Activation Hook
+     */
 	function activate() {
         // Create DB Tables
         $this->db->initTables(); 
@@ -42,6 +48,9 @@ class LionMenu {
         flush_rewrite_rules();
 	}
 
+    /**
+     * Plugin Deactivation Hook
+     */
 	function deactivate() {
         // TEMP - delete tables on deactivate (for debugging)
         $this->db->deleteTables(); 
@@ -52,32 +61,38 @@ class LionMenu {
         flush_rewrite_rules();
 	}
 
+    /**
+     * Plugin Uninstall Hook
+     */
 	function uninstall() {
         // Delete Databases OR Add Option of Deleting Databases 
     }
     
-    /*
+    /**
      * Add 'Menu' Option to Admin Menu & Init the Page 
      */
     public function admin_menu_option() {
         add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lion-menu-plugin', array( $this, 'menu_init' ) );
     }
     
+    /**
+     * Initialise Admin Page with Menu-related content
+     */
     public function menu_init(){
         
         $tpl = new Template(__DIR__ . '/templates/admin' );
         
         echo "<h1>Menu</h1>";
         echo "
-            Create and manage menu's from this page. <br/>
-            Click 'Add Menu' below to create a new menu. <br/>
+            Create and manage menu's from this page. 
+            Click 'Add Menu' below to create a new menu.  
             Select a menu from the list below to edit a menu. <br/>
         ";
     
         // Add Modal Support
         add_thickbox();          
         // Print Add Menu Button & Modal Functionality
-        print $tpl->render( 'add-menu', array() );
+        print $tpl->render( 'add-menu' );
 
         // Print All Current Menu's (the menu's will probably print their own items)
         
