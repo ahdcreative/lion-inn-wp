@@ -94,7 +94,7 @@ class SQLManager {
         global $wpdb;
 
         // Get correct SQL file
-        $sql = file_get_contents( "delete_table.sql" );
+        $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/delete_table.sql" );
 
         // Set table name
         $sql = str_replace("tableplaceholder", $wpdb->prefix . "lm_" . $table, $sql);
