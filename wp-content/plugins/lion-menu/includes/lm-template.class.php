@@ -2,6 +2,8 @@
 /**
  * Template Class for Managing HTML Templates
  * in the WordPress Admin & The Site
+ * 
+ * https://www.daggerhart.com/create-simple-php-templating-function/
  */
 class Template {
 	/**

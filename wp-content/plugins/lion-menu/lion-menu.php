@@ -11,10 +11,11 @@ Author URI:
 // Exit if accessed directly
 if(!defined('ABSPATH')) exit;
 
-require_once(plugin_dir_path(__FILE__).'/views/Template.class.php');
+require_once(plugin_dir_path(__FILE__).'/includes/lm-template.class.php');
 require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
+require_once(plugin_dir_path(__FILE__).'/includes/lm-list-manager.class.php');
 
-/*
+/* 
  * Plugin Class
  */
 class LionMenu {
@@ -22,13 +23,20 @@ class LionMenu {
     /**
      * SQLManager - Manage Database
      */
-    public $db;    
+    public $db;
+    
+    /**
+     * List Manager - Manage Sortable Lists in Admin Area
+     * Such as the menu and item lists.
+     */
+    public $lists;
 
     /**
      * Class Constructor
      */
 	public function __construct() {
         $this->db = new SQLManager(); 
+        $this->lists = new ListManager();
 
         // Add 'Menu' Option to Admin Menu & Init the Page
         add_action('admin_menu', array( $this, 'admin_menu_option' ) );
