@@ -1,7 +1,7 @@
 <?php
 
-// Debugging functions 
-require_once(plugin_dir_path(__FILE__).'/lm-debug.php');
+require_once(plugin_dir_path(__FILE__) . '/lm-debug.php');
+require_once(plugin_dir_path(__FILE__) . '/lm-template.class.php');
 
 /**
  * Class to Sortable Lists
@@ -36,9 +36,7 @@ class ListManager {
 
             }    
 
-        echo "</ol>";
-
-        echo "<button><a href='' class=''>Save</a></button>";
+        echo "</ol>";        
     }
 
 }

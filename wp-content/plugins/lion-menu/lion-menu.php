@@ -91,9 +91,12 @@ class LionMenu {
         // Add JQuery Sortable
         wp_register_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
         wp_enqueue_script('jquery-sortable');
-         // Add Custom Sortable
-         wp_register_script('custom-sortable', plugins_url() . '/lion-menu/assets/js/custom-sortable.js', array('jquery'));
-         wp_enqueue_script('custom-sortable');
+        // Add Custom Sortable
+        wp_register_script('custom-sortable', plugins_url() . '/lion-menu/assets/js/custom-sortable.js', array('jquery'));
+        wp_enqueue_script('custom-sortable');
+
+        // Make sure the JS part of the Heartbeat API is loaded.
+        wp_enqueue_script( 'heartbeat' );
     }
     
     /**
@@ -117,9 +120,13 @@ class LionMenu {
         
         // Display menu's as sortable list
         $menus = $this->db->get( 'menu' );
-        $this->lists->generateMenus($menus);        
+        $this->lists->generateMenus($menus); 
+        
+        // Display save button and it's functionality
+        echo $tpl->render( 'menu-save' );
         
     }
+        
 
     public function test_foo_in() {
         echo "Test Foo In <br/>";

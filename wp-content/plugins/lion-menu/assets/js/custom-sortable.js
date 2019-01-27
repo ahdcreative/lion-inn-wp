@@ -4,19 +4,27 @@
  */
 jQuery(function($) {
     
-    var group = $('ol.sortable').sortable({
-        group: 'serialization',
-        onDrop: function ($item, container, _super) {
-            var data = group.sortable('serialize').get();
+    // var group = $('ol.sortable').sortable({
+    //     group: 'serialization',
+    //     onDrop: function ($item, container, _super) {
+    //         var item_order = group.sortable('serialize').get();
         
-            var jsonString = JSON.stringify(data, null, ' ');
+    //         var item_order_json = JSON.stringify(item_order, null, ' ');
         
-            _super($item, container);
+    //         _super($item, container);
 
-            console.log(jsonString);
+    //         console.log(item_order_json);
 
-            // add POST here
-        }
-    });
+    //         // $('.save-menus').click(function() {
+
+    //         //     $.ajax({
+    //         //         data: item_order_json,
+    //         //         type: 'POST',
+    //         //         url: '../wp-content/plugins/lion-menu/includes/lm-sql-manager.class.php'
+    //         //     });
+
+    //         // });
+    //     }
+    // });
 
 });

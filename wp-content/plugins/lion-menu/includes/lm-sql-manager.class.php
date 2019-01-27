@@ -113,4 +113,15 @@ class SQLManager {
         return $menus;
     }
 
+    /**
+     * Update data in the database
+     * 
+     * @param string $table Table to select from
+     */
+    public function update($table, $params, $where) {
+        $table = $this->wpdb->prefix . "lm_" . $table;
+
+        $this->wpdb->update($table, $params, $where);
+    }
+
 }
