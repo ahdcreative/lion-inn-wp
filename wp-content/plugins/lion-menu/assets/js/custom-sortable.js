@@ -14,6 +14,8 @@ jQuery(function($) {
             _super($item, container);
 
             console.log(jsonString);
+
+            // add POST here
         }
     });
 
