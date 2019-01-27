@@ -1,3 +1,25 @@
+<h1>Menu</h1>
+<p>Create and manage menu's from this page. Click 'Add Menu' below to create a new menu. Select a menu from the list below to edit a menu.</p> 
+
+<!-- Modal Content -->
+<div id="add-menu-modal" style="display:none;">
+
+    <form action="#" method="post">
+
+        <h1>Menu Name:</h1>
+        <input type="text" name="menu-name" /> <br/>
+        <input type="submit" value="Add" />
+    </form>
+
+</div>
+
+<!-- Add Menu Button -->
+<button>
+    <a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox">Add Menu</a>
+</button>
+
+<br />
+
 <?php
 
 /**
@@ -23,25 +45,3 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-
-<h1>Menu</h1>
-<p>Create and manage menu's from this page. Click 'Add Menu' below to create a new menu. Select a menu from the list below to edit a menu.</p> 
-
-<!-- Modal Content -->
-<div id="add-menu-modal" style="display:none;">
-
-    <form action="#" method="post">
-
-        <h1>Menu Name:</h1>
-        <input type="text" name="menu-name" /> <br/>
-        <input type="submit" value="Add" />
-    </form>
-
-</div>
-
-<!-- Add Menu Button -->
-<button>
-    <a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox">Add Menu</a>
-</button>
-
-<br />
