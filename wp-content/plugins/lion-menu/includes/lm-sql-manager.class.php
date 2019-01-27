@@ -98,13 +98,17 @@ class SQLManager {
      * @param string $table Table to select from
      * 
      * @return array $menus All menu's in db
+     * 
+     * NOTE - Probably needs more work - not dynamic enough yet - currently only caters to SELECT ALL
+     * Solutions - either have different functions for all, single and multiple,
+     *      OR - make this foo more dynamic to cater to all 3
      */
     public function get($table) {
-        $table = $this->wpdb->prefix . "lm_" . $table;
+        $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_all_" . $table . ".sql" );
 
-        $menus = $this->wpdb->get_results(
-            "SELECT name FROM $table"
-        );
+        $sql = str_replace("prefixplaceholder", $this->wpdb->prefix . "lm", $sql);
+
+        $menus = $this->wpdb->get_results($sql);
 
         return $menus;
     }

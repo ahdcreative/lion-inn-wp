@@ -81,6 +81,9 @@ class LionMenu {
         // Add JQuery Sortable
         wp_register_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
         wp_enqueue_script('jquery-sortable');
+         // Add Custom Sortable
+         wp_register_script('custom-sortable', plugins_url() . '/lion-menu/assets/js/custom-sortable.js', array('jquery'));
+         wp_enqueue_script('custom-sortable');
     }
     
     /**
@@ -96,32 +99,21 @@ class LionMenu {
     public function menu_init(){
         
         $tpl = new Template( __DIR__ . '/templates/admin' );
-        
-        // Print Menu's
-        $menus = $this->db->get( 'menu' );
 
         // Add Modal Support
         add_thickbox();
         // Print Add Menu Button & Modal Functionality
         echo $tpl->render( 'add-menu' );
         
+        // Get Menu's
+        $menus = $this->db->get( 'menu' );
         // Sortable Menu List
-        // TODO Mayve a ListManager class would help tidy this up? (And for the other lists that will be needed)
+        // TODO Maybe a ListManager class would help tidy this up? (And for the other lists that will be needed)
         echo "<ol class='menus'>";
             foreach($menus as $menu) { 
-                echo "<li>" . $menu->name . "</li>";
+                echo "<li data-id='$menu->id'>$menu->name</li>";
             }    
-        echo "</ol>
-            
-            <script>
-                jQuery(document).ready(function($) {
-                    $('ol.menus').sortable();
-
-                    console.log('Serial:');
-                    console.log($( 'ol.menus li' ).get());
-                });
-            </script>
-        ";
+        echo "</ol>";
 
         
         
