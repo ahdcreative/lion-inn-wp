@@ -110,20 +110,12 @@ class LionMenu {
 
         // Add Modal Support
         add_thickbox();
-        // Print Add Menu Button & Modal Functionality
-        echo $tpl->render( 'add-menu' );
+        // Print Header section of Admin Page
+        echo $tpl->render( 'lm-header' );
         
-        // Get Menu's
+        // Display menu's as sortable list
         $menus = $this->db->get( 'menu' );
-        // Sortable Menu List
-        // TODO Maybe a ListManager class would help tidy this up? (And for the other lists that will be needed)
-        echo "<ol class='menus'>";
-            foreach($menus as $menu) { 
-                echo "<li data-id='$menu->id'>$menu->name</li>";
-            }    
-        echo "</ol>";
-
-        
+        $this->lists->generateMenus($menus);        
         
     }
 

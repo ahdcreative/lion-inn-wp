@@ -1,5 +1,10 @@
+/**
+ * Makes a list sortable and generates serialized JSON
+ * to update the database with.
+ */
 jQuery(function($) {
-    var group = $('ol.menus').sortable({
+    
+    var group = $('ol.sortable').sortable({
         group: 'serialization',
         onDrop: function ($item, container, _super) {
             var data = group.sortable('serialize').get();
