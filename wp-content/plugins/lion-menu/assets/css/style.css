@@ -1,21 +1,57 @@
 /**
  * Styling for Sortable / Draggable Lists
+ * From the Sortable site
  */
 body.dragging, body.dragging * {
     cursor: move !important;
 }
 
 .dragged {
-    position: absolute;
+    position: absolute !important;
     opacity: 0.5;
     z-index: 2000;
+    cursor: move !important;
 }
 
-ol.example li.placeholder {
+ol.sortable li {
     position: relative;
+    list-style-type: none !important;
     /** More li styles **/
 }
-ol.example li.placeholder:before {
+
+ol.sortable li:before {
     position: absolute;
     /** Define arrowhead **/
+}
+
+
+/**
+ * Admin Page
+ */
+
+/* Remove default a styling */
+a.button-link {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Width of menu-list */
+ol.sortable { width: 60%; }
+@media (max-width: 1300px) {
+    ol.sortable {
+        width: 100%;
+    }
+}
+
+/* Edit & Delete Icons */
+ol.sortable i {
+    color: #d3d3d3;
+}
+ol.sortable i.fa-edit:hover {
+    color: #7c7c7c;
+    cursor: pointer;
+}
+ol.sortable i.fa-trash-alt:hover {
+    color: red;
+    cursor: pointer;
 }

@@ -5,7 +5,6 @@
 <div id="add-menu-modal" style="display:none;">
 
     <form action="#" method="post">
-
         <h1>Menu Name:</h1>
         <input type="text" name="menu-name" /> <br/>
         <input type="submit" value="Add" />
@@ -14,8 +13,8 @@
 </div>
 
 <!-- Add Menu Button -->
-<button>
-    <a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox">Add Menu</a>
+<button type="button" class="btn btn-secondary">
+    <a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox button-link">Add Menu</a>
 </button>
 
 <br />

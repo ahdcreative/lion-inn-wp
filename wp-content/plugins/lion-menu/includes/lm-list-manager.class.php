@@ -28,15 +28,23 @@ class ListManager {
             return;
         }
 
-        echo "<ol class='sortable'>";
+        echo "<br/><ol class='sortable list-group ml-0'>";
 
             foreach($menus as $menu) {
 
-                echo "<li data-id='$menu->id'>$menu->name</li>";
+                echo "
+                    <li class='list-group-item list-group-item-action' data-id='$menu->id'>
+                        $menu->name
+                        <div class='float-right'>
+                            <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
+                            <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
+                        </div>
+                    </li>
+                ";
 
             }    
 
-        echo "</ol>";        
+        echo "</ol><br/>";        
     }
 
 }

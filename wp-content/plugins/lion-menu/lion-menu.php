@@ -89,14 +89,14 @@ class LionMenu {
         wp_enqueue_style('lm-style', plugins_url() . '/lion-menu/assets/css/style.css');
 
         // Add JQuery Sortable
-        wp_register_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
-        wp_enqueue_script('jquery-sortable');
-        // Add Custom Sortable
-        wp_register_script('custom-sortable', plugins_url() . '/lion-menu/assets/js/custom-sortable.js', array('jquery'));
-        wp_enqueue_script('custom-sortable');
+        wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
 
-        // Make sure the JS part of the Heartbeat API is loaded.
-        wp_enqueue_script( 'heartbeat' );
+        // Add Bootstrap CSS & JS
+        wp_enqueue_style('bs-css', plugins_url() . '/lion-menu/assets/css/bootstrap.min.css');
+        wp_enqueue_script('bs-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'));
+        
+        // Font Awesome
+        wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
     }
     
     /**
@@ -124,7 +124,6 @@ class LionMenu {
         
         // Display save button and it's functionality
         echo $tpl->render( 'menu-save' );
-        
     }
         
 

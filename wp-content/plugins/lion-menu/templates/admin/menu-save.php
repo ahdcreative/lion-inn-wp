@@ -1,13 +1,13 @@
 <!-- Save Button in Admin Page - to Save Menu Ranking -->
 <form action="#" method="POST">
     <input type="hidden" value="" name="rankings" />
-    <input type="submit" value="Save" />
+    <input class="btn btn-success" type="submit" value="Save" />
 </form>
 
-<!-- Sortable Serialized List -->
 <script>
     jQuery(function($) {
-
+                
+        // Sortable Serialized List
         var group = $('ol.sortable').sortable({
             group: 'serialization',
             onDrop: function ($item, container, _super) {
@@ -18,16 +18,27 @@
                 var ranks_json = JSON.stringify(ranks, null, ' ');
                 ranks_json = ranks_json.replace('[', '');
                 ranks_json = ranks_json.replace(']', '');
-            
-                // Updates list
-                _super($item, container);                
 
                 console.log(ranks_json);
-
+            
+                // Updates list
+                _super($item, container);
+                
                 // Set hidden input value to json ranks so it can be used in POST request
                 $('input[name="rankings"]').val(ranks_json);
             } 
         });
+
+        // When Menu Edit Icon is Clicked
+        $('.fa-edit').click(function() {
+
+        });
+
+        // When Menu Delete Icon is Clicked
+        $('.fa-trash-alt').click(function() {
+
+        });
+
     });    
 </script>
 
@@ -46,8 +57,7 @@
         $rankings = str_replace("\\", "", $_POST["rankings"]);
         $rankings = json_decode($rankings, true);
 
-        echo "<br/> Print_r - ";
-        print_r($rankings);
+        if(!$rankings) return;
         
         // Update Database - set rank equal to it's turn ($i) in the $rankings list
         $i = 1;
