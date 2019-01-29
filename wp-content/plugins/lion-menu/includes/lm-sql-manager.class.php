@@ -124,4 +124,16 @@ class SQLManager {
         $this->wpdb->update($table, $params, $where);
     }
 
+    /**
+     * Delete from Database
+     * 
+     * @param string $table Table to delete from
+     * @param array $where Where clause 
+     */
+    public function delete($table, $where) {
+        $table = $this->wpdb->prefix . "lm_" . $table;
+
+        $this->wpdb->delete($table, $where);
+    }
+
 }

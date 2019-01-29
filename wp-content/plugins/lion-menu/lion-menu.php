@@ -91,6 +91,9 @@ class LionMenu {
         // Add JQuery Sortable
         wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
 
+        // Add Custom Javascript
+        wp_enqueue_script('lm-script', plugins_url() . '/lion-menu/assets/js/script.js', array('jquery'));
+
         // Add Bootstrap CSS & JS
         wp_enqueue_style('bs-css', plugins_url() . '/lion-menu/assets/css/bootstrap.min.css');
         wp_enqueue_script('bs-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'));
@@ -113,17 +116,31 @@ class LionMenu {
         
         $tpl = new Template( __DIR__ . '/templates/admin' );
 
-        // Add Modal Support
+        // Add Modal Support & Render Modals
         add_thickbox();
+        echo $tpl->render( 'lm-modals' );
+
         // Print Header section of Admin Page
         echo $tpl->render( 'lm-header' );
         
         // Display menu's as sortable list
+        // TODO - if $menus empty, return? remove else. if nothing after is needed
         $menus = $this->db->get( 'menu' );
-        $this->lists->generateMenus($menus); 
+        if(!$menus) {
+            echo "You have not created any menu's.";
+        } else {
+            $this->lists->startList(); 
+            foreach($menus as $menu) {
+                echo $tpl->render( 'lm-menu-item' , $menu );
+            } 
+            $this->lists->endList(); 
+        }        
         
         // Display save button and it's functionality
         echo $tpl->render( 'menu-save' );
+
+        // Render POST request handlers
+        echo $tpl->render( 'post' );
     }
         
 
