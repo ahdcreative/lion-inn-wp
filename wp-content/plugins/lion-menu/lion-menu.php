@@ -54,8 +54,6 @@ class LionMenu {
         // Create DB Tables
         $this->db->createTables(); 
 
-        $this->db->loadTestData(); 
-
         // Check tables are created properly
 
         flush_rewrite_rules();
