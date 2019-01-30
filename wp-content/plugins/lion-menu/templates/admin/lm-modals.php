@@ -27,7 +27,6 @@
 
     <form action="#" method="post">
         <h3>Are you sure you want to delete this menu?</h3>
-        <input type="hidden" name="menu-name" /> <br/>
         <input type="hidden" name="delete" /> <br/>
         <input type="submit" value="Delete" class="btn btn-danger" />
     </form>

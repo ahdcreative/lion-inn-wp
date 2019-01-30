@@ -20,7 +20,7 @@ class ListManager {
     }
 
     public function startList() {
-        echo "<br/><ol class='sortable list-group ml-0'>";
+        echo "<ol class='sortable list-group ml-0'>";
     }
 
     public function endList() {

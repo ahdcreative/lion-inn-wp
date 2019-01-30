@@ -1,15 +1,11 @@
 <?php
 
 /**
- * Handle POST Requests
+ * Handle POST Requests on Plugin Admin Page
  */
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require_once( WP_PLUGIN_DIR . '/lion-menu/includes/lm-sql-manager.class.php' );
-
-    // if(!isset($_POST["menu-name"])) {
-    //     return;
-    // }
     
     $db = new SQLManager();
 

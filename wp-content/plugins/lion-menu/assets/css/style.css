@@ -31,18 +31,27 @@ ol.sortable li:before {
 
 /* Remove default a styling */
 a.button-link {
-    color: white !important;
+    color: black !important;
     text-decoration: none !important;
     height: 100% !important;
     width: 100% !important;
 }
+a.button-link:hover {
+    color: white !important;
+}
 
 /* Width of menu-list */
-ol.sortable { width: 60%; }
+ol.sortable, .admin-buttons { width: 60%; }
 @media (max-width: 1300px) {
-    ol.sortable {
+    ol.sortable, .admin-buttons {
         width: 100%;
     }
+}
+
+/* Hamburger Icon */
+ol.sortable i.fa-bars:hover {
+    color: #7c7c7c;
+    cursor: move;
 }
 
 /* Edit & Delete Icons */

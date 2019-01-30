@@ -1,5 +1,9 @@
 <li class='list-group-item list-group-item-action' data-id='<?php echo $id ?>'>
-    <?php echo $name; ?>
+    <!-- Hamburger -->
+    <i class="fas fa-bars"></i>
+    <!-- Menu Name -->
+    <span class="ml-3"><?php echo $name; ?></span>
+    <!-- Edit & Delete Icons -->
     <div class='float-right'>
         <a href='#TB_inline?&width=400&height=300&inlineId=edit-menu-modal' class='thickbox button-link edit'>
             <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
