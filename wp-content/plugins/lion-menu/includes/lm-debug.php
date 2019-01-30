@@ -12,3 +12,7 @@ function log_me($message) {
         }
     }
 }
+
+function console_log($toPrint) {
+    echo "<script>console.log('$toPrint');</script>";
+}
