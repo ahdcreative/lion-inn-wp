@@ -39,7 +39,7 @@ class LionMenu {
         $this->lists = new ListManager();
 
         // Add 'Menu' Option to Admin Menu & Init the Page
-        add_action('admin_menu', array( $this, 'admin_menu_option' ) );
+        add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
     }
 
     /**
@@ -103,16 +103,18 @@ class LionMenu {
     }
     
     /**
-     * Add 'Menu' Option to Admin Menu & Init the Page 
+     * Add 'Menu' Option to Admin Menu & Init the Page
+     * Create Subpages
      */
-    public function admin_menu_option() {
-        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lion-menu-plugin', array( $this, 'menu_init' ) );
+    public function admin_menu_pages() {
+        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ) );
+        add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
     }
     
     /**
      * Initialise Admin Page with Menu-related content
      */
-    public function menu_init(){
+    public function menu_init() {
         
         $tpl = new Template( __DIR__ . '/templates/admin' );
 
@@ -124,9 +126,10 @@ class LionMenu {
         echo $tpl->render( 'lm-modals' );
 
         // Print Header section of Admin Page
-        echo $tpl->render( 'lm-header' );
+        $data = array ('title' => 'Menu', 'desc' => "Create and manage menu's from this page. Click 'Add Menu' below to create a new menu. Select a menu from the list below to edit a menu.");
+        echo $tpl->render( 'lm-header', $data );
         
-        // Display menu's as sortable list
+        // Get Menu's
         $menus = $this->db->get( 'menu' );
         if(!$menus) {
             echo "You have not created any menu's.";
@@ -134,7 +137,7 @@ class LionMenu {
             return;
         }
 
-        // Display Menu List
+        // Display menu's as sortable list
         $this->lists->startList(); 
         foreach($menus as $menu) {
             echo $tpl->render( 'lm-menu-item' , $menu );
@@ -143,6 +146,28 @@ class LionMenu {
         
         // Display save button and it's functionality
         echo $tpl->render( 'lm-buttons' );
+    }
+
+    /**
+     * Subpage: Edit a Menu
+     * Accessed when a menu is selected from the Admin Page
+     */
+    public function edit_menu_init() {
+
+        $tpl = new Template( __DIR__ . '/templates/admin' );
+
+        // Render POST request handlers
+        echo $tpl->render( 'post' );
+
+        // Add Modal Support & Render Modals
+        add_thickbox();
+        echo $tpl->render( 'lm-modals' );
+
+        // Render Title and Desc
+        $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.");
+        echo $tpl->render( 'lm-header', $data );
+
+        //echo $tpl->render( 'lm-header', $data );
     }
         
 

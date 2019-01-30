@@ -2,7 +2,7 @@
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
     <!-- Menu Name -->
-    <span class="ml-3"><?php echo $name; ?></span>
+    <a href="admin.php?page=lm-menu-edit-subpage&menu_id=<?php echo $id ?>" class="ml-3"><?php echo $name; ?></a>
     <!-- Edit & Delete Icons -->
     <div class='float-right'>
         <a href='#TB_inline?&width=400&height=300&inlineId=edit-menu-modal' class='thickbox button-link edit'>
