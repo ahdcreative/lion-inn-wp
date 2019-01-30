@@ -1,1 +1,0 @@
-SELECT * FROM prefixplaceholder_section;

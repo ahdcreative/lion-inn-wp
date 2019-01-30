@@ -165,22 +165,42 @@ class LionMenu {
         $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.");
         echo $tpl->render( 'lm-header', $data );
 
-        // Get Menu Items
+        // Print Sections & Items related to Menu
         if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
             
-            // Get Section Corresponding to Menu
             $sections = $this->db->get("section", $_GET["menu_id"]);
             
             // Print Sections
             echo "<ol class='nested-sortable list-group ml-0'>";
             foreach($sections as $sec) {
-                // echo $tpl->render( 'lm-section-item' , $sec );
-                print_r($sec);
-                echo "<br/>";
-            }
-            echo "</ol><br/>"; 
+                // Start Section List Item
+                echo "<li class='list-group-item list-group-item-action' data-id='$sec->id'>";
+                echo $tpl->render( 'lm-section-item' , $sec );
 
-            return;
+                // Print Items in Section
+                $items = $this->db->get("item", $sec->id);
+                // Do I need to start a new list?
+                foreach($items as $item) {
+                    echo "<li class='list-group-item list-group-item-action' data-id='$item->id'>";
+                    echo $tpl->render( 'lm-item' , $item );
+
+                    // If item has subitems, print them
+                    $subitems = $this->db->get("subitem", $item->id);
+                    // Do I need to start a new list?
+                    foreach($subitems as $subitem) {
+                        echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id'>";
+                        echo $tpl->render( 'lm-sub-item' , $subitem );
+                        echo "</li>"; // End subitem
+                    }
+
+                    echo "</li>"; // End item
+                }
+
+                echo "</li>"; // End section
+
+            }
+
+            echo "</ol><br/>"; // End list
         }
     }
         
