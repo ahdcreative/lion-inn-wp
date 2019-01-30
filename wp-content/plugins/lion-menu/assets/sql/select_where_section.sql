@@ -1,0 +1,1 @@
+SELECT id, name FROM `hjb01_lm_section` WHERE parent_menu = fk_placeholder;

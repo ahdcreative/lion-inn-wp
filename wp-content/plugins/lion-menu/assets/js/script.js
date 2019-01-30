@@ -43,4 +43,28 @@ jQuery(function($) {
     });
 
 
+    // Nested Sortable Serialized List
+    var group = $('ol.nested-sortable').sortable({
+        group: 'serialization',
+        onDrop: function ($item, container, _super) {
+            // Get list info
+            var ranks = group.sortable('serialize').get();
+            
+            // Convert to string, remove outside [] as there are 2 of each
+            var ranks_json = JSON.stringify(ranks, null, ' ');
+            ranks_json = ranks_json.replace('[', '');
+            ranks_json = ranks_json.replace(']', '');
+
+            console.log(ranks_json);
+        
+            // Updates list
+            _super($item, container);
+            
+            // Set hidden input value to json ranks so it can be used in POST request
+            $('input[name="rankings"]').val(ranks_json);
+        } 
+    });
+
+
+
 });

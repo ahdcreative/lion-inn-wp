@@ -103,11 +103,19 @@ class SQLManager {
      * Solutions - either have different functions for all, single and multiple,
      *      OR - make this foo more dynamic to cater to all 3
      */
-    public function get($table) {
-        $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_all_" . $table . ".sql" );
+    public function get($table, $where = "") {
+        // If a where a clause is provided, use SELECT WHERE
+        if($where) {
+            $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_where_" . $table . ".sql" );
+            $sql = str_replace("fk_placeholder", $where, $sql);
+        } else {
+            $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_all_" . $table . ".sql" );
+        }
 
-        $sql = str_replace("prefixplaceholder", $this->wpdb->prefix . "lm", $sql);
+        // Replace db prefix placeholder in SQL 
+        $sql = str_replace("prefixplaceholder", $this->wpdb->prefix . "lm", $sql);        
 
+        // Run SELECT query
         $menus = $this->wpdb->get_results($sql);
 
         return $menus;

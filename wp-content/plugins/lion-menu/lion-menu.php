@@ -13,7 +13,6 @@ if(!defined('ABSPATH')) exit;
 
 require_once(plugin_dir_path(__FILE__).'/includes/lm-template.class.php');
 require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
-require_once(plugin_dir_path(__FILE__).'/includes/lm-list-manager.class.php');
 
 /* 
  * Plugin Class
@@ -35,8 +34,7 @@ class LionMenu {
      * Class Constructor
      */
 	public function __construct() {
-        $this->db = new SQLManager(); 
-        $this->lists = new ListManager();
+        $this->db = new SQLManager();
 
         // Add 'Menu' Option to Admin Menu & Init the Page
         add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
@@ -55,6 +53,8 @@ class LionMenu {
 	function activate() {
         // Create DB Tables
         $this->db->createTables(); 
+
+        $this->db->loadTestData(); 
 
         // Check tables are created properly
 
@@ -118,7 +118,7 @@ class LionMenu {
         
         $tpl = new Template( __DIR__ . '/templates/admin' );
 
-        // Render POST request handlers
+        // Render POST & GET request handlers
         echo $tpl->render( 'post' );
 
         // Add Modal Support & Render Modals
@@ -138,11 +138,11 @@ class LionMenu {
         }
 
         // Display menu's as sortable list
-        $this->lists->startList(); 
+        echo "<ol class='sortable list-group ml-0'>";
         foreach($menus as $menu) {
             echo $tpl->render( 'lm-menu-item' , $menu );
         } 
-        $this->lists->endList();         
+        echo "</ol><br/>";      
         
         // Display save button and it's functionality
         echo $tpl->render( 'lm-buttons' );
@@ -167,7 +167,23 @@ class LionMenu {
         $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.");
         echo $tpl->render( 'lm-header', $data );
 
-        //echo $tpl->render( 'lm-header', $data );
+        // Get Menu Items
+        if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
+            
+            // Get Section Corresponding to Menu
+            $sections = $this->db->get("section", $_GET["menu_id"]);
+            
+            // Print Sections
+            echo "<ol class='nested-sortable list-group ml-0'>";
+            foreach($sections as $sec) {
+                // echo $tpl->render( 'lm-section-item' , $sec );
+                print_r($sec);
+                echo "<br/>";
+            }
+            echo "</ol><br/>"; 
+
+            return;
+        }
     }
         
 
