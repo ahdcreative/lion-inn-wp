@@ -29,7 +29,7 @@ ol.sortable li:before {
  * Admin Page
  */
 
-/* Remove default a styling */
+/* Anchor / Button styling */
 a.button-link {
     color: black !important;
     text-decoration: none !important;
@@ -40,7 +40,7 @@ a.button-link:hover {
     color: white !important;
 }
 
-/* Width of menu-list */
+/* Admin content width */
 ol.sortable, .admin-buttons { width: 60%; }
 @media (max-width: 1300px) {
     ol.sortable, .admin-buttons {

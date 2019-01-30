@@ -116,6 +116,9 @@ class LionMenu {
         
         $tpl = new Template( __DIR__ . '/templates/admin' );
 
+        // Render POST request handlers
+        echo $tpl->render( 'post' );
+
         // Add Modal Support & Render Modals
         add_thickbox();
         echo $tpl->render( 'lm-modals' );
@@ -124,23 +127,22 @@ class LionMenu {
         echo $tpl->render( 'lm-header' );
         
         // Display menu's as sortable list
-        // TODO - if $menus empty, return? remove else. if nothing after is needed
         $menus = $this->db->get( 'menu' );
         if(!$menus) {
             echo "You have not created any menu's.";
-        } else {
-            $this->lists->startList(); 
-            foreach($menus as $menu) {
-                echo $tpl->render( 'lm-menu-item' , $menu );
-            } 
-            $this->lists->endList(); 
-        }        
+            echo $tpl->render( 'lm-buttons' );
+            return;
+        }
+
+        // Display Menu List
+        $this->lists->startList(); 
+        foreach($menus as $menu) {
+            echo $tpl->render( 'lm-menu-item' , $menu );
+        } 
+        $this->lists->endList();         
         
         // Display save button and it's functionality
-        echo $tpl->render( 'menu-save' );
-
-        // Render POST request handlers
-        echo $tpl->render( 'post' );
+        echo $tpl->render( 'lm-buttons' );
     }
         
 
