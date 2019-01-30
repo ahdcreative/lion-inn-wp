@@ -174,33 +174,35 @@ class LionMenu {
             echo "<ol class='nested-sortable list-group ml-0'>";
             foreach($sections as $sec) {
                 // Start Section List Item
-                echo "<li class='list-group-item list-group-item-action' data-id='$sec->id'>";
+                echo "<li class='list-group-item list-group-item-action' data-id='$sec->id' data-name='$sec->name'>";
                 echo $tpl->render( 'lm-section-item' , $sec );
 
                 // Print Items in Section
                 $items = $this->db->get("item", $sec->id);
-                // Do I need to start a new list?
+                echo "<ol class='list-group ml-0'>";
                 foreach($items as $item) {
-                    echo "<li class='list-group-item list-group-item-action' data-id='$item->id'>";
+                    echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
                     echo $tpl->render( 'lm-item' , $item );
 
                     // If item has subitems, print them
                     $subitems = $this->db->get("subitem", $item->id);
-                    // Do I need to start a new list?
+                    echo "<ol class='list-group ml-0'>";
                     foreach($subitems as $subitem) {
-                        echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id'>";
+                        echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
                         echo $tpl->render( 'lm-sub-item' , $subitem );
                         echo "</li>"; // End subitem
                     }
+                    echo "</ol>"; // End subitem list 
 
                     echo "</li>"; // End item
                 }
+                echo "</ol>"; // End item list 
 
                 echo "</li>"; // End section
 
             }
 
-            echo "</ol><br/>"; // End list
+            echo "</ol><br/>"; // End section list
         }
     }
         
