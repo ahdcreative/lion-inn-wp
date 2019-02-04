@@ -45,7 +45,8 @@ jQuery(function($) {
 
     // Nested Sortable Serialized List
     var group = $('ol.nested-sortable').sortable({
-        group: 'serialization',
+        group: 'nested',
+        handle: 'i.item-move',
         onDrop: function ($item, container, _super) {
             // Get list info
             var ranks = group.sortable('serialize').get();

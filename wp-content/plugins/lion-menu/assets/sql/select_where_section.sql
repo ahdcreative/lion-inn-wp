@@ -1,1 +1,1 @@
-SELECT id, name FROM prefixplaceholder_section WHERE parent_menu = fk_placeholder;
+SELECT id, name, side FROM prefixplaceholder_section WHERE parent_menu = fk_placeholder;

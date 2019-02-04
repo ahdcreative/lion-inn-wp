@@ -175,6 +175,9 @@ class LionMenu {
             foreach($sections as $sec) {
                 // Start Section List Item
                 echo "<li class='list-group-item list-group-item-action' data-id='$sec->id' data-name='$sec->name'>";
+                // Hamburger 
+                echo "<i class='fas fa-bars item-move'></i>";                
+                // E.g. Starters, Mains, Sides
                 echo $tpl->render( 'lm-section-item' , $sec );
 
                 // Print Items in Section
@@ -182,6 +185,7 @@ class LionMenu {
                 echo "<ol class='list-group ml-0'>";
                 foreach($items as $item) {
                     echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
+                    // E.g. Soup, HEC, Pie
                     echo $tpl->render( 'lm-item' , $item );
 
                     // If item has subitems, print them
@@ -189,6 +193,7 @@ class LionMenu {
                     echo "<ol class='list-group ml-0'>";
                     foreach($subitems as $subitem) {
                         echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
+                        // E.g. Cheese, Cajun Spice
                         echo $tpl->render( 'lm-sub-item' , $subitem );
                         echo "</li>"; // End subitem
                     }
@@ -199,10 +204,8 @@ class LionMenu {
                 echo "</ol>"; // End item list 
 
                 echo "</li>"; // End section
-
             }
-
-            echo "</ol><br/>"; // End section list
+            echo "</ol><br/>"; // End section list            
         }
     }
         
