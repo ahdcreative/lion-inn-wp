@@ -174,9 +174,7 @@ class LionMenu {
             echo "<ol class='nested-sortable list-group ml-0'>";
             foreach($sections as $sec) {
                 // Start Section List Item
-                echo "<li class='list-group-item list-group-item-action' data-id='$sec->id' data-name='$sec->name'>";
-                // Hamburger 
-                echo "<i class='fas fa-bars item-move'></i>";                
+                echo "<li class='list-group-item list-group-item-action' data-id='$sec->id' data-name='$sec->name'>";           
                 // E.g. Starters, Mains, Sides
                 echo $tpl->render( 'lm-section-item' , $sec );
 

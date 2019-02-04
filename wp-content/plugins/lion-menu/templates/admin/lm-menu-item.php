@@ -1,3 +1,5 @@
+<!-- A Menu from the main plugin admin page -->
+
 <li class='list-group-item list-group-item-action' data-id='<?php echo $id ?>'>
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
