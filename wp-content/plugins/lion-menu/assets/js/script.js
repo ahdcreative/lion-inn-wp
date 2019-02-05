@@ -44,28 +44,8 @@ jQuery(function($) {
 
 
     // Nested Sortable Serialized List
-    var oldContainer;
-    var group = $('ol.nested-sortable').sortable({
-        group: 'nested',
-        // handle: 'i.item-move',
-        // refer to serialization section above for serializing this
-        // can include serialize.get() foo without group being 'serialization'
-
-        afterMove: function (placeholder, container) {
-            if(oldContainer != container){
-                if(oldContainer)
-                oldContainer.el.removeClass("active");
-                container.el.addClass("active");
+    $('ol.nested-sortable').sortable({
         
-                oldContainer = container;
-            }
-        },
-        onDrop: function ($item, container, _super) {
-            container.el.removeClass("active");
-            _super($item, container);
-        }
     });
-
-
 
 });

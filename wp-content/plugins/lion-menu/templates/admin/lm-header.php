@@ -1,2 +1,2 @@
-<h1><?php print $title; ?></h1>
-<p><?php print $desc; ?></p>
+<h1><?php echo $title; ?></h1>
+<p><?php echo $desc; ?></p>

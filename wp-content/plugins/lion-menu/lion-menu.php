@@ -92,7 +92,8 @@ class LionMenu {
         // Add Custom Javascript
         wp_enqueue_script('lm-script', plugins_url() . '/lion-menu/assets/js/script.js', array('jquery'));
 
-        // Add Bootstrap CSS & JS
+        // Add Bootstrap CSS & JS & PopperJS
+        wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
         wp_enqueue_style('bs-css', plugins_url() . '/lion-menu/assets/css/bootstrap.min.css');
         wp_enqueue_script('bs-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'));
         
@@ -136,7 +137,7 @@ class LionMenu {
         }
 
         // Display menu's as sortable list
-        echo "<ol class='sortable list-group ml-0'>";
+        echo "<ol class='sortable vertical list-group ml-0'>";
         foreach($menus as $menu) {
             echo $tpl->render( 'lm-menu-item' , $menu );
         } 
@@ -165,22 +166,35 @@ class LionMenu {
         $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.");
         echo $tpl->render( 'lm-header', $data );
 
+        // Render change menu button
+        $menus = $this->db->get( 'menu' );
+        echo $tpl->render( 'lm-change-menu' );
+        foreach($menus as $menu) {
+            echo "<a class='dropdown-item' href='admin.php?page=lm-menu-edit-subpage&menu_id=$menu->id'>$menu->name</a>";
+        }
+        echo "</div></div><br/>";
+
         // Print Sections & Items related to Menu
         if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
+
+            // Print Current Menu Title
+            $current_menu = $this->db->get( 'menu', $_GET["menu_id"] );
+            $curr = $current_menu[0];
+            echo "<h1>$curr->name</h1>";
             
             $sections = $this->db->get("section", $_GET["menu_id"]);
             
             // Print Sections
-            echo "<ol class='nested-sortable list-group ml-0'>";
+            echo "<ol class='nested-sortable vertical sections list-group ml-0'>";
             foreach($sections as $sec) {
                 // Start Section List Item
-                echo "<li class='list-group-item list-group-item-action' data-id='$sec->id' data-name='$sec->name'>";           
+                echo "<li class='list-group-item list-group-item-action no-position' data-id='$sec->id' data-name='$sec->name'>";           
                 // E.g. Starters, Mains, Sides
                 echo $tpl->render( 'lm-section-item' , $sec );
 
                 // Print Items in Section
                 $items = $this->db->get("item", $sec->id);
-                echo "<ol class='list-group ml-0'>";
+                echo "<ol class='list-group items'>";
                 foreach($items as $item) {
                     echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
                     // E.g. Soup, HEC, Pie
@@ -188,7 +202,7 @@ class LionMenu {
 
                     // If item has subitems, print them
                     $subitems = $this->db->get("subitem", $item->id);
-                    echo "<ol class='list-group ml-0'>";
+                    echo "<ol class='list-group subitems'>";
                     foreach($subitems as $subitem) {
                         echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
                         // E.g. Cheese, Cajun Spice
@@ -203,8 +217,10 @@ class LionMenu {
 
                 echo "</li>"; // End section
             }
-            echo "</ol><br/>"; // End section list            
+            echo "</ol><br/>"; // End section list
+                    
         }
+        
     }
         
 
