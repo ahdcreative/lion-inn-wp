@@ -44,8 +44,24 @@ jQuery(function($) {
 
 
     // Nested Sortable Serialized List
+    // Handles both list sides (i.e. sections on left and right side) as they are 2 separate lists.
     $('ol.nested-sortable').sortable({
-        
+        group: 'nested',
+        afterMove: function (placeholder, container) {
+            if(oldContainer != container){
+                if(oldContainer) {
+                    oldContainer.el.removeClass("active");
+                }
+
+                container.el.addClass("active");
+
+                oldContainer = container;
+            }
+        },
+        onDrop: function ($item, container, _super) {
+            container.el.removeClass("active");
+            _super($item, container);
+        }
     });
 
 });

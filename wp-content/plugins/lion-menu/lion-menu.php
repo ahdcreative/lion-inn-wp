@@ -163,7 +163,7 @@ class LionMenu {
         echo $tpl->render( 'lm-modals' );
 
         // Render Title and Desc
-        $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.");
+        $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.  Use the 'Change Menu' dropdown below to select a new menu.");
         echo $tpl->render( 'lm-header', $data );
 
         // Render change menu button
@@ -183,10 +183,41 @@ class LionMenu {
             echo "<h1>$curr->name</h1>";
             
             $sections = $this->db->get("section", $_GET["menu_id"]);
+
+            echo "<div class='row'>";
             
-            // Print Sections
-            echo "<ol class='nested-sortable vertical sections list-group ml-0'>";
-            foreach($sections as $sec) {
+            // Print Left Side
+            $this->edit_menu_print_menu_side($sections, NULL);
+
+            // Print Right Side
+            $this->edit_menu_print_menu_side($sections, 1);
+
+            echo "</div>";
+        }
+        
+    }
+
+
+    /**
+     * Support function to help print the menu's
+     * Support for Edit Menu subpage
+     */
+    public function edit_menu_print_menu_side($sections, $side) {
+        
+        $tpl = new Template( __DIR__ . '/templates/admin' );
+
+        // Set class depending on section side
+        if($side == NULL) {
+            $classes = "col-6 pl-3 pr-4";
+        } else {
+            $classes = "col-6 pl-4";
+        }
+
+        // Print Sections
+        echo "<ol class='nested-sortable vertical ml-0 list-group $classes'>";
+        foreach($sections as $sec) {
+            // 1 is right
+            if($sec->side == $side) {
                 // Start Section List Item
                 echo "<li class='list-group-item list-group-item-action no-position' data-id='$sec->id' data-name='$sec->name'>";           
                 // E.g. Starters, Mains, Sides
@@ -194,7 +225,7 @@ class LionMenu {
 
                 // Print Items in Section
                 $items = $this->db->get("item", $sec->id);
-                echo "<ol class='list-group items'>";
+                echo "<ol class='list-group'>";
                 foreach($items as $item) {
                     echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
                     // E.g. Soup, HEC, Pie
@@ -202,7 +233,7 @@ class LionMenu {
 
                     // If item has subitems, print them
                     $subitems = $this->db->get("subitem", $item->id);
-                    echo "<ol class='list-group subitems'>";
+                    echo "<ol class='list-group'>";
                     foreach($subitems as $subitem) {
                         echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
                         // E.g. Cheese, Cajun Spice
@@ -217,10 +248,8 @@ class LionMenu {
 
                 echo "</li>"; // End section
             }
-            echo "</ol><br/>"; // End section list
-                    
         }
-        
+        echo "</ol><br/>"; // End section list
     }
         
 
