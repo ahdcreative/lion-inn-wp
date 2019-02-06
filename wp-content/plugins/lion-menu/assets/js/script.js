@@ -3,6 +3,7 @@ jQuery(function($) {
     // Sortable Serialized List
     var group = $('ol.sortable').sortable({
         group: 'serialization',
+        handle: '.fa-bars',
         onDrop: function ($item, container, _super) {
             // Get list info
             var ranks = group.sortable('serialize').get();
@@ -48,6 +49,7 @@ jQuery(function($) {
     var oldContainer;
     var group = $('ol.nested-sortable').sortable({
         group: 'serialization',
+        handle: '.fa-bars',
         afterMove: function (placeholder, container) {
             if(oldContainer != container){
                 if(oldContainer) {
@@ -65,8 +67,6 @@ jQuery(function($) {
 
             // Convert to string, remove outside [] as there are 2 of each
             var menu_item_ranks_json = JSON.stringify(menu_item_ranks, null, ' ');
-            menu_item_ranks_json = menu_item_ranks_json.replace('[', '');
-            menu_item_ranks_json = menu_item_ranks_json.replace(']', '');
 
             console.log(menu_item_ranks_json);
 

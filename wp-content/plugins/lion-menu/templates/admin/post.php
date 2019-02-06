@@ -66,7 +66,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Save Menu Item List on Edit Menu subpage (Mainly to Save Rankings / Order)
     if(isset($_POST["menu_item_rankings"])) {
-        // console_log($_POST["menu_item_rankings"]);
+        // Remove '\' from JSON string & decode / convert to array
+        $item_rankings = str_replace("\\", "", $_POST["menu_item_rankings"]);
+        $item_rankings = json_decode($item_rankings, true);
+
+        if(!$item_rankings) return;
+
+        log_me($item_rankings);                
+        
+        // Update Database - set rank equal to it's turn ($i) in the $rankings list
+        $i = 1;
+        // Rankings array is formatted as Array ( [0] => Array ( [id] => 1 ) [1] => Array ( [id] => 7 )...
+        // So a double loop is needed to access the menu id's.
+        // foreach($item_rankings as $key => $value) {
+        //     foreach($value as $id => $rank) {
+        //         $db->update("menu", array(
+        //                 'rank' => $i
+        //             ), 
+        //             array('id' => $rank)
+        //         );
+        //     }
+        //     $i++;
+        // }        
+        return;
     }
 
 }

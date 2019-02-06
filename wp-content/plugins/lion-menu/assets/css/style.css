@@ -79,20 +79,24 @@ ol.sortable, .admin-buttons { width: 60%; }
 }
 
 /* Hamburger Icon */
-ol.sortable i.fa-bars:hover {
+ol.sortable i.fa-bars:hover,
+ol.nested-sortable i.fa-bars:hover {
     color: #7c7c7c;
     cursor: move;
 }
 
 /* Edit & Delete Icons */
-ol.sortable i {
+ol.sortable i, 
+ol.nested-sortable i {
     color: #d3d3d3;
 }
-ol.sortable i.fa-edit:hover {
+ol.sortable i.fa-edit:hover, 
+ol.nested-sortable i.fa-edit:hover {
     color: #7c7c7c;
     cursor: pointer;
 }
-ol.sortable i.fa-trash-alt:hover {
+ol.sortable i.fa-trash-alt:hover, 
+ol.nested-sortable i.fa-trash-alt:hover {
     color: red;
     cursor: pointer;
 }
