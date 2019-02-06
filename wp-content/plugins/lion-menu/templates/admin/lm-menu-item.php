@@ -8,7 +8,7 @@
     <!-- Edit & Delete Icons -->
     <div class='float-right'>
         <a href='#TB_inline?&width=400&height=300&inlineId=edit-menu-modal' class='thickbox button-link edit'>
-            <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
+            <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit Name'></i>
         </a>
         <a href='#TB_inline?&width=400&height=300&inlineId=delete-menu-modal' class='thickbox button-link delete'>
             <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>

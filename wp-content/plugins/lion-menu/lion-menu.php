@@ -186,7 +186,7 @@ class LionMenu {
             echo "<div class='row'>";
             
             // Print Left Side
-            $this->edit_menu_print_menu_side($sections, NULL);
+            $this->edit_menu_print_menu_side($sections, 0);
 
             // Print Right Side
             $this->edit_menu_print_menu_side($sections, 1);
@@ -209,7 +209,7 @@ class LionMenu {
         $tpl = new Template( __DIR__ . '/templates/admin' );
 
         // Set class depending on section side
-        if($side == NULL) {
+        if($side == 0) {
             $classes = "col-6 pl-3 pr-4";
         } else {
             $classes = "col-6 pl-4";
