@@ -45,8 +45,9 @@ jQuery(function($) {
 
     // Nested Sortable Serialized List
     // Handles both list sides (i.e. sections on left and right side) as they are 2 separate lists.
-    $('ol.nested-sortable').sortable({
-        group: 'nested',
+    var oldContainer;
+    var group = $('ol.nested-sortable').sortable({
+        group: 'serialization',
         afterMove: function (placeholder, container) {
             if(oldContainer != container){
                 if(oldContainer) {
@@ -59,6 +60,19 @@ jQuery(function($) {
             }
         },
         onDrop: function ($item, container, _super) {
+            // Get menu list info
+            var menu_item_ranks = group.sortable('serialize').get();
+
+            // Convert to string, remove outside [] as there are 2 of each
+            var menu_item_ranks_json = JSON.stringify(menu_item_ranks, null, ' ');
+            menu_item_ranks_json = menu_item_ranks_json.replace('[', '');
+            menu_item_ranks_json = menu_item_ranks_json.replace(']', '');
+
+            console.log(menu_item_ranks_json);
+
+            // Set hidden input value to json ranks so it can be used in POST request
+            $('input[name="menu_item_rankings"]').val(menu_item_ranks_json);
+
             container.el.removeClass("active");
             _super($item, container);
         }

@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
-    // Save Menu (Mainly to Save Rankings / Menu Order)
+    // Save Menu List on main Menu admin page (Mainly to Save Rankings / Menu Order)
     if(isset($_POST["rankings"])) {
         // Remove '\' from JSON string & decode / convert to array
         $rankings = str_replace("\\", "", $_POST["rankings"]);
@@ -62,6 +62,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $i++;
         }        
         return;
+    }
+
+    // Save Menu Item List on Edit Menu subpage (Mainly to Save Rankings / Order)
+    if(isset($_POST["menu_item_rankings"])) {
+        // console_log($_POST["menu_item_rankings"]);
     }
 
 }

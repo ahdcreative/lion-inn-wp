@@ -54,4 +54,4 @@ Most of the menu functionality is saved to the database as soon as the button is
 
 The hamburger icon on the left of each item is to signify that it can be moved up and down (although the user doesn't need to click here - they can click and hold anywhere on the item to move it).
 
-Whenever the menu order is changed, JQuery sets a hidden input field called 'rankings' to the new order.  This is within script.js. Clicking 'Save' submits this form data via POST request and updates the database.  Each item in the menu table has a field called 'rank' which represents the order that they should be printed.
+Whenever the menu order is changed, JQuery sets a hidden input field called 'rankings' to the new order (located in lm-buttons.php).  This is within script.js. Clicking 'Save' submits this form data via POST request and updates the database.  Each item in the menu table has a field called 'rank' which represents the order that they should be printed.

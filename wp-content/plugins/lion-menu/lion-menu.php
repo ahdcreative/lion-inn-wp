@@ -128,11 +128,13 @@ class LionMenu {
         $data = array ('title' => 'Menu', 'desc' => "Create and manage menu's from this page. Click 'Add Menu' below to create a new menu. Select a menu from the list below to edit a menu.");
         echo $tpl->render( 'lm-header', $data );
         
+        // Display save button and it's functionality
+        echo $tpl->render( 'lm-menu-buttons' );
+        
         // Get Menu's
         $menus = $this->db->get( 'menu' );
         if(!$menus) {
             echo "You have not created any menu's.";
-            echo $tpl->render( 'lm-buttons' );
             return;
         }
 
@@ -141,10 +143,7 @@ class LionMenu {
         foreach($menus as $menu) {
             echo $tpl->render( 'lm-menu-item' , $menu );
         } 
-        echo "</ol><br/>";      
-        
-        // Display save button and it's functionality
-        echo $tpl->render( 'lm-buttons' );
+        echo "</ol><br/>";        
     }
 
     /**
@@ -166,13 +165,13 @@ class LionMenu {
         $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.  Use the 'Change Menu' dropdown below to select a new menu.");
         echo $tpl->render( 'lm-header', $data );
 
-        // Render change menu button
+        // Render save and change menu buttons
         $menus = $this->db->get( 'menu' );
-        echo $tpl->render( 'lm-change-menu' );
+        echo $tpl->render( 'lm-edit-buttons' );
         foreach($menus as $menu) {
             echo "<a class='dropdown-item' href='admin.php?page=lm-menu-edit-subpage&menu_id=$menu->id'>$menu->name</a>";
         }
-        echo "</div></div><br/>";
+        echo "</div></div></div><br/>";
 
         // Print Sections & Items related to Menu
         if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
@@ -192,7 +191,7 @@ class LionMenu {
             // Print Right Side
             $this->edit_menu_print_menu_side($sections, 1);
 
-            echo "</div>";
+            echo "</div>";            
         }
         
     }
