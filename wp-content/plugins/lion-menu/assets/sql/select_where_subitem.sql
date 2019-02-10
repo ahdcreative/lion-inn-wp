@@ -1,1 +1,3 @@
-SELECT id, name FROM prefixplaceholder_subitem WHERE parent_item = fk_placeholder;
+SELECT id, name FROM prefixplaceholder_subitem 
+WHERE parent_item = fk_placeholder
+ORDER BY rank ASC;

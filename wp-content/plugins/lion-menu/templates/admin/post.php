@@ -70,26 +70,53 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $item_rankings = json_decode($item_rankings, true);
 
         if(!$item_rankings) return;
-
-        // log_me($item_rankings);
         
         // Update Database - set rank equal to it's turn in the $item_rankings list
         $secRank = 1;
         $itemRank = 1;
         $subItemRank = 1;
-        // Item Rankings array is formatted as ...
-        // So a ... loop is needed to access all of the sub-elements
-        foreach($item_rankings as $key => $section) {
+        foreach($item_rankings as $key => $sections) {
 
-            foreach($section as $sKey => $sValue) {
-                // log_me($sValue['name']);
-
+            foreach($sections as $sKey => $sValue) {
+                // Update Section Rank in sections table
                 $db->update("section", array(
                         'rank' => $secRank
                     ), 
                     array('id' => $sValue['id'])
                 );
 
+                // Update Rankings of Child Items
+                $items = $sValue['children'];
+                $items = reset($items);
+                foreach($items as $iKey => $iValue) {
+                    // Update Each Item Rank & Parent Section in items table
+                    $db->update("item", array(
+                            'rank' => $itemRank,
+                            'parent_section' => $sValue['id']
+                        ), 
+                        array('id' => $iValue['id'])
+                    );
+
+                    // Update Rankings of Child Items
+                    $subitems = $iValue['children'];
+                    $subitems = reset($subitems);
+                    foreach($subitems as $siKey => $siValue) {
+                        // Update Each Item Rank & Parent Section in items table
+                        $db->update("subitem", array(
+                                'rank' => $subItemRank,
+                                'parent_item' => $iValue['id']
+                            ), 
+                            array('id' => $siValue['id'])
+                        );
+
+                        $subItemRank++;
+                    }
+
+                    $subItemRank = 1;
+                    $itemRank++;
+                }
+
+                $itemRank = 1;
                 $secRank++;
             }
             
