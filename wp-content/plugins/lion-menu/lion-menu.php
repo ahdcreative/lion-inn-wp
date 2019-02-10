@@ -229,7 +229,7 @@ class LionMenu {
                 $items = $this->db->get("item", $sec->id);
                 echo "<ol class='list-group my-2'>";
                 if(!$items) {
-                    echo "<i>No items.</i>";
+                    echo "<i class='fs-10'>No items.</i>";
                 } else {
                     foreach($items as $item) {
                         echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
@@ -238,9 +238,9 @@ class LionMenu {
 
                         // If item has subitems, print them
                         $subitems = $this->db->get("subitem", $item->id);
-                        echo "<ol class='list-group my-2'>";
+                        echo "<ol class='list-group'>";
                         if(!$subitems) {
-                            echo "<i>No subitems.</i>";
+                            echo "<i class='fs-10'>No subitems.</i>";
                         } else {
                             foreach($subitems as $subitem) {
                                 echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";

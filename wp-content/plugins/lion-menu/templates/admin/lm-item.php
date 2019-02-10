@@ -16,3 +16,24 @@
         <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
     </a>
 </div>
+
+<!-- Description -->
+<div class="row ml-3">
+    <i class="ml-3 fs-10"><?php echo $description; ?></i>
+</div>
+
+<!-- Veggie, Gluten and Price -->
+<div class="row ml-3 d-flex">
+    <div class="ml-3">
+        <?php 
+        if($vegetarian) {
+            echo "<img class='mx-2 icon' src='". plugins_url() . '/lion-menu/assets/images/vegetarian.png' . "' alt='Image of Vegetarian Icon' />";
+        }
+        if($gluten_free) {
+            echo "<img class='mx-2 icon' src='". plugins_url() . '/lion-menu/assets/images/gluten-free.png' . "' alt='Image of Gluten Free Icon' />";
+        } 
+        ?>
+    </div>
+
+    <p class="fs-14 ml-auto">£<?php echo $price; ?></p>
+</div>

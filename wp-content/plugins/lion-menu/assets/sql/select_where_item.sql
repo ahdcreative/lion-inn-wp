@@ -1,3 +1,3 @@
-SELECT id, name FROM prefixplaceholder_item 
+SELECT id, name, description, price, vegetarian, gluten_free, subsection FROM prefixplaceholder_item 
 WHERE parent_section = fk_placeholder
 ORDER BY rank ASC;

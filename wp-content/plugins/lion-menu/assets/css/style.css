@@ -115,3 +115,14 @@ ol.nested-sortable i.fa-plus:hover {
     color: white;
 }
 
+.fs-10 {
+    font-size: 10pt;
+}
+.fs-14 {
+    font-size: 14pt;
+}
+
+img.icon {
+    height: 15px;
+    width: 15px;
+}
