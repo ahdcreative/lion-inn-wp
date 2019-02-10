@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if(!$menu_rankings) return;
         
-        // Update Database - set rank equal to it's turn ($i) in the $menu_rankings list
+        // Update Menu List - set rank equal to it's turn ($i) in the $menu_rankings list
         $i = 1;
         // Menu Rankings array is formatted as Array ( [0] => Array ( [id] => 1 ) [1] => Array ( [id] => 7 )...
         // So a double loop is needed to access the menu id's.
@@ -71,7 +71,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if(!$item_rankings) return;
         
-        // Update Database - set rank equal to it's turn in the $item_rankings list
+        // Update All Menu Item ranks 
+        // Update section ranks --> update item ranks for section --> update subitem ranks for item
         $secRank = 1;
         $itemRank = 1;
         $subItemRank = 1;
