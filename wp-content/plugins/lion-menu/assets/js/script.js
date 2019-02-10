@@ -23,13 +23,6 @@ jQuery(function($) {
         } 
     });
 
-    // Disable sortable list when icons are hovered over or clicked
-    $('.fa-edit').on('click mouseover', function () { $('ol.sortable').sortable('disable'); });
-    $('.fa-trash-alt').on('click mouseover', function () { $('ol.sortable').sortable('disable'); });
-    // Re-enable up release    
-    $('.fa-edit').on('mouseleave', function () { $('ol.sortable').sortable('enable'); });
-    $('.fa-trash-alt').on('mouseleave', function () { $('ol.sortable').sortable('enable'); });
-
     // When Edit Icon is clicked - retrieve parent data-id (menu id)
     // Set hidden input value 'edit' to this id so it knows which menu to update
     $(".edit").on("click", function() {
