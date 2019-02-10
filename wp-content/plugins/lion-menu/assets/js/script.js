@@ -23,19 +23,6 @@ jQuery(function($) {
         } 
     });
 
-    // When Edit Icon is clicked - retrieve parent data-id (menu id)
-    // Set hidden input value 'edit-menu' to this id so it knows which menu to update
-    $(".edit").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="edit-menu"]').val($parentListItemId);
-    });
-    // When Delete Icon is clicked - retrieve parent data-id (menu id)
-    // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
-    $(".delete").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="delete-menu"]').val($parentListItemId);
-    });
-
 
     // Nested Sortable Serialized List
     // Handles both list sides (i.e. sections on left and right side) as they are 2 separate lists.
@@ -69,6 +56,62 @@ jQuery(function($) {
             container.el.removeClass("active");
             _super($item, container);
         }
+    });
+
+
+    // When Edit Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'edit-menu' to this id so it knows which menu to update
+    $(".edit-menu").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="edit-menu"]').val($parentListItemId);
+    });
+    // When Delete Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
+    $(".delete-menu").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="delete-menu"]').val($parentListItemId);
+    });
+
+
+    // When Edit Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'edit-menu' to this id so it knows which menu to update
+    $(".edit-section").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="edit-section"]').val($parentListItemId);
+    });
+    // When Delete Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
+    $(".delete-section").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="delete-section"]').val($parentListItemId);
+    });
+
+
+    // When Edit Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'edit-menu' to this id so it knows which menu to update
+    $(".edit-item").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="edit-item"]').val($parentListItemId);
+    });
+    // When Delete Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
+    $(".delete-item").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="delete-item"]').val($parentListItemId);
+    });
+
+
+    // When Edit Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'edit-menu' to this id so it knows which menu to update
+    $(".edit-subitem").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="edit-subitem"]').val($parentListItemId);
+    });
+    // When Delete Icon is clicked - retrieve parent data-id (menu id)
+    // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
+    $(".delete-subitem").on("click", function() {
+        $parentListItemId = $(this).closest("li").data("id");
+        $('input[name="delete-subitem"]').val($parentListItemId);
     });
 
 });

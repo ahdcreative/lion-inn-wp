@@ -100,6 +100,11 @@ ol.nested-sortable i.fa-trash-alt:hover {
     color: red;
     cursor: pointer;
 }
+ol.sortable i.fa-plus:hover, 
+ol.nested-sortable i.fa-plus:hover {
+    color: green;
+    cursor: pointer;
+}
 
 
 /**

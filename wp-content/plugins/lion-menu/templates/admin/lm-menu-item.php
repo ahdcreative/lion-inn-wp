@@ -7,10 +7,10 @@
     <a href="admin.php?page=lm-menu-edit-subpage&menu_id=<?php echo $id ?>" class="ml-3"><?php echo $name; ?></a>
     <!-- Edit & Delete Icons -->
     <div class='float-right'>
-        <a href='#TB_inline?&width=400&height=300&inlineId=edit-menu-modal' class='thickbox button-link edit'>
+        <a href='#TB_inline?&width=400&height=300&inlineId=edit-menu-modal' class='thickbox button-link edit-menu'>
             <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit Name'></i>
         </a>
-        <a href='#TB_inline?&width=400&height=300&inlineId=delete-menu-modal' class='thickbox button-link delete'>
+        <a href='#TB_inline?&width=400&height=300&inlineId=delete-menu-modal' class='thickbox button-link delete-menu'>
             <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
         </a>
     </div>

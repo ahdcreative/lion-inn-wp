@@ -37,6 +37,68 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
+    // Edit Section
+    if(isset($_POST["edit-section"])) {
+        $db->update("section", array(
+                'name' => $_POST["section-name"]
+            ), 
+            array('id' => $_POST["edit-section"])
+        );
+        return;
+    }
+    // Delete Section
+    if(isset($_POST["delete-section"])) {
+        $db->delete("section", array(
+            'id' => $_POST["delete-section"]
+        ));
+        return;
+    }
+
+    // Add Menu
+    if(isset($_POST["add-item"])) {
+        $params = array(
+            'name' => $_POST["item-name"], 
+            'date_created' => current_time( 'mysql' ), 
+            'author' => get_current_user_id()
+        );
+
+        $db->insert("item", $params);
+        return;
+    }
+    // Edit Item
+    if(isset($_POST["edit-item"])) {
+        $db->update("item", array(
+                'name' => $_POST["item-name"]
+            ), 
+            array('id' => $_POST["edit-item"])
+        );
+        return;
+    }
+    // Delete Item
+    if(isset($_POST["delete-item"])) {
+        $db->delete("item", array(
+            'id' => $_POST["delete-item"]
+        ));
+        return;
+    }
+
+    // Edit Subitem
+    if(isset($_POST["edit-subitem"])) {
+        $db->update("subitem", array(
+                'name' => $_POST["subitem-name"]
+            ), 
+            array('id' => $_POST["edit-subitem"])
+        );
+        return;
+    }
+    // Delete Subitem
+    if(isset($_POST["delete-subitem"])) {
+        $db->delete("subitem", array(
+            'id' => $_POST["delete-subitem"]
+        ));
+        return;
+    }
+
     // Save Menu List on main Menu admin page (Mainly to Save Rankings / Menu Order)
     if(isset($_POST["rankings"])) {
         // Remove '\' from JSON string & decode / convert to array
