@@ -24,16 +24,16 @@ jQuery(function($) {
     });
 
     // When Edit Icon is clicked - retrieve parent data-id (menu id)
-    // Set hidden input value 'edit' to this id so it knows which menu to update
+    // Set hidden input value 'edit-menu' to this id so it knows which menu to update
     $(".edit").on("click", function() {
         $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="edit"]').val($parentListItemId);
+        $('input[name="edit-menu"]').val($parentListItemId);
     });
     // When Delete Icon is clicked - retrieve parent data-id (menu id)
-    // Set hidden input value 'delete' to this id so it knows which menu to delete
+    // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
     $(".delete").on("click", function() {
         $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="delete"]').val($parentListItemId);
+        $('input[name="delete-menu"]').val($parentListItemId);
     });
 
 

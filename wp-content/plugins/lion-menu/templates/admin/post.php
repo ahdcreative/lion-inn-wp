@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = new SQLManager();
 
     // Add Menu
-    if(isset($_POST["add"])) {
+    if(isset($_POST["add-menu"])) {
         $params = array(
             'name' => $_POST["menu-name"], 
             'date_created' => current_time( 'mysql' ), 
@@ -20,21 +20,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->insert("menu", $params);
         return;
     }
-
     // Edit Menu
-    if(isset($_POST["edit"])) {
+    if(isset($_POST["edit-menu"])) {
         $db->update("menu", array(
                 'name' => $_POST["menu-name"]
             ), 
-            array('id' => $_POST["edit"])
+            array('id' => $_POST["edit-menu"])
         );
         return;
     }
-
     // Delete Menu
-    if(isset($_POST["delete"])) {
+    if(isset($_POST["delete-menu"])) {
         $db->delete("menu", array(
-            'id' => $_POST["delete"]
+            'id' => $_POST["delete-menu"]
         ));
         return;
     }

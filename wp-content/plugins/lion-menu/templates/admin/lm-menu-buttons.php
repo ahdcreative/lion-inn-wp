@@ -7,6 +7,7 @@
     </form>
 
     <!-- Add Menu Button -->
+    <!-- Loads Add Menu Modal in lm-modals.php when clicked -->
     <button type="button" class="btn btn-lion-purple">
         <a href="#TB_inline?&width=400&height=300&inlineId=add-menu-modal" class="thickbox button-link">Add Menu</a>
     </button>
