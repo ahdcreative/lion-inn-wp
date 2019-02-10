@@ -61,7 +61,7 @@ jQuery(function($) {
             // Convert to string, remove outside [] as there are 2 of each
             var menu_item_ranks_json = JSON.stringify(menu_item_ranks, null, ' ');
 
-            console.log(menu_item_ranks_json);
+            // console.log(menu_item_ranks_json);
 
             // Set hidden input value to json ranks so it can be used in POST request
             $('input[name="menu_item_rankings"]').val(menu_item_ranks_json);

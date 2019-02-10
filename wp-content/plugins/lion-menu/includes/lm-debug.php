@@ -13,6 +13,9 @@ function log_me($message) {
     }
 }
 
+/**
+ * Print to console in browser dev tools
+ */
 function console_log($toPrint) {
     echo "<script>console.log('$toPrint');</script>";
 }

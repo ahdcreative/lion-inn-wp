@@ -191,7 +191,7 @@ class LionMenu {
             // Print Right Side
             $this->edit_menu_print_menu_side($sections, 1);
 
-            echo "</div>";            
+            echo "</div>";
         } else {
             echo "You have not selected a menu.  Please use the dropdown above.";
             return;

@@ -40,16 +40,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Save Menu List on main Menu admin page (Mainly to Save Rankings / Menu Order)
     if(isset($_POST["rankings"])) {
         // Remove '\' from JSON string & decode / convert to array
-        $rankings = str_replace("\\", "", $_POST["rankings"]);
-        $rankings = json_decode($rankings, true);
+        $menu_rankings = str_replace("\\", "", $_POST["rankings"]);
+        $menu_rankings = json_decode($menu_rankings, true);
 
-        if(!$rankings) return;
+        if(!$menu_rankings) return;
         
-        // Update Database - set rank equal to it's turn ($i) in the $rankings list
+        // Update Database - set rank equal to it's turn ($i) in the $menu_rankings list
         $i = 1;
-        // Rankings array is formatted as Array ( [0] => Array ( [id] => 1 ) [1] => Array ( [id] => 7 )...
+        // Menu Rankings array is formatted as Array ( [0] => Array ( [id] => 1 ) [1] => Array ( [id] => 7 )...
         // So a double loop is needed to access the menu id's.
-        foreach($rankings as $key => $value) {
+        foreach($menu_rankings as $key => $value) {
             foreach($value as $id => $rank) {
                 $db->update("menu", array(
                         'rank' => $i
@@ -58,7 +58,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
             }
             $i++;
-        }        
+        }
+
         return;
     }
 
@@ -70,22 +71,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if(!$item_rankings) return;
 
-        log_me($item_rankings);                
+        // log_me($item_rankings);
         
-        // Update Database - set rank equal to it's turn ($i) in the $rankings list
-        $i = 1;
-        // Rankings array is formatted as Array ( [0] => Array ( [id] => 1 ) [1] => Array ( [id] => 7 )...
-        // So a double loop is needed to access the menu id's.
-        // foreach($item_rankings as $key => $value) {
-        //     foreach($value as $id => $rank) {
-        //         $db->update("menu", array(
-        //                 'rank' => $i
-        //             ), 
-        //             array('id' => $rank)
-        //         );
-        //     }
-        //     $i++;
-        // }
+        // Update Database - set rank equal to it's turn in the $item_rankings list
+        $secRank = 1;
+        $itemRank = 1;
+        $subItemRank = 1;
+        // Item Rankings array is formatted as ...
+        // So a ... loop is needed to access all of the sub-elements
+        foreach($item_rankings as $key => $section) {
+
+            foreach($section as $sKey => $sValue) {
+                // log_me($sValue['name']);
+
+                $db->update("section", array(
+                        'rank' => $secRank
+                    ), 
+                    array('id' => $sValue['id'])
+                );
+
+                $secRank++;
+            }
+            
+        }
+
         return;
     }
 
