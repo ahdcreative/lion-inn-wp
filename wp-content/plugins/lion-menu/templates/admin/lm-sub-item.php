@@ -7,7 +7,7 @@
     <a href='#TB_inline?&width=400&height=300&inlineId=edit-subitem-modal' class='thickbox button-link edit-subitem'>
         <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
     </a>
-    <a href='#TB_inline?&width=400&height=300&inlineId=delete-subitem-modal' class='thickbox button-link delete-subitem'>
+    <a href='#TB_inline?&width=275&height=215&inlineId=delete-subitem-modal' class='thickbox button-link delete-subitem'>
         <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
     </a>
 </div>

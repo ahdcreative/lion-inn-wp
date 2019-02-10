@@ -12,7 +12,7 @@
     <a href='#TB_inline?&width=400&height=300&inlineId=edit-item-modal' class='thickbox button-link edit-item'>
         <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
     </a>
-    <a href='#TB_inline?&width=400&height=300&inlineId=delete-item-modal' class='thickbox button-link delete-item'>
+    <a href='#TB_inline?&width=275&height=215&inlineId=delete-item-modal' class='thickbox button-link delete-item'>
         <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
     </a>
 </div>

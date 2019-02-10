@@ -227,24 +227,32 @@ class LionMenu {
 
                 // Print Items in Section
                 $items = $this->db->get("item", $sec->id);
-                echo "<ol class='list-group'>";
-                foreach($items as $item) {
-                    echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
-                    // E.g. Soup, HEC, Pie
-                    echo $tpl->render( 'lm-item' , $item );
+                echo "<ol class='list-group my-2'>";
+                if(!$items) {
+                    echo "<i>No items.</i>";
+                } else {
+                    foreach($items as $item) {
+                        echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
+                        // E.g. Soup, HEC, Pie
+                        echo $tpl->render( 'lm-item' , $item );
 
-                    // If item has subitems, print them
-                    $subitems = $this->db->get("subitem", $item->id);
-                    echo "<ol class='list-group'>";
-                    foreach($subitems as $subitem) {
-                        echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
-                        // E.g. Cheese, Cajun Spice
-                        echo $tpl->render( 'lm-sub-item' , $subitem );
-                        echo "</li>"; // End subitem
+                        // If item has subitems, print them
+                        $subitems = $this->db->get("subitem", $item->id);
+                        echo "<ol class='list-group my-2'>";
+                        if(!$subitems) {
+                            echo "<i>No subitems.</i>";
+                        } else {
+                            foreach($subitems as $subitem) {
+                                echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
+                                // E.g. Cheese, Cajun Spice
+                                echo $tpl->render( 'lm-sub-item' , $subitem );
+                                echo "</li>"; // End subitem
+                            }
+                        }
+                        echo "</ol>"; // End subitem list 
+
+                        echo "</li>"; // End item
                     }
-                    echo "</ol>"; // End subitem list 
-
-                    echo "</li>"; // End item
                 }
                 echo "</ol>"; // End item list 
 
