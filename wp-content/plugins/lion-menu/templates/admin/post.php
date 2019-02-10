@@ -54,12 +54,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
-    // Add Menu
+    // Add Item
     if(isset($_POST["add-item"])) {
         $params = array(
             'name' => $_POST["item-name"], 
             'date_created' => current_time( 'mysql' ), 
-            'author' => get_current_user_id()
+            'author' => get_current_user_id(),
+            'parent_section' => $_POST["add-item"]
         );
 
         $db->insert("item", $params);
@@ -82,6 +83,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
+    // Add Subitem
+    if(isset($_POST["add-subitem"])) {
+        $params = array(
+            'name' => $_POST["subitem-name"], 
+            'date_created' => current_time( 'mysql' ), 
+            'author' => get_current_user_id(),
+            'parent_item' => $_POST["add-subitem"]
+        );
+
+        $db->insert("subitem", $params);
+        return;
+    }
     // Edit Subitem
     if(isset($_POST["edit-subitem"])) {
         $db->update("subitem", array(
