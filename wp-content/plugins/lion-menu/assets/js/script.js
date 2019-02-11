@@ -126,4 +126,17 @@ jQuery(function($) {
         $('input[name="delete-subitem"]').val($parentListItemId);
     });
 
+
+    // If Subsection Title checkbox is clicked, hide all other inputs
+    // $("#subsec-check").on("change", function() {
+    //     if($("#subsec-check").is(':checked')) {
+    //         $(".hideIfSubsec").hide();
+    //     } else {
+    //         $(".hideIfSubsec").show();
+    //     }
+    // });
+
+    // $('#subsec-check').click(function() {
+    //     $(".hideIfSubsec").toggle(this.checked);
+    // });
 });

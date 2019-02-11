@@ -60,6 +60,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'name' => $_POST["item-name"], 
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
+            'price' => $_POST["item-price"],
+            'description' => $_POST["item-desc"],
+            'vegetarian' => (isset($_POST["item-veg"]))?(1):(0),
+            'gluten_free' => (isset($_POST["item-gf"]))?(1):(0),
+            'subsection' => (isset($_POST["item-subsec"]))?(1):(0),
             'parent_section' => $_POST["add-item"]
         );
 
@@ -89,6 +94,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'name' => $_POST["subitem-name"], 
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
+            'price' => $_POST["subitem-price"],
             'parent_item' => $_POST["add-subitem"]
         );
 

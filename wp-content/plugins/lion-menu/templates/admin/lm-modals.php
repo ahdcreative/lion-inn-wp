@@ -61,23 +61,87 @@
 <!-- Add Item Modal -->
 <div id="add-item-modal" style="display:none;">
 
-    <form action="#" method="post">
-        <h1>Item Name:</h1>
-        <input type="text" name="item-name" /> <br/>
+    <form action="#" method="post" class="p-3">
+        <h3>Add Item</h3>
         <input type="hidden" name="add-item" /> <br/>
-        <input type="submit" value="Add" class="btn btn-success" />
+        <div class="form-group row">
+            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="item-name-input" name="item-name" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="subsec-check">
+            <label class="form-check-label" for="subsec-check">Subsection Title</label>
+        </div>
+        <div class="form-group row">
+            <label for="price-input" class="col-4 col-form-label">Price:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="price-input" name="item-price" placeholder="0.00">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="desc-input">Description:</label>
+            <textarea class="form-control" id="desc-input" name="item-desc" rows="3"></textarea>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" name="item-veg" id="veg-check">
+            <label class="form-check-label" for="veg-check">Vegetarian</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
+            <label class="form-check-label" for="gf-check">Gluten Free</label>
+        </div>
+        <div class="form-group d-flex row mt-4">
+            <div class="ml-auto">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>        
     </form>
 
 </div>
 
 <!-- Edit Item Modal -->
 <div id="edit-item-modal" style="display:none;">
-    
-    <form action="#" method="post">
-        <h1>Edit Item Name: </h1>
-        <input type="text" name="item-name" /> <br/>
+
+    <form action="#" method="post" class="p-3">
+        <h3>Edit Item</h3>
         <input type="hidden" name="edit-item" /> <br/>
-        <input type="submit" value="Save" class="btn btn-success" />
+        <div class="form-group row">
+            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="item-name-input" name="item-name" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="subsec-check">
+            <label class="form-check-label" for="subsec-check">Subsection Title</label>
+        </div>
+        <div class="form-group row hideIfSubsec">
+            <label for="price-input" class="col-4 col-form-label">Price:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="price-input" name="item-price" placeholder="0.00">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="desc-input">Description:</label>
+            <textarea class="form-control" id="desc-input" name="item-desc" rows="3"></textarea>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" name="item-veg" id="veg-check">
+            <label class="form-check-label" for="veg-check">Vegetarian</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
+            <label class="form-check-label" for="gf-check">Gluten Free</label>
+        </div>
+        <div class="form-group d-flex row mt-4">
+            <div class="ml-auto">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>        
     </form>
 
 </div>
@@ -96,23 +160,55 @@
 <!-- Add Subitem Modal -->
 <div id="add-subitem-modal" style="display:none;">
 
-    <form action="#" method="post">
-        <h1>Item Name:</h1>
-        <input type="text" name="subitem-name" /> <br/>
+    <form action="#" method="post" class="p-3">
+        <h3>Add Subitem</h3>
         <input type="hidden" name="add-subitem" /> <br/>
-        <input type="submit" value="Add" class="btn btn-success" />
+        <div class="form-group row">
+            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="item-name-input" name="subitem-name" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="price-input" class="col-4 col-form-label">Price:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="price-input" name="subitem-price" placeholder="0.00">
+            </div>
+        </div>
+        <div class="form-group d-flex row mt-4">
+            <div class="ml-auto">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>        
     </form>
 
 </div>
 
 <!-- Edit Subitem Modal -->
 <div id="edit-subitem-modal" style="display:none;">
-    
-    <form action="#" method="post">
-        <h1>Edit Subitem Name: </h1>
-        <input type="text" name="subitem-name" /> <br/>
+
+    <form action="#" method="post" class="p-3">
+        <h3>Edit Subitem</h3>
         <input type="hidden" name="edit-subitem" /> <br/>
-        <input type="submit" value="Save" class="btn btn-success" />
+        <div class="form-group row">
+            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="subitem-name-input" name="item-name" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="price-input" class="col-4 col-form-label">Price:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="price-input" name="subitem-price" placeholder="0.00">
+            </div>
+        </div>
+        <div class="form-group d-flex row mt-4">
+            <div class="ml-auto">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>        
     </form>
 
 </div>
