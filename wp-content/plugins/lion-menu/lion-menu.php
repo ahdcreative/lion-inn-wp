@@ -232,14 +232,21 @@ class LionMenu {
                     echo "<i class='fs-10'>No items.</i>";
                 } else {
                     foreach($items as $item) {
-                        echo "<li class='list-group-item list-group-item-action' data-id='$item->id' data-name='$item->name'>";
+                        
+                        // Change item bg colour to purple if needed
+                        $bgColour = '';
+                        if($item->subsection) {
+                            $bgColour = 'purpleBg';
+                        }
+
+                        echo "<li class='list-group-item list-group-item-action $bgColour' data-id='$item->id' data-name='$item->name'>";
                         // E.g. Soup, HEC, Pie
                         echo $tpl->render( 'lm-item' , $item );
 
                         // If item has subitems, print them
                         $subitems = $this->db->get("subitem", $item->id);
                         echo "<ol class='list-group'>";
-                        if(!$subitems) {
+                        if(!$subitems && !$item->subsection) {
                             echo "<i class='fs-10'>No subitems.</i>";
                         } else {
                             foreach($subitems as $subitem) {

@@ -3,7 +3,7 @@
 <!-- Hamburger -->
 <i class="fas fa-bars"></i>
 <!-- Menu Name -->
-<span class="ml-3"><?php echo $name; ?></span>
+<span class="ml-3 item-name"><?php echo $name; ?></span>
 <!-- Edit & Delete Icons - MORE ICONS WILL NEED TO GO HERE FOR THE OTHER FUNCTIONALITY -->
 <div class='float-right'>
     <a href='#TB_inline?&width=550&height=300&inlineId=add-subitem-modal' class='thickbox button-link add-subitem'>
@@ -18,22 +18,33 @@
 </div>
 
 <!-- Description -->
-<div class="row ml-3">
+<div class="row ml-3 desc">
     <i class="ml-3 fs-10"><?php echo $description; ?></i>
 </div>
 
 <!-- Veggie, Gluten and Price -->
-<div class="row ml-3 d-flex w-75">
-    <div class="ml-3">
+<div class="row ml-3 d-flex w-75 veg-gf-price">
+    <div class="ml-3 veg-gf">
         <?php 
         if($vegetarian) {
-            echo "<img class='mx-2 icon' src='". plugins_url() . '/lion-menu/assets/images/vegetarian.png' . "' alt='Image of Vegetarian Icon' />";
+            echo "<img class='mx-2 icon veg-icon' src='". plugins_url() . '/lion-menu/assets/images/vegetarian.png' . "' alt='Image of Vegetarian Icon' />";
         }
         if($gluten_free) {
-            echo "<img class='mx-2 icon' src='". plugins_url() . '/lion-menu/assets/images/gluten-free.png' . "' alt='Image of Gluten Free Icon' />";
+            echo "<img class='mx-2 icon gf-icon' src='". plugins_url() . '/lion-menu/assets/images/gluten-free.png' . "' alt='Image of Gluten Free Icon' />";
         } 
         ?>
     </div>
 
-    <p class="fs-14 ml-auto">£<?php echo $price; ?></p>
+    <?php 
+    if((!is_null($price)) && ($price !== "0.00")) {
+        echo "<p class='fs-14 ml-auto price'>£$price</p>";
+    }
+    ?>
 </div>
+
+<!-- Hidden isSubsection - Needed for Form Autofill -->
+<?php
+if($subsection) {
+    echo "<span class='isSubsec' hidden></span>";
+}
+?>

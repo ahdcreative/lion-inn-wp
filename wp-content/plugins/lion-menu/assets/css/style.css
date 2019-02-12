@@ -110,9 +110,9 @@ ol.nested-sortable i.fa-plus:hover {
 /**
  * Edit Menu Page
  */
-.btn-lion-purple {
-    background-color: #673ab7;
-    color: white;
+.btn-lion-purple, .purpleBg {
+    background-color: #673ab7 !important;
+    color: white !important;
 }
 
 .fs-10 {

@@ -71,24 +71,24 @@
             </div>
         </div>
         <div class="form-check form-check-inline mb-3">
-            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="subsec-check">
-            <label class="form-check-label" for="subsec-check">Subsection Title</label>
+            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="add-subsec-check">
+            <label class="form-check-label" for="add-subsec-check">Subsection Title</label>
         </div>
-        <div class="form-group row">
+        <div class="form-group row hideIfSubsec">
             <label for="price-input" class="col-4 col-form-label">Price:</label>
             <div class="col-8">
                 <input type="text" class="form-control" id="price-input" name="item-price" placeholder="0.00">
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group hideIfSubsec">
             <label for="desc-input">Description:</label>
             <textarea class="form-control" id="desc-input" name="item-desc" rows="3"></textarea>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline hideIfSubsec">
             <input class="form-check-input" type="checkbox" value="" name="item-veg" id="veg-check">
             <label class="form-check-label" for="veg-check">Vegetarian</label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline hideIfSubsec">
             <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
             <label class="form-check-label" for="gf-check">Gluten Free</label>
         </div>
@@ -115,8 +115,8 @@
             </div>
         </div>
         <div class="form-check form-check-inline mb-3">
-            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="subsec-check">
-            <label class="form-check-label" for="subsec-check">Subsection Title</label>
+            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="edit-subsec-check">
+            <label class="form-check-label" for="edit-subsec-check">Subsection Title</label>
         </div>
         <div class="form-group row hideIfSubsec">
             <label for="price-input" class="col-4 col-form-label">Price:</label>
@@ -124,22 +124,22 @@
                 <input type="text" class="form-control" id="price-input" name="item-price" placeholder="0.00">
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group hideIfSubsec">
             <label for="desc-input">Description:</label>
             <textarea class="form-control" id="desc-input" name="item-desc" rows="3"></textarea>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline hideIfSubsec">
             <input class="form-check-input" type="checkbox" value="" name="item-veg" id="veg-check">
             <label class="form-check-label" for="veg-check">Vegetarian</label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline hideIfSubsec">
             <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
             <label class="form-check-label" for="gf-check">Gluten Free</label>
         </div>
         <div class="form-group d-flex row mt-4">
             <div class="ml-auto">
                 <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Add" class="btn btn-success" />
+                <input type="submit" value="Update" class="btn btn-success" />
             </div>
         </div>        
     </form>

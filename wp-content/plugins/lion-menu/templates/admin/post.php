@@ -74,7 +74,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Item
     if(isset($_POST["edit-item"])) {
         $db->update("item", array(
-                'name' => $_POST["item-name"]
+                'name' => $_POST["item-name"],
+                'date_updated' => current_time( 'mysql' ), 
+                'editor' => get_current_user_id(),
+                'price' => $_POST["item-price"],
+                'description' => $_POST["item-desc"],
+                'vegetarian' => (isset($_POST["item-veg"]))?(1):(0),
+                'gluten_free' => (isset($_POST["item-gf"]))?(1):(0),
+                'subsection' => (isset($_POST["item-subsec"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-item"])
         );

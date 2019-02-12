@@ -89,15 +89,50 @@ jQuery(function($) {
 
     // When Add Icon is clicked - retrieve parent data-id (item id)
     // Set hidden input value 'add-item' to this id so it knows which section to add the item to
+    // Ensure form values are already empty
     $(".add-item").on("click", function() {
         $parentListItemId = $(this).closest("li").data("id");
         $('input[name="add-item"]').val($parentListItemId);
+        
+        $('input[name="edit-item"]').val('');
+        $('input[name="item-name"]').val('');
+        $('input[name="item-subsec"]').prop('checked', false);
+        $('input[name="item-price"]').val('');
+        $('textarea[name="item-desc"]').val('');
+        $('input[name="item-veg"]').prop('checked', false);
+        $('input[name="item-gf"]').prop('checked', false);
     });
     // When Edit Icon is clicked - retrieve parent data-id (item id)
     // Set hidden input value 'edit-item' to this id so it knows which item to update
+    // Set existent values of menu item to values on the edit form
     $(".edit-item").on("click", function() {
         $parentListItemId = $(this).closest("li").data("id");
         $('input[name="edit-item"]').val($parentListItemId);
+        
+        $itemName = $(this).parent().siblings(".item-name").text();
+        $('input[name="item-name"]').val($itemName);
+
+        $subsec = ($(this).parent().siblings(".isSubsec").length)?(1):(0);
+        ($subsec)?($('input[name="item-subsec"]').prop('checked', true)):($('input[name="item-subsec"]').prop('checked', false));
+
+        // If item is a subsection, hide all of the other form fields
+        if($subsec) {
+            $(".hideIfSubsec").hide(this.unchecked);
+        } else {
+            $(".hideIfSubsec").show(this.unchecked);
+            
+            $price = $(this).parent().siblings(".veg-gf-price").children(".price").text();
+            $('input[name="item-price"]').val($price);
+
+            $desc = $(this).parent().siblings(".desc").children("i").text();
+            $('textarea[name="item-desc"]').val($desc);
+
+            $veg = ($(this).parent().siblings(".veg-gf-price").children(".veg-gf").children(".veg-icon").length)?(1):(0);
+            ($veg)?($('input[name="item-veg"]').prop('checked', true)):($('input[name="item-veg"]').prop('checked', false));
+
+            $gf = ($(this).parent().siblings(".veg-gf-price").children(".veg-gf").children(".gf-icon").length)?(1):(0);
+            ($gf)?($('input[name="item-gf"]').prop('checked', true)):($('input[name="item-gf"]').prop('checked', false));
+        }
     });
     // When Delete Icon is clicked - retrieve parent data-id (item id)
     // Set hidden input value 'delete-item' to this id so it knows which item to delete
@@ -128,15 +163,11 @@ jQuery(function($) {
 
 
     // If Subsection Title checkbox is clicked, hide all other inputs
-    // $("#subsec-check").on("change", function() {
-    //     if($("#subsec-check").is(':checked')) {
-    //         $(".hideIfSubsec").hide();
-    //     } else {
-    //         $(".hideIfSubsec").show();
-    //     }
-    // });
-
-    // $('#subsec-check').click(function() {
-    //     $(".hideIfSubsec").toggle(this.checked);
-    // });
+    $('#add-subsec-check').click(function() {
+        $(".hideIfSubsec").toggle(this.unchecked);
+    });
+    $('#edit-subsec-check').click(function() {
+        $(".hideIfSubsec").toggle(this.unchecked);
+    });
+    
 });
