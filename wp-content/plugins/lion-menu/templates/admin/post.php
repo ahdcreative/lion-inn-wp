@@ -111,7 +111,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Subitem
     if(isset($_POST["edit-subitem"])) {
         $db->update("subitem", array(
-                'name' => $_POST["subitem-name"]
+                'name' => $_POST["subitem-name"],
+                'date_updated' => current_time( 'mysql' ), 
+                'editor' => get_current_user_id(),
+                'price' => $_POST["subitem-price"]
             ), 
             array('id' => $_POST["edit-subitem"])
         );

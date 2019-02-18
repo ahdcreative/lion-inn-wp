@@ -153,6 +153,12 @@ jQuery(function($) {
     $(".edit-subitem").on("click", function() {
         $parentListItemId = $(this).closest("li").data("id");
         $('input[name="edit-subitem"]').val($parentListItemId);
+
+        $subitemName = $(this).parent().siblings(".subitem-name").text();
+        $('input[name="subitem-name"]').val($subitemName);
+
+        $subitemPrice = $(this).parent().siblings(".sub-price").children(".subitem-price").text();
+        $('input[name="subitem-price"]').val($subitemPrice);
     });
     // When Delete Icon is clicked - retrieve parent data-id (subitem id)
     // Set hidden input value 'delete-menu' to this id so it knows which subitem to delete

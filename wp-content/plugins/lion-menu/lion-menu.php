@@ -239,6 +239,9 @@ class LionMenu {
                             $bgColour = 'purpleBg';
                         }
 
+                        // (isset($_POST["item-veg"]))?(1):(0)
+                        // $bgColour = ($item->subsection)?('purpleBg'):('')
+
                         echo "<li class='list-group-item list-group-item-action $bgColour' data-id='$item->id' data-name='$item->name'>";
                         // E.g. Soup, HEC, Pie
                         echo $tpl->render( 'lm-item' , $item );
