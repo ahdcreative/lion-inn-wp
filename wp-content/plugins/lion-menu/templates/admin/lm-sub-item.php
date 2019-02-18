@@ -3,18 +3,16 @@
 <!-- Subitem Name -->
 <span class="ml-3 subitem-name"><?php echo $name; ?></span>
 <!-- Subitem Price -->
-<div class="sub-price">
-    <?php 
-    if((!is_null($price)) && ($price !== "0.00")) {
-        $price = number_format((float) $price, 2);
-        if($price >= 1.00) {
-            echo "<p class='fs-10 subitem-price'>£$price</p>";
-        } else {
-            echo "<p class='fs-10 subitem-price'>$price p</p>";
-        }
+<?php 
+if((!is_null($price)) && ($price !== "0.00")) {
+    $price = number_format((float) $price, 2);
+    if($price >= 1.00) {
+        echo "<span class='fs-10 ml-3 subitem-price'>£$price</span>";
+    } else {
+        echo "<span class='fs-10 ml-3 subitem-price'>$price<span>p</span></span>";
     }
-    ?>
-</div>
+}
+?>
 <!-- Edit & Delete Icons - MORE ICONS WILL NEED TO GO HERE FOR THE OTHER FUNCTIONALITY -->
 <div class='float-right'>
     <a href='#TB_inline?&width=550&height=300&inlineId=edit-subitem-modal' class='thickbox button-link edit-subitem'>

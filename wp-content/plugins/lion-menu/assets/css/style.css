@@ -126,3 +126,7 @@ img.icon {
     height: 15px;
     width: 15px;
 }
+
+.subitem-price {
+    color: #673ab7 !important;
+}

@@ -157,7 +157,7 @@ jQuery(function($) {
         $subitemName = $(this).parent().siblings(".subitem-name").text();
         $('input[name="subitem-name"]').val($subitemName);
 
-        $subitemPrice = $(this).parent().siblings(".sub-price").children(".subitem-price").text();
+        $subitemPrice = $(this).parent().siblings(".subitem-price").text();
         $('input[name="subitem-price"]').val($subitemPrice);
     });
     // When Delete Icon is clicked - retrieve parent data-id (subitem id)
