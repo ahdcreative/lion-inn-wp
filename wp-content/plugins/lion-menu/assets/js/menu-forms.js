@@ -6,32 +6,37 @@
  * $(itemClicked) {what to do when clicked}
  */
 jQuery(function($) {
+
+    /**
+     * Set hidden form variables to their parent list item's ID
+     * to be used when inserting / updating items.
+     */
+    function setPostVar($inputName, $caller) {
+        $parentListItemId = $($caller).closest("li").data("id");
+        $('input[name='+$inputName+']').val($parentListItemId);
+    }
     
     // When Edit Icon is clicked - retrieve parent data-id (menu id)
     // Set hidden input value 'edit-menu' to this id so it knows which menu to update
     $(".edit-menu").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="edit-menu"]').val($parentListItemId);
+        setPostVar("edit-menu", this);
     });
     // When Delete Icon is clicked - retrieve parent data-id (menu id)
     // Set hidden input value 'delete-menu' to this id so it knows which menu to delete
     $(".delete-menu").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="delete-menu"]').val($parentListItemId);
+        setPostVar("delete-menu", this);
     });
 
 
     // When Edit Icon is clicked - retrieve parent data-id (section id)
     // Set hidden input value 'edit-section' to this id so it knows which section to update
     $(".edit-section").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="edit-section"]').val($parentListItemId);
+        setPostVar("edit-section", this);
     });
     // When Delete Icon is clicked - retrieve parent data-id (section id)
     // Set hidden input value 'delete-section' to this id so it knows which section to delete
     $(".delete-section").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="delete-section"]').val($parentListItemId);
+        setPostVar("delete-section", this);
     });
 
 
@@ -39,8 +44,7 @@ jQuery(function($) {
     // Set hidden input value 'add-item' to this id so it knows which section to add the item to
     // Ensure form values are already empty
     $(".add-item").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="add-item"]').val($parentListItemId);
+        setPostVar("add-item", this);
         
         $('input[name="edit-item"]').val('');
         $('input[name="item-name"]').val('');
@@ -54,8 +58,7 @@ jQuery(function($) {
     // Set hidden input value 'edit-item' to this id so it knows which item to update
     // Set existent values of menu item to values on the edit form
     $(".edit-item").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="edit-item"]').val($parentListItemId);
+        setPostVar("edit-item", this);
         
         $itemName = $(this).parent().siblings(".item-name").text();
         $('input[name="item-name"]').val($itemName);
@@ -85,22 +88,19 @@ jQuery(function($) {
     // When Delete Icon is clicked - retrieve parent data-id (item id)
     // Set hidden input value 'delete-item' to this id so it knows which item to delete
     $(".delete-item").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="delete-item"]').val($parentListItemId);
+        setPostVar("delete-item", this);
     });
 
 
     // When Add Icon is clicked - retrieve parent data-id (item id)
     // Set hidden input value 'add-subitem' to this id so it knows which item to add the subitem to
     $(".add-subitem").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="add-subitem"]').val($parentListItemId);
+        setPostVar("add-subitem", this);
     });
     // When Edit Icon is clicked - retrieve parent data-id (subitem id)
     // Set hidden input value 'edit-menu' to this id so it knows which subitem to update
     $(".edit-subitem").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="edit-subitem"]').val($parentListItemId);
+        setPostVar("edit-subitem", this);
 
         $subitemName = $(this).parent().siblings(".subitem-name").text();
         $('input[name="subitem-name"]').val($subitemName);
@@ -111,8 +111,7 @@ jQuery(function($) {
     // When Delete Icon is clicked - retrieve parent data-id (subitem id)
     // Set hidden input value 'delete-menu' to this id so it knows which subitem to delete
     $(".delete-subitem").on("click", function() {
-        $parentListItemId = $(this).closest("li").data("id");
-        $('input[name="delete-subitem"]').val($parentListItemId);
+        setPostVar("delete-subitem", this);
     });
 
 
