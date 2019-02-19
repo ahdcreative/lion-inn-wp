@@ -180,6 +180,8 @@ class LionMenu {
             $current_menu = $this->db->get( 'menu', $_GET["menu_id"] );
             $curr = $current_menu[0];
             echo "<h1>$curr->name</h1>";
+
+            
             
             $sections = $this->db->get("section", $_GET["menu_id"]);
 
@@ -233,14 +235,8 @@ class LionMenu {
                 } else {
                     foreach($items as $item) {
                         
-                        // Change item bg colour to purple if needed
-                        $bgColour = '';
-                        if($item->subsection) {
-                            $bgColour = 'purpleBg';
-                        }
-
-                        // (isset($_POST["item-veg"]))?(1):(0)
-                        // $bgColour = ($item->subsection)?('purpleBg'):('')
+                        // Change item bg colour to purple if item is a subsection title
+                        $bgColour = ($item->subsection)?('purpleBg'):('');
 
                         echo "<li class='list-group-item list-group-item-action $bgColour' data-id='$item->id' data-name='$item->name'>";
                         // E.g. Soup, HEC, Pie

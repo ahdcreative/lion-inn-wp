@@ -2,10 +2,20 @@
 <div id="add-menu-modal" style="display:none;">
 
     <form action="#" method="post">
-        <h1>Menu Name:</h1>
-        <input type="text" name="menu-name" /> <br/>
-        <input type="hidden" name="add-menu" /> <br/>
-        <input type="submit" value="Add" class="btn btn-success" />
+        <h3 class="mb-4">Menu Name: </h3>
+        <div class="form-group row">
+            <label for="menu-name-input" class="col-4 col-form-label">Menu Name:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="menu-name-input" name="menu-name" placeholder="Enter Name"/> 
+            </div>
+        </div>
+        <input type="hidden" name="add-menu" /> 
+        <div class="form-group d-flex row">
+            <div class="ml-auto">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>
     </form>
 
 </div>
@@ -43,6 +53,27 @@
 
 </div>
 
+<!-- Add Section Modal -->
+<div id="add-section-modal" style="display:none;">
+
+    <form action="#" method="post">
+        <h3 class="mb-4">Section Name: </h3>
+        <div class="form-group row">
+            <label for="section-name-input" class="col-4 col-form-label">Section Name:</label>
+            <div class="col-8">
+                <input type="text" class="form-control" id="section-name-input" name="section-name" placeholder="Enter Name"/> 
+            </div>
+        </div>
+        <input type="hidden" name="add-section" /> 
+        <div class="form-group d-flex row">
+            <div class="ml-auto">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>
+    </form>
+
+</div>
 
 <!-- Edit Section Modal -->
 <div id="edit-section-modal" style="display:none;">
