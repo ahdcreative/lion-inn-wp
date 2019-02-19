@@ -90,7 +90,8 @@ class LionMenu {
         wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
 
         // Add Custom Javascript
-        wp_enqueue_script('lm-script', plugins_url() . '/lion-menu/assets/js/script.js', array('jquery'));
+        wp_enqueue_script('lm-forms', plugins_url() . '/lion-menu/assets/js/menu-forms.js', array('jquery'));
+        wp_enqueue_script('lm-lists', plugins_url() . '/lion-menu/assets/js/custom-lists.js', array('jquery'));
 
         // Add Bootstrap CSS & JS & PopperJS
         wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
