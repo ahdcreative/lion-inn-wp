@@ -37,6 +37,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
+    // Add Menu
+    if(isset($_POST["add-section"])) {
+        $params = array(
+            'name' => $_POST["section-name"], 
+            'date_created' => current_time( 'mysql' ), 
+            'author' => get_current_user_id(),
+            'parent_menu' => $_GET["menu_id"]
+        );
+
+        $db->insert("section", $params);
+        return;
+    }
     // Edit Section
     if(isset($_POST["edit-section"])) {
         $db->update("section", array(
