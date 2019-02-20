@@ -109,6 +109,7 @@ class LionMenu {
     public function admin_menu_pages() {
         add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ) );
         add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
+        add_submenu_page( 'lm-menu-page', 'Quick Add Subpage', 'Quick Add', 'manage_options', 'lm-quick-add-subpage', array( $this, 'quick_add_init' ) );
     }
     
     /**
@@ -149,7 +150,7 @@ class LionMenu {
 
     /**
      * Subpage: Edit a Menu
-     * Accessed when a menu is selected from the Admin Page
+     * Accessed when a menu is selected from the Admin Page or subpage is selected from menu
      */
     public function edit_menu_init() {
 
@@ -258,16 +259,89 @@ class LionMenu {
                             }
                         }
                         echo "</ol>"; // End subitem list 
-
                         echo "</li>"; // End item
                     }
                 }
                 echo "</ol>"; // End item list 
-
                 echo "</li>"; // End section
             }
         }
         echo "</ol><br/>"; // End section list
+    }
+
+    /**
+     * Subpage: Quick Add
+     * Accessed from side menu.  Used to quickly add menu items.
+     */
+    public function quick_add_init() {
+
+        $tpl = new Template( __DIR__ . '/templates/admin' );
+
+        // Render POST request handlers
+        echo $tpl->render( 'post' );
+
+        // Add Modal Support & Render Modals
+        add_thickbox();
+        echo $tpl->render( 'lm-modals' );
+
+        // Render Title and Desc
+        $data = array ('title' => 'Quick Add', 'desc' => "Use this page to quickly add menu items.");
+        echo $tpl->render( 'lm-header', $data );
+
+        // Quick Add Menu 
+        echo "<h3>Add Menu</h3><br/>";
+        echo "
+            <form class='form-inline bg-light p-3 w-50'>
+                <div class='form-group'>
+                    <label for='menu-name-input' class='col-form-label'>Menu Name:</label>
+                    <input type='text' class='form-control mx-3' id='menu-name-input' name='menu-name' placeholder='Enter Name'/> 
+                </div>
+                <input type='hidden' name='add-menu' /> 
+                <div class='form-group'>
+                    <button type='reset' class='btn btn-outline-secondary mx-2'>Reset</button>
+                    <input type='submit' value='Add' class='btn btn-success' />
+                </div>
+            </form>
+            <br/>
+        ";
+
+        // Quick Add Section
+        $menus = $this->db->get( 'menu' );
+        echo "<h3>Add Section</h3>";
+        echo "
+            <form class='form-inline bg-light p-3 w-50'>
+                <div class='form-group'>
+                    <label for='section-name-input' class='col-form-label'>Section Name:</label>
+                    <input type='text' class='form-control mx-3' id='section-name-input' name='section-name' placeholder='Enter Name'/> 
+                </div>
+                <div class='form-group'>
+                    <label for='section-name-input' class='col-form-label'>Menu:</label>
+                    <select class='form-control mx-3' name='menu-name-dropdown'>                        
+                        <option>-- Select Menu --</option>
+                    ";
+
+                    foreach($menus as $menu) {
+                        echo "<option value='$menu->id'>$menu->name</option>";
+                    }
+
+        echo " 
+                </select><br/>
+                </div>
+                <input type='hidden' name='add-section' /> 
+                <div class='form-group'>
+                    <button type='reset' class='btn btn-outline-secondary mx-2'>Reset</button>
+                    <input type='submit' value='Add' class='btn btn-success' />
+                </div>
+            </form>
+            <br/>
+        ";
+
+        // Quick Add Item 
+        echo "<h3>Add Item</h3>";
+
+        // Quick Add Subitem 
+        echo "<h3>Add Subitem</h3>";
+        
     }
         
 
