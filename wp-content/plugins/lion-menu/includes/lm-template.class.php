@@ -32,7 +32,7 @@ class Template {
 	function set_folder( $folder ){
 		// normalize the internal folder value by removing any final slashes
 		$this->folder = $this->folder = rtrim( $folder, '/' );
-    }
+	}
     
 	/**
 	 * Find and attempt to render a template with variables
@@ -49,7 +49,7 @@ class Template {
 			$output = $this->render_template( $template, $variables );
 		}
 		return $output;
-    }
+	}
     
 	/**
 	 * Look for the first template suggestion
@@ -72,7 +72,7 @@ class Template {
 			}
 		}
 		return $found;
-    }
+	}
     
 	/**
 	 * Execute the template by extracting the variables into scope, and including
