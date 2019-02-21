@@ -90,8 +90,9 @@ class LionMenu {
         wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
 
         // Add Custom Javascript
-        wp_enqueue_script('lm-forms', plugins_url() . '/lion-menu/assets/js/menu-forms.js', array('jquery'));
+        wp_enqueue_script('lm-edit-menu', plugins_url() . '/lion-menu/assets/js/edit-menu.js', array('jquery'));
         wp_enqueue_script('lm-lists', plugins_url() . '/lion-menu/assets/js/custom-lists.js', array('jquery'));
+        wp_enqueue_script('lm-quick-add', plugins_url() . '/lion-menu/assets/js/quick-add.js', array('jquery'));
 
         // Add Bootstrap CSS & JS & PopperJS
         wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
@@ -289,31 +290,23 @@ class LionMenu {
         echo $tpl->render( 'lm-header', $data );
 
         // Quick Add Menu 
-        echo "<h3>Add Menu</h3><br/>";
-        echo "
+        echo "<h3>Add Menu</h3>
             <form class='form-inline bg-light p-3 w-50'>
-                <div class='form-group'>
-                    <label for='menu-name-input' class='col-form-label'>Menu Name:</label>
-                    <input type='text' class='form-control mx-3' id='menu-name-input' name='menu-name' placeholder='Enter Name'/> 
-                </div>
-                <input type='hidden' name='add-menu' /> 
-                <div class='form-group'>
-                    <button type='reset' class='btn btn-outline-secondary mx-2'>Reset</button>
-                    <input type='submit' value='Add' class='btn btn-success' />
-                </div>
-            </form>
-            <br/>
+            <input type='hidden' name='add-menu' />
         ";
+        echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
+        echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
+        echo "</form><br/>";
 
         // Quick Add Section
         $menus = $this->db->get( 'menu' );
-        echo "<h3>Add Section</h3>";
-        echo "
+        echo "<h3>Add Section</h3>
             <form class='form-inline bg-light p-3 w-50'>
-                <div class='form-group'>
-                    <label for='section-name-input' class='col-form-label'>Section Name:</label>
-                    <input type='text' class='form-control mx-3' id='section-name-input' name='section-name' placeholder='Enter Name'/> 
-                </div>
+            <input type='hidden' name='add-section' />
+        ";
+        echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
+        
+        echo "
                 <div class='form-group'>
                     <label for='section-name-input' class='col-form-label'>Menu:</label>
                     <select class='form-control mx-3' name='menu-name-dropdown'>                        
@@ -325,16 +318,11 @@ class LionMenu {
                     }
 
         echo " 
-                </select><br/>
-                </div>
-                <input type='hidden' name='add-section' /> 
-                <div class='form-group'>
-                    <button type='reset' class='btn btn-outline-secondary mx-2'>Reset</button>
-                    <input type='submit' value='Add' class='btn btn-success' />
-                </div>
-            </form>
-            <br/>
+            </select><br/>
+            </div>
         ";
+        echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
+        echo "</form><br/>";
 
         // Quick Add Item 
         $menus = $this->db->get( 'menu' );
