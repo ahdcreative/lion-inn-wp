@@ -1,18 +1,11 @@
-<?php
-    $tpl = new Template( __DIR__ );
-?>
+<?php $tpl = new Template( __DIR__ ); ?>
 
 <!-- Add Menu Modal -->
 <div id="add-menu-modal" style="display:none;">
 
     <form action="#" method="post">
         <h3 class="mb-4">Menu Name: </h3>
-        <div class="form-group row">
-            <label for="menu-name-input" class="col-4 col-form-label">Menu Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="menu-name-input" name="menu-name" placeholder="Enter Name"/> 
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name" )); ?>
         <input type="hidden" name="add-menu" /> 
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>
     </form>
@@ -24,12 +17,7 @@
     
     <form action="#" method="post">
         <h3 class="mb-4">Edit Menu Name: </h3>
-        <div class="form-group row">
-            <label for="menu-name-input" class="col-4 col-form-label">Menu Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="menu-name-input" name="menu-name" placeholder="Enter Name"/> 
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name" )); ?>
         <input type="hidden" name="edit-menu" />
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>
     </form>
@@ -52,12 +40,7 @@
 
     <form action="#" method="post">
         <h3 class="mb-4">Section Name: </h3>
-        <div class="form-group row">
-            <label for="section-name-input" class="col-4 col-form-label">Section Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="section-name-input" name="section-name" placeholder="Enter Name"/> 
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name" )); ?>
         <input type="hidden" name="add-section" /> 
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>
     </form>
@@ -69,12 +52,7 @@
 
     <form action="#" method="post">
         <h3 class="mb-4">Edit Section Name: </h3>
-        <div class="form-group row">
-            <label for="section-name-input" class="col-4 col-form-label">Section Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="section-name-input" name="section-name" placeholder="Enter Name"/> 
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name" )); ?>
         <input type="hidden" name="edit-section" />
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>
     </form>
@@ -99,12 +77,7 @@
     <form action="#" method="post" class="p-3">
         <h3>Add Item</h3>
         <input type="hidden" name="add-item" /> <br/>
-        <div class="form-group row">
-            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="item-name-input" name="item-name" placeholder="Enter Name">
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name" )); ?>
         <div class="form-check form-check-inline mb-3">
             <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="add-subsec-check">
             <label class="form-check-label" for="add-subsec-check">Subsection Title</label>
@@ -138,12 +111,7 @@
     <form action="#" method="post" class="p-3">
         <h3>Edit Item</h3>
         <input type="hidden" name="edit-item" /> <br/>
-        <div class="form-group row">
-            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="item-name-input" name="item-name" placeholder="Enter Name">
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name" )); ?>
         <div class="form-check form-check-inline mb-3">
             <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="edit-subsec-check">
             <label class="form-check-label" for="edit-subsec-check">Subsection Title</label>
@@ -188,12 +156,7 @@
     <form action="#" method="post" class="p-3">
         <h3>Add Subitem</h3>
         <input type="hidden" name="add-subitem" /> <br/>
-        <div class="form-group row">
-            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="item-name-input" name="subitem-name" placeholder="Enter Name">
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name" )); ?>
         <div class="form-group row">
             <label for="price-input" class="col-4 col-form-label">Price:</label>
             <div class="col-8">
@@ -211,12 +174,7 @@
     <form action="#" method="post" class="p-3">
         <h3>Edit Subitem</h3>
         <input type="hidden" name="edit-subitem" /> <br/>
-        <div class="form-group row">
-            <label for="item-name-input" class="col-4 col-form-label">Item Name:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="subitem-name-input" name="subitem-name" placeholder="Enter Name">
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name" )); ?>
         <div class="form-group row">
             <label for="price-input" class="col-4 col-form-label">Price:</label>
             <div class="col-8">
