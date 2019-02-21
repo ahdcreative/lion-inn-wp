@@ -5,8 +5,8 @@
 
     <form action="#" method="post">
         <h3 class="mb-4">Menu Name: </h3>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name" )); ?>
         <input type="hidden" name="add-menu" /> 
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>
     </form>
 
@@ -17,31 +17,23 @@
     
     <form action="#" method="post">
         <h3 class="mb-4">Edit Menu Name: </h3>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name" )); ?>
         <input type="hidden" name="edit-menu" />
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>
     </form>
 
 </div>
 
 <!-- Delete Menu Modal -->
-<div id="delete-menu-modal" style="display:none;">
-
-    <form action="#" method="post" class="row d-flex p-3">
-        <h3 class="mb-4">Are you sure you want to delete this menu?</h3>
-        <input type="hidden" name="delete-menu" /> <br/>
-        <input type="submit" value="Delete" class="btn btn-danger ml-auto" />
-    </form>
-
-</div>
+<?php echo $tpl->render( 'lm-delete-modal', array( "id" => "delete-menu-modal", "name" => "delete-menu" )); ?>
 
 <!-- Add Section Modal -->
 <div id="add-section-modal" style="display:none;">
 
     <form action="#" method="post">
         <h3 class="mb-4">Section Name: </h3>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name" )); ?>
         <input type="hidden" name="add-section" /> 
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>
     </form>
 
@@ -52,23 +44,15 @@
 
     <form action="#" method="post">
         <h3 class="mb-4">Edit Section Name: </h3>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name" )); ?>
         <input type="hidden" name="edit-section" />
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>
     </form>
 
 </div>
 
 <!-- Delete Section Modal -->
-<div id="delete-section-modal" style="display:none;">
-
-    <form action="#" method="post" class="row d-flex p-3">
-        <h3 class="mb-4">Are you sure you want to delete this section?</h3>
-        <input type="hidden" name="delete-section" /> <br/>
-        <input type="submit" value="Delete" class="btn btn-danger ml-auto" />
-    </form>
-
-</div>
+<?php echo $tpl->render( 'lm-delete-modal', array( "id" => "delete-section-modal", "name" => "delete-section" )); ?>
 
 
 <!-- Add Item Modal -->
@@ -77,29 +61,12 @@
     <form action="#" method="post" class="p-3">
         <h3>Add Item</h3>
         <input type="hidden" name="add-item" /> <br/>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name" )); ?>
-        <div class="form-check form-check-inline mb-3">
-            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="add-subsec-check">
-            <label class="form-check-label" for="add-subsec-check">Subsection Title</label>
-        </div>
-        <div class="form-group row hideIfSubsec">
-            <label for="price-input" class="col-4 col-form-label">Price:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="price-input" name="item-price" placeholder="0.00">
-            </div>
-        </div>
-        <div class="form-group hideIfSubsec">
-            <label for="desc-input">Description:</label>
-            <textarea class="form-control" id="desc-input" name="item-desc" rows="3"></textarea>
-        </div>
-        <div class="form-check form-check-inline hideIfSubsec">
-            <input class="form-check-input" type="checkbox" value="" name="item-veg" id="veg-check">
-            <label class="form-check-label" for="veg-check">Vegetarian</label>
-        </div>
-        <div class="form-check form-check-inline hideIfSubsec">
-            <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
-            <label class="form-check-label" for="gf-check">Gluten Free</label>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
+        <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "gf-check", "name" => "item-gf", "label" => "Gluten Free", "optClasses" => "hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>       
     </form>
 
@@ -111,44 +78,19 @@
     <form action="#" method="post" class="p-3">
         <h3>Edit Item</h3>
         <input type="hidden" name="edit-item" /> <br/>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name" )); ?>
-        <div class="form-check form-check-inline mb-3">
-            <input class="form-check-input" type="checkbox" value="" name="item-subsec" id="edit-subsec-check">
-            <label class="form-check-label" for="edit-subsec-check">Subsection Title</label>
-        </div>
-        <div class="form-group row hideIfSubsec">
-            <label for="price-input" class="col-4 col-form-label">Price:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="price-input" name="item-price" placeholder="0.00">
-            </div>
-        </div>
-        <div class="form-group hideIfSubsec">
-            <label for="desc-input">Description:</label>
-            <textarea class="form-control" id="desc-input" name="item-desc" rows="3"></textarea>
-        </div>
-        <div class="form-check form-check-inline hideIfSubsec">
-            <input class="form-check-input" type="checkbox" value="" name="item-veg" id="veg-check">
-            <label class="form-check-label" for="veg-check">Vegetarian</label>
-        </div>
-        <div class="form-check form-check-inline hideIfSubsec">
-            <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
-            <label class="form-check-label" for="gf-check">Gluten Free</label>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
+        <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "gf-check", "name" => "item-gf", "label" => "Gluten Free", "optClasses" => "hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>        
     </form>
 
 </div>
 
 <!-- Delete Item Modal -->
-<div id="delete-item-modal" style="display:none;">
-
-    <form action="#" method="post" class="row d-flex p-3">
-        <h3 class="mb-4">Are you sure you want to delete this item?</h3>
-        <input type="hidden" name="delete-item" /> <br/>
-        <input type="submit" value="Delete" class="btn btn-danger ml-auto" />
-    </form>
-
-</div>
+<?php echo $tpl->render( 'lm-delete-modal', array( "id" => "delete-item-modal", "name" => "delete-item" )); ?>
 
 <!-- Add Subitem Modal -->
 <div id="add-subitem-modal" style="display:none;">
@@ -156,13 +98,8 @@
     <form action="#" method="post" class="p-3">
         <h3>Add Subitem</h3>
         <input type="hidden" name="add-subitem" /> <br/>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name" )); ?>
-        <div class="form-group row">
-            <label for="price-input" class="col-4 col-form-label">Price:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="price-input" name="subitem-price" placeholder="0.00">
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name", "label" => "Subitem Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "subitem-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>       
     </form>
 
@@ -174,25 +111,12 @@
     <form action="#" method="post" class="p-3">
         <h3>Edit Subitem</h3>
         <input type="hidden" name="edit-subitem" /> <br/>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name" )); ?>
-        <div class="form-group row">
-            <label for="price-input" class="col-4 col-form-label">Price:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" id="price-input" name="subitem-price" placeholder="0.00">
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name", "label" => "Subitem Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "subitem-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>        
     </form>
 
 </div>
 
 <!-- Delete Subitem Modal -->
-<div id="delete-subitem-modal" style="display:none;">
-
-    <form action="#" method="post" class="row d-flex p-3">
-        <h3 class="mb-4">Are you sure you want to delete this subitem?</h3>
-        <input type="hidden" name="delete-subitem" /> <br/>
-        <input type="submit" value="Delete" class="btn btn-danger ml-auto" />
-    </form>
-
-</div>
+<?php echo $tpl->render( 'lm-delete-modal', array( "id" => "delete-subitem-modal", "name" => "delete-subitem" )); ?>
