@@ -1,1 +1,1 @@
-SELECT id, name, rank FROM prefixplaceholder_section ORDER BY rank ASC;
+SELECT id, name, rank, parent_menu FROM prefixplaceholder_section ORDER BY rank ASC;

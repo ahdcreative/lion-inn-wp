@@ -318,8 +318,8 @@ class LionMenu {
                     }
 
         echo " 
-            </select><br/>
-            </div>
+                    </select><br/>
+                </div>
         ";
         echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
         echo "</form><br/>";
@@ -327,13 +327,13 @@ class LionMenu {
         // Quick Add Item 
         $menus = $this->db->get( 'menu' );
         $sections = $this->db->get( 'section' );
-        echo "<h3>Add Item</h3>";
-        echo "
+        echo "<h3>Add Item</h3>
             <form class='form-inline bg-light p-3 w-50'>
-                <div class='form-group'>
-                    <label for='item-name-input' class='col-form-label'>Item Name:</label>
-                    <input type='text' class='form-control mx-3' id='item-name-input' name='item-name' placeholder='Enter Name'/> 
-                </div>
+            <input type='hidden' name='add-item' />
+        ";
+        echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
+        
+        echo "
                 <div class='form-group'>
                     <label for='section-name-input' class='col-form-label'>Menu:</label>
                     <select class='form-control mx-3' name='menu-name-dropdown'>                        
@@ -345,16 +345,11 @@ class LionMenu {
                     }
 
         echo " 
-                </select><br/>
+                    </select><br/>
                 </div>
-                <input type='hidden' name='add-section' /> 
-                <div class='form-group'>
-                    <button type='reset' class='btn btn-outline-secondary mx-2'>Reset</button>
-                    <input type='submit' value='Add' class='btn btn-success' />
-                </div>
-            </form>
-            <br/>
         ";
+        echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
+        echo "</form><br/>";
 
         // Quick Add Subitem 
         echo "<h3>Add Subitem</h3>";
