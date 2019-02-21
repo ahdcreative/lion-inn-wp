@@ -1,3 +1,7 @@
+<?php
+    $tpl = new Template( __DIR__ );
+?>
+
 <!-- Add Menu Modal -->
 <div id="add-menu-modal" style="display:none;">
 
@@ -10,12 +14,7 @@
             </div>
         </div>
         <input type="hidden" name="add-menu" /> 
-        <div class="form-group d-flex row">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Add" class="btn btn-success" />
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>
     </form>
 
 </div>
@@ -31,13 +30,8 @@
                 <input type="text" class="form-control" id="menu-name-input" name="menu-name" placeholder="Enter Name"/> 
             </div>
         </div>
-        <input type="hidden" name="edit-menu" /> 
-        <div class="form-group d-flex row">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Save" class="btn btn-success" />
-            </div>
-        </div>
+        <input type="hidden" name="edit-menu" />
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>
     </form>
 
 </div>
@@ -65,12 +59,7 @@
             </div>
         </div>
         <input type="hidden" name="add-section" /> 
-        <div class="form-group d-flex row">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Add" class="btn btn-success" />
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>
     </form>
 
 </div>
@@ -87,12 +76,7 @@
             </div>
         </div>
         <input type="hidden" name="edit-section" />
-        <div class="form-group d-flex row">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Save" class="btn btn-success" />
-            </div>
-        </div>
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>
     </form>
 
 </div>
@@ -143,12 +127,7 @@
             <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
             <label class="form-check-label" for="gf-check">Gluten Free</label>
         </div>
-        <div class="form-group d-flex row mt-4">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Add" class="btn btn-success" />
-            </div>
-        </div>        
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>       
     </form>
 
 </div>
@@ -187,12 +166,7 @@
             <input class="form-check-input" type="checkbox" value="" name="item-gf" id="gf-check">
             <label class="form-check-label" for="gf-check">Gluten Free</label>
         </div>
-        <div class="form-group d-flex row mt-4">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Update" class="btn btn-success" />
-            </div>
-        </div>        
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>        
     </form>
 
 </div>
@@ -226,12 +200,7 @@
                 <input type="text" class="form-control" id="price-input" name="subitem-price" placeholder="0.00">
             </div>
         </div>
-        <div class="form-group d-flex row mt-4">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Add" class="btn btn-success" />
-            </div>
-        </div>        
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" )); ?>       
     </form>
 
 </div>
@@ -254,12 +223,7 @@
                 <input type="text" class="form-control" id="price-input" name="subitem-price" placeholder="0.00">
             </div>
         </div>
-        <div class="form-group d-flex row mt-4">
-            <div class="ml-auto">
-                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
-                <input type="submit" value="Edit" class="btn btn-success" />
-            </div>
-        </div>        
+        <?php echo $tpl->render( 'lm-modal-buttons', array( "value" => "Save" )); ?>        
     </form>
 
 </div>
