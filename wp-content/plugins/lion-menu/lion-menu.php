@@ -294,8 +294,8 @@ class LionMenu {
             <form class='form-inline bg-light p-3 w-50'>
             <input type='hidden' name='add-menu' />
         ";
-        echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
-        echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
+        echo $tpl->render( 'lm-inline-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
+        echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" ));
         echo "</form><br/>";
 
         // Quick Add Section
@@ -304,7 +304,7 @@ class LionMenu {
             <form class='form-inline bg-light p-3 w-50'>
             <input type='hidden' name='add-section' />
         ";
-        echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
+        echo $tpl->render( 'lm-inline-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" ));
         
         echo "
                 <div class='form-group'>
@@ -321,7 +321,7 @@ class LionMenu {
                     </select><br/>
                 </div>
         ";
-        echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
+        echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" ));
         echo "</form><br/>";
 
         // Quick Add Item 
@@ -331,7 +331,7 @@ class LionMenu {
             <form class='form-inline bg-light p-3 w-50'>
             <input type='hidden' name='add-item' />
         ";
-        echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
+        echo $tpl->render( 'lm-inline-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" ));
         
         echo "
                 <div class='form-group'>
@@ -348,7 +348,7 @@ class LionMenu {
                     </select><br/>
                 </div>
         ";
-        echo $tpl->render( 'lm-modal-buttons', array( "value" => "Add" ));
+        echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" ));
         echo "</form><br/>";
 
         // Quick Add Subitem 
