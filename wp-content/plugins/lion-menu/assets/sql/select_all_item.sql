@@ -1,0 +1,1 @@
+SELECT id, name, rank, parent_section FROM prefixplaceholder_item ORDER BY rank ASC;

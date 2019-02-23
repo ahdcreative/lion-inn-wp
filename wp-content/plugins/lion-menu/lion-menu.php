@@ -185,7 +185,7 @@ class LionMenu {
             echo "<h1>$curr->name</h1>";
 
             // Add section button
-            echo $tpl->render( 'lm-add-section-button' );
+            echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "btn_size" => "btn-sm", "w" => "400", "h" => "200" ));
             
             $sections = $this->db->get("section", $_GET["menu_id"]);
 
@@ -289,70 +289,21 @@ class LionMenu {
         $data = array ('title' => 'Quick Add', 'desc' => "Use this page to quickly add menu items.");
         echo $tpl->render( 'lm-header', $data );
 
-        // Quick Add Menu 
-        echo "<h3>Add Menu</h3>
-            <form class='form-inline bg-light p-3 w-50'>
-            <input type='hidden' name='add-menu' />
-        ";
-        echo $tpl->render( 'lm-inline-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" ));
-        echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" ));
-        echo "</form><br/>";
+        // Quick Add Menu
+        echo "<h3>Add Menu</h3>";
+        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-menu-modal", "title" => "Add Menu", "w" => "400", "h" => "200" ));
 
         // Quick Add Section
-        $menus = $this->db->get( 'menu' );
-        echo "<h3>Add Section</h3>
-            <form class='form-inline bg-light p-3 w-50'>
-            <input type='hidden' name='add-section' />
-        ";
-        echo $tpl->render( 'lm-inline-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" ));
-        
-        echo "
-                <div class='form-group'>
-                    <label for='section-name-input' class='col-form-label'>Menu:</label>
-                    <select class='form-control mx-3' name='menu-name-dropdown'>                        
-                        <option>-- Select Menu --</option>
-                    ";
+        echo "<h3>Add Section</h3>";
+        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "w" => "400", "h" => "200" ));  
 
-                    foreach($menus as $menu) {
-                        echo "<option value='$menu->id'>$menu->name</option>";
-                    }
+        // Quick Add Item
+        echo "<h3>Add Item</h3>";
+        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-item-modal", "title" => "Add Item", "w" => "550", "h" => "500" ));   
 
-        echo " 
-                    </select><br/>
-                </div>
-        ";
-        echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" ));
-        echo "</form><br/>";
-
-        // Quick Add Item 
-        $menus = $this->db->get( 'menu' );
-        $sections = $this->db->get( 'section' );
-        echo "<h3>Add Item</h3>
-            <form class='form-inline bg-light p-3 w-50'>
-            <input type='hidden' name='add-item' />
-        ";
-        echo $tpl->render( 'lm-inline-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" ));
-        
-        echo "
-                <div class='form-group'>
-                    <label for='section-name-input' class='col-form-label'>Menu:</label>
-                    <select class='form-control mx-3' name='menu-name-dropdown'>                        
-                        <option>-- Select Menu --</option>
-                    ";
-
-                    foreach($menus as $menu) {
-                        echo "<option value='$menu->id'>$menu->name</option>";
-                    }
-
-        echo " 
-                    </select><br/>
-                </div>
-        ";
-        echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" ));
-        echo "</form><br/>";
-
-        // Quick Add Subitem 
+        // Quick Add Subitem
         echo "<h3>Add Subitem</h3>";
+        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-subitem-modal", "title" => "Add Subitem", "w" => "550", "h" => "300" ));        
         
     }
         
