@@ -92,7 +92,6 @@ class LionMenu {
         // Add Custom Javascript
         wp_enqueue_script('lm-edit-menu', plugins_url() . '/lion-menu/assets/js/edit-menu.js', array('jquery'));
         wp_enqueue_script('lm-lists', plugins_url() . '/lion-menu/assets/js/custom-lists.js', array('jquery'));
-        wp_enqueue_script('lm-quick-add', plugins_url() . '/lion-menu/assets/js/quick-add.js', array('jquery'));
 
         // Add Bootstrap CSS & JS & PopperJS
         wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
@@ -110,7 +109,6 @@ class LionMenu {
     public function admin_menu_pages() {
         add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ) );
         add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
-        add_submenu_page( 'lm-menu-page', 'Quick Add Subpage', 'Quick Add', 'manage_options', 'lm-quick-add-subpage', array( $this, 'quick_add_init' ) );
     }
     
     /**
@@ -269,44 +267,6 @@ class LionMenu {
         }
         echo "</ol><br/>"; // End section list
     }
-
-    /**
-     * Subpage: Quick Add
-     * Accessed from side menu.  Used to quickly add menu items.
-     */
-    public function quick_add_init() {
-
-        $tpl = new Template( __DIR__ . '/templates/admin' );
-
-        // Render POST request handlers
-        echo $tpl->render( 'post' );
-
-        // Add Modal Support & Render Modals
-        add_thickbox();
-        echo $tpl->render( 'lm-modals' );
-
-        // Render Title and Desc
-        $data = array ('title' => 'Quick Add', 'desc' => "Use this page to quickly add menu items.");
-        echo $tpl->render( 'lm-header', $data );
-
-        // Quick Add Menu
-        echo "<h3>Add Menu</h3>";
-        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-menu-modal", "title" => "Add Menu", "w" => "400", "h" => "200" ));
-
-        // Quick Add Section
-        echo "<h3>Add Section</h3>";
-        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "w" => "400", "h" => "200" ));  
-
-        // Quick Add Item
-        echo "<h3>Add Item</h3>";
-        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-item-modal", "title" => "Add Item", "w" => "550", "h" => "500" ));   
-
-        // Quick Add Subitem
-        echo "<h3>Add Subitem</h3>";
-        echo $tpl->render( 'lm-add-button' , array( "modal" => "add-subitem-modal", "title" => "Add Subitem", "w" => "550", "h" => "300" ));        
-        
-    }
-        
 
     public function test_foo_in() {
         echo "Test Foo In <br/>";
