@@ -1,19 +1,19 @@
 jQuery(function($) {
                 
     // Sortable Serialized List
-    var group = $('ol.sortable').sortable({
+    var single = $('ol.sortable').sortable({
         group: 'serialization',
         handle: '.fa-bars',
         onDrop: function ($item, container, _super) {
             // Get list info
-            var ranks = group.sortable('serialize').get();
+            var ranks = single.sortable('serialize').get();
             
             // Convert to string, remove outside [] as there are 2 of each
             var ranks_json = JSON.stringify(ranks, null, ' ');
             ranks_json = ranks_json.replace('[', '');
             ranks_json = ranks_json.replace(']', '');
 
-            console.log(ranks_json);
+            // console.log(ranks_json);
         
             // Updates list
             _super($item, container);
@@ -27,7 +27,7 @@ jQuery(function($) {
     // Nested Sortable Serialized List
     // Handles both list sides (i.e. sections on left and right side) as they are 2 separate lists.
     var oldContainer;
-    var group = $('ol.nested-sortable').sortable({
+    var nested = $('ol.nested-sortable').sortable({
         group: 'serialization',
         handle: '.fa-bars',
         afterMove: function (placeholder, container) {
@@ -43,7 +43,7 @@ jQuery(function($) {
         },
         onDrop: function ($item, container, _super) {
             // Get menu list info
-            var menu_item_ranks = group.sortable('serialize').get();
+            var menu_item_ranks = nested.sortable('serialize').get();
 
             // Convert to string, remove outside [] as there are 2 of each
             var menu_item_ranks_json = JSON.stringify(menu_item_ranks, null, ' ');
