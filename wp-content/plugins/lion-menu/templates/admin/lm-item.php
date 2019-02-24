@@ -1,20 +1,16 @@
+<?php $tpl = new Template( __DIR__ ); ?>
+
 <li class="list-group-item list-group-item-action <?php echo ($subsection)?('purpleBg'):(''); ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
 
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
-    <!-- Menu Name -->
+    <!-- Item Name -->
     <span class="ml-3 item-name"><?php echo $name; ?></span>
-    <!-- Edit & Delete Icons -->
+    <!-- Icons -->
     <div class='float-right'>
-        <a href='#TB_inline?&width=550&height=300&inlineId=add-subitem-modal' class='thickbox button-link add-subitem'>
-            <i class='fas fa-plus mr-3' data-toggle='tooltip' title='Add Subitem'></i>
-        </a>
-        <a href='#TB_inline?&width=550&height=500&inlineId=edit-item-modal' class='thickbox button-link edit-item'>
-            <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
-        </a>
-        <a href='#TB_inline?&width=275&height=215&inlineId=delete-item-modal' class='thickbox button-link delete-item'>
-            <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
-        </a>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "add-subitem", "modal" => "add-subitem-modal", "tooltip" => "Add Subitem", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "300" )); ?>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "edit-item", "modal" => "edit-item-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "500" )); ?>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "delete-item", "modal" => "delete-item-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
 
     <!-- Description -->
@@ -53,7 +49,6 @@
     <?php
 
     $db = new SQLManager();
-    $tpl = new Template( __DIR__ );
 
     // Print Items in Section
     $subitems = $db->get("subitem", $id);

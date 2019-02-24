@@ -1,3 +1,5 @@
+<?php $tpl = new Template( __DIR__ ); ?>
+
 <li class='list-group-item list-group-item-action' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>'>
 
     <!-- Hamburger -->
@@ -15,14 +17,11 @@
         }
     }
     ?>
-    <!-- Edit & Delete Icons -->
+    
+    <!-- Icons -->
     <div class='float-right'>
-        <a href='#TB_inline?&width=550&height=300&inlineId=edit-subitem-modal' class='thickbox button-link edit-subitem'>
-            <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
-        </a>
-        <a href='#TB_inline?&width=275&height=215&inlineId=delete-subitem-modal' class='thickbox button-link delete-subitem'>
-            <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
-        </a>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "edit-subitem", "modal" => "edit-subitem-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "300" )); ?>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "delete-subitem", "modal" => "delete-subitem-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
 
 </li>

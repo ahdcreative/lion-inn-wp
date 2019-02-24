@@ -1,19 +1,16 @@
+<?php $tpl = new Template( __DIR__ ); ?>
+
 <li class='list-group-item list-group-item-action no-position' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>'>
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
-    <!-- Menu Name -->
+    <!-- Section Name -->
     <span class="ml-3 section-name"><?php echo $name; ?></span>
-    <!-- Edit & Delete Icons - MORE ICONS WILL NEED TO GO HERE FOR THE OTHER FUNCTIONALITY -->
+
+    <!-- Icons -->
     <div class='float-right'>
-        <a href='#TB_inline?&width=550&height=500&inlineId=add-item-modal' class='thickbox button-link add-item'>
-            <i class='fas fa-plus mr-3' data-toggle='tooltip' title='Add Item'></i>
-        </a>
-        <a href='#TB_inline?&width=400&height=250&inlineId=edit-section-modal' class='thickbox button-link edit-section'>
-            <i class='fas fa-edit mr-3' data-toggle='tooltip' title='Edit'></i>
-        </a>
-        <a href='#TB_inline?&width=275&height=215&inlineId=delete-section-modal' class='thickbox button-link delete-section'>
-            <i class='fas fa-trash-alt' data-toggle='tooltip' title='Delete'></i>
-        </a>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "add-item", "modal" => "add-item-modal", "tooltip" => "Add Item", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "500" )); ?>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "edit-section", "modal" => "edit-section-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "400", "h" => "250" )); ?>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "delete-section", "modal" => "delete-section-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
 
     <!-- Hidden side span - Needed for Form Autofill -->
@@ -23,7 +20,6 @@
     <?php
 
     $db = new SQLManager();
-    $tpl = new Template( __DIR__ );
 
     $items = $db->get("item", $id);
 
