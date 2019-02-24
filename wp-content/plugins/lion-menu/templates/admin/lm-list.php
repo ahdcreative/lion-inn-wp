@@ -1,4 +1,4 @@
-<?php $tpl = new Template( __DIR__ ); ?>
+<?php $tpl = new Template( __DIR__ . '/items' ); ?>
 
 <ol class='<?php echo $classes; ?>'>
 

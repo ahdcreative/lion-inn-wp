@@ -1,4 +1,7 @@
-<?php $tpl = new Template( __DIR__ ); ?>
+<?php 
+    $icon_tpl = new Template( __DIR__ );
+    $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
+?>
 
 <li class="list-group-item list-group-item-action <?php echo ($subsection)?('purpleBg'):(''); ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
 
@@ -8,9 +11,9 @@
     <span class="ml-3 item-name"><?php echo $name; ?></span>
     <!-- Icons -->
     <div class='float-right'>
-        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "add-subitem", "modal" => "add-subitem-modal", "tooltip" => "Add Subitem", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "300" )); ?>
-        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "edit-item", "modal" => "edit-item-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "500" )); ?>
-        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "delete-item", "modal" => "delete-item-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "add-subitem", "modal" => "add-subitem-modal", "tooltip" => "Add Subitem", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "300" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "edit-item", "modal" => "edit-item-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "500" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "delete-item", "modal" => "delete-item-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
 
     <!-- Description -->
@@ -52,7 +55,7 @@
 
     // Print Items in Section
     $subitems = $db->get("subitem", $id);
-    echo $tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "classes" => "list-group", "isSubsec" => $subsection ));
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "classes" => "list-group", "isSubsec" => $subsection ));
 
     ?>
 
