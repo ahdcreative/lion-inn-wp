@@ -11,6 +11,7 @@ CREATE TABLE tableplaceholder (
     vegetarian boolean,
     gluten_free boolean,
     isSubsectionTitle boolean,
+    toPublish boolean NOT NULL DEFAULT 1,
     parent_section mediumint(9) NOT NULL,    
     PRIMARY KEY  (id),
     FOREIGN KEY (parent_section) REFERENCES prefixplaceholder_section(id)
