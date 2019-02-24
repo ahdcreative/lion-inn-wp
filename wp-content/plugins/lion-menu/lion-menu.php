@@ -140,11 +140,7 @@ class LionMenu {
         }
 
         // Display menu's as sortable list
-        echo "<ol class='sortable vertical list-group ml-0'>";
-        foreach($menus as $menu) {
-            echo $tpl->render( 'lm-menu-item' , $menu );
-        } 
-        echo "</ol><br/>";        
+        echo $tpl->render( 'lm-list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => "sortable vertical list-group ml-0" ));
     }
 
     /**
@@ -182,90 +178,22 @@ class LionMenu {
             $curr = $current_menu[0];
             echo "<h1>$curr->name</h1>";
 
-            // Add section button
             echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "btn_size" => "btn-sm", "w" => "400", "h" => "200" ));
             
             $sections = $this->db->get("section", $_GET["menu_id"]);
 
             echo "<div class='row'>";
+
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 0, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-3 pr-4" ));
+
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 1, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-4" ));
             
-            // Print Left Side
-            $this->edit_menu_print_menu_side($sections, 0);
-
-            // Print Right Side
-            $this->edit_menu_print_menu_side($sections, 1);
-
             echo "</div>";
         } else {
             echo "You have not selected a menu.  Please use the dropdown above.";
             return;
         }
         
-    }
-
-
-    /**
-     * Support function to help print the menu's
-     * Support for Edit Menu subpage
-     */
-    public function edit_menu_print_menu_side($sections, $side) {
-        
-        $tpl = new Template( __DIR__ . '/templates/admin' );
-
-        // Set class depending on section side
-        if($side == 0) {
-            $classes = "col-6 pl-3 pr-4";
-        } else {
-            $classes = "col-6 pl-4";
-        }
-
-        // Print Sections
-        echo "<ol class='nested-sortable vertical ml-0 list-group $classes'>";
-        foreach($sections as $sec) {
-            // 1 is right
-            if($sec->side == $side) {
-                // Start Section List Item
-                echo "<li class='list-group-item list-group-item-action no-position' data-id='$sec->id' data-name='$sec->name'>";           
-                // E.g. Starters, Mains, Sides
-                echo $tpl->render( 'lm-section-item' , $sec );
-
-                // Print Items in Section
-                $items = $this->db->get("item", $sec->id);
-                echo "<ol class='list-group my-2'>";
-                if(!$items) {
-                    echo "<i class='fs-10'>No items.</i>";
-                } else {
-                    foreach($items as $item) {
-                        
-                        // Change item bg colour to purple if item is a subsection title
-                        $bgColour = ($item->subsection)?('purpleBg'):('');
-
-                        echo "<li class='list-group-item list-group-item-action $bgColour' data-id='$item->id' data-name='$item->name'>";
-                        // E.g. Soup, HEC, Pie
-                        echo $tpl->render( 'lm-item' , $item );
-
-                        // If item has subitems, print them
-                        $subitems = $this->db->get("subitem", $item->id);
-                        echo "<ol class='list-group'>";
-                        if(!$subitems && !$item->subsection) {
-                            echo "<i class='fs-10'>No subitems.</i>";
-                        } else {
-                            foreach($subitems as $subitem) {
-                                echo "<li class='list-group-item list-group-item-action' data-id='$subitem->id' data-name='$subitem->name'>";
-                                // E.g. Cheese, Cajun Spice
-                                echo $tpl->render( 'lm-sub-item' , $subitem );
-                                echo "</li>"; // End subitem
-                            }
-                        }
-                        echo "</ol>"; // End subitem list 
-                        echo "</li>"; // End item
-                    }
-                }
-                echo "</ol>"; // End item list 
-                echo "</li>"; // End section
-            }
-        }
-        echo "</ol><br/>"; // End section list
     }
 
     public function test_foo_in() {
