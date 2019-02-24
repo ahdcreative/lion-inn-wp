@@ -3,7 +3,7 @@
     $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
 ?>
 
-<li class="list-group-item list-group-item-action <?php echo ($subsection)?('purpleBg'):(''); ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
+<li class="list-group-item list-group-item-action <?php echo ($isSubsectionTitle)?('purpleBg'):(''); ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
 
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
@@ -43,7 +43,7 @@
 
     <!-- Hidden isSubsection - Needed for Form Autofill -->
     <?php
-    if($subsection) {
+    if($isSubsectionTitle) {
         echo "<span class='isSubsec' hidden></span>";
     }
     ?>
@@ -55,7 +55,7 @@
 
     // Print Items in Section
     $subitems = $db->get("subitem", $id);
-    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "classes" => "list-group", "isSubsec" => $subsection ));
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "classes" => "list-group", "isSubsec" => $isSubsectionTitle ));
 
     ?>
 

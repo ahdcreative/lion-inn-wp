@@ -14,7 +14,7 @@ INSERT INTO `hjb01_lm_section` (`id`, `name`, `rank`, `date_created`, `date_upda
 (9, 'Desserts', 3, '2019-02-19 13:35:46', NULL, 1, NULL, NULL, 14),
 (11, 'Coffee', 0, '2019-02-24 19:18:09', NULL, 1, NULL, 1, 14);
 
-INSERT INTO `hjb01_lm_item` (`id`, `name`, `rank`, `date_created`, `date_updated`, `author`, `editor`, `price`, `description`, `vegetarian`, `gluten_free`, `subsection`, `parent_section`) VALUES
+INSERT INTO `hjb01_lm_item` (`id`, `name`, `rank`, `date_created`, `date_updated`, `author`, `editor`, `price`, `description`, `vegetarian`, `gluten_free`, `isSubsectionTitle`, `parent_section`) VALUES
 (2, 'Soup of the Day', 2, '2019-01-30 22:19:32', NULL, 1, NULL, '5.00', 'Homemade soup of the day served with hot crusty bread.', 1, 1, 0, 1),
 (3, 'Ham, Egg & Chips', 3, '2019-01-30 22:20:14', '2019-02-12 19:42:53', 1, 1, '0.00', 'Gammon ham served with egg and chips.', 0, 1, 0, 2),
 (4, 'Pie', 2, '2019-01-30 22:20:14', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 2),
