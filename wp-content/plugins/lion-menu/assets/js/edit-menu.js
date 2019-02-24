@@ -15,11 +15,21 @@ jQuery(function($) {
     
     $(".edit-menu").on("click", function() {
         setPostVar("edit-menu", this);
+
+        // Set form values to current item values
+        $menuName = $(this).parent().siblings(".menu-name").text();
+        $('input[name="menu-name"]').val($menuName);
     });
     $(".delete-menu").on("click", function() {
         setPostVar("delete-menu", this);
     });
 
+    $(".add-section").on("click", function() {
+        setPostVar("add-section", this);
+        // Ensure form values are empty
+        $('input[name="section-name"]').val('');
+        $('input[name="section-side"]').prop('checked', false);
+    });
     $(".edit-section").on("click", function() {
         setPostVar("edit-section", this);
 
@@ -37,7 +47,7 @@ jQuery(function($) {
     $(".add-item").on("click", function() {
         setPostVar("add-item", this);
         // Ensure form values are empty
-        $('input[name="edit-item"]').val('');
+        // $('input[name="edit-item"]').val('');
         $('input[name="item-name"]').val('');
         $('input[name="item-subsec"]').prop('checked', false);
         $('input[name="item-price"]').val('');

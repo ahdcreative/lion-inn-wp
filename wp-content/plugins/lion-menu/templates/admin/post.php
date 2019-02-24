@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
-    // Add Menu
+    // Add Section
     if(isset($_POST["add-section"])) {
         $params = array(
             'name' => $_POST["section-name"], 
