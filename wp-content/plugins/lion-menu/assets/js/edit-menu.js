@@ -22,6 +22,13 @@ jQuery(function($) {
 
     $(".edit-section").on("click", function() {
         setPostVar("edit-section", this);
+
+        // Set form values to current item values
+        $sectionName = $(this).parent().siblings(".section-name").text();
+        $('input[name="section-name"]').val($sectionName);
+
+        $side = $(this).parent().siblings(".side").text();
+        ($side == 1)?($('input[id="section-right-radio"]').prop('checked', true)):($('input[id="section-left-radio"]').prop('checked', true));
     });
     $(".delete-section").on("click", function() {
         setPostVar("delete-section", this);

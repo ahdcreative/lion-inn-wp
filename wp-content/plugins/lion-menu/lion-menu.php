@@ -178,7 +178,7 @@ class LionMenu {
             $curr = $current_menu[0];
             echo "<h1>$curr->name</h1>";
 
-            echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "btn_size" => "btn-sm", "w" => "400", "h" => "200" ));
+            echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "btn_size" => "btn-sm", "w" => "400", "h" => "250" ));
             
             $sections = $this->db->get("section", $_GET["menu_id"]);
 

@@ -43,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'name' => $_POST["section-name"], 
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
+            'side' => $_POST["section-side"],
             'parent_menu' => $_GET["menu_id"]
         );
 
@@ -52,7 +53,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Section
     if(isset($_POST["edit-section"])) {
         $db->update("section", array(
-                'name' => $_POST["section-name"]
+                'name' => $_POST["section-name"],
+                'side' => $_POST["section-side"],
             ), 
             array('id' => $_POST["edit-section"])
         );

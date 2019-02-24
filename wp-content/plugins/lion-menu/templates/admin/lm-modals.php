@@ -4,7 +4,7 @@
 <div id="add-menu-modal" style="display:none;">
 
     <form action="#" method="post">
-        <h3 class="mb-4">Menu Name: </h3>
+        <h3 class="mb-4">Add Menu</h3>
         <input type="hidden" name="add-menu" /> 
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>
@@ -16,7 +16,7 @@
 <div id="edit-menu-modal" style="display:none;">
     
     <form action="#" method="post">
-        <h3 class="mb-4">Edit Menu Name: </h3>
+        <h3 class="mb-4">Edit Menu</h3>
         <input type="hidden" name="edit-menu" />
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Save" )); ?>
@@ -31,9 +31,11 @@
 <div id="add-section-modal" style="display:none;">
 
     <form action="#" method="post">
-        <h3 class="mb-4">Section Name: </h3>
+        <h3 class="mb-4">Add Section</h3>
         <input type="hidden" name="add-section" /> 
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-left-radio", "name" => "section-side", "label" => "Left", "value" => 0 )); ?>
+        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-right-radio", "name" => "section-side", "label" => "Right", "value" => 1 )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>
     </form>
 
@@ -43,9 +45,11 @@
 <div id="edit-section-modal" style="display:none;">
 
     <form action="#" method="post">
-        <h3 class="mb-4">Edit Section Name: </h3>
+        <h3 class="mb-4">Edit Section</h3>
         <input type="hidden" name="edit-section" />
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-left-radio", "name" => "section-side", "label" => "Left", "value" => 0 )); ?>
+        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-right-radio", "name" => "section-side", "label" => "Right", "value" => 1 )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Save" )); ?>
     </form>
 
