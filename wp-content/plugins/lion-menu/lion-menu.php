@@ -164,11 +164,7 @@ class LionMenu {
 
         // Render save and change menu buttons
         $menus = $this->db->get( 'menu' );
-        echo $tpl->render( 'lm-edit-buttons' );
-        foreach($menus as $menu) {
-            echo "<a class='dropdown-item' href='admin.php?page=lm-menu-edit-subpage&menu_id=$menu->id'>$menu->name</a>";
-        }
-        echo "</div></div></div><br/>";
+        echo $tpl->render( 'lm-edit-buttons', array( "menus" => $menus) );
 
         // Print Sections & Items related to Menu
         if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
