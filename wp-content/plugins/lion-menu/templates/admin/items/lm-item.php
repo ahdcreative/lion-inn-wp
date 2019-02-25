@@ -25,10 +25,10 @@
     <div class="row ml-3 d-flex w-75 veg-gf-price">
         <div class="ml-3 veg-gf">
             <?php 
-            if($vegetarian) {
+            if($isVegetarian) {
                 echo "<img class='mx-2 icon veg-icon' src='". plugins_url() . '/lion-menu/assets/images/vegetarian.png' . "' alt='Image of Vegetarian Icon' />";
             }
-            if($gluten_free) {
+            if($isGlutenFree) {
                 echo "<img class='mx-2 icon gf-icon' src='". plugins_url() . '/lion-menu/assets/images/gluten-free.png' . "' alt='Image of Gluten Free Icon' />";
             } 
             ?>
