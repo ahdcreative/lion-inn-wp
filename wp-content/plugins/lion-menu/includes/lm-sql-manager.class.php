@@ -28,7 +28,7 @@ class SQLManager {
      */
     public function createTables() {
         $this->createTable("menu");
-        // $this->createTable("section");
+        $this->createTable("section");
         // $this->createTable("item");
         // $this->createTable("subitem");
     }
@@ -46,9 +46,9 @@ class SQLManager {
         $sql = str_replace("tableplaceholder", $this->wpdb->prefix . "lm_" . $table, $sql);
 
         // If sql contains a foreign key - add prefix
-        if (strpos($sql, 'FOREIGN KEY') !== false) {
-            $sql = str_replace("prefixplaceholder", $this->wpdb->prefix . "lm", $sql);
-        }
+        // if (strpos($sql, 'FOREIGN KEY') !== false) {
+        //     $sql = str_replace("prefixplaceholder", $this->wpdb->prefix . "lm", $sql);
+        // }
 
         // Set charset 
         $sql = str_replace("charsetplaceholder", $this->wpdb->get_charset_collate(), $sql);
