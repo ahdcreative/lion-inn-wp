@@ -9,5 +9,6 @@ CREATE TABLE tableplaceholder (
     price decimal(5,2),
     toPublish boolean NOT NULL DEFAULT 1,
     parent_item mediumint(9) NOT NULL,
-    PRIMARY KEY  (id)
+    PRIMARY KEY  (id),
+    FOREIGN KEY (parent_item) REFERENCES prefixplaceholder_item(id)
 ) charsetplaceholder;
