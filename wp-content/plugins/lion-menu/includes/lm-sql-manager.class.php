@@ -27,10 +27,10 @@ class SQLManager {
      * Create the 4 Tables Needed for the Plugin
      */
     public function createTables() {
-        $this->createTable("menu");
+        // $this->createTable("menu");
         $this->createTable("section");
-        $this->createTable("item");
-        $this->createTable("subitem");
+        // $this->createTable("item");
+        // $this->createTable("subitem");
     }
 
     /**
@@ -53,7 +53,7 @@ class SQLManager {
         // Set charset 
         $sql = str_replace("charsetplaceholder", $this->wpdb->get_charset_collate(), $sql);
 
-        dbDelta($sql);
+        // dbDelta($sql);
     }
 
     /**
