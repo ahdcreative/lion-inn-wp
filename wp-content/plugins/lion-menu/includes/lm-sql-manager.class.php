@@ -53,7 +53,7 @@ class SQLManager {
         // Set charset 
         $sql = str_replace("charsetplaceholder", $this->wpdb->get_charset_collate(), $sql);
 
-        // dbDelta($sql);
+        dbDelta($sql);
     }
 
     /**
