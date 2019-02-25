@@ -11,7 +11,7 @@ INSERT INTO `hjb01_lm_section` (`id`, `name`, `rank`, `date_created`, `date_upda
 (5, 'Coffees', 5, '2019-01-30 20:54:11', NULL, 1, NULL, 1, 15),
 (6, 'Pizza', 6, '2019-01-30 20:56:57', NULL, 1, NULL, 0, 17),
 (7, 'Extras', 7, '2019-01-30 20:56:57', NULL, 1, NULL, 1, 17),
-(9, 'Desserts', 3, '2019-02-19 13:35:46', NULL, 1, NULL, NULL, 14),
+(9, 'Desserts', 3, '2019-02-19 13:35:46', NULL, 1, NULL, 0, 14),
 (11, 'Coffee', 0, '2019-02-24 19:18:09', NULL, 1, NULL, 1, 14);
 
 INSERT INTO `hjb01_lm_item` (`id`, `name`, `rank`, `date_created`, `date_updated`, `author`, `editor`, `price`, `description`, `isVegetarian`, `isGlutenFree`, `isSubsectionTitle`, `parent_section`) VALUES
