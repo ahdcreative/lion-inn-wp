@@ -27,7 +27,7 @@ class SQLManager {
      * Create the 4 Tables Needed for the Plugin
      */
     public function createTables() {
-        // $this->createTable("menu");
+        $this->createTable("menu");
         // $this->createTable("section");
         // $this->createTable("item");
         // $this->createTable("subitem");
