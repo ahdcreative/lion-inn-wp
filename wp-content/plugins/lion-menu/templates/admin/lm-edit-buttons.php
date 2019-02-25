@@ -15,7 +15,6 @@
               
                 foreach($menus as $menu) {
 
-                    console_log(gettype($menu));
                     echo "<a class='dropdown-item' href='admin.php?page=lm-menu-edit-subpage&menu_id=$menu->id'>$menu->name</a>";
 
                 }
