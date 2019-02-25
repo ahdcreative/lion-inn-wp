@@ -19,6 +19,13 @@
     <!-- Hidden side span - Needed for Form Autofill -->
     <span class='side' hidden><?php echo $side; ?></span>
 
+    <!-- Hidden publish span - Needed for Form Autofill -->
+    <?php
+    if($toPublish) {
+        echo "<span class='toPublish' hidden></span>";
+    }
+    ?>
+
     <!-- Print Items in Section -->
     <?php
 

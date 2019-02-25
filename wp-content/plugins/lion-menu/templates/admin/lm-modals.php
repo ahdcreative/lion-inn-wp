@@ -7,6 +7,7 @@
         <h3 class="mb-4">Add Menu</h3>
         <input type="hidden" name="add-menu" /> 
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-menu-check", "name" => "publish-menu", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>
     </form>
 
@@ -19,6 +20,7 @@
         <h3 class="mb-4">Edit Menu</h3>
         <input type="hidden" name="edit-menu" />
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "menu-name-input", "name" => "menu-name", "label" => "Menu Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-menu-check", "name" => "publish-menu", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Save" )); ?>
     </form>
 
@@ -36,6 +38,7 @@
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-left-radio", "name" => "section-side", "label" => "Left", "value" => 0 )); ?>
         <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-right-radio", "name" => "section-side", "label" => "Right", "value" => 1 )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-section-check", "name" => "publish-section", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>
     </form>
 
@@ -50,6 +53,7 @@
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-left-radio", "name" => "section-side", "label" => "Left", "value" => 0 )); ?>
         <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-right-radio", "name" => "section-side", "label" => "Right", "value" => 1 )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-section-check", "name" => "publish-section", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Save" )); ?>
     </form>
 
@@ -67,6 +71,7 @@
         <input type="hidden" name="add-item" /> <br/>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-item-check", "name" => "publish-item", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec" )); ?>
@@ -84,6 +89,7 @@
         <input type="hidden" name="edit-item" /> <br/>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-item-check", "name" => "publish-item", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec" )); ?>
@@ -104,6 +110,7 @@
         <input type="hidden" name="add-subitem" /> <br/>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name", "label" => "Subitem Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "subitem-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-subitem-check", "name" => "publish-subitem", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>       
     </form>
 
@@ -117,6 +124,7 @@
         <input type="hidden" name="edit-subitem" /> <br/>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "subitem-name-input", "name" => "subitem-name", "label" => "Subitem Name", "placeholder" => "Enter Name" )); ?>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "subitem-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-subitem-check", "name" => "publish-subitem", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Save" )); ?>        
     </form>
 

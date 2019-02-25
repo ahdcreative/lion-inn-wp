@@ -20,8 +20,15 @@
     
     <!-- Icons -->
     <div class='float-right'>
-        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "edit-subitem", "modal" => "edit-subitem-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "300" )); ?>
+        <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "edit-subitem", "modal" => "edit-subitem-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "350" )); ?>
         <?php echo $tpl->render( 'lm-icon', array( "aClasses" => "delete-subitem", "modal" => "delete-subitem-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
+
+    <!-- Hidden publish span - Needed for Form Autofill -->
+    <?php
+    if($toPublish) {
+        echo "<span class='toPublish' hidden></span>";
+    }
+    ?>
 
 </li>

@@ -14,7 +14,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $params = array(
             'name' => $_POST["menu-name"], 
             'date_created' => current_time( 'mysql' ), 
-            'author' => get_current_user_id()
+            'author' => get_current_user_id(),
+            'toPublish' => (isset($_POST["publish-menu"]))?(1):(0)
         );
 
         $db->insert("menu", $params);
@@ -23,7 +24,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Menu
     if(isset($_POST["edit-menu"])) {
         $db->update("menu", array(
-                'name' => $_POST["menu-name"]
+                'name' => $_POST["menu-name"],
+                'toPublish' => (isset($_POST["publish-menu"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-menu"])
         );
@@ -44,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
             'side' => $_POST["section-side"],
+            'toPublish' => (isset($_POST["publish-section"]))?(1):(0),
             'parent_menu' => $_GET["menu_id"]
         );
 
@@ -55,6 +58,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->update("section", array(
                 'name' => $_POST["section-name"],
                 'side' => $_POST["section-side"],
+                'toPublish' => (isset($_POST["publish-section"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-section"])
         );
@@ -79,6 +83,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'vegetarian' => (isset($_POST["item-veg"]))?(1):(0),
             'gluten_free' => (isset($_POST["item-gf"]))?(1):(0),
             'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0),
+            'toPublish' => (isset($_POST["publish-item"]))?(1):(0),
             'parent_section' => $_POST["add-item"]
         );
 
@@ -95,7 +100,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'description' => $_POST["item-desc"],
                 'vegetarian' => (isset($_POST["item-veg"]))?(1):(0),
                 'gluten_free' => (isset($_POST["item-gf"]))?(1):(0),
-                'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0)
+                'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0),
+                'toPublish' => (isset($_POST["publish-item"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-item"])
         );
@@ -116,6 +122,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
             'price' => $_POST["subitem-price"],
+            'toPublish' => (isset($_POST["publish-subitem"]))?(1):(0),
             'parent_item' => $_POST["add-subitem"]
         );
 
@@ -128,7 +135,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'name' => $_POST["subitem-name"],
                 'date_updated' => current_time( 'mysql' ), 
                 'editor' => get_current_user_id(),
-                'price' => $_POST["subitem-price"]
+                'price' => $_POST["subitem-price"],
+                'toPublish' => (isset($_POST["publish-subitem"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-subitem"])
         );

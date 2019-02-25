@@ -1,1 +1,1 @@
-SELECT id, name, rank FROM prefixplaceholder_menu ORDER BY rank ASC;
+SELECT id, name, rank, toPublish FROM prefixplaceholder_menu ORDER BY rank ASC;
