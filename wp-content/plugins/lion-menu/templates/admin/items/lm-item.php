@@ -9,11 +9,21 @@
     <i class="fas fa-bars"></i>
     <!-- Item Name -->
     <span class="ml-3 item-name"><?php echo $name; ?></span>
+
+    <!-- Publish / Not Published Icon -->
+    <?php
+    if($toPublish) {
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
+    } else {
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
+    }
+    ?>
+
     <!-- Icons -->
     <div class='float-right'>
-        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "add-subitem", "modal" => "add-subitem-modal", "tooltip" => "Add Subitem", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "350" )); ?>
-        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "edit-item", "modal" => "edit-item-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "500" )); ?>
-        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "delete-item", "modal" => "delete-item-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "add-subitem", "modal" => "add-subitem-modal", "tooltip" => "Add Subitem", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "350" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "edit-item", "modal" => "edit-item-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "500" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "delete-item", "modal" => "delete-item-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
 
     <!-- Description -->
@@ -45,13 +55,6 @@
     <?php
     if($isSubsectionTitle) {
         echo "<span class='isSubsec' hidden></span>";
-    }
-    ?>
-
-    <!-- Hidden publish span - Needed for Form Autofill -->
-    <?php
-    if($toPublish) {
-        echo "<span class='toPublish' hidden></span>";
     }
     ?>
 

@@ -9,22 +9,24 @@
     <!-- Section Name -->
     <span class="ml-3 section-name"><?php echo $name; ?></span>
 
+    <!-- Publish / Not Published Icon -->
+    <?php
+    if($toPublish) {
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
+    } else {
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
+    }
+    ?>
+
     <!-- Icons -->
     <div class='float-right'>
-        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "add-item", "modal" => "add-item-modal", "tooltip" => "Add Item", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "500" )); ?>
-        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "edit-section", "modal" => "edit-section-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "400", "h" => "250" )); ?>
-        <?php echo $icon_tpl->render( 'lm-icon', array( "aClasses" => "delete-section", "modal" => "delete-section-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "add-item", "modal" => "add-item-modal", "tooltip" => "Add Item", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "500" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "edit-section", "modal" => "edit-section-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "400", "h" => "250" )); ?>
+        <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "delete-section", "modal" => "delete-section-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
 
     <!-- Hidden side span - Needed for Form Autofill -->
     <span class='side' hidden><?php echo $side; ?></span>
-
-    <!-- Hidden publish span - Needed for Form Autofill -->
-    <?php
-    if($toPublish) {
-        echo "<span class='toPublish' hidden></span>";
-    }
-    ?>
 
     <!-- Print Items in Section -->
     <?php

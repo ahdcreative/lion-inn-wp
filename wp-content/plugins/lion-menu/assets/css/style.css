@@ -78,14 +78,13 @@ ol.sortable, .admin-buttons { width: 60%; }
     }
 }
 
-/* Hamburger Icon */
+
+/* Icons */
 ol.sortable i.fa-bars:hover,
 ol.nested-sortable i.fa-bars:hover {
     color: #7c7c7c;
     cursor: move;
 }
-
-/* Edit & Delete Icons */
 ol.sortable i, 
 ol.nested-sortable i {
     color: #d3d3d3;
@@ -96,12 +95,16 @@ ol.nested-sortable i.fa-edit:hover {
     cursor: pointer;
 }
 ol.sortable i.fa-trash-alt:hover, 
-ol.nested-sortable i.fa-trash-alt:hover {
+ol.nested-sortable i.fa-trash-alt:hover,
+ol.sortable i.fa-times-circle, 
+ol.nested-sortable i.fa-times-circle {
     color: red;
     cursor: pointer;
 }
 ol.sortable i.fa-plus:hover, 
-ol.nested-sortable i.fa-plus:hover {
+ol.nested-sortable i.fa-plus:hover,
+ol.sortable i.fa-check-circle, 
+ol.nested-sortable i.fa-check-circle {
     color: green;
     cursor: pointer;
 }
