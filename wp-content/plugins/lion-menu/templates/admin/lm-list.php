@@ -1,4 +1,11 @@
-<?php $tpl = new Template( __DIR__ . '/items' ); ?>
+<?php 
+    /**
+     * Handle List Generation on Admin Pages
+     * Lists are JQuery Sortable Lists
+     */
+
+    $tpl = new Template( __DIR__ . '/items' );
+?>
 
 <ol class='<?php echo $classes; ?>'>
 
