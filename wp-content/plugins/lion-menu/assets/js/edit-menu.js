@@ -17,9 +17,19 @@ jQuery(function($) {
      * Checking length of DOM item identifies if it exists
      * The span with .toPublish is only rendered if the item set to be published.
      */
-    function setToPublish($inputName, $caller) {
-        $toPublish = ($($caller).parent().siblings(".toPublish").length)?(1):(0);
-        ($toPublish)?($('input[name='+$inputName+']').prop('checked', true)):($('input[name='+$inputName+']').prop('checked', false));
+    function setCheckbox($inputName, $className, $caller) {
+        $checked = ($($caller).parent().siblings($className).length)?(1):(0);
+        ($checked)?($('input[name='+$inputName+']').prop('checked', true)):($('input[name='+$inputName+']').prop('checked', false));
+
+        return $checked;
+    }
+
+    /**
+     * Set text input value to $inputName
+     */
+    function setTextInput($inputName, $caller) {
+        $value = $($caller).parent().siblings('.'+$inputName).text();
+        $('input[name='+$inputName+']').val($value);
     }
     
     /**
@@ -29,10 +39,8 @@ jQuery(function($) {
         setPostVar("edit-menu", this);
 
         // Set form values to current item values
-        $menuName = $(this).parent().siblings(".menu-name").text();
-        $('input[name="menu-name"]').val($menuName);
-
-        setToPublish("publish-menu", this);
+        setTextInput("menu-name", this);
+        setCheckbox("publish-menu", ".toPublish", this);
     });
     $(".delete-menu").on("click", function() {
         setPostVar("delete-menu", this);
@@ -48,13 +56,12 @@ jQuery(function($) {
         setPostVar("edit-section", this);
 
         // Set form values to current item values
-        $sectionName = $(this).parent().siblings(".section-name").text();
-        $('input[name="section-name"]').val($sectionName);
+        setTextInput("section-name", this);
 
         $side = $(this).parent().siblings(".side").text();
         ($side == 1)?($('input[id="section-right-radio"]').prop('checked', true)):($('input[id="section-left-radio"]').prop('checked', true));
 
-        setToPublish("publish-section", this);
+        setCheckbox("publish-section", ".toPublish", this);
     });
     $(".delete-section").on("click", function() {
         setPostVar("delete-section", this);
@@ -63,7 +70,6 @@ jQuery(function($) {
     $(".add-item").on("click", function() {
         setPostVar("add-item", this);
         // Ensure form values are empty
-        // $('input[name="edit-item"]').val('');
         $('input[name="item-name"]').val('');
         $('input[name="item-subsec"]').prop('checked', false);
         $('input[name="item-price"]').val('');
@@ -75,13 +81,9 @@ jQuery(function($) {
         setPostVar("edit-item", this);
         
         // Set form values to current item values
-        $itemName = $(this).parent().siblings(".item-name").text();
-        $('input[name="item-name"]').val($itemName);
-
-        $subsec = ($(this).parent().siblings(".isSubsec").length)?(1):(0);
-        ($subsec)?($('input[name="item-subsec"]').prop('checked', true)):($('input[name="item-subsec"]').prop('checked', false));
-
-        setToPublish("publish-item", this);
+        setTextInput("item-name", this);
+        setCheckbox("publish-item", ".toPublish", this);        
+        $subsec = setCheckbox("item-subsec", ".isSubsec", this);
 
         // If item is a subsection, hide all of the other form fields
         if($subsec) {
@@ -113,13 +115,9 @@ jQuery(function($) {
         setPostVar("edit-subitem", this);
 
         // Set form values to current item values
-        $subitemName = $(this).parent().siblings(".subitem-name").text();
-        $('input[name="subitem-name"]').val($subitemName);
-
-        $subitemPrice = $(this).parent().siblings(".subitem-price").text();
-        $('input[name="subitem-price"]').val($subitemPrice);
-
-        setToPublish("publish-subitem", this);
+        setTextInput("subitem-name", this);
+        setTextInput("subitem-price", this);
+        setCheckbox("publish-subitem", ".toPublish", this);
     });
     $(".delete-subitem").on("click", function() {
         setPostVar("delete-subitem", this);
