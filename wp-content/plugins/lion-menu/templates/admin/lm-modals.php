@@ -70,7 +70,7 @@
         <h3>Add Item</h3>
         <input type="hidden" name="add-item" /> <br/>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "add-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-item-check", "name" => "publish-item", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
