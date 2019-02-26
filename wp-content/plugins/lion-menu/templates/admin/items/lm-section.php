@@ -9,9 +9,27 @@
     <!-- Section Name -->
     <span class="ml-3 section-name"><?php echo $name; ?></span>
 
-    <!-- Publish / Not Published Icon -->
+    <!-- 
+        Publish / Not Published Icon 
+        I think this needs a of explanation.
+        if the parent isn't published:
+            but the current section is set to be published in the DB,
+            ensure the toPublish class is still set, as this is used to
+            populate the edit section modal form correctly.
+            Then set the sections toPublish value to not published,
+            so the same logic can be used by the child items.
+        Users may want the items published / not within a menu, 
+        but disable a menu so nothing appears yet / for now.
+        This ensures that when the user re-publishes a menu,
+        the same settings are used as were before for each
+        individual menu item.
+    -->
     <?php
-    if($toPublish) {
+    if(!$isParentPublished) {
+        $publishClass = ($toPublish ? 'toPublish' : '');
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass ml-2", "tooltip" => "Not Published"));
+        $toPublish = $isParentPublished;
+    } else if($toPublish) {
         echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
     } else {
         echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
@@ -35,7 +53,7 @@
 
     $items = $db->get("item", $id);
 
-    echo $list_tpl->render( 'lm-list' , array( "listOf" => $items,  "type" => "ITEMS", "classes" => "list-group my-2" ));    
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $items,  "type" => "ITEMS", "isParentPublished" => $toPublish, "classes" => "list-group my-2" ));    
 
     ?>
 </li>

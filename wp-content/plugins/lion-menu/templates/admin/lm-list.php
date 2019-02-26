@@ -2,6 +2,9 @@
     /**
      * Handle List Generation on Admin Pages
      * Lists are JQuery Sortable Lists
+     * 
+     * TODO - document all possible $var's that can be passed to this template
+     * (to prevent any confusion in future)
      */
 
     $tpl = new Template( __DIR__ . '/items' );
@@ -19,9 +22,10 @@
                 }
                 break;
 
-            case "SECTIONS":                
+            case "SECTIONS":                       
                 foreach($listOf as $sec) {
                     if($sec->side == $side) {
+                        $sec->isParentPublished = $isParentPublished;
                         echo $tpl->render( 'lm-section' , $sec );
                     }
                 }
@@ -32,6 +36,7 @@
                     echo "<i class='fs-10'>No items.</i>";                    
                 } else {
                     foreach($listOf as $item) {
+                        $item->isParentPublished = $isParentPublished;
                         echo $tpl->render( 'lm-item' , $item );
                     }
                 }             
@@ -42,6 +47,7 @@
                     echo "<i class='fs-10'>No subitems.</i>";
                 } else {
                     foreach($listOf as $subitem) {
+                        $subitem->isParentPublished = $isParentPublished;
                         echo $tpl->render( 'lm-subitem' , $subitem );
                     }
                 }

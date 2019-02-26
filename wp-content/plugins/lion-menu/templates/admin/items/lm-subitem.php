@@ -7,15 +7,22 @@
     <!-- Subitem Name -->
     <span class="ml-3 subitem-name"><?php echo $name; ?></span>
 
-    <!-- Publish / Not Published Icon -->
+    <!-- 
+        Publish / Not Published Icon 
+        Refer to lm-section.php comment for explanation of below if else.
+    -->
     <?php
-    if($toPublish) {
-        echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
+    if(!$isParentPublished) {
+        $publishClass = ($toPublish ? 'toPublish' : '');
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass ml-2", "tooltip" => "Not Published"));
+        $toPublish = $isParentPublished;
+    } else if($toPublish) {
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
     } else {
-        echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
     }
     ?>
-    
+
     <!-- Subitem Price -->
     <?php 
     if((!is_null($price)) && ($price !== "0.00")) {

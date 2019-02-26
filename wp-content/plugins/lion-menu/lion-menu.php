@@ -150,6 +150,7 @@ class LionMenu {
     public function edit_menu_init() {
 
         $tpl = new Template( __DIR__ . '/templates/admin' );
+        $icon_tpl = new Template( __DIR__ . '/templates/admin/items' );
 
         // Render POST request handlers
         echo $tpl->render( 'post' );
@@ -169,10 +170,10 @@ class LionMenu {
         // Print Sections & Items related to Menu
         if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
 
-            // Print Current Menu Title
+            // Print Current Menu Title & Published Icon
             $current_menu = $this->db->get( 'menu', $_GET["menu_id"] );
-            $curr = $current_menu[0];
-            echo "<h1>$curr->name</h1>";
+            $menu = $current_menu[0];
+            echo "<h1>$menu->name</h1>";
 
             echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "optClasses" => "add-section", "btn_size" => "btn-sm", "w" => "400", "h" => "250" ));
             
@@ -180,9 +181,9 @@ class LionMenu {
 
             echo "<div class='row'>";
 
-            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 0, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-3 pr-4" ));
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 0, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-3 pr-4" ));
 
-            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 1, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-4" ));
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 1, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-4" ));
             
             echo "</div>";
         } else {

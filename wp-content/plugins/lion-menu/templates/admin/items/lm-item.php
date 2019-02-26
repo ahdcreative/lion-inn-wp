@@ -10,9 +10,16 @@
     <!-- Item Name -->
     <span class="ml-3 item-name"><?php echo $name; ?></span>
 
-    <!-- Publish / Not Published Icon -->
+    <!-- 
+        Publish / Not Published Icon 
+        Refer to lm-section.php comment for explanation of below if else.
+    -->
     <?php
-    if($toPublish) {
+    if(!$isParentPublished) {
+        $publishClass = ($toPublish ? 'toPublish' : '');
+        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass ml-2", "tooltip" => "Not Published"));
+        $toPublish = $isParentPublished;
+    } else if($toPublish) {
         echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
     } else {
         echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
@@ -65,7 +72,7 @@
 
     // Print Items in Section
     $subitems = $db->get("subitem", $id);
-    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "classes" => "list-group", "isSubsec" => $isSubsectionTitle ));
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "isParentPublished" => $toPublish, "classes" => "list-group", "isSubsec" => $isSubsectionTitle ));
 
     ?>
 
