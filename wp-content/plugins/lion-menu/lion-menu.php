@@ -23,12 +23,6 @@ class LionMenu {
      * SQLManager - Manage Database
      */
     public $db;
-    
-    /**
-     * List Manager - Manage Sortable Lists in Admin Area
-     * Such as the menu and item lists.
-     */
-    public $lists;
 
     /**
      * Class Constructor
@@ -171,13 +165,13 @@ class LionMenu {
         if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
 
             // Print Current Menu Title & Published Icon
-            $current_menu = $this->db->get( 'menu', $_GET["menu_id"] );
+            $current_menu = $this->db->get( 'menu', "id", $_GET["menu_id"] );
             $menu = $current_menu[0];
             echo "<h1>$menu->name</h1>";
 
             echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "optClasses" => "add-section", "btn_size" => "btn-sm", "w" => "400", "h" => "250" ));
             
-            $sections = $this->db->get("section", $_GET["menu_id"]);
+            $sections = $this->db->get("section", "parent_menu", $_GET["menu_id"]);
 
             echo "<div class='row'>";
 
@@ -193,8 +187,22 @@ class LionMenu {
         
     }
 
-    public function test_foo_in() {
-        echo "Test Foo In <br/>";
+    /**
+     * Render Menu(s)
+     */
+    public function render_menu() {
+        $menus = $this->db->get( 'menu', "toPublish", 1 );
+
+        foreach($menus as $menu) {
+            $sections = $this->db->get( 'section', "toPublish", 1 );
+
+            // I need to do some refactoring as currently my get foo
+            // can only take one WHERE param
+            // Need to change to take multuiple
+            // i.e. use array(whereField => whereValue)
+        }
+
+
     }
 
 }

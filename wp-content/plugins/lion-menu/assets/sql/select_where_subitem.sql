@@ -1,3 +1,3 @@
 SELECT id, name, price, toPublish FROM prefixplaceholder_subitem 
-WHERE parent_item = fk_placeholder
+WHERE where_placeholder_field = where_placeholder_value
 ORDER BY rank ASC;

@@ -71,7 +71,7 @@
     $db = new SQLManager();
 
     // Print Items in Section
-    $subitems = $db->get("subitem", $id);
+    $subitems = $db->get("subitem", "parent_item", $id);
     echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "isParentPublished" => $toPublish, "classes" => "list-group", "isSubsec" => $isSubsectionTitle ));
 
     ?>

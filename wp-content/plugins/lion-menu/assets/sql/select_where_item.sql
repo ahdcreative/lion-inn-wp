@@ -1,3 +1,3 @@
 SELECT id, name, description, price, isVegetarian, isGlutenFree, isSubsectionTitle, toPublish FROM prefixplaceholder_item 
-WHERE parent_section = fk_placeholder
+WHERE where_placeholder_field = where_placeholder_value
 ORDER BY rank ASC;

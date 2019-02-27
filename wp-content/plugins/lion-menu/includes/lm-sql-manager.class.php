@@ -103,11 +103,12 @@ class SQLManager {
      * Solutions - either have different functions for all, single and multiple,
      *      OR - make this foo more dynamic to cater to all 3
      */
-    public function get($table, $where = "") {
+    public function get($table, $whereField = "", $whereValue = "") {
         // If a where a clause is provided, use SELECT WHERE
-        if($where) {
+        if($whereField && $whereValue) {
             $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_where_" . $table . ".sql" );
-            $sql = str_replace("fk_placeholder", $where, $sql);
+            $sql = str_replace("where_placeholder_field", $whereField, $sql);
+            $sql = str_replace("where_placeholder_value", $whereValue, $sql);
         } else {
             $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_all_" . $table . ".sql" );
         }
