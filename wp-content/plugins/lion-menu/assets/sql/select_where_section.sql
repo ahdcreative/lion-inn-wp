@@ -1,3 +1,3 @@
 SELECT id, name, side, toPublish FROM prefixplaceholder_section 
-WHERE where_placeholder_field = where_placeholder_value
+WHERE where_placeholder
 ORDER BY rank ASC;

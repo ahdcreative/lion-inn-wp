@@ -51,7 +51,7 @@
 
     $db = new SQLManager();
 
-    $items = $db->get("item", "parent_section", $id);
+    $items = $db->get( "item" , array( "parent_section" => $id ));
 
     echo $list_tpl->render( 'lm-list' , array( "listOf" => $items,  "type" => "ITEMS", "isParentPublished" => $toPublish, "classes" => "list-group my-2" ));    
 

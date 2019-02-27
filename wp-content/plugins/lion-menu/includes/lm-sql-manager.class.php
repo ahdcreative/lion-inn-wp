@@ -96,19 +96,26 @@ class SQLManager {
      * Get Data from Database
      * 
      * @param string $table Table to select from
+     * @param array $where Where clause
      * 
-     * @return array $menus All menu's in db
-     * 
-     * NOTE - Probably needs more work - not dynamic enough yet - currently only caters to SELECT ALL
-     * Solutions - either have different functions for all, single and multiple,
-     *      OR - make this foo more dynamic to cater to all 3
+     * @return array $menus All menu's in db 
      */
-    public function get($table, $whereField = "", $whereValue = "") {
-        // If a where a clause is provided, use SELECT WHERE
-        if($whereField && $whereValue) {
+    public function get($table, $where = array()) {
+        // If a where clause is provided, use SELECT WHERE
+        if($where) {
             $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_where_" . $table . ".sql" );
-            $sql = str_replace("where_placeholder_field", $whereField, $sql);
-            $sql = str_replace("where_placeholder_value", $whereValue, $sql);
+
+            $i = 0;
+            $whereSql = "";
+            foreach($where as $key => $value) {
+                if($i++ == 0) {
+                    $whereSql .= "{$key} = {$value}"; // one / first where clause
+                } else {
+                    $whereSql .= "AND {$key} = {$value}"; // multiple where clauses
+                }
+            }
+
+            $sql = str_replace("where_placeholder", $whereSql, $sql);
         } else {
             $sql = file_get_contents( WP_PLUGIN_DIR  . "/lion-menu/assets/sql/select_all_" . $table . ".sql" );
         }
@@ -126,6 +133,8 @@ class SQLManager {
      * Update data in the database
      * 
      * @param string $table Table to select from
+     * @param array $params Fields and values to update
+     * @param array $where Which row to update
      */
     public function update($table, $params, $where) {
         $table = $this->wpdb->prefix . "lm_" . $table;
