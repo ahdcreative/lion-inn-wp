@@ -191,13 +191,11 @@ class LionMenu {
      * Render Menu(s)
      */
     public function render_menu() {
-        $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );
+        $tpl = new Template( __DIR__ . '/templates/front-end' );
 
-        foreach($menus as $menu) {
-            $sections = $this->db->get( "section" , array ( "parent_menu" => $_GET["menu_id"] , "toPublish" => 1 ) );
-
-
-        }
+        $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
+                
+        echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => "" ));       
 
     }
 

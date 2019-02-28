@@ -111,7 +111,7 @@ class SQLManager {
                 if($i++ == 0) {
                     $whereSql .= "{$key} = {$value}"; // one / first where clause
                 } else {
-                    $whereSql .= "AND {$key} = {$value}"; // multiple where clauses
+                    $whereSql .= " AND {$key} = {$value}"; // multiple where clauses
                 }
             }
 
