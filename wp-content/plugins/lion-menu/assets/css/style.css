@@ -133,3 +133,13 @@ img.icon {
 .subitem-price {
     color: #673ab7 !important;
 }
+
+
+/**
+ * Front End
+ */
+.subsection-title {
+    background-color: #673ab7;
+    color: #fff;
+    font-size: 14pt;
+}

@@ -9,40 +9,45 @@
     $tpl = new Template( __DIR__ );
 ?>
 
-<?php
+<div class="<?php echo $classes; ?>">
 
-    switch($type) {
+    <?php
 
-        case "MENUS":
-            $i = 1;
-            foreach($listOf as $menu) {
-                $menu->isFirst = ($i == 1)?(1):(0);
-                echo $tpl->render( 'menu' , $menu );
-                $i++;
-            }
-            break;
+        switch($type) {
 
-        case "SECTIONS":                       
-            foreach($listOf as $sec) {
-                if($sec->side == $side) {
-                    $sec->classes = $classes;
-                    echo $tpl->render( 'section' , $sec );
+            case "MENUS":
+                $i = 1;
+                foreach($listOf as $menu) {
+                    $menu->isFirst = ($i == 1)?(1):(0);
+                    echo $tpl->render( 'menu' , $menu );
+                    $i++;
                 }
-            }
-            break;
+                $i = 1;
+                break;
 
-        case "ITEMS":
-            foreach($listOf as $item) {
-                echo $tpl->render( 'item' , $item );
-            }
-            break;
+            case "SECTIONS":                       
+                foreach($listOf as $sec) {
+                    if($sec->side == $side) {
+                        echo $tpl->render( 'section' , $sec );
+                    }
+                }
+                break;
 
-        case "SUBITEMS":
-            foreach($listOf as $subitem) {
-                echo $tpl->render( 'subitem' , $subitem );
-            }
-            break;
+            case "ITEMS":
+                foreach($listOf as $item) {
+                    $item->side = $side;
+                    echo $tpl->render( 'item' , $item );
+                }
+                break;
 
-    }
+            case "SUBITEMS":
+                foreach($listOf as $subitem) {
+                    echo $tpl->render( 'subitem' , $subitem );
+                }
+                break;
 
-?>
+        }
+
+    ?>
+
+</div>
