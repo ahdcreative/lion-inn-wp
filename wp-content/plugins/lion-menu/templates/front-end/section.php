@@ -1,17 +1,21 @@
 <?php $tpl = new Template( __DIR__ ); ?>
 
-<div class="<?php echo $classes; ?>">
+<div class="">
 
     <h1 class="great-vibes m-0"><?php echo $name; ?></h1>
     <hr class="mt-2"/>
 
     <?php
 
-    $db = new SQLManager();
+        /**
+         * Print Items in section
+         */
 
-    $items = $db->get( "item" , array( "parent_section" => $id, "toPublish" => 1 ));
+        $db = new SQLManager();
 
-    echo $tpl->render( 'list' , array( "listOf" => $items,  "type" => "ITEMS", "classes" => "", "side" => $side ));    
+        $items = $db->get( "item" , array( "parent_section" => $id, "toPublish" => 1 ));
+
+        echo $tpl->render( 'list' , array( "listOf" => $items,  "type" => "ITEMS", "classes" => "", "side" => $side ));    
 
     ?>
 

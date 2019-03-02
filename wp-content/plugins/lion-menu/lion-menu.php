@@ -195,7 +195,7 @@ class LionMenu {
 
         $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
                 
-        echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => "" ));       
+        echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => " " ));       
 
     }
 

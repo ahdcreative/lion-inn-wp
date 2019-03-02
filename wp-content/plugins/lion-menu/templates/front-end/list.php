@@ -9,45 +9,45 @@
     $tpl = new Template( __DIR__ );
 ?>
 
-<div class="<?php echo $classes; ?>">
+<?php
 
-    <?php
+    switch($type) {
 
-        switch($type) {
+        case "MENUS":
+            $i = 1;
+            foreach($listOf as $menu) {
+                $menu->isFirst = ($i == 1)?(1):(0);
+                echo $tpl->render( 'menu' , $menu );
+                $i++;
+            }
+            $i = 1;
+            break;
 
-            case "MENUS":
-                $i = 1;
-                foreach($listOf as $menu) {
-                    $menu->isFirst = ($i == 1)?(1):(0);
-                    echo $tpl->render( 'menu' , $menu );
-                    $i++;
+        case "SECTIONS":
+            echo "<div class='$classes'>";
+            foreach($listOf as $sec) {
+                if($sec->side == $side) {
+                    echo $tpl->render( 'section' , $sec );
                 }
-                $i = 1;
-                break;
+            }
+            echo "</div>";
+            break;
 
-            case "SECTIONS":                       
-                foreach($listOf as $sec) {
-                    if($sec->side == $side) {
-                        echo $tpl->render( 'section' , $sec );
-                    }
-                }
-                break;
+        case "ITEMS":
+            foreach($listOf as $item) {
+                $item->side = $side;
+                echo $tpl->render( 'item' , $item );
+            }
+            break;
 
-            case "ITEMS":
-                foreach($listOf as $item) {
-                    $item->side = $side;
-                    echo $tpl->render( 'item' , $item );
-                }
-                break;
+        case "SUBITEMS":
+            foreach($listOf as $subitem) {
+                echo $tpl->render( 'subitem' , $subitem );
+            }
+            break;
 
-            case "SUBITEMS":
-                foreach($listOf as $subitem) {
-                    echo $tpl->render( 'subitem' , $subitem );
-                }
-                break;
+    }
 
-        }
+?>
 
-    ?>
 
-</div>
