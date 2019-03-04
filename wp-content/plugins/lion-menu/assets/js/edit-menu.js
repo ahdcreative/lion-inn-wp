@@ -88,10 +88,13 @@ jQuery(function($) {
         $note = setCheckbox("item-note", ".isNote", this);
 
         // If item is a subsection, hide all of the other form fields
-        if($subsec) {
+        if($subsec && !$note) {
             $(".hideIfSubsec").hide(this.unchecked);
+        } else if($note && !$subsec) {
+            $(".hideIfNote").hide(this.unchecked);
         } else {
             $(".hideIfSubsec").show(this.unchecked);
+            $(".hideIfNote").show(this.unchecked);
             
             $price = $(this).parent().siblings(".veg-gf-price").children(".price").text();
             $('input[name="item-price"]').val($price);
