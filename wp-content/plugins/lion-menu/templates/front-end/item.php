@@ -4,6 +4,7 @@
     $textClasses = "";
     $iconClasses = "";
     $priceClasses = "";
+    $itemClasses = "";
     $purpleBg = "";
     $subHeading = "";
     
@@ -32,9 +33,19 @@
         $subHeading = "main-sub-heading my-2";
         $textClasses .= " d-flex align-items-center";
     }
+
+    /**
+     * If item is a note (italic paragraph)
+     * Set class to 'note'
+     */
+    if($isNote) {
+        $itemClasses = "note";
+    } else {
+        $itemClasses = "item row mt-2";
+    }
 ?>
 
-<div class="item row mt-2 <?php echo $purpleBg; ?>">
+<div class="<?php echo $itemClasses . $purpleBg; ?>">
 
     <div class="w-100 <?php echo $textClasses; ?>">
         <h3 class="item-title <?php echo $subHeading; ?>"><?php echo $name; ?></h3>
