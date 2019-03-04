@@ -1,9 +1,8 @@
 <?php $tpl = new Template( __DIR__ ); ?>
 
-<div class="">
+<div class="mt-5">
 
     <h1 class="great-vibes m-0"><?php echo $name; ?></h1>
-    <hr class="mt-2"/>
 
     <?php
 

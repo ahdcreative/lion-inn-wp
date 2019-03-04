@@ -69,13 +69,14 @@
     <form action="#" method="post" class="p-3">
         <h3>Add Item</h3>
         <input type="hidden" name="add-item" /> <br/>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "add-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "optClasses" => "hideIfNote", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "add-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3 hideIfNote" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "add-note-check", "name" => "item-note", "label" => "Note", "optClasses" => "ml-5 mb-3 hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-item-check", "name" => "publish-item", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec hideIfNote", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "gf-check", "name" => "item-gf", "label" => "Gluten Free", "optClasses" => "hideIfSubsec" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec hideIfNote" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "gf-check", "name" => "item-gf", "label" => "Gluten Free", "optClasses" => "hideIfSubsec hideIfNote" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>       
     </form>
 
@@ -87,13 +88,14 @@
     <form action="#" method="post" class="p-3">
         <h3>Edit Item</h3>
         <input type="hidden" name="edit-item" /> <br/>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "item-name-input", "name" => "item-name", "label" => "Item Name", "optClasses" => "hideIfNote", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-subsec-check", "name" => "item-subsec", "label" => "Subsection Title", "optClasses" => "mb-3 hideIfNote" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "edit-note-check", "name" => "item-note", "label" => "Note", "optClasses" => "ml-5 mb-3 hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-item-check", "name" => "publish-item", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
-        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec", "placeholder" => "0.00" )); ?>
+        <?php echo $tpl->render( 'lm-text-input', array( "id" => "price-input", "name" => "item-price", "label" => "Price", "optClasses" => "hideIfSubsec hideIfNote", "placeholder" => "0.00" )); ?>
         <?php echo $tpl->render( 'lm-textarea-input', array( "id" => "desc-input", "name" => "item-desc", "label" => "Description", "optClasses" => "hideIfSubsec" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec" )); ?>
-        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "gf-check", "name" => "item-gf", "label" => "Gluten Free", "optClasses" => "hideIfSubsec" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "veg-check", "name" => "item-veg", "label" => "Vegetarian", "optClasses" => "hideIfSubsec hideIfNote" )); ?>
+        <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "gf-check", "name" => "item-gf", "label" => "Gluten Free", "optClasses" => "hideIfSubsec hideIfNote" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Save" )); ?>        
     </form>
 

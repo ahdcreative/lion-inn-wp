@@ -13,7 +13,8 @@
             if($price >= 1.00) {
                 echo "£$price";
             } else {
-                echo "+" . $price . "p";
+                // Multiply by 100 so display without prefix 0.
+                echo "+" . $price * 100 . "p";
             }
             echo "</p>";
         }

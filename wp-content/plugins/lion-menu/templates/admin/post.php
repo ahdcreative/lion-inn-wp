@@ -83,6 +83,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'isVegetarian' => (isset($_POST["item-veg"]))?(1):(0),
             'isGlutenFree' => (isset($_POST["item-gf"]))?(1):(0),
             'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0),
+            'isNote' => (isset($_POST["item-note"]))?(1):(0),
             'toPublish' => (isset($_POST["publish-item"]))?(1):(0),
             'parent_section' => $_POST["add-item"]
         );
@@ -101,6 +102,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'isVegetarian' => (isset($_POST["item-veg"]))?(1):(0),
                 'isGlutenFree' => (isset($_POST["item-gf"]))?(1):(0),
                 'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0),
+                'isNote' => (isset($_POST["item-note"]))?(1):(0),
                 'toPublish' => (isset($_POST["publish-item"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-item"])

@@ -72,6 +72,7 @@ jQuery(function($) {
         // Ensure form values are empty
         $('input[name="item-name"]').val('');
         $('input[name="item-subsec"]').prop('checked', false);
+        $('input[name="item-note"]').prop('checked', false);
         $('input[name="item-price"]').val('');
         $('textarea[name="item-desc"]').val('');
         $('input[name="item-veg"]').prop('checked', false);
@@ -82,8 +83,9 @@ jQuery(function($) {
         
         // Set form values to current item values
         setTextInput("item-name", this);
-        setCheckbox("publish-item", ".toPublish", this);        
+        setCheckbox("publish-item", ".toPublish", this);
         $subsec = setCheckbox("item-subsec", ".isSubsec", this);
+        $note = setCheckbox("item-note", ".isNote", this);
 
         // If item is a subsection, hide all of the other form fields
         if($subsec) {
@@ -130,6 +132,14 @@ jQuery(function($) {
     });
     $('#edit-subsec-check').click(function() {
         $(".hideIfSubsec").toggle(this.unchecked);
+    });
+
+    // If Note checkbox is ticked, hide inputs
+    $('#add-note-check').click(function() {
+        $(".hideIfNote").toggle(this.unchecked);
+    });
+    $('#edit-note-check').click(function() {
+        $(".hideIfNote").toggle(this.unchecked);
     });
     
 });

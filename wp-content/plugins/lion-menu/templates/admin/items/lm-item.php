@@ -65,6 +65,13 @@
     }
     ?>
 
+    <!-- Hidden isSubsection - Needed for Form Autofill -->
+    <?php
+    if($isNote) {
+        echo "<span class='isNote' hidden></span>";
+    }
+    ?>
+
     <!-- Subitems -->
     <?php
 
