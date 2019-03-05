@@ -1,6 +1,20 @@
 <?php
 
 /**
+ * Support Function
+ * Set Item Type when Item is edited or added
+ */
+function setItemType() {
+    if(isset($_POST["item-subsec"])) {
+        $type = 'subtitle';
+    } else if(isset($_POST["item-note"])) {
+        $type = 'note';
+    } else {
+        $type = 'item';
+    }
+}
+
+/**
  * Handle POST Requests on Plugin Admin Page
  */
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -74,16 +88,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Add Item
     if(isset($_POST["add-item"])) {
+        $type = setItemType();
+
         $params = array(
             'name' => $_POST["item-name"], 
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
             'price' => $_POST["item-price"],
+            'type' => $type,
             'description' => $_POST["item-desc"],
             'isVegetarian' => (isset($_POST["item-veg"]))?(1):(0),
             'isGlutenFree' => (isset($_POST["item-gf"]))?(1):(0),
-            'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0),
-            'isNote' => (isset($_POST["item-note"]))?(1):(0),
             'toPublish' => (isset($_POST["publish-item"]))?(1):(0),
             'parent_section' => $_POST["add-item"]
         );
@@ -93,16 +108,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // Edit Item
     if(isset($_POST["edit-item"])) {
+        $type = setItemType();
+
         $db->update("item", array(
                 'name' => $_POST["item-name"],
                 'date_updated' => current_time( 'mysql' ), 
                 'editor' => get_current_user_id(),
                 'price' => $_POST["item-price"],
+                'type' => $type,
                 'description' => $_POST["item-desc"],
                 'isVegetarian' => (isset($_POST["item-veg"]))?(1):(0),
                 'isGlutenFree' => (isset($_POST["item-gf"]))?(1):(0),
-                'isSubsectionTitle' => (isset($_POST["item-subsec"]))?(1):(0),
-                'isNote' => (isset($_POST["item-note"]))?(1):(0),
                 'toPublish' => (isset($_POST["publish-item"]))?(1):(0)
             ), 
             array('id' => $_POST["edit-item"])

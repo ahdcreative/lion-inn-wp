@@ -28,7 +28,7 @@
      * Subsection Titles (that appear as white text on a purple background)
      * also need extra classes.
      */
-    if ($isSubsectionTitle) {
+    if ($type == 'subtitle') {
         $purpleBg = "purple-bg";
         $subHeading = "main-sub-heading my-2";
         $textClasses .= " d-flex align-items-center";
@@ -38,7 +38,7 @@
      * If item is a note (italic paragraph)
      * Set class to 'note'
      */
-    if($isNote) {
+    if($type == 'note') {
         $itemClasses = "note";
     } else {
         $itemClasses = "item row mt-2";
@@ -85,7 +85,7 @@
 
     echo $tpl->render( 'list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "classes" => "" ));
 
-    if(!$isSubsectionTitle) {
+    if(!($type == 'subtitle')) {
         echo "<hr class='mt-1' />";
     }
 

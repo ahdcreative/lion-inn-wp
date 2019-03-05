@@ -30,7 +30,7 @@ INSERT INTO `hjb01_lm_item` (`id`, `name`, `rank`, `date_created`, `date_updated
 (14, 'Salad', 2, '2019-01-30 22:23:34', NULL, 1, NULL, NULL, 'item', '', NULL, NULL, 3),
 (17, 'Pork Crackling', 1, '2019-02-10 20:52:52', '2019-02-12 20:51:24', 1, 1, '0.00', 'item', 'Served with apple sauce.', 1, 1, 1),
 (18, 'Pasta', 1, '2019-02-12 20:01:14', NULL, 1, NULL, '0.00', 'subtitle', '', 0, 0, 2),
-(19, 'Note', 5, '2019-02-12 20:01:14', NULL, 1, NULL, '0.00', 'note', '', 0, 0, 2),
+(19, 'Note', 5, '2019-02-12 20:01:14', NULL, 1, NULL, '0.00', 'note', 'This is a note.', 0, 0, 2),
 (20, 'Cheese & Biscuits', 1, '2019-02-24 18:12:49', NULL, 1, NULL, '4.00', 'item', '', 1, 0, 9);
 
 

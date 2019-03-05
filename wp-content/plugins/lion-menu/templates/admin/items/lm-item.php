@@ -1,6 +1,12 @@
 <?php 
     $icon_tpl = new Template( __DIR__ );
     $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
+
+    if($type == 'subtitle') {
+        $isSubsectionTitle = 1;
+    } else {
+        $isSubsectionTitle = 0;
+    }
 ?>
 
 <li class="list-group-item list-group-item-action <?php echo ($isSubsectionTitle)?('purpleBg'):(''); ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
@@ -60,14 +66,14 @@
 
     <!-- Hidden isSubsection - Needed for Form Autofill -->
     <?php
-    if($isSubsectionTitle) {
+    if($type == 'subtitle') {
         echo "<span class='isSubsec' hidden></span>";
     }
     ?>
 
     <!-- Hidden isSubsection - Needed for Form Autofill -->
     <?php
-    if($isNote) {
+    if($type == 'note') {
         echo "<span class='isNote' hidden></span>";
     }
     ?>

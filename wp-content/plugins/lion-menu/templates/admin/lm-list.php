@@ -37,7 +37,7 @@
                 } else {
                     foreach($listOf as $item) {
                         $item->isParentPublished = $isParentPublished;
-                        echo $tpl->render( 'lm-item' , $item );
+                        echo $tpl->render( 'lm-item' , $item );                   
                     }
                 }             
                 break;

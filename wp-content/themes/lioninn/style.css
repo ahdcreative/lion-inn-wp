@@ -780,10 +780,8 @@ nav .mobile-footer {
   color: #673ab7;
 }
 
-.menu .menu-items h3.main-sub-heading {
+.menu .menu-items h2.main-sub-heading {
+  background-color: #673ab7;
   color: #fff;
   font-size: 14pt;
-}
-.purple-bg {
-  background-color: #673ab7;
 }

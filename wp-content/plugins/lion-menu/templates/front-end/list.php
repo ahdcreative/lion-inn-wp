@@ -36,7 +36,16 @@
         case "ITEMS":
             foreach($listOf as $item) {
                 $item->side = $side;
-                echo $tpl->render( 'item' , $item );
+                
+                if($item->type == 'item') {
+                    echo $tpl->render( 'item' , $item );
+                } else if($item->type == 'subtitle') {
+                    echo $tpl->render( 'subtitle' , $item );
+                } else if($item->type == 'note') {
+                    echo $tpl->render( 'note' , $item );
+                } else {
+                    echo "Unknown item type.";
+                }   
             }
             break;
 
