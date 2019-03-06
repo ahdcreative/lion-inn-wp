@@ -6,11 +6,11 @@
  */
 function setItemType() {
     if(isset($_POST["item-subsec"])) {
-        $type = 'subtitle';
+        return 'subtitle';
     } else if(isset($_POST["item-note"])) {
-        $type = 'note';
+        return 'note';
     } else {
-        $type = 'item';
+        return 'item';
     }
 }
 
@@ -109,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Item
     if(isset($_POST["edit-item"])) {
         $type = setItemType();
-
+        
         $db->update("item", array(
                 'name' => $_POST["item-name"],
                 'date_updated' => current_time( 'mysql' ), 

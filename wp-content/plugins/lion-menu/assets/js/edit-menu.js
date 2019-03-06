@@ -77,6 +77,9 @@ jQuery(function($) {
         $('textarea[name="item-desc"]').val('');
         $('input[name="item-veg"]').prop('checked', false);
         $('input[name="item-gf"]').prop('checked', false);
+
+        $(".hideIfSubsec").show(this.unchecked);
+        $(".hideIfNote").show(this.unchecked);
     });
     $(".edit-item").on("click", function() {
         setPostVar("edit-item", this);
@@ -87,14 +90,22 @@ jQuery(function($) {
         $subsec = setCheckbox("item-subsec", ".isSubsec", this);
         $note = setCheckbox("item-note", ".isNote", this);
 
+        console.log($subsec);
+        console.log($note);
+
         // If item is a subsection, hide all of the other form fields
         if($subsec && !$note) {
+            $(".hideIfNote").show(this.unchecked);
             $(".hideIfSubsec").hide(this.unchecked);
+            console.log("IF");
         } else if($note && !$subsec) {
+            $(".hideIfSubsec").show(this.unchecked);
             $(".hideIfNote").hide(this.unchecked);
+            console.log("Else IF");
         } else {
             $(".hideIfSubsec").show(this.unchecked);
             $(".hideIfNote").show(this.unchecked);
+            console.log("Else");
             
             $price = $(this).parent().siblings(".veg-gf-price").children(".price").text();
             $('input[name="item-price"]').val($price);
