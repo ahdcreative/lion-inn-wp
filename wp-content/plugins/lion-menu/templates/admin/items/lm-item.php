@@ -2,14 +2,24 @@
     $icon_tpl = new Template( __DIR__ );
     $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
 
+    $bg = '';
+
+    // Set background colours and subitem bools
     if($type == 'subtitle') {
+        $bg = 'purpleBg white-font';
         $isSubsectionTitle = 1;
+        $isNote = 0;
+    } else if($type == 'note') {
+        $bg = 'bg-primary white-font';
+        $isSubsectionTitle = 0;
+        $isNote = 1;
     } else {
         $isSubsectionTitle = 0;
+        $isNote = 0;
     }
 ?>
 
-<li class="list-group-item list-group-item-action <?php echo ($isSubsectionTitle)?('purpleBg'):(''); ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
+<li class="list-group-item list-group-item-action <?php echo $bg; ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
 
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
@@ -85,7 +95,7 @@
 
     $subitems = $db->get( "subitem" , array ( "parent_item" => $id ) );
 
-    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "isParentPublished" => $toPublish, "classes" => "list-group", "isSubsec" => $isSubsectionTitle ));
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "isParentPublished" => $toPublish, "classes" => "list-group", "isSubsec" => $isSubsectionTitle, "isNote" => $isNote ));
 
     ?>
 

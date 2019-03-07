@@ -43,7 +43,7 @@
                 break;
 
             case "SUBITEMS":
-                if(!$listOf && !$isSubsec) {  
+                if(!$listOf && !$isSubsec && !$isNote) {  
                     echo "<i class='fs-10'>No subitems.</i>";
                 } else {
                     foreach($listOf as $subitem) {

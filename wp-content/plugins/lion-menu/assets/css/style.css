@@ -113,8 +113,15 @@ ol.nested-sortable i.fa-check-circle {
 /**
  * Edit Menu Page
  */
-.btn-lion-purple, .purpleBg {
+.btn-lion-purple {
     background-color: #673ab7 !important;
+    color: white !important;
+}
+
+.purpleBg {
+    background-color: #673ab7 !important;
+}
+.white-font {
     color: white !important;
 }
 
@@ -132,14 +139,4 @@ img.icon {
 
 .subitem-price {
     color: #673ab7 !important;
-}
-
-
-/**
- * Front End
- */
-.subsection-title {
-    background-color: #673ab7;
-    color: #fff;
-    font-size: 14pt;
 }
