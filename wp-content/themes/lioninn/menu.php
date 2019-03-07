@@ -2,6 +2,18 @@
 /**
  * Template Name: Menu
  */
+
+if (class_exists( 'LionMenu' )) {
+
+    $lionMenu = new LionMenu();
+
+} else {
+
+    echo "<h3>Class doesn't exist (i.e. plugin not installed or something).</h3>";
+    log_me("ERROR :- LionMenu Class Does not exist.  Object cannot be created.");
+    console_log("Class doesn't exist.");
+
+}
 ?>
 
 <?php get_header(); ?>
@@ -26,16 +38,21 @@
         <ul class="nav nav-tabs row menu-options text-center mt-4" id="myTab" role="tablist">
 
             <!-- Loop through all menus and print menu title to nav -->
-            <?php $i = 1; while( have_groups( 'menus' ) ): the_group() ?>
+            <?php
 
-                <li class="nav-item col-1 p-0">
-                    <a class="nav-link p-0 d-flex flex-column <?php if($i == 1) { echo "active"; } ?>" id="<?php echo strtolower( get_sub_value( 'menu_title' )) ?>-tab" data-toggle="tab" href="#<?php echo strtolower( get_sub_value( 'menu_title' )) ?>" role="tab" aria-controls="<?php echo strtolower( get_sub_value( 'menu_title' )) ?>" aria-selected="true">
-                        <h4 class="m-0 my-auto"><?php the_sub_value( 'menu_title' ) ?></h4>
+                if(method_exists($lionMenu, 'render_menu_nav')) {
 
-                    </a>
-                </li>
+                    $lionMenu->render_menu_nav();
 
-            <?php $i++; endwhile ?>
+                } else {
+
+                    echo "<h3>Error loading menu nav.</h3>";
+                    log_me("ERROR :- LionMenu nav could not be loaded.");
+                    console_log("Error loading menu nav.");
+
+                }
+                
+            ?>
 
         </ul>
 
@@ -57,25 +74,15 @@
 
             <?php
 
-                if (class_exists( 'LionMenu' )) {
+                if(method_exists($lionMenu, 'render_menu')) {
 
-                    $lionMenu = new LionMenu();
-
-                    if(method_exists($lionMenu, 'render_menu')) {
-
-                        $lionMenu->render_menu();
-
-                    } else {
-
-                        echo "<h3>Error loading menu.</h3>";
-                        console_log("Error loading menu.");
-
-                    }
+                    $lionMenu->render_menu();
 
                 } else {
 
-                    echo "<h3>Class doesn't exist (i.e. plugin not installed or something).</h3>";
-                    console_log("Class doesn't exist.");
+                    echo "<h3>Error loading menu.</h3>";
+                    log_me("ERROR :- LionMenu menu could not be loaded.");
+                    console_log("Error loading menu.");
 
                 }
 

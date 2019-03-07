@@ -195,8 +195,18 @@ class LionMenu {
 
         $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
                 
-        echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => " " ));       
+        echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => " " ));
+    }
 
+    /**
+     * Render Menu Nav
+     */
+    public function render_menu_nav() {
+        $tpl = new Template( __DIR__ . '/templates/front-end' );
+
+        $nav = $this->db->get( "menu" );      
+                
+        echo $tpl->render( 'list' , array( "listOf" => $nav, "type" => "NAV", "classes" => " " ));
     }
 
 }

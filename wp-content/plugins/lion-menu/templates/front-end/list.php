@@ -55,6 +55,15 @@
             }
             break;
 
+        case "NAV":
+            $i = 1;
+            foreach($listOf as $nav_item) {
+                $nav_item->isFirst = ($i == 1)?(1):(0);
+                echo $tpl->render( 'nav-item' , $nav_item );
+                $i++;
+            }
+            break;
+
     }
 
 ?>
