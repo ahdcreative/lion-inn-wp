@@ -1,1 +1,0 @@
-<img class="fdm-item-image" src="<?php echo esc_attr( $this->image ); ?>" title="<?php echo esc_attr( $this->title ); ?>" alt="<?php echo esc_attr( $this->title ); ?>">

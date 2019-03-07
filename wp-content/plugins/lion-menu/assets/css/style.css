@@ -1,0 +1,142 @@
+/**
+ * Styling for Sortable / Draggable Lists
+ * From the Sortable site
+ */
+body.dragging, body.dragging * {
+    cursor: move !important;
+}
+.dragged {
+    position: absolute !important;
+    opacity: 0.5;
+    z-index: 2000;
+    cursor: move !important;
+}
+
+/* Menu List */
+ol.sortable li {
+    position: relative;
+    list-style-type: none !important;
+}
+ol.sortable li:before {
+    position: absolute;
+}
+
+/* Menu Item List - Edit Menu Page */
+ol.nested-sortable li {
+    list-style-type: none !important;
+}
+
+/*
+ * VERY IMPORTANT 
+ * Ensures that the multi-nested lists work.
+ * Removing this will break the functionality of the moveable lists.
+ */
+.no-position:not(.dragged) {
+    position: initial;
+}
+
+/* Styling for all Lists
+ * Adds red arrow when moving.
+ */
+ol.vertical li.placeholder {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none; 
+}
+ol.vertical li.placeholder:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-top: -5px;
+    left: -5px;
+    top: -4px;
+    border: 5px solid transparent;
+    border-left-color: red;
+    border-right: none; 
+}
+
+
+/**
+ * Admin Page
+ */
+
+/* Anchor / Button styling */
+a.button-link {
+    color: white !important;
+    text-decoration: none !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* Admin content width */
+ol.sortable, .admin-buttons { width: 60%; }
+@media (max-width: 1300px) {
+    ol.sortable, .admin-buttons {
+        width: 100%;
+    }
+}
+
+
+/* Icons */
+ol.sortable i.fa-bars:hover,
+ol.nested-sortable i.fa-bars:hover {
+    color: #7c7c7c;
+    cursor: move;
+}
+ol.sortable i, 
+ol.nested-sortable i {
+    color: #d3d3d3;
+}
+ol.sortable i.fa-edit:hover, 
+ol.nested-sortable i.fa-edit:hover {
+    color: #7c7c7c;
+    cursor: pointer;
+}
+ol.sortable i.fa-trash-alt:hover, 
+ol.nested-sortable i.fa-trash-alt:hover,
+ol.sortable i.fa-times-circle, 
+ol.nested-sortable i.fa-times-circle {
+    color: red;
+    cursor: pointer;
+}
+ol.sortable i.fa-plus:hover, 
+ol.nested-sortable i.fa-plus:hover,
+ol.sortable i.fa-check-circle, 
+ol.nested-sortable i.fa-check-circle {
+    color: green;
+    cursor: pointer;
+}
+
+
+/**
+ * Edit Menu Page
+ */
+.btn-lion-purple {
+    background-color: #673ab7 !important;
+    color: white !important;
+}
+
+.purpleBg {
+    background-color: #673ab7 !important;
+}
+.white-font {
+    color: white !important;
+}
+
+.fs-10 {
+    font-size: 10pt;
+}
+.fs-14 {
+    font-size: 14pt;
+}
+
+img.icon {
+    height: 15px;
+    width: 15px;
+}
+
+.subitem-price {
+    color: #673ab7 !important;
+}

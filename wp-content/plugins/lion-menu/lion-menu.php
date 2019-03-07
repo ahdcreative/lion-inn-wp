@@ -11,88 +11,215 @@ Author URI:
 // Exit if accessed directly
 if(!defined('ABSPATH')) exit;
 
-// Load scripts
-require_once(plugin_dir_path(__FILE__).'/includes/lm-scripts.php');
+require_once(plugin_dir_path(__FILE__).'/includes/lm-template.class.php');
+require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
 
-/*
+/**
  * Plugin Class
  */
 class LionMenu {
 
-	public function __construct() {
-        // Add 'Menu' Option to Admin Menu & Init the Page
-        add_action('admin_menu', array( $this, 'admin_menu_option' ) );
-
-        // Add Modal Support
-        //add_thickbox();
-    }
-
-	function activate() {
-        // Flush Rewrite Rules
-        flush_rewrite_rules();
-	}
-
-	function deactivate() {
-        // Flush Rewrite Rules
-        flush_rewrite_rules();
-	}
-
-	function uninstall() {
-
-	}
-
-	function custom_post_type() {
-		//register_post_type();
-    }
-
-    /*
-     * Add 'Menu' Option to Admin Menu & Init the Page 
+    /**
+     * SQLManager - Manage Database
      */
-    public function admin_menu_option() {
-        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lion-menu-plugin', array( $this, 'menu_init' ) );
+    public $db;
+
+    /**
+     * Class Constructor
+     */
+	public function __construct() {
+        $this->db = new SQLManager();
+
+        // Add 'Menu' Option to Admin Menu & Init the Page
+        add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
+    }
+
+    /**
+     * Register Assets
+     */
+    public function register() {
+        add_action('admin_enqueue_scripts', array($this, 'enqueue'));  
+    }
+
+    /**
+     * Plugin Activation Hook
+     */
+	function activate() {
+        // Create DB Tables
+        $this->db->createTables(); 
+
+        // Check tables are created properly
+
+        flush_rewrite_rules();
+	}
+
+    /**
+     * Plugin Deactivation Hook
+     */
+	function deactivate() {
+        // TEMP - delete tables on deactivate (for debugging)
+        $this->db->deleteTables(); 
+
+        // Print message stating that data will not be deleted from database
+        // but that there might be issues on your website.
+        
+        flush_rewrite_rules();
+	}
+
+    /**
+     * Plugin Uninstall Hook
+     */
+	function uninstall() {
+        // Delete Databases OR Add Option of Deleting Databases 
+    }
+
+    /**
+     * Enqueue Assets
+     */
+    public function enqueue() {
+        // Add Main CSS
+        wp_enqueue_style('lm-style', plugins_url() . '/lion-menu/assets/css/style.css');
+
+        // Add JQuery Sortable
+        wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
+
+        // Add Custom Javascript
+        wp_enqueue_script('lm-edit-menu', plugins_url() . '/lion-menu/assets/js/edit-menu.js', array('jquery'));
+        wp_enqueue_script('lm-lists', plugins_url() . '/lion-menu/assets/js/custom-lists.js', array('jquery'));
+
+        // Add Bootstrap CSS & JS & PopperJS
+        wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
+        wp_enqueue_style('bs-css', plugins_url() . '/lion-menu/assets/css/bootstrap.min.css');
+        wp_enqueue_script('bs-js', plugins_url() . '/lion-menu/assets/js/bootstrap.min.js');
+        
+        // Font Awesome
+        wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
     }
     
-    public function menu_init(){
-        // Title
-        echo "<h1>Menu</h1>";
+    /**
+     * Add 'Menu' Option to Admin Menu & Init the Page
+     * Create Subpages
+     */
+    public function admin_menu_pages() {
+        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ) );
+        add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
+    }
     
-        // Print paragraph about what this page is and how to do something
-    
-        // Print All Current Menu's (the menu's will probably print their own items)
-    
-        // Print Button(s) to create a new menu (menu will probably have buttons to create sections / items 
+    /**
+     * Initialise Admin Page with Menu-related content
+     */
+    public function menu_init() {
+        
+        $tpl = new Template( __DIR__ . '/templates/admin' );
+
+        // Render POST & GET request handlers
+        echo $tpl->render( 'post' );
+
+        // Add Modal Support & Render Modals
         add_thickbox();
-           
-        echo '
-            <div id="my-content-id" style="display:none;">
-                <p>
-                    This is my hidden content! It will appear in ThickBox when the link is clicked.
-                </p>
-            </div>
-    
-            <a href="#TB_inline?&width=600&height=550&inlineId=my-content-id" class="thickbox">View my inline content!</a>
-        ';
-    
+        echo $tpl->render( 'lm-modals' );
+
+        // Print Header section of Admin Page
+        $data = array ('title' => 'Menu', 'desc' => "Create and manage menu's from this page. Click 'Add Menu' below to create a new menu. Select a menu from the list below to edit a menu.");
+        echo $tpl->render( 'lm-header', $data );
+        
+        // Display save button and it's functionality
+        echo $tpl->render( 'lm-menu-buttons' );
+        
+        // Get Menu's
+        $menus = $this->db->get( 'menu' );
+        if(!$menus) {
+            echo "You have not created any menu's.";
+            return;
+        }
+
+        // Display menu's as sortable list
+        echo $tpl->render( 'lm-list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => "sortable vertical list-group ml-0" ));
     }
 
-    public function test_foo_in() {
-        echo "Test Foo In <br/>";
+    /**
+     * Subpage: Edit a Menu
+     * Accessed when a menu is selected from the Admin Page or subpage is selected from menu
+     */
+    public function edit_menu_init() {
+
+        $tpl = new Template( __DIR__ . '/templates/admin' );
+        $icon_tpl = new Template( __DIR__ . '/templates/admin/items' );
+
+        // Render POST request handlers
+        echo $tpl->render( 'post' );
+
+        // Add Modal Support & Render Modals
+        add_thickbox();
+        echo $tpl->render( 'lm-modals' );
+
+        // Render Title and Desc
+        $data = array ('title' => 'Edit Menu', 'desc' => "Edit Menu Here.  Use the 'Change Menu' dropdown below to select a new menu.");
+        echo $tpl->render( 'lm-header', $data );
+
+        // Render save and change menu buttons
+        $menus = $this->db->get( 'menu' );
+        echo $tpl->render( 'lm-edit-buttons', array( "menus" => $menus) );
+
+        // Print Sections & Items related to Menu
+        if(isset($_GET["menu_id"]) && is_numeric($_GET["menu_id"])) {
+
+            // Print Current Menu Title & Published Icon
+            $current_menu = $this->db->get( 'menu', array ( "id" => $_GET["menu_id"] ) );
+            $menu = $current_menu[0];
+            echo "<h1>$menu->name</h1>";
+
+            echo $tpl->render( 'lm-add-button' , array( "modal" => "add-section-modal", "title" => "Add Section", "optClasses" => "add-section", "btn_size" => "btn-sm", "w" => "400", "h" => "250" ));
+            
+            $sections = $this->db->get( "section" , array ( "parent_menu" => $_GET["menu_id"] ) );
+
+            echo "<div class='row'>";
+
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 0, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-3 pr-4" ));
+
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 1, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-4" ));
+            
+            echo "</div>";
+        } else {
+            echo "You have not selected a menu.  Please use the dropdown above.";
+            return;
+        }
+        
+    }
+
+    /**
+     * Render Menu(s)
+     */
+    public function render_menu() {
+        $tpl = new Template( __DIR__ . '/templates/front-end' );
+
+        $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
+                
+        echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => " " ));
+    }
+
+    /**
+     * Render Menu Nav
+     */
+    public function render_menu_nav() {
+        $tpl = new Template( __DIR__ . '/templates/front-end' );
+
+        $nav = $this->db->get( "menu" );      
+                
+        echo $tpl->render( 'list' , array( "listOf" => $nav, "type" => "NAV", "classes" => " " ));
     }
 
 }
 
-function test_foo_out() {
-    echo "Test Foo Out <br/>";
-}
-
-/*
+/**
  * Initialize the plugin
  */
 if (class_exists( 'LionMenu' )) {
-	$lionMenu = new LionMenu();
+    $lionMenu = new LionMenu();
+    $lionMenu->register();
 }
 
-/*
+/**
  * Hooks
  */
 register_activation_hook(__FILE__, array( $lionMenu, 'activate' ) );

@@ -4,7 +4,7 @@
  */
 ?>
 
-    <?php get_header(); ?>
+<?php get_header(); ?>
 
 <body class="montserrat">
 
@@ -12,24 +12,31 @@
 
     <?php
 
-        if(function_exists('test_foo_out')){
-            test_foo_out();
-        }
+        // if(function_exists('test_foo_out')){
+        //     test_foo_out();
+        // }
 
         if (class_exists( 'LionMenu' )) {
+
             $lionMenu = new LionMenu();
-            echo "Lion Class Created <br/>";
-        }
-        
-        if(method_exists($lionMenu, 'test_foo_in')){
-            $lionMenu->test_foo_in();
+
+            if(method_exists($lionMenu, 'render_menu')) {
+
+                $lionMenu->render_menu();
+
+            } else {
+
+                echo "<h3>Error loading menu.</h3>";
+
+            }
+
         } else {
-            echo 'No In';
+
+            echo "<h3>Class doesn't exist (i.e. plugin not installed or something).</h3>";
+
         }
 
-    ?>
-
-    
+    ?>    
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
