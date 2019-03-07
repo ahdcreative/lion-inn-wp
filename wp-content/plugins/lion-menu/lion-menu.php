@@ -14,7 +14,7 @@ if(!defined('ABSPATH')) exit;
 require_once(plugin_dir_path(__FILE__).'/includes/lm-template.class.php');
 require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
 
-/* 
+/**
  * Plugin Class
  */
 class LionMenu {
@@ -211,11 +211,7 @@ class LionMenu {
 
 }
 
-function test_foo_out() {
-    echo "Test Foo Out <br/>";
-}
-
-/*
+/**
  * Initialize the plugin
  */
 if (class_exists( 'LionMenu' )) {
@@ -223,7 +219,7 @@ if (class_exists( 'LionMenu' )) {
     $lionMenu->register();
 }
 
-/*
+/**
  * Hooks
  */
 register_activation_hook(__FILE__, array( $lionMenu, 'activate' ) );
