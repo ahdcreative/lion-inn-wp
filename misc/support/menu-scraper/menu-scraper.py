@@ -15,5 +15,15 @@ menus = dict(zip(menu_arias, menu_values))
 # Create structure of menu --> sections --> items (item, subtitle, note) --> subitems
 for aria, menu in menus.items():
     sections = tree.xpath('//div[@id="%s"]//h1/text()' % aria)
-    
+    # Create dict of menu : sections
+
+    # Loop through sections
+        # Get items
+
+        # Create dict within above dict of menu : sections : items
+
+        # Loop through sections
+            # Get subitems
+
+            # Create dict within above dict of menu : sections : items : subitems
 
