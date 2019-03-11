@@ -251,7 +251,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $itemRank = 1;
                 $secRank++;
             }
-            
+
+            $secRank = 1;            
         }
 
         return;
