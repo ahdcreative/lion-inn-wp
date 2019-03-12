@@ -208,17 +208,47 @@
                     {
                         "name": "Trellech Tatties",
                         "desc": " ",
-                        "price": "4.00"
+                        "price": "4.00",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
                     },
                     {
                         "name": "Sweet Potato Chips",
                         "desc": " ",
-                        "price": "4.00"
+                        "price": "4.00",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
                     },
                     {
                         "name": "Chips",
                         "desc": " ",
-                        "price": "3.50"
+                        "price": "3.50",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
                     },
                     {
                         "name": "Fresh Vegetables",
@@ -248,7 +278,17 @@
                     {
                         "name": "Garlic Bread",
                         "desc": " ",
-                        "price": "3.50"
+                        "price": "3.50",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Bacon",
+                                "desc": "0.60"
+                            }
+                        ]
                     },
                     {
                         "name": "Mushy Peas",
@@ -304,7 +344,68 @@
             },
             {
                 "name": "build-your-own",
-                "items": []
+                "items": [
+                    {
+                        "name": "Tuna",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Chicken",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Bacon",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Peparami",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Pepperoni",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Chilli Beef",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Ham",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Onions",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Peppers",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Olives",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Sun Dried Tomatoes",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
+                        "name": "Mushrooms",
+                        "desc": "",
+                        "price": ""
+                    }
+                ]
             },
             {
                 "name": "sides",
@@ -312,17 +413,47 @@
                     {
                         "name": "Trellech Tatties",
                         "desc": " ",
-                        "price": "4.00"
+                        "price": "4.00",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
                     },
                     {
                         "name": "Sweet Potato Chips",
                         "desc": " ",
-                        "price": "4.00"
+                        "price": "4.00",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
                     },
                     {
                         "name": "Chips",
                         "desc": " ",
-                        "price": "3.50"
+                        "price": "3.50",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
                     },
                     {
                         "name": "Fresh Vegetables",
@@ -352,7 +483,17 @@
                     {
                         "name": "Garlic Bread",
                         "desc": " ",
-                        "price": "3.50"
+                        "price": "3.50",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Bacon",
+                                "desc": "0.60"
+                            }
+                        ]
                     },
                     {
                         "name": "Mushy Peas",
@@ -383,25 +524,133 @@
                         "name": "Cheese & Port for 2",
                         "desc": "Mixed cheese & biscuits with port. Sharer for 2. A sampler of outstanding local cheese: Pearl Las, Pearl Wen, Caerphilly & Mature Cheddar served with caramelized onion chutney and a selection of cheese, biscuits and a decanter of Graham's Six Grapes Reserve Port.",
                         "price": "16.00"
-                    },
-                    {
-                        "name": "Lion Sundae",
-                        "desc": "All 3 flavours of ice cream served with cherries, chocolate sauce and whipped cream.",
-                        "price": "4.50"
                     }
                 ]
             },
             {
                 "name": "ice-cream",
-                "items": []
+                "items": [
+                    {
+                        "name": "Lion Sundae",
+                        "desc": "All 3 flavours of ice cream served with cherries, chocolate sauce and whipped cream.",
+                        "price": "4.50"
+                    },
+                    {
+                        "name": "Vanilla",
+                        "desc": "",
+                        "price": "1.00"
+                    },
+                    {
+                        "name": "Strawberry",
+                        "desc": "",
+                        "price": "1.00"
+                    },
+                    {
+                        "name": "Chocolate",
+                        "desc": "",
+                        "price": "1.00"
+                    },
+                    {
+                        "name": "Popping Candy",
+                        "desc": "",
+                        "price": "0.50"
+                    },
+                    {
+                        "name": "Honeycombe",
+                        "desc": "",
+                        "price": "0.50"
+                    },
+                    {
+                        "name": "Chocolate Sauce",
+                        "desc": "",
+                        "price": "0.10"
+                    },
+                    {
+                        "name": "Raspberry Sauce",
+                        "desc": "",
+                        "price": "0.10"
+                    },
+                    {
+                        "name": "Whipped Cream",
+                        "desc": "",
+                        "price": "0.50"
+                    },
+                    {
+                        "name": "Custard",
+                        "desc": "",
+                        "price": "0.50"
+                    }
+                ]
             },
             {
                 "name": "beverages",
-                "items": []
+                "items": [
+                    {
+                        "name": "Filter Coffee",
+                        "desc": "",
+                        "price": "2.00"
+                    },
+                    {
+                        "name": "Tea",
+                        "desc": "English Breakfast, Earl Grey, Peppermint or Fruit",
+                        "price": "2.00"
+                    },
+                    {
+                        "name": "Latte",
+                        "desc": "",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Hot Chocolate",
+                        "desc": "",
+                        "price": "3.00"
+                    }
+                ]
             },
             {
                 "name": "specialty-coffees",
-                "items": []
+                "items": [
+                    {
+                        "name": "Filter Coffee Plain Floater",
+                        "desc": "Plain Peruvian Filter Coffee Floater",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Gaelic Coffee",
+                        "desc": "with Irish Malt Whiskey",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Highland Coffee",
+                        "desc": "with Scottish Malt Whiskey",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Napoleon Coffee",
+                        "desc": "with Brandy",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Calypso Coffee",
+                        "desc": "with Tia Maria",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Jamaican Coffee",
+                        "desc": "with Dark Rum",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Italian Coffee",
+                        "desc": "with Ammeretto",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Witches Coffee",
+                        "desc": "with Strega",
+                        "price": "2.50"
+                    }
+                ]
             }
         ]
     },
@@ -410,11 +659,58 @@
         "sections": [
             {
                 "name": "grazing",
-                "items": []
+                "items": [
+                    {
+                        "name": "Crispy Pork Crackling",
+                        "desc": "Crispy Pork Crackling served with warm apple sauce.",
+                        "price": "4.00"
+                    },
+                    {
+                        "name": "Mixed Olives",
+                        "desc": "Bowl of mixed olives, sun blushed tomatoes & crusty bread.",
+                        "price": "5.00"
+                    },
+                    {
+                        "name": "Hot Crusty Bread",
+                        "desc": "Hot crusty bread served with balsamic vinegar and olive oil dip.",
+                        "price": "3.00"
+                    }
+                ]
             },
             {
                 "name": "starters",
-                "items": []
+                "items": [
+                    {
+                        "name": "Soup of the Day",
+                        "desc": "Homemade soup of the day served with hot crusty bread.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Pan Fried King Prawns",
+                        "desc": "Pan fried king prawns cooked in olive oil and crushed garlic served with rustic crusty bread and salad.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Fried Camembert",
+                        "desc": "Deep fried camembert and onion marmalade.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Red Mullet",
+                        "desc": "Oven backed red mullet served with a lime and mango sauce.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Wild Mushrooms",
+                        "desc": "Wild Mushrooms and garlic salad.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Potato Wedges",
+                        "desc": "Potato wedges with melted cheese and bacon.",
+                        "price": ""
+                    }
+                ]
             },
             {
                 "name": "mains",
@@ -422,47 +718,47 @@
                     {
                         "name": "Beef",
                         "desc": "Locally reared Welsh topside of beef.",
-                        "price": "10.95"
+                        "price": ""
                     },
                     {
                         "name": "Lamb",
                         "desc": "Locally reared Welsh leg of lamb.",
-                        "price": "9.50"
+                        "price": ""
                     },
                     {
                         "name": "Old Spot",
                         "desc": "Locally reared Gloucester Old Spot.",
-                        "price": "5.25"
+                        "price": ""
                     },
                     {
                         "name": "Chicken Breast",
                         "desc": "Locally reared farmhouse chicken breast.",
-                        "price": "5.35"
+                        "price": ""
                     },
                     {
                         "name": "Vegetarian Pie / Roast",
                         "desc": "Vegetarian Pie / Roast of the week.",
-                        "price": "5.45"
+                        "price": ""
                     },
                     {
                         "name": "Poached Salmon Steak",
                         "desc": "Poached salmon steak with a creamy dill sauce, new potatoes and fresh vegetables.",
-                        "price": "5.60"
+                        "price": ""
                     },
                     {
                         "name": "Beer Battered Cod",
                         "desc": "Homemade beer battered cod served with chips and a choice of garden peas or mushy peas.",
-                        "price": "5.60"
+                        "price": ""
                     },
                     {
                         "name": "Mature Cheddar Cheese & Red Onion",
                         "desc": "Served with mushrooms and onions.",
-                        "price": "5.60"
+                        "price": ""
                     },
                     {
                         "name": "Home cooked locally reared ham & mustard",
                         "desc": "Traditional Farmers Ploughmans, Mature Cheddar, Farmhouse Brie & Stilton & Ham Ploughmans served with crusty bread, salad & pickles",
-                        "price": "6.00"
+                        "price": ""
                     }
                 ]
             },
@@ -488,7 +784,103 @@
             },
             {
                 "name": "sides",
-                "items": []
+                "items": [
+                    {
+                        "name": "Trellech Tatties",
+                        "desc": " ",
+                        "price": "4.00",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Sweet Potato Chips",
+                        "desc": " ",
+                        "price": "4.00",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chips",
+                        "desc": " ",
+                        "price": "3.50",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Cajun Spice",
+                                "desc": "0.30"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Fresh Vegetables",
+                        "desc": " ",
+                        "price": "3.00"
+                    },
+                    {
+                        "name": "Salad",
+                        "desc": " ",
+                        "price": "3.00"
+                    },
+                    {
+                        "name": "Homemade Coleslaw",
+                        "desc": " ",
+                        "price": "2.50"
+                    },
+                    {
+                        "name": "Beer Battered Onion Rings",
+                        "desc": " ",
+                        "price": "3.50"
+                    },
+                    {
+                        "name": "New Potatoes",
+                        "desc": " ",
+                        "price": "3.00"
+                    },
+                    {
+                        "name": "Garlic Bread",
+                        "desc": " ",
+                        "price": "3.50",
+                        "subitems" : [
+                            {
+                                "name": "Cheese",
+                                "desc": "0.60"
+                            },
+                            {
+                                "name": "Bacon",
+                                "desc": "0.60"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Mushy Peas",
+                        "desc": " ",
+                        "price": "2.00"
+                    },
+                    {
+                        "name": "Bread & Butter",
+                        "desc": " ",
+                        "price": "2.00"
+                    }
+                ]
             }
         ]
     },
