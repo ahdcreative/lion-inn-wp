@@ -1,3 +1,20 @@
+'''
+Author: Alexander Lord
+Date: 12/03/2019
+Description:
+A basic web scraping script that scrapes the current menu page
+and exports it to a JSON file.
+
+Used originally to scrape old menu and insert this into the 
+WordPress database.
+
+Output isn't exactly right at the moment.
+JSON file needs manual tweaking.
+This is because the old format of the menu page wasn't consistent throughout.
+Also doesn't currently handle subitems.
+'''
+
+
 from lxml import html, etree
 import requests
 from collections import defaultdict
@@ -13,9 +30,6 @@ menu_values = tree.xpath('//a[contains(@class,"nav-link")]/h4/text()')
 menu_arias = tree.xpath('//a[contains(@class,"nav-link")]/@aria-controls')
 # aria : name
 menu_names = dict(zip(menu_arias, menu_values))
-
-# Entire Menu
-# menu = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
 # Create structure of menu --> sections --> items (item, subtitle, note)
 menus = []
@@ -71,14 +85,5 @@ for aria, menu_name in menu_names.items():
 # print(json.dumps(menus, indent=4))
 
 # Export to JSON file
-# with open('menu_json.json', 'w') as of:
-#     json.dump(menus, of)
-
-of = open('menu.txt', 'w')
-of.write("test")
-of.close()
-
-# {
-#     "name": "Bacon",
-#     "price": "+60p"
-# }
+with open('misc/support/menu-scraper/menu.json', 'w') as of:
+    json.dump(menus, of, indent=4)
