@@ -1,43 +1,76 @@
 import mysql.connector
 import json
+import datetime
+
+# Insert Templates
+insert_menu = '''INSERT INTO hjb01_lm_menu (name, rank, date_created, author) VALUES (%s, %s, %s, %s)'''
+insert_section = '''INSERT INTO hjb01_lm_section (name, rank, date_created, author, side, parent_menu) VALUES (%s, %s, %s, %s, %s, %s)'''
+insert_item = '''INSERT INTO hjb01_lm_item (name, rank, date_created, author, price, description, parent_section) VALUES (%s, %s, %s, %s, %s, %s, %s)'''
+insert_subitem = '''INSERT INTO hjb01_lm_subitem (name, rank, date_created, author, price, parent_item) VALUES (%s, %s, %s, %s, %s, %s)'''
+# Select Templates
+select_parent_menu = "SELECT id FROM hjb01_lm_menu WHERE name = %s"
 
 # Connect to MySQL Server & Database
 menudb = mysql.connector.connect(
-  host = "localhost",
-  user = "root",
-  passwd = "root",
-  database = "lioninn"
+    host = "localhost",
+    user = "root",
+    passwd = "root",
+    database = "lioninn"
 )
 
-# Open menu.json file
+# Open json file containing menu
 menu = open('misc/support/menu-scraper/menu.json', 'r')
 menu_json = json.load(menu)
-
-for menu in menu_json:
-    print("\nMenu:")
-    # print(type(menu))
-    for sKey, sVal in menu.items():
-        print(sKey + " : " + str(sVal))
-        # for iKey, iVal in sVal.items():
-        #     print(iKey + " : " + iVal)
 
 # Create cursor
 cur = menudb.cursor()
 
-insert_template = '''
-    INSERT INTO customers (name, address) 
-    VALUES (%s, %s)
-'''
-# val = ("John", "Highway 21")
+created = datetime.datetime.now()
 
-# cur.execute(sql, val)
+for menu in menu_json:
+    # print(type(menu))
+    for mKey, mVal in menu.items():
+        # If value is a string, it's a menu name
+        if type(mVal) is str:
+            menu_val = (mVal.capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1)
+            cur.execute(insert_menu, menu_val)
+            print(mVal.capitalize(), "inserted into menus.")
+        # If it's a list of sections
+        elif type(mVal) is list:
+            for section in mVal:
+                for sKey, sVal in section.items():
+                    # If value is a string, it's a section name
+                    if type(sVal) is str:
+                        section_val = (sVal.capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, 0, 18)
+                        cur.execute(insert_section, section_val)
+                        menudb.commit()
+                        print(sVal.capitalize(), "inserted into sections.")
+                    # If it's a list of items
+                    elif type(sVal) is list:
+                        for item in sVal:
+                            item_val = (item.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, item.get('price'), item.get('desc'), 6)
+                            print(item_val)
+                            cur.execute(insert_item, item_val)
+                            menudb.commit()
+                            print(item.get('name').capitalize(), "inserted into items.")
+                            # Subitems
+                            for iKey, iVal in item.get('subitems').items():
+                                for subitem in sVal:
+                                    subitem_val = (subitem.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, subitem.get('price'), 1)
+                                    cur.execute(insert_item, subitem_val)
+                                    menudb.commit()
+                                    print(subitem.get('name').capitalize(), "inserted into subitems.")
+                    # Catch Error
+                    else:
+                        print("Error :- Not str or list.")
+        # Catch Error
+        else:
+            print("Error :- Not str or list.")
 
-# menudb.commit()
+# Commit changes
+menudb.commit()
 
-# print(cur.rowcount, "record inserted.")
-
-# cur.close()
-# db.close()
-
-
+# Close cursor & database connection
+cur.close()
+menudb.close()
 
