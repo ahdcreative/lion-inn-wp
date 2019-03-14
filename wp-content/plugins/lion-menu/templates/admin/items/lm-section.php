@@ -3,7 +3,7 @@
     $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
 ?>
 
-<li class='list-group-item list-group-item-action no-position' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>'>
+<li class='list-group-item list-group-item-action no-position' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>' data-side='<?php echo $side; ?>'>
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
     <!-- Section Name -->

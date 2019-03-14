@@ -212,7 +212,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach($sections as $sKey => $sValue) {
                 // Update Section Rank in sections table
                 $db->update("section", array(
-                        'rank' => $secRank
+                        'rank' => $secRank,
+                        'side' => $sValue['side']
                     ), 
                     array('id' => $sValue['id'])
                 );

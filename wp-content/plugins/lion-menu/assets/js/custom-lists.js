@@ -45,10 +45,17 @@ jQuery(function($) {
             // Get menu list info
             var menu_item_ranks = nested.sortable('serialize').get();
 
+            // Set new sides
+            for (var i = 0; i < menu_item_ranks.length; i++) {
+                for (var j = 0; j < menu_item_ranks[i].length; j++) {
+                    menu_item_ranks[i][j].side = (i == 0 ? 0 : 1);
+                }
+            }
+
             // Convert to string, remove outside [] as there are 2 of each
             var menu_item_ranks_json = JSON.stringify(menu_item_ranks, null, ' ');
 
-            // console.log(menu_item_ranks_json);
+            console.log(menu_item_ranks_json);
 
             // Set hidden input value to json ranks so it can be used in POST request
             $('input[name="menu_item_rankings"]').val(menu_item_ranks_json);
