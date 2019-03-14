@@ -3,12 +3,12 @@ import json
 import datetime
 
 # Insert Templates
-insert_menu = '''INSERT INTO hjb01_lm_menu (name, rank, date_created, author) VALUES (%s, %s, %s, %s)'''
-insert_section = '''INSERT INTO hjb01_lm_section (name, rank, date_created, author, side, parent_menu) VALUES (%s, %s, %s, %s, %s, %s)'''
-insert_item = '''INSERT INTO hjb01_lm_item (name, rank, date_created, author, price, description, parent_section) VALUES (%s, %s, %s, %s, %s, %s, %s)'''
-insert_subitem = '''INSERT INTO hjb01_lm_subitem (name, rank, date_created, author, price, parent_item) VALUES (%s, %s, %s, %s, %s, %s)'''
+insert_menu = '''INSERT INTO hjb01_lm_menu (id, name, rank, date_created, author) VALUES (%s, %s, %s, %s, %s)'''
+insert_section = '''INSERT INTO hjb01_lm_section (id, name, rank, date_created, author, side, parent_menu) VALUES (%s, %s, %s, %s, %s, %s, %s)'''
+insert_item = '''INSERT INTO hjb01_lm_item (id, name, rank, date_created, author, price, description, parent_section) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'''
+insert_subitem = '''INSERT INTO hjb01_lm_subitem (id, name, rank, date_created, author, price, parent_item) VALUES (%s, %s, %s, %s, %s, %s, %s)'''
 # Select Templates
-select_parent_menu = "SELECT id FROM hjb01_lm_menu WHERE name = %s"
+select_parent_menu = "SELECT id FROM hjb01_lm_menu WHERE name = (%s)"
 
 # Connect to MySQL Server & Database
 menudb = mysql.connector.connect(
@@ -23,49 +23,44 @@ menu = open('misc/support/menu-scraper/menu.json', 'r')
 menu_json = json.load(menu)
 
 # Create cursor
-cur = menudb.cursor()
+cur = menudb.cursor(buffered=True)
 
 created = datetime.datetime.now()
 
+menu_id = 1
+section_id = 1 
+item_id = 1
+subitem_id = 1
+
+# Insert menu into database
 for menu in menu_json:
-    # print(type(menu))
-    for mKey, mVal in menu.items():
-        # If value is a string, it's a menu name
-        if type(mVal) is str:
-            menu_val = (mVal.capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1)
-            cur.execute(insert_menu, menu_val)
-            print(mVal.capitalize(), "inserted into menus.")
-        # If it's a list of sections
-        elif type(mVal) is list:
-            for section in mVal:
-                for sKey, sVal in section.items():
-                    # If value is a string, it's a section name
-                    if type(sVal) is str:
-                        section_val = (sVal.capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, 0, 18)
-                        cur.execute(insert_section, section_val)
-                        menudb.commit()
-                        print(sVal.capitalize(), "inserted into sections.")
-                    # If it's a list of items
-                    elif type(sVal) is list:
-                        for item in sVal:
-                            item_val = (item.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, item.get('price'), item.get('desc'), 6)
-                            print(item_val)
-                            cur.execute(insert_item, item_val)
+    menu_val = (menu_id, menu.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1)
+    cur.execute(insert_menu, menu_val)
+    menudb.commit()
+    print(menu.get('name').capitalize(), "inserted into menus.")
+    if menu.get('sections'):
+        for section in menu.get('sections'):
+            section_val = (section_id, section.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, 0, menu_id)
+            cur.execute(insert_section, section_val)
+            menudb.commit()
+            print(section.get('name').capitalize(), "inserted into sections.")
+            if section.get('items'):
+                for item in section.get('items'):
+                    price = "0.00" if item.get('price') == "" else item.get('price')
+                    item_val = (item_id, item.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, price, item.get('desc'), section_id)
+                    cur.execute(insert_item, item_val)
+                    menudb.commit()
+                    print(item.get('name').capitalize(), "inserted into items.")
+                    if item.get('subitems'):
+                        for subitem in item.get('subitems'):
+                            subitem_val = (subitem_id, subitem.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, subitem.get('price'), item_id)
+                            cur.execute(insert_subitem, subitem_val)
                             menudb.commit()
-                            print(item.get('name').capitalize(), "inserted into items.")
-                            # Subitems
-                            for iKey, iVal in item.get('subitems').items():
-                                for subitem in sVal:
-                                    subitem_val = (subitem.get('name').capitalize(), 0, created.strftime("%Y-%m-%d %H:%M:%S"), 1, subitem.get('price'), 1)
-                                    cur.execute(insert_item, subitem_val)
-                                    menudb.commit()
-                                    print(subitem.get('name').capitalize(), "inserted into subitems.")
-                    # Catch Error
-                    else:
-                        print("Error :- Not str or list.")
-        # Catch Error
-        else:
-            print("Error :- Not str or list.")
+                            print(subitem.get('name').capitalize(), "inserted into subitems.")
+                            subitem_id += 1
+                    item_id += 1
+            section_id += 1
+    menu_id += 1
 
 # Commit changes
 menudb.commit()
