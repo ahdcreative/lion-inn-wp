@@ -8,7 +8,7 @@ CREATE TABLE tableplaceholder (
     editor int(3),
     price decimal(5,2),
     type ENUM ('item', 'subtitle', 'note') NOT NULL DEFAULT 'item',
-    description VARCHAR(200),
+    description VARCHAR(400),
     isVegetarian boolean DEFAULT 0,
     isGlutenFree boolean DEFAULT 0,
     toPublish boolean NOT NULL DEFAULT 1,
