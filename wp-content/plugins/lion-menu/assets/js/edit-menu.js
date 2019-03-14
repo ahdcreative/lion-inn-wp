@@ -98,6 +98,9 @@ jQuery(function($) {
         } else if($note && !$subsec) {
             $(".hideIfSubsec").show(this.unchecked);
             $(".hideIfNote").hide(this.unchecked);
+
+            $desc = $(this).parent().siblings(".desc").children("i").text();
+            $('textarea[name="item-desc"]').val($desc);
         } else {
             $(".hideIfSubsec").show(this.unchecked);
             $(".hideIfNote").show(this.unchecked);
