@@ -35,6 +35,9 @@ jQuery(function($) {
     /**
      * Handle Add, Edit & Delete Forms
      */
+    $(".add-menu").on("click", function() {
+        $('input[name="publish-menu"]').prop('checked', true);
+    });
     $(".edit-menu").on("click", function() {
         setPostVar("edit-menu", this);
 
@@ -51,6 +54,7 @@ jQuery(function($) {
         // Ensure form values are empty
         $('input[name="section-name"]').val('');
         $('input[name="section-side"]').prop('checked', false);
+        $('input[name="publish-section"]').prop('checked', true);
     });
     $(".edit-section").on("click", function() {
         setPostVar("edit-section", this);
@@ -73,6 +77,7 @@ jQuery(function($) {
         $('input[name="item-name"]').val('');
         $('input[name="item-subsec"]').prop('checked', false);
         $('input[name="item-note"]').prop('checked', false);
+        $('input[name="publish-item"]').prop('checked', true);
         $('input[name="item-price"]').val('');
         $('textarea[name="item-desc"]').val('');
         $('input[name="item-veg"]').prop('checked', false);
@@ -128,6 +133,7 @@ jQuery(function($) {
 
     $(".add-subitem").on("click", function() {
         setPostVar("add-subitem", this);
+        $('input[name="publish-subitem"]').prop('checked', true);
     });
     $(".edit-subitem").on("click", function() {
         setPostVar("edit-subitem", this);
