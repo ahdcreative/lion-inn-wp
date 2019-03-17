@@ -61,7 +61,7 @@ class SQLManager {
      */
     public function deleteTables() {
         //$this->deleteTable("subitem");
-        $this->deleteTable("item");
+        //$this->deleteTable("item");
         $this->deleteTable("section");
         $this->deleteTable("menu"); 
     }
