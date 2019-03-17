@@ -29,7 +29,7 @@ class SQLManager {
     public function createTables() {
         $this->createTable("menu");
         $this->createTable("section");
-        $this->createTable("item");
+        //$this->createTable("item");
         //$this->createTable("subitem");
     }
 
