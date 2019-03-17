@@ -46,9 +46,9 @@ class LionMenu {
      */
 	function activate() {
         // Check WordPress Version is >= 4.9.9
-        if ( 0 > check_version( PHP_VERSION, '4.9.9' ) ) {
-			echo "<script type='text/javascript'>alert('Your WordPress version is lower than 4.9.9. \n The plugin will activate, but may have issues.');</script>";
-		}
+        // if ( 0 > check_version( PHP_VERSION, '4.9.9' ) ) {
+		// 	echo "<script type='text/javascript'>alert('Your WordPress version is lower than 4.9.9. \n The plugin will activate, but may have issues.');</script>";
+		// }
 
         // Create DB Tables
         $this->db->createTables();
