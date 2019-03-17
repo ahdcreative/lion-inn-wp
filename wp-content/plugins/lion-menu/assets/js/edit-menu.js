@@ -109,6 +109,7 @@ jQuery(function($) {
             // Remove symbols 
             $price = $price.replace('£', '');
             $price = $price.replace('p', '');
+            // set value
             $('input[name="item-price"]').val($price);
 
             $desc = $(this).parent().siblings(".desc").children("i").text();
