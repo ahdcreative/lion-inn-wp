@@ -30,7 +30,7 @@ class SQLManager {
         $this->createTable("menu");
         $this->createTable("section");
         $this->createTable("item");
-        $this->createTable("subitem");
+        //$this->createTable("subitem");
     }
 
     /**
@@ -60,8 +60,8 @@ class SQLManager {
      * Remove Plugin Tables
      */
     public function deleteTables() {
-        //$this->deleteTable("subitem");
-        //$this->deleteTable("item");
+        $this->deleteTable("subitem");
+        $this->deleteTable("item");
         $this->deleteTable("section");
         $this->deleteTable("menu"); 
     }
