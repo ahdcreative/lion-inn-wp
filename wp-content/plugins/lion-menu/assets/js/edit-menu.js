@@ -91,7 +91,7 @@ jQuery(function($) {
         $subsec = setCheckbox("item-subsec", ".isSubsec", this);
         $note = setCheckbox("item-note", ".isNote", this);
 
-        // If item is a subsection, hide all of the other form fields
+        // Display relevant input fields depending on item type
         if($subsec && !$note) {
             $(".hideIfNote").show(this.unchecked);
             $(".hideIfSubsec").hide(this.unchecked);
@@ -106,6 +106,9 @@ jQuery(function($) {
             $(".hideIfNote").show(this.unchecked);
             
             $price = $(this).parent().siblings(".veg-gf-price").children(".price").text();
+            // Remove symbols 
+            $price = $price.replace('£', '');
+            $price = $price.replace('p', '');
             $('input[name="item-price"]').val($price);
 
             $desc = $(this).parent().siblings(".desc").children("i").text();
