@@ -11,4 +11,4 @@ CREATE TABLE tableplaceholder (
     parent_menu mediumint(9) NOT NULL,
     PRIMARY KEY  (id),
     FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id)
-) COLLATE charsetplaceholder;
+) charsetplaceholder;
