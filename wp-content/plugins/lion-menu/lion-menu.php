@@ -30,7 +30,7 @@ class LionMenu {
 	public function __construct() {
         $this->db = new SQLManager();
 
-        // Add 'Menu' Option to Admin Menu & Init the Page
+        // Setup Admin Pages
         add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
     }
 
@@ -45,10 +45,13 @@ class LionMenu {
      * Plugin Activation Hook
      */
 	function activate() {
-        // Create DB Tables
-        $this->db->createTables(); 
+        // Check WordPress Version is >= 4.9.9
+        if ( 0 > check_version( PHP_VERSION, '4.9.9' ) ) {
+			echo "<script type='text/javascript'>alert('Your WordPress version is lower than 4.9.9. \n The plugin will activate, but may have issues.');</script>";
+		}
 
-        // Check tables are created properly
+        // Create DB Tables
+        $this->db->createTables();
 
         flush_rewrite_rules();
 	}
@@ -57,11 +60,9 @@ class LionMenu {
      * Plugin Deactivation Hook
      */
 	function deactivate() {
-        // TEMP - delete tables on deactivate (for debugging)
-        $this->db->deleteTables(); 
+        //echo "<script type='text/javascript'>alert('Deactivating will not delete any of your menu's, but may cause issues and produce errors.');</script>";
 
-        // Print message stating that data will not be deleted from database
-        // but that there might be issues on your website.
+        $this->db->deleteTables();
         
         flush_rewrite_rules();
 	}
@@ -70,7 +71,10 @@ class LionMenu {
      * Plugin Uninstall Hook
      */
 	function uninstall() {
-        // Delete Databases OR Add Option of Deleting Databases 
+        // Delete Databases OR Add Option of Deleting Databases
+        //$this->db->deleteTables();
+
+
     }
 
     /**
@@ -224,3 +228,4 @@ if (class_exists( 'LionMenu' )) {
  */
 register_activation_hook(__FILE__, array( $lionMenu, 'activate' ) );
 register_deactivation_hook(__FILE__, array( $lionMenu, 'deactivate' ) );
+//register_uninstall_hook(__FILE__, array( $lionMenu, 'uninstall' ) );
