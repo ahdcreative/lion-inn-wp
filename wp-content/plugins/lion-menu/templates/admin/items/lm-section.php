@@ -1,6 +1,8 @@
 <?php 
     $icon_tpl = new Template( __DIR__ );
     $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
+    
+    $name = str_replace('\\', '', $name);
 ?>
 
 <li class='list-group-item list-group-item-action no-position' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>' data-side='<?php echo $side; ?>'>

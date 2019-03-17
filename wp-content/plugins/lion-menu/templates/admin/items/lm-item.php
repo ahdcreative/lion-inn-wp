@@ -17,6 +17,9 @@
         $isSubsectionTitle = 0;
         $isNote = 0;
     }
+
+    $name = str_replace('\\', '', $name);
+    $description = str_replace('\\', '', $description);
 ?>
 
 <li class="list-group-item list-group-item-action <?php echo $bg; ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">

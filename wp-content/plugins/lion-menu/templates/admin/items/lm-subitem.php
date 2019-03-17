@@ -1,4 +1,8 @@
-<?php $tpl = new Template( __DIR__ ); ?>
+<?php 
+    $tpl = new Template( __DIR__ );
+
+    $name = str_replace('\\', '', $name);
+?>
 
 <li class='list-group-item list-group-item-action' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>'>
 
