@@ -36,6 +36,7 @@ jQuery(function($) {
      * Handle Add, Edit & Delete Forms
      */
     $(".add-menu").on("click", function() {
+        $('input[name="menu-name"]').val('');
         $('input[name="publish-menu"]').prop('checked', true);
     });
     $(".edit-menu").on("click", function() {
@@ -133,6 +134,8 @@ jQuery(function($) {
 
     $(".add-subitem").on("click", function() {
         setPostVar("add-subitem", this);
+        $('input[name="subitem-name"]').val('');
+        $('input[name="subitem-price"]').val('');
         $('input[name="publish-subitem"]').prop('checked', true);
     });
     $(".edit-subitem").on("click", function() {
