@@ -57,7 +57,7 @@ class LionMenu {
      * Plugin Deactivation Hook
      */
 	function deactivate() {
-        //$this->db->deleteTables();
+        $this->db->deleteTables();
 
         flush_rewrite_rules();
 	}
