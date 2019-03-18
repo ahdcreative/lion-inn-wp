@@ -1,12 +1,15 @@
 <?php
-/*
-Plugin Name: Lion Menu
-Plugin URI:
-Description: Menu Plugin for Restuarants & Pubs
-Version: 1.0.0
-Author: Alexander Lord
-Author URI:
-*/
+/** 
+ * @package LionMenu
+ */
+/**
+ * Plugin Name: Lion Menu
+ * Plugin URI:
+ * Description: Menu Plugin for Restuarants & Pubs
+ * Version: 1.0.0
+ * Author: Alexander Lord
+ * Author URI:
+ */
 
 // Exit if accessed directly
 if(!defined('ABSPATH')) exit;
@@ -55,20 +58,10 @@ class LionMenu {
      * Plugin Deactivation Hook
      */
 	function deactivate() {
-        echo "<script type='text/javascript'>alert('Deactivating will not delete any of your menu's, but may cause issues and produce errors.');</script>";        
-        
+
+
         flush_rewrite_rules();
 	}
-
-    /**
-     * Plugin Uninstall Hook
-     */
-	function uninstall() {
-        // Delete Databases OR Add Option of Deleting Databases
-        // $this->db->deleteTables();
-
-
-    }
 
     /**
      * Enqueue Assets
@@ -221,4 +214,3 @@ if (class_exists( 'LionMenu' )) {
  */
 register_activation_hook(__FILE__, array( $lionMenu, 'activate' ) );
 register_deactivation_hook(__FILE__, array( $lionMenu, 'deactivate' ) );
-//register_uninstall_hook(__FILE__, array( $lionMenu, 'uninstall' ) );
