@@ -71,6 +71,11 @@
                         "price": "11.50"
                     },
                     {
+                        "name": "Pasta",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
                         "name": "Tagliatelli Carbonnara",
                         "desc": "Home made pasta carbonarra - Tagliatelli pasta served with a rich creamy ham, cheese and mushroom sauce.",
                         "price": "9.50"
@@ -84,6 +89,11 @@
                         "name": "Vegetarian Lasagne",
                         "desc": "Homemade vegetable lasagne toppped with a rich cheese sauce served with fresh vegetables and chips.",
                         "price": "9.50"
+                    },
+                    {
+                        "name": "From the Grill",
+                        "desc": "",
+                        "price": ""
                     },
                     {
                         "name": "8oz Sirloin Steak",
@@ -111,6 +121,16 @@
                         "price": "3.00"
                     },
                     {
+                        "name": "",
+                        "desc": "All of our grills are served with sauteed mushrooms, pan friend tomato, beer battered onion rings and Trellech tatties or sweet potato chips.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Hearty Classics",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
                         "name": "Trio of Sausages",
                         "desc": "Trio of locally sauced butchers made sausages served with mustard mash, leeks and gravy.",
                         "price": "11.00"
@@ -131,6 +151,11 @@
                         "price": "9.50"
                     },
                     {
+                        "name": "From the Sea",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
                         "name": "Poached Salmon Steak",
                         "desc": "Poached salmon steak with a creamy dill sauce, new potatoes and fresh vegetables.",
                         "price": "10.95"
@@ -146,6 +171,11 @@
                         "price": "9.50"
                     },
                     {
+                        "name": "Burgers",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
                         "name": "Homemade Beef Burger",
                         "desc": "Homemade Beef Burger served with bacon and a Caerphilly cheese with herb and garlic, and onion rings.",
                         "price": "11.50"
@@ -159,6 +189,16 @@
                         "name": "Forester Chicken Burger",
                         "desc": "Locally reared chicken breast loaded with barbeque sauce, bacon and mozzarella.",
                         "price": "12.00"
+                    },
+                    {
+                        "name": "",
+                        "desc": "All of our burgers are served in brioche buns with a crisp salad, homemade coleslaw and Trellech tatties or sweet potato chips.",
+                        "price": ""
+                    },
+                    {
+                        "name": "For the Smaller Appetite",
+                        "desc": "",
+                        "price": ""
                     },
                     {
                         "name": "Ham, Egg and Chips",
@@ -343,8 +383,18 @@
                 ]
             },
             {
-                "name": "build-your-own",
+                "name": "Build Your Own",
                 "items": [
+                    {
+                        "name": "",
+                        "desc": "For an additional £1.00 per item you can build your own pizza. If there is something special you want, please ask.",
+                        "price": ""
+                    },
+                    {
+                        "name": "Options",
+                        "desc": "",
+                        "price": ""
+                    },
                     {
                         "name": "Tuna",
                         "desc": "",
@@ -408,7 +458,7 @@
                 ]
             },
             {
-                "name": "sides",
+                "name": "Sides",
                 "items": [
                     {
                         "name": "Trellech Tatties",
@@ -510,10 +560,10 @@
         ]
     },
     {
-        "name": "desserts",
+        "name": "Desserts",
         "sections": [
             {
-                "name": "desserts",
+                "name": "Desserts",
                 "items": [
                     {
                         "name": "Mixed Cheese & Biscuits",
@@ -524,11 +574,16 @@
                         "name": "Cheese & Port for 2",
                         "desc": "Mixed cheese & biscuits with port. Sharer for 2. A sampler of outstanding local cheese: Pearl Las, Pearl Wen, Caerphilly & Mature Cheddar served with caramelized onion chutney and a selection of cheese, biscuits and a decanter of Graham's Six Grapes Reserve Port.",
                         "price": "16.00"
+                    },
+                    {
+                        "name": "",
+                        "desc": "We also have a wide variety of desserts on the specials board within the pub. These change a regular basis.",
+                        "price": ""
                     }
                 ]
             },
             {
-                "name": "ice-cream",
+                "name": "Ice Cream",
                 "items": [
                     {
                         "name": "Lion Sundae",
@@ -549,6 +604,11 @@
                         "name": "Chocolate",
                         "desc": "",
                         "price": "1.00"
+                    },
+                    {
+                        "name": "Toppings",
+                        "desc": "",
+                        "price": ""
                     },
                     {
                         "name": "Popping Candy",
@@ -583,7 +643,7 @@
                 ]
             },
             {
-                "name": "beverages",
+                "name": "Beverages",
                 "items": [
                     {
                         "name": "Filter Coffee",
@@ -608,7 +668,7 @@
                 ]
             },
             {
-                "name": "specialty-coffees",
+                "name": "Specialty Coffees",
                 "items": [
                     {
                         "name": "Filter Coffee Plain Floater",
@@ -655,10 +715,10 @@
         ]
     },
     {
-        "name": "sunday",
+        "name": "Sunday",
         "sections": [
             {
-                "name": "grazing",
+                "name": "Grazing",
                 "items": [
                     {
                         "name": "Crispy Pork Crackling",
@@ -678,7 +738,7 @@
                 ]
             },
             {
-                "name": "starters",
+                "name": "Starters",
                 "items": [
                     {
                         "name": "Soup of the Day",
@@ -713,8 +773,13 @@
                 ]
             },
             {
-                "name": "mains",
+                "name": "Mains",
                 "items": [
+                    {
+                        "name": "Classic Roast Luncheon",
+                        "desc": "",
+                        "price": ""
+                    },
                     {
                         "name": "Beef",
                         "desc": "Locally reared Welsh topside of beef.",
@@ -741,24 +806,89 @@
                         "price": ""
                     },
                     {
+                        "name": "",
+                        "desc": "All of our Sunday roasts are served with fresh vegetables, roast potatoes & Yorkshire pudding.",
+                        "price": ""
+                    },
+                    {
+                        "name": "From the Sea",
+                        "desc": "",
+                        "price": ""
+                    },
+                    {
                         "name": "Poached Salmon Steak",
                         "desc": "Poached salmon steak with a creamy dill sauce, new potatoes and fresh vegetables.",
-                        "price": ""
+                        "price": "10.95"
                     },
                     {
                         "name": "Beer Battered Cod",
                         "desc": "Homemade beer battered cod served with chips and a choice of garden peas or mushy peas.",
+                        "price": "9.50"
+                    },
+                    {
+                        "name": "Baguettes & Club Sandwiches",
+                        "desc": "",
                         "price": ""
                     },
                     {
                         "name": "Mature Cheddar Cheese & Red Onion",
+                        "desc": "",
+                        "price": "5.25"
+                    },
+                    {
+                        "name": "Home Cooked Locally Reared Ham & Mustard",
+                        "desc": "",
+                        "price": "5.35"
+                    },
+                    {
+                        "name": "Line Caught Tuna & Mayonnaise",
+                        "desc": "",
+                        "price": "5.45"
+                    },
+                    {
+                        "name": "Bacon, Lettuce & Tomato",
+                        "desc": "",
+                        "price": "5.60"
+                    },
+                    {
+                        "name": "Bacon & Coleslaw",
+                        "desc": "",
+                        "price": "5.60"
+                    },
+                    {
+                        "name": "Bacon, Brie & Cranberry",
+                        "desc": "",
+                        "price": "6.00"
+                    },
+                    {
+                        "name": "Chicken BBQ Melt",
+                        "desc": "",
+                        "price": "6.00"
+                    },
+                    {
+                        "name": "Butchers Sausage & Caramelized Onions",
+                        "desc": "",
+                        "price": "6.50"
+                    },
+                    {
+                        "name": "4oz Sirloin Steak",
                         "desc": "Served with mushrooms and onions.",
+                        "price": "8.00"
+                    },
+                    {
+                        "name": "",
+                        "desc": "An option of either white or brown bread.",
                         "price": ""
                     },
                     {
-                        "name": "Home cooked locally reared ham & mustard",
-                        "desc": "Traditional Farmers Ploughmans, Mature Cheddar, Farmhouse Brie & Stilton & Ham Ploughmans served with crusty bread, salad & pickles",
+                        "name": "Ploughman's",
+                        "desc": "",
                         "price": ""
+                    },
+                    {
+                        "name": "Cheese & Ham Ploughman's",
+                        "desc": "Traditional Farmers Ploughmans, Mature Cheddar, Farmhouse Brie & Stilton & Ham Ploughmans served with crusty bread, salad & pickles.",
+                        "price": "9.00"
                     }
                 ]
             },
@@ -783,7 +913,7 @@
                 ]
             },
             {
-                "name": "sides",
+                "name": "Sides",
                 "items": [
                     {
                         "name": "Trellech Tatties",
@@ -885,24 +1015,7 @@
         ]
     },
     {
-        "name": "event",
-        "sections": [
-            {
-                "name": "mothering-sunday",
-                "items": []
-            },
-            {
-                "name": "easter-sunday",
-                "items": []
-            },
-            {
-                "name": "price",
-                "items": []
-            },
-            {
-                "name": "coffee",
-                "items": []
-            }
-        ]
+        "name": "Event",
+        "sections": []
     }
 ]
