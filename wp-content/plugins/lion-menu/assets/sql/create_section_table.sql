@@ -10,5 +10,6 @@ CREATE TABLE tableplaceholder (
     toPublish boolean NOT NULL DEFAULT 1,
     parent_menu mediumint(9) NOT NULL,
     PRIMARY KEY  (id),
-    FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id)
+    FOREIGN KEY (parent_menu) REFERENCES prefixplaceholder_menu(id),
+    ON DELETE CASCADE
 ) charsetplaceholder;
