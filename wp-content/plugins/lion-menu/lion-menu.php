@@ -46,7 +46,7 @@ class LionMenu {
      */
 	function activate() {
         // Create DB Tables
-        $this->db->createTables();
+        //$this->db->createTables();
 
         flush_rewrite_rules();
 	}
