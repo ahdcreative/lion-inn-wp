@@ -30,7 +30,7 @@ class SQLManager {
         $this->createTable("menu");
         $this->createTable("section");
         $this->createTable("item");
-        //$this->createTable("subitem");
+        $this->createTable("subitem");
     }
 
     /**
@@ -52,6 +52,8 @@ class SQLManager {
 
         // Set charset 
         $sql = str_replace("charsetplaceholder", $this->wpdb->get_charset_collate(), $sql);
+
+        log_me($sql);
 
         dbDelta($sql);
     }
