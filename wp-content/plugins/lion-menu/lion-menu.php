@@ -45,11 +45,6 @@ class LionMenu {
      * Plugin Activation Hook
      */
 	function activate() {
-        // Check WordPress Version is >= 4.9.9
-        // if ( 0 > check_version( PHP_VERSION, '4.9.9' ) ) {
-		// 	echo "<script type='text/javascript'>alert('Your WordPress version is lower than 4.9.9. \n The plugin will activate, but may have issues.');</script>";
-		// }
-
         // Create DB Tables
         $this->db->createTables();
 
@@ -60,9 +55,7 @@ class LionMenu {
      * Plugin Deactivation Hook
      */
 	function deactivate() {
-        //echo "<script type='text/javascript'>alert('Deactivating will not delete any of your menu's, but may cause issues and produce errors.');</script>";
-
-        $this->db->deleteTables();
+        echo "<script type='text/javascript'>alert('Deactivating will not delete any of your menu's, but may cause issues and produce errors.');</script>";        
         
         flush_rewrite_rules();
 	}
@@ -72,7 +65,7 @@ class LionMenu {
      */
 	function uninstall() {
         // Delete Databases OR Add Option of Deleting Databases
-        //$this->db->deleteTables();
+        // $this->db->deleteTables();
 
 
     }
