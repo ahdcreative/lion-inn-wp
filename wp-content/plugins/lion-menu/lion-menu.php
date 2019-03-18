@@ -48,7 +48,7 @@ class LionMenu {
      * Plugin Activation Hook
      */
 	function activate() {
-        //$this->db->createTables();
+        $this->db->createTables();
 
         flush_rewrite_rules();
 	}
