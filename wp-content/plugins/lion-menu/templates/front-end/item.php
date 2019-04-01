@@ -1,5 +1,5 @@
 <?php 
-    $tpl = new Template( __DIR__ );
+    $tpl = new LMTemplate( __DIR__ );
 
     $textClasses = "";
     $iconClasses = "";
@@ -21,7 +21,7 @@
         $iconClasses = "col-3 col-md-2 col-lg-3 col-xl-3 px-0";
         $priceClasses = "col-3 col-md-2 col-lg-4 col-xl-3 pr-0 text-center";
     } else {
-        log_me("plugins/lion-inn/templates/front-end/item.php - side value of section is not 0 or 1 as expected.");
+        lm_log_me("plugins/lion-inn/templates/front-end/item.php - side value of section is not 0 or 1 as expected.");
     }
 
     /**
@@ -79,7 +79,7 @@
      * Print subitems
      */
 
-    $db = new SQLManager();
+    $db = new LMSQLManager();
 
     $subitems = $db->get( "subitem" , array( "parent_item" => $id, "toPublish" => 1 ));
 

@@ -1,4 +1,4 @@
-<?php $tpl = new Template( __DIR__ ); ?>
+<?php $tpl = new LMTemplate( __DIR__ ); ?>
 
 <div class="tab-pane fade <?php if($isFirst) { echo "show active"; } ?>" id="<?php echo strtolower($name); ?>" role="tabpanel" aria-labelledby="<?php echo strtolower($name); ?>-tab">
     
@@ -6,7 +6,7 @@
 
         <?php
 
-            $db = new SQLManager();
+            $db = new LMSQLManager();
 
             $sections = $db->get( "section" , array ( "parent_menu" => $id, "toPublish" => 1 ) );
 

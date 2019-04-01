@@ -1,5 +1,5 @@
 <?php 
-    $tpl = new Template( __DIR__ );
+    $tpl = new LMTemplate( __DIR__ );
 
     $name = str_replace('\\', '', $name);
 ?>

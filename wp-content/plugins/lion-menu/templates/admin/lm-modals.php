@@ -1,4 +1,4 @@
-<?php $tpl = new Template( __DIR__ . '/forms' ); ?>
+<?php $tpl = new LMTemplate( __DIR__ . '/forms' ); ?>
 
 <!-- Add Menu Modal -->
 <div id="add-menu-modal" style="display:none;">

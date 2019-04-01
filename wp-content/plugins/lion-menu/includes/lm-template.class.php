@@ -5,7 +5,7 @@
  * 
  * https://www.daggerhart.com/create-simple-php-templating-function/
  */
-class Template {
+class LMTemplate {
 	/**
 	 * Location of expected template
 	 *
@@ -14,7 +14,7 @@ class Template {
     public $folder;
     
 	/**
-	 * Template constructor.
+	 * LMTemplate constructor.
 	 *
 	 * @param $folder
 	 */

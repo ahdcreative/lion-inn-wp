@@ -8,7 +8,7 @@ require_once(plugin_dir_path(__FILE__).'/lm-debug.php');
 /**
  * Class to Manage Database
  */
-class SQLManager {
+class LMSQLManager {
 
     /**
      * WordPress Database Object
@@ -16,7 +16,7 @@ class SQLManager {
     private $wpdb;
 	
 	/**
-	 * SQLManager Constructor
+	 * LMSQLManager Constructor
 	 */
 	public function __construct() {
         global $wpdb;
@@ -53,7 +53,7 @@ class SQLManager {
         // Set charset 
         $sql = str_replace("charsetplaceholder", $this->wpdb->get_charset_collate(), $sql);
 
-        // log_me($sql);
+        // lm_log_me($sql);
 
         dbDelta($sql);
     }

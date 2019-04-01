@@ -12,6 +12,6 @@ if( !defined( 'WP_UNINSTALL_PLUGIN' )) {
 // Clear Database Data
 require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
 
-$db = new SQLManager();
+$db = new LMSQLManager();
 
 $db->deleteTables();

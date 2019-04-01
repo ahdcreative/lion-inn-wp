@@ -6,7 +6,7 @@
      * (to prevent any confusion in future)
      */
 
-    $tpl = new Template( __DIR__ );
+    $tpl = new LMTemplate( __DIR__ );
 ?>
 
 <?php

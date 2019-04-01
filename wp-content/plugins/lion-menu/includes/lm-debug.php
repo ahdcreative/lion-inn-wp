@@ -3,7 +3,7 @@
 /**
  * Print to debug.log file
  */
-function log_me($message) {
+function lm_log_me($message) {
     if (WP_DEBUG === true) {
         if (is_array($message) || is_object($message)) {
             error_log(print_r($message, true));
@@ -16,6 +16,6 @@ function log_me($message) {
 /**
  * Print to console in browser dev tools
  */
-function console_log($toPrint) {
+function lm_console_log($toPrint) {
     echo "<script>console.log('$toPrint');</script>";
 }

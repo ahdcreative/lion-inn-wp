@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require_once( WP_PLUGIN_DIR . '/lion-menu/includes/lm-sql-manager.class.php' );
     
-    $db = new SQLManager();
+    $db = new LMSQLManager();
 
     // Add Menu
     if(isset($_POST["add-menu"])) {

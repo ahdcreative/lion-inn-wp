@@ -1,6 +1,6 @@
 <?php 
-    $icon_tpl = new Template( __DIR__ );
-    $list_tpl = new Template( plugin_dir_path( __DIR__ ) );
+    $icon_tpl = new LMTemplate( __DIR__ );
+    $list_tpl = new LMTemplate( plugin_dir_path( __DIR__ ) );
     
     $name = str_replace('\\', '', $name);
 ?>
@@ -51,7 +51,7 @@
     <!-- Print Items in Section -->
     <?php
 
-    $db = new SQLManager();
+    $db = new LMSQLManager();
 
     $items = $db->get( "item" , array( "parent_section" => $id ));
 

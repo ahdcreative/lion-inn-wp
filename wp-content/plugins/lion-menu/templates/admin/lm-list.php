@@ -7,7 +7,7 @@
      * (to prevent any confusion in future)
      */
 
-    $tpl = new Template( __DIR__ . '/items' );
+    $tpl = new LMTemplate( __DIR__ . '/items' );
 ?>
 
 <ol class='<?php echo $classes; ?>'>

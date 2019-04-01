@@ -1,4 +1,4 @@
-<?php $tpl = new Template( __DIR__ ); ?>
+<?php $tpl = new LMTemplate( __DIR__ ); ?>
 
 <div class="sub-item row">
     <div class="col-6 col-md-8 col-lg-5 col-xl-6 pr-0">

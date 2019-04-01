@@ -1,4 +1,4 @@
-<?php $tpl = new Template( __DIR__ ); ?>
+<?php $tpl = new LMTemplate( __DIR__ ); ?>
 
 <div class="mt-5">
 
@@ -10,7 +10,7 @@
          * Print Items in section
          */
 
-        $db = new SQLManager();
+        $db = new LMSQLManager();
 
         $items = $db->get( "item" , array( "parent_section" => $id, "toPublish" => 1 ));
 

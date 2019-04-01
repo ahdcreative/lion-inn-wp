@@ -23,7 +23,7 @@ require_once(plugin_dir_path(__FILE__).'/includes/lm-sql-manager.class.php');
 class LionMenu {
 
     /**
-     * SQLManager - Manage Database
+     * LMSQLManager - Manage Database
      */
     public $db;
 
@@ -31,7 +31,7 @@ class LionMenu {
      * Class Constructor
      */
 	public function __construct() {
-        $this->db = new SQLManager();
+        $this->db = new LMSQLManager();
 
         // Setup Admin Pages
         add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
@@ -99,7 +99,7 @@ class LionMenu {
      */
     public function menu_init() {
         
-        $tpl = new Template( __DIR__ . '/templates/admin' );
+        $tpl = new LMTemplate( __DIR__ . '/templates/admin' );
 
         // Render POST & GET request handlers
         echo $tpl->render( 'post' );
@@ -132,8 +132,8 @@ class LionMenu {
      */
     public function edit_menu_init() {
 
-        $tpl = new Template( __DIR__ . '/templates/admin' );
-        $icon_tpl = new Template( __DIR__ . '/templates/admin/items' );
+        $tpl = new LMTemplate( __DIR__ . '/templates/admin' );
+        $icon_tpl = new LMTemplate( __DIR__ . '/templates/admin/items' );
 
         // Render POST request handlers
         echo $tpl->render( 'post' );
@@ -180,7 +180,7 @@ class LionMenu {
      * Render Menu(s)
      */
     public function render_menu() {
-        $tpl = new Template( __DIR__ . '/templates/front-end' );
+        $tpl = new LMTemplate( __DIR__ . '/templates/front-end' );
 
         $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
                 
@@ -191,7 +191,7 @@ class LionMenu {
      * Render Menu Nav
      */
     public function render_menu_nav() {
-        $tpl = new Template( __DIR__ . '/templates/front-end' );
+        $tpl = new LMTemplate( __DIR__ . '/templates/front-end' );
 
         $nav = $this->db->get( "menu" );      
                 
