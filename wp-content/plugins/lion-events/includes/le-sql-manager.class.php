@@ -27,7 +27,7 @@ class LESQLManager {
      * Create the 4 Tables Needed for the Plugin
      */
     public function createTables() {
-        // $this->createTable("menu");
+        $this->createTable("event");
     }
 
     /**
@@ -59,7 +59,7 @@ class LESQLManager {
      * Remove Plugin Tables
      */
     public function deleteTables() {
-        // $this->deleteTable("menu"); 
+        $this->deleteTable("event");
     }
 
     /**
