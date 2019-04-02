@@ -98,6 +98,7 @@ class LionEvents {
     public function events_init() {
         
         $tpl = new LETemplate( __DIR__ . '/templates/admin' );
+        $event = new LETemplate( __DIR__ . '/templates/admin/items' );
 
         // Render POST & GET request handlers
         echo $tpl->render( 'post' );
@@ -120,7 +121,7 @@ class LionEvents {
             return;
         } else {
             foreach($events as $ev) {
-                echo $tpl->render( 'le-event' , $ev );
+                echo $event->render( 'le-event' , $ev );
             }
         }
     }
