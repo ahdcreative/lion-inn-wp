@@ -110,18 +110,19 @@ class LionEvents {
         $data = array ('title' => 'Events', 'desc' => "Create and manage events from this page. Click 'Add Event' below to create a new menu. Select an event from the list below to edit a event.");
         echo $tpl->render( 'le-header', $data );
         
-        // Display save button and it's functionality
+        // Display add event button
         echo $tpl->render( 'le-event-buttons' );
         
-        // Get Menu's
+        // Get Events
         $events = $this->db->get( 'event' );
         if(!$events) {
             echo "You have not created any events.";
             return;
+        } else {
+            foreach($events as $ev) {
+                echo $tpl->render( 'le-event' , $ev );
+            }
         }
-
-        // Display menu's as sortable list
-        echo $tpl->render( 'le-list' , array( "listOf" => $events, "type" => "EVENTS", "classes" => "list-group ml-0" ));
     }
 
 }
