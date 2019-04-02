@@ -104,7 +104,7 @@ class LionEvents {
 
         // Add Modal Support & Render Modals
         add_thickbox();
-        // echo $tpl->render( 'le-modals' );
+        echo $tpl->render( 'le-modals' );
 
         // Print Header section of Admin Page
         $data = array ('title' => 'Events', 'desc' => "Create and manage events from this page. Click 'Add Event' below to create a new menu. Select an event from the list below to edit a event.");
