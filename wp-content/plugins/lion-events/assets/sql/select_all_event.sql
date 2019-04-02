@@ -1,0 +1,1 @@
+SELECT id, name, rank, toPublish FROM prefixplaceholder_event ORDER BY rank ASC;
