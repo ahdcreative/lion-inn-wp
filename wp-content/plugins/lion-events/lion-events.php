@@ -121,7 +121,7 @@ class LionEvents {
         }
 
         // Display menu's as sortable list
-        echo $tpl->render( 'le-list' , array( "listOf" => $events, "type" => "EVENTS", "classes" => "sortable vertical list-group ml-0" ));
+        echo $tpl->render( 'le-list' , array( "listOf" => $events, "type" => "EVENTS", "classes" => "list-group ml-0" ));
     }
 
 }
