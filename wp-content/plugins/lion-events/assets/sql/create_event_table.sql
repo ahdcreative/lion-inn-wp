@@ -1,7 +1,7 @@
 CREATE TABLE tableplaceholder (
     id mediumint(9) NOT NULL AUTO_INCREMENT,
     name VARCHAR(40),
-    event_date datetime NOT NULL,
+    event_date date NOT NULL,
     date_created datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
     date_updated datetime, 
     author int(3) NOT NULL,

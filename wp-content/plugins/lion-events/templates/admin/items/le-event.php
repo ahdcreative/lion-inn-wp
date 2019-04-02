@@ -1,9 +1,27 @@
-<?php
+<?php 
+    $tpl = new LMTemplate( __DIR__ ); 
 
-    echo $name;
-    echo "<br/>";
-    echo $event_date;
-
+    $name = str_replace('\\', '', $name);
 ?>
 
-<hr/>
+<li class='list-group-item list-group-item-action' data-id='<?php echo $id ?>'>
+
+    <!-- Event Name -->
+    <span class="ml-3 event-name"><?php echo $name; ?></span>
+
+    <!-- Publish / Not Published Icon -->
+    <?php
+    if($toPublish) {
+        echo $tpl->render( 'le-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
+    } else {
+        echo $tpl->render( 'le-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
+    }
+    ?>
+
+    <!-- Icons -->
+    <div class='float-right'>
+        <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-event", "modal" => "edit-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "400", "h" => "250" )); ?>
+        <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "delete-event", "modal" => "delete-event-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
+    </div>
+    
+</li>

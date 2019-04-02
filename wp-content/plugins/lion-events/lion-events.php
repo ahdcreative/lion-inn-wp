@@ -72,9 +72,6 @@ class LionEvents {
         // Add JQuery Sortable
         wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-events/assets/js/jquery-sortable.js', array('jquery'));
 
-        // Add Custom Javascript
-        wp_enqueue_script('le-lists', plugins_url() . '/lion-events/assets/js/custom-lists.js', array('jquery'));
-
         // Add Bootstrap CSS & JS & PopperJS
         wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
         wp_enqueue_style('bs-css', plugins_url() . '/lion-events/assets/css/bootstrap.min.css');
