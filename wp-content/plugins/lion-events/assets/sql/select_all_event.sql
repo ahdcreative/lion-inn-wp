@@ -1,1 +1,1 @@
-SELECT id, name, rank, toPublish FROM prefixplaceholder_event ORDER BY rank ASC;
+SELECT id, name, event_date, toPublish FROM prefixplaceholder_event ORDER BY event_date ASC;
