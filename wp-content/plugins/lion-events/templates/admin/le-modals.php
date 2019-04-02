@@ -1,4 +1,4 @@
-<?php $tpl = new LETemplate( __DIR__ . '/forms' ); ?>
+<?php $tpl = new LETemplate( __DIR__ ); ?>
 
 <!-- Add Event Modal -->
 <div id="add-event-modal" style="display:none;">
