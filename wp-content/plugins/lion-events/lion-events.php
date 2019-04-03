@@ -69,13 +69,13 @@ class LionEvents {
         // Add Main CSS
         wp_enqueue_style('le-style', plugins_url() . '/lion-events/assets/css/style.css');
 
-        // Add JQuery Sortable
-        wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-events/assets/js/jquery-sortable.js', array('jquery'));
-
         // Add Bootstrap CSS & JS & PopperJS
         wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
         wp_enqueue_style('bs-css', plugins_url() . '/lion-events/assets/css/bootstrap.min.css');
         wp_enqueue_script('bs-js', plugins_url() . '/lion-events/assets/js/bootstrap.min.js');
+
+        // Add Custom Javascript
+        wp_enqueue_script('le-edit-event', plugins_url() . '/lion-events/assets/js/edit-event.js', array('jquery'));
         
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
@@ -117,9 +117,11 @@ class LionEvents {
             echo "You have not created any events.";
             return;
         } else {
+            echo "<ul>";
             foreach($events as $ev) {
                 echo $event->render( 'le-event' , $ev );
             }
+            echo "</ul>";
         }
     }
 

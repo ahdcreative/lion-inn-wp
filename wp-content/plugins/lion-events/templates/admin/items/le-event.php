@@ -4,10 +4,13 @@
     $name = str_replace('\\', '', $name);
 ?>
 
-<li class='list-group-item list-group-item-action' data-id='<?php echo $id ?>'>
+<li class='list-group-item list-group-item-action w-75' data-id='<?php echo $id ?>'>
 
     <!-- Event Name -->
     <span class="ml-3 event-name"><?php echo $name; ?></span>
+
+    <!-- Event Date -->
+    <?php echo $event_date; ?>
 
     <!-- Publish / Not Published Icon -->
     <?php
@@ -20,8 +23,14 @@
 
     <!-- Icons -->
     <div class='float-right'>
-        <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-event", "modal" => "edit-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "400", "h" => "250" )); ?>
+        <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-event", "modal" => "edit-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "600", "h" => "550" )); ?>
         <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "delete-event", "modal" => "delete-event-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>
     
+    <!-- Small Description -->
+    <p class="desc-sml"><?php echo $description_sml; ?></p>
+
+    <!-- Large Description -->
+    <p class="desc-lrg"><?php echo $description_lrg; ?></p>
+
 </li>

@@ -1,3 +1,13 @@
+
+/* Event List */
+li {
+    position: relative;
+    list-style-type: none !important;
+}
+li:before {
+    position: absolute;
+}
+
 /**
  * Admin Page
  */
@@ -13,9 +23,33 @@ a.button-link {
 /* Admin content width */
 .admin-buttons { width: 60%; }
 @media (max-width: 1300px) {
-    ol.sortable, .admin-buttons {
+    .admin-buttons {
         width: 100%;
     }
+}
+
+
+/* Icons */
+i.fa-bars:hover {
+    color: #7c7c7c;
+    cursor: move;
+}
+i {
+    color: #d3d3d3;
+}
+i.fa-edit:hover {
+    color: #7c7c7c;
+    cursor: pointer;
+}
+i.fa-trash-alt:hover,
+i.fa-times-circle {
+    color: red;
+    cursor: pointer;
+}
+i.fa-plus:hover, 
+i.fa-check-circle {
+    color: green;
+    cursor: pointer;
 }
 
 
@@ -41,4 +75,8 @@ a.button-link {
     font-size: 14pt;
 }
 
+img.icon {
+    height: 15px;
+    width: 15px;
+}
 

@@ -14,8 +14,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $params = array(
             'name' => $_POST["event-name"],
             'event_date' => $_POST["event-date"],
-            'description_sml' => $_POST["description_sml"],
-            'description_lrg' => $_POST["description_lrg"],
+            'description_sml' => $_POST["event-desc-sml"],
+            'description_lrg' => $_POST["event-desc-lrg"],
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
             'toPublish' => (isset($_POST["publish-event"]))?(1):(0)
@@ -29,8 +29,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->update("event", array(
                 'name' => $_POST["event-name"],
                 'event_date' => $_POST["event-date"],
-                'description_sml' => $_POST["description_sml"],
-                'description_lrg' => $_POST["description_lrg"],
+                'description_sml' => $_POST["event-desc-sml"],
+                'description_lrg' => $_POST["event-desc-lrg"],
                 'date_updated' => current_time( 'mysql' ), 
                 'editor' => get_current_user_id(),
                 'toPublish' => (isset($_POST["publish-event"]))?(1):(0)
