@@ -2,6 +2,7 @@
  * JQuery to handle when the icons are clicked on the Edit Menu page.
  * Set POST var's to the data-id of it's parent section / item.
  * Also sets form values when EDIT is clicked on an item.
+ * The .parent() / .sibling() paths start from the icon that was clicked.
  */
 jQuery(function($) {
 

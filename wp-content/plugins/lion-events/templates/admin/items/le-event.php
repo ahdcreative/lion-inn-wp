@@ -10,7 +10,7 @@
     <span class="ml-3 event-name"><?php echo $name; ?></span>
 
     <!-- Event Date -->
-    <?php echo $event_date; ?>
+    <span class="ml-3 event-date"><?php echo $event_date; ?></span>
 
     <!-- Publish / Not Published Icon -->
     <?php
