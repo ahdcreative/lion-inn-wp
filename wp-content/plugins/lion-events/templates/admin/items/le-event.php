@@ -11,8 +11,6 @@
     $year = $date[0];
     $month = $months[strval($date[1])];
     $day = $date[2];
-
-    le_console_log($month);
 ?>
 
 <li class='list-group-item list-group-item-action' data-id='<?php echo $id ?>'>
@@ -20,8 +18,8 @@
     <div class="row">
     
         <div class="date col-2 col-lg-1">
-            <p class="month mb-0"><?php echo $month ?></p>
-            <hr class="text-left bg-light my-0"/>
+            <p class="month mb-0 fs-12"><?php echo $month ?></p>
+            <hr class="text-left bg-light my-0 hr-date"/>
             <p class="day mt-0"><?php echo $day ?></p>
         </div>
 
@@ -32,14 +30,28 @@
 
         <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
             <!-- Event Name -->
-            <h2 class="event-title mb-0 mt-1 mt-lg-0 event-name"><?php echo $name; ?></h2>
+            <span class="mb-0 mt-1 mt-lg-0 event-name purple-font"><?php echo $name; ?></span>            
+
+            <!-- Icons -->
+            <div class='float-right'>
+                <!-- Publish / Not Published Icon -->
+                <?php
+                    if($toPublish) {
+                        echo $tpl->render( 'le-icon', array( "classes" => "fas fa-check-circle toPublish mr-2", "tooltip" => "Published"));
+                    } else {
+                        echo $tpl->render( 'le-icon', array( "classes" => "fas fa-times-circle mr-2", "tooltip" => "Not Published"));
+                    }
+                ?>
+                <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-event", "modal" => "edit-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "600", "h" => "550" )); ?>
+                <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "delete-event", "modal" => "delete-event-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
+            </div>
 
             <!-- Small Description -->
-            <hr class="text-left bg-light my-1 my-lg-2"/>
+            <hr class="text-left bg-light my-1 my-lg-2 hr-desc"/>
             <p class="my-1 mt-lg-0 desc-sml"><?php echo $description_sml; ?></p>
 
             <!-- Large Description -->
-            <hr class="text-left bg-light my-1 my-lg-2"/>
+            <hr class="text-left bg-light my-1 my-lg-2 hr-desc"/>
             <p class="desc-lrg"><?php echo $description_lrg; ?></p>
         </div>
     
