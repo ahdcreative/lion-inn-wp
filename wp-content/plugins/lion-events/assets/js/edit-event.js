@@ -32,6 +32,16 @@ jQuery(function($) {
         $value = $($caller).parent().siblings('.'+$inputName).text();
         $('input[name='+$inputName+']').val($value);
     }
+
+    /**
+     * Set date input value
+     * TODO - fix date set
+     */
+    function setDateInput($inputName, $caller) {
+        $value = new Date($($caller).parent().parent().siblings().children('.'+$inputName).text());
+        console.log($value + " | " + $inputName);
+        $('input[name='+$inputName+']').val($value);
+    }
     
     /**
      * Handle Add, Edit & Delete Forms
@@ -40,7 +50,9 @@ jQuery(function($) {
         setPostVar("add-event", this);
         // Ensure form values are empty
         $('input[name="event-name"]').val('');
-        $('input[name="event-date"]').val('');
+        $('input[name="event-start-date"]').val('');
+        $('input[name="event-end-date"]').val('');
+        $('input[name="publish-event"]').prop('checked', false);
         $('input[name="publish-event"]').prop('checked', true);
         $('textarea[name="event-desc-sml"]').val('');
         $('textarea[name="event-desc-lrg"]').val('');
@@ -50,7 +62,8 @@ jQuery(function($) {
         
         // Set form values to current item values
         setTextInput("event-name", this);
-        setTextInput("event-date", this);
+        setDateInput("event-start-date", this);
+        setDateInput("event-end-date", this);
         setCheckbox("publish-event", ".toPublish", this);
 
         $desc_sml = $(this).parent().siblings(".desc-sml").text();
@@ -61,6 +74,13 @@ jQuery(function($) {
     });    
     $(".delete-event").on("click", function() {
         setPostVar("delete-event", this);
+    });
+
+    /**
+     * Hide End Date Input when Checkbox Clicked
+     */
+    $(".isSingleDate").click(function() {
+        $(".hideIfSingleDate").toggle(this.unchecked);
     });
     
 });

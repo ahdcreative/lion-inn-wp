@@ -7,7 +7,9 @@
         <h3 class="mb-4">Add Event</h3>
         <input type="hidden" name="add-event" />
         <?php echo $tpl->render( 'le-text-input', array( "id" => "event-name-input", "name" => "event-name", "label" => "Event Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'le-date-input', array( "id" => "event-date-input", "name" => "event-date", "label" => "Event Date", "placeholder" => "Enter Date" )); ?>
+        <?php echo $tpl->render( 'le-date-input', array( "id" => "event-start-date-input", "name" => "event-start-date", "label" => "Event Start Date", "placeholder" => "Enter Start Date" )); ?>
+        <?php echo $tpl->render( 'le-date-input', array( "id" => "event-end-date-input", "name" => "event-end-date", "label" => "Event End Date", "placeholder" => "Enter End Date", "optClasses" => "hideIfSingleDate" )); ?>
+        <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "single-date-check", "name" => "single-date-event", "label" => "Single Day Event", "optClasses" => "mb-3 isSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "publish-event-check", "name" => "publish-event", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-sml", "name" => "event-desc-sml", "label" => "Small Description", "optClasses" => "hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-lrg", "name" => "event-desc-lrg", "label" => "Large Description", "optClasses" => "hideIfSubsec" )); ?>
@@ -23,7 +25,9 @@
         <h3 class="mb-4">Edit Event</h3>
         <input type="hidden" name="edit-event" />
         <?php echo $tpl->render( 'le-text-input', array( "id" => "event-name-input", "name" => "event-name", "label" => "Event Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'le-date-input', array( "id" => "event-date-input", "name" => "event-date", "label" => "Event Date", "placeholder" => "Enter Date" )); ?>
+        <?php echo $tpl->render( 'le-date-input', array( "id" => "event-start-date-input", "name" => "event-start-date", "label" => "Event Start Date", "placeholder" => "Enter Start Date" )); ?>
+        <?php echo $tpl->render( 'le-date-input', array( "id" => "event-end-date-input", "name" => "event-end-date", "label" => "Event End Date", "placeholder" => "Enter End Date" )); ?>
+        <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "single-date-check", "name" => "single-date-event", "label" => "Single Day Event", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "publish-event-check", "name" => "publish-event", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-sml", "name" => "event-desc-sml", "label" => "Small Description", "optClasses" => "hideIfSubsec" )); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-lrg", "name" => "event-desc-lrg", "label" => "Large Description", "optClasses" => "hideIfSubsec" )); ?>

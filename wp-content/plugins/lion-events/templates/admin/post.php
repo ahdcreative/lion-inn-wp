@@ -13,7 +13,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(isset($_POST["add-event"])) {
         $params = array(
             'name' => $_POST["event-name"],
-            'event_date' => $_POST["event-date"],
+            'event_start_date' => $_POST["event-start-date"],
+            'event_end_date' => $_POST["event-end-date"],
             'description_sml' => $_POST["event-desc-sml"],
             'description_lrg' => $_POST["event-desc-lrg"],
             'date_created' => current_time( 'mysql' ), 
@@ -28,7 +29,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(isset($_POST["edit-event"])) {
         $db->update("event", array(
                 'name' => $_POST["event-name"],
-                'event_date' => $_POST["event-date"],
+                'event_start_date' => $_POST["event-start-date"],
+                'event_end_date' => $_POST["event-end-date"],
                 'description_sml' => $_POST["event-desc-sml"],
                 'description_lrg' => $_POST["event-desc-lrg"],
                 'date_updated' => current_time( 'mysql' ), 
