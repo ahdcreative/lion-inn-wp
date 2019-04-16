@@ -53,6 +53,12 @@
                 ?>
                 <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-event", "modal" => "edit-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "600", "h" => "600" )); ?>
                 <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "delete-event", "modal" => "delete-event-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
+                <!-- If it's a single day event or not -->
+                <?php
+                    if($isSingleDayEvent) {
+                        echo "<span class='isSingleDayEvent' hidden></span>";
+                    }
+                ?>
             </div>
 
             <!-- Small Description -->
