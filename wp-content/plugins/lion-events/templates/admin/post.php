@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require_once( WP_PLUGIN_DIR . '/lion-events/includes/le-debug.php' );
 
-    // Add Menu
+    // Add Event
     if(isset($_POST["add-event"])) {
         $params = array(
             'name' => $_POST["event-name"],
@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->insert("event", $params);
         return;
     }
-    // Edit Menu
+    // Edit Event
     if(isset($_POST["edit-event"])) {
         $db->update("event", array(
                 'name' => $_POST["event-name"],
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
         return;
     }
-    // Delete Menu
+    // Delete Event
     if(isset($_POST["delete-event"])) {
         $db->delete("event", array(
             'id' => $_POST["delete-event"]

@@ -4,7 +4,7 @@
  */
 jQuery(function($) {
 
-    $('input#myprefix_media_manager').click(function(e) {
+    $('input#hjb01_media_manager').click(function(e) {
         e.preventDefault();
         var image_frame;
         if(image_frame){
@@ -30,7 +30,7 @@ jQuery(function($) {
                 my_index++;
             });
             var ids = gallery_ids.join(",");
-            jQuery('input#myprefix_image_id').val(ids);
+            jQuery('input#hjb01_image_id').val(ids);
             Refresh_Image(ids);
         });
 
@@ -38,7 +38,7 @@ jQuery(function($) {
             // On open, get the id from the hidden input
             // and select the appropiate images in the media manager
             var selection =  image_frame.state().get('selection');
-            var ids = jQuery('input#myprefix_image_id').val().split(',');
+            var ids = jQuery('input#hjb01_image_id').val().split(',');
             ids.forEach(function(id) {
                 var attachment = wp.media.attachment(id);
                 attachment.fetch();
@@ -52,13 +52,13 @@ jQuery(function($) {
     // Ajax request to refresh the image preview
     function Refresh_Image(the_id){
         var data = {
-            action: 'myprefix_get_image',
+            action: 'hjb01_get_image',
             id: the_id
         };
 
         jQuery.get(ajaxurl, data, function(response) {
             if(response.success === true) {
-                jQuery('#myprefix-preview-image').replaceWith( response.data.image );
+                jQuery('#hjb01-preview-image').replaceWith( response.data.image );
             }
         });
     }

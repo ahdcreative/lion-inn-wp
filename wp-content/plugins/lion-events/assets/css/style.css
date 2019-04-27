@@ -88,6 +88,6 @@ img.icon {
 }
 
 /* Event Images */
-.image {
+.image .event-image {
     width: 100% !important;
 }
