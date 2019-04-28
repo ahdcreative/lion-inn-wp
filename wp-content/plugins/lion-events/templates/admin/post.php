@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'name' => $_POST["event-name"],
             'event_start_date' => $_POST["event-start-date"],
             'event_end_date' => $_POST["event-end-date"],
+            'image_url' => $_POST["add-event-image"],
             'isSingleDayEvent' => (isset($_POST["single-date-event"]))?(1):(0),
             'description_sml' => $_POST["event-desc-sml"],
             'description_lrg' => $_POST["event-desc-lrg"],
@@ -33,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->update("event", array(
                 'name' => $_POST["event-name"],
                 'event_start_date' => $_POST["event-start-date"],
+                'image_url' => $_POST["edit-event-image"],
                 'event_end_date' => (isset($_POST["single-date-event"]))?("0000-00-00"):($_POST["event-end-date"]),
                 'isSingleDayEvent' => (isset($_POST["single-date-event"]))?(1):(0),
                 'description_sml' => $_POST["event-desc-sml"],

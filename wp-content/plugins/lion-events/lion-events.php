@@ -35,7 +35,6 @@ class LionEvents {
 
         // Setup Admin Pages
         add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
-        add_action('wp_ajax_hjb01_get_image', 'hjb01_get_image');
     }
 
     /**
@@ -128,19 +127,6 @@ class LionEvents {
                 echo $event->render( 'le-event' , $ev );
             }
             echo "</ul>";
-        }
-    }
-
-    // Ajax action to refresh the user image
-    function hjb01_get_image() {
-        if(isset($_GET['id']) ){
-            $image = '<img id="<?php echo $id ?>" src="http://localhost/lion-inn-wp/wp-content/uploads/xmas-stock.png" alt="$name" class="event-image" />';
-            $data = array(
-                'image' => $image,
-            );
-            wp_send_json_success( $data );
-        } else {
-            wp_send_json_error();
         }
     }
 
