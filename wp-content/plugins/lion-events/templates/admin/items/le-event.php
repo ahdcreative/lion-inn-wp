@@ -2,9 +2,8 @@
     include( __DIR__ . "/months.php" );
     // Debugging functions
     require_once(plugin_dir_path(__DIR__) . '../../includes/le-debug.php');
-    require_once(plugin_dir_path(__DIR__) . '../../includes/le-functions.php');
 
-    $tpl = new LMTemplate( __DIR__ );
+    $tpl = new LETemplate( __DIR__ );
 
     $name = str_replace('\\', '', $name);
 
@@ -56,7 +55,7 @@
             <span class="mb-0 mt-1 mt-lg-0 event-name purple-font"><?php echo $name; ?></span>            
 
             <!-- Icons -->
-            <div class='float-right'>
+            <div class='float-right mt-3'>
                 <!-- Publish / Not Published Icon -->
                 <?php
                     if($toPublish) {

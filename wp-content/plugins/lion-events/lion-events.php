@@ -130,6 +130,24 @@ class LionEvents {
         }
     }
 
+    /**
+     * Render Event(s)
+     */
+    public function render_events() {
+        $tpl = new LETemplate( __DIR__ . '/templates/front-end' );
+
+        $events = $this->db->get( "event" , array ( "toPublish" => 1 ) );      
+                
+        if(!$events) {
+            echo "There are no upcoming events.";
+            return;
+        } else {
+            foreach($events as $ev) {
+                echo $tpl->render( 'event' , $ev );
+            }
+        }
+    }
+
 }
 
 /**
