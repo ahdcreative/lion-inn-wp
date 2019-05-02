@@ -45,10 +45,14 @@
         </div>
 
         <!-- Event Image -->
-        <div class="image col-10 col-lg-6">
-            <img id="<?php echo $id ?>" src="<?php echo content_url() . '/uploads/' . $image_url; ?>" alt="<?php echo $name ?>" class="event-image" />
-            <span hidden class="event-image-url"><?php echo $image_url; ?></span>
-        </div>
+        <?php
+            if($image_width >= $image_height) {
+                echo $tpl->render( 'le-hrztl-img', array('id' => $id, 'image_url' => $image_url, 'name' => $name));
+            } else {
+                le_console_log($image_url);
+                echo $tpl->render( 'le-vert-img', array('id' => $id, 'image_url' => $image_url, 'name' => $name));
+            }
+        ?>        
         
         <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
             <!-- Event Name -->
@@ -74,13 +78,9 @@
                 ?>
             </div>
 
-            <!-- Small Description -->
+            <!-- Description -->
             <hr class="text-left bg-light my-1 my-lg-2 hr-desc"/>
-            <p class="my-1 mt-lg-0 desc-sml"><?php echo $description_sml; ?></p>
-
-            <!-- Large Description -->
-            <hr class="text-left bg-light my-1 my-lg-2 hr-desc"/>
-            <p class="desc-lrg"><?php echo $description_lrg; ?></p>
+            <p class="my-1 mt-lg-0 desc-sml"><?php echo $description; ?></p>
         </div>
     
     </div>

@@ -80,10 +80,24 @@ class LionEvents {
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 
-        // Enqueue WordPress media scripts
+        // WordPress media scripts
         wp_enqueue_media();
-        // Enqueue custom script that will interact with wp.media
+        // Custom script that will interact with wp.media
         wp_enqueue_script( 'le-media-manager', plugins_url( '/assets/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
+    
+        // Froala WYSIWYG Editor
+        wp_enqueue_style('froala-editor', 'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_editor.min.css');
+        wp_enqueue_style('froala-style', 'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_style.min.css');
+        wp_enqueue_script('froala-js', 'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/froala_editor.min.js', array('jquery'));
+        // Froala Plugins
+        wp_enqueue_script('froala-links',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/link.min.js');
+        wp_enqueue_script('froala-help-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/help.min.js');
+        wp_enqueue_style('froala-help-css',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/plugins/help.min.css');
+        wp_enqueue_script('froala-code-view-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/code_view.min.js');
+        wp_enqueue_style('froala-code-view-css',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/plugins/code_view.min.css');
+        wp_enqueue_script('froala-word-paste-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/word_paste.min.js');
+        // Custom script to enable editor
+        wp_enqueue_script('enable-editor', plugins_url() . '/lion-events/assets/js/wysiwyg.js', array('jquery'));    
     }
     
     /**

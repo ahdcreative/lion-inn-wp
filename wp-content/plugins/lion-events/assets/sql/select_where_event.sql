@@ -1,3 +1,3 @@
-SELECT id, name, event_start_date, event_end_date, image_url, isSingleDayEvent, description_sml, description_lrg, toPublish 
+SELECT id, name, event_start_date, event_end_date, image_url, image_height, image_width, isSingleDayEvent, description, toPublish 
 FROM prefixplaceholder_event
 WHERE where_placeholder;

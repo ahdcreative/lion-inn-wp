@@ -45,11 +45,7 @@
         <h2 class="event-title mb-0 mt-1 mt-lg-0"><?php echo $name; ?></h2>
         <hr class="text-left bg-light my-1 my-lg-2"/>
         <p class="my-1 mt-lg-0">
-            <?php echo $description_sml; ?>
-        </p>
-        <hr class="text-left bg-light my-1 my-lg-2"/>
-        <p>
-            <?php echo $description_lrg; ?>
+            <?php echo $description; ?>
         </p>
     </div>
 </div>
