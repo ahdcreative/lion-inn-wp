@@ -4,6 +4,8 @@
     // Debugging functions
     require_once( WP_PLUGIN_DIR . '/lion-events/includes/le-debug.php' );
 
+    $tpl = new LETemplate( __DIR__ . '/images' );
+
     $name = str_replace('\\', '', $name);
 
     $startdate = explode('-', $event_start_date);
@@ -37,9 +39,14 @@
         ?>
     </div>
 
-    <div class="image col-10 col-lg-5">
-        <img id="<?php echo $id ?>" src="<?php echo content_url() . '/uploads/' . $image_url; ?>" alt="<?php echo $name; ?>" class="event-image" />
-    </div>
+    <?php
+        if($image_width >= $image_height) {
+            echo $tpl->render( 'hrztl-img', array('id' => $id, 'image_url' => $image_url, 'name' => $name));
+        } else {
+            le_console_log($image_url);
+            echo $tpl->render( 'vert-img', array('id' => $id, 'image_url' => $image_url, 'name' => $name));
+        }
+    ?>
 
     <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
         <h2 class="event-title mb-0 mt-1 mt-lg-0"><?php echo $name; ?></h2>
