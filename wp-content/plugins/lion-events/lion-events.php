@@ -106,6 +106,7 @@ class LionEvents {
      */
     public function admin_menu_pages() {
         add_menu_page( 'Events Page', 'Events', 'manage_options', 'le-events-page', array( $this, 'events_init' ) );
+        add_submenu_page( 'le-events-page', 'Regular Events Subpage', 'Regular Events', 'manage_options', 'le-r-events-edit-subpage', array( $this, 'regular_events_init' ) );
     }
     
     /**
@@ -131,7 +132,7 @@ class LionEvents {
         echo $tpl->render( 'le-event-buttons' );
         
         // Get Events
-        $events = $this->db->get( 'event' );
+        $events = $this->db->get( 'u_event' );
         if(!$events) {
             echo "You have not created any events.";
             return;
@@ -145,12 +146,31 @@ class LionEvents {
     }
 
     /**
+     * Regular Events Subpage
+     */
+    public function regular_events_init() {
+
+        $tpl = new LETemplate( __DIR__ . '/templates/admin' );
+
+        // Render POST & GET request handlers
+        echo $tpl->render( 'post' );
+
+        // Add Modal Support & Render Modals
+        add_thickbox();
+        echo $tpl->render( 'le-modals' );
+
+        // Print Header section of Admin Page
+        $data = array ('title' => 'Regular Events', 'desc' => "Manage regular weekly events from this page.  Click a day to edit it.");
+        echo $tpl->render( 'le-header', $data );
+    }
+
+    /**
      * Render Event(s)
      */
     public function render_events() {
         $tpl = new LETemplate( __DIR__ . '/templates/front-end' );
 
-        $events = $this->db->get( "event" , array ( "toPublish" => 1 ) );      
+        $events = $this->db->get( "u_event" , array ( "toPublish" => 1 ) );      
                 
         if(!$events) {
             echo "There are no upcoming events.";
@@ -162,6 +182,7 @@ class LionEvents {
         }
     }
 
+    
 }
 
 /**

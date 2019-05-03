@@ -27,12 +27,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'toPublish' => (isset($_POST["publish-event"]))?(1):(0)
         );
 
-        $db->insert("event", $params);
+        $db->insert("u_event", $params);
         return;
     }
     // Edit Event
     if(isset($_POST["edit-event"])) {
-        $db->update("event", array(
+        $db->update("u_event", array(
                 'name' => $_POST["event-name"],
                 'event_start_date' => $_POST["event-start-date"],
                 'image_url' => $_POST["edit-event-image"],
@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // Delete Event
     if(isset($_POST["delete-event"])) {
-        $db->delete("event", array(
+        $db->delete("u_event", array(
             'id' => $_POST["delete-event"]
         ));
         return;
