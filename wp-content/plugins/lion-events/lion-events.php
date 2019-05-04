@@ -74,11 +74,11 @@ class LionEvents {
         wp_enqueue_style('bs-css', plugins_url() . '/lion-events/assets/css/bootstrap.min.css');
         wp_enqueue_script('bs-js', plugins_url() . '/lion-events/assets/js/bootstrap.min.js');
 
-        // // Add Custom Javascript
-        // wp_enqueue_script('le-edit-event', plugins_url() . '/lion-events/assets/js/edit-event.js', array('jquery'));
+        // Add Custom Javascript
+        wp_enqueue_script('le-edit-event', plugins_url() . '/lion-events/assets/js/edit-event.js', array('jquery'));
         
-        // // Font Awesome
-        // wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+        // Font Awesome
+        wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 
         // // Enqueue WordPress media scripts
         // wp_enqueue_media();
