@@ -83,7 +83,7 @@ class LionEvents {
         // // Enqueue WordPress media scripts
         // wp_enqueue_media();
         // // Enqueue custom script that will interact with wp.media
-        // wp_enqueue_script( 'le-media-manager', plugins_url( '/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
+        wp_enqueue_script( 'le-media-manager', plugins_url( '/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
     }
     
     /**
