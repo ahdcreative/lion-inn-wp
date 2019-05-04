@@ -61,8 +61,8 @@
     <form action="#" method="post">
         <h3 class="mb-4">Edit Event</h3>
         <input type="hidden" name="edit-r-event" />
-        <?php echo $tpl->render( 'le-text-input', array( "id" => "r-event-name-input", "name" => "r-event-name", "label" => "Event Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "r-desc-input", "name" => "r-event-desc", "label" => "Description")); ?>
+        <?php echo $tpl->render( 'le-text-input', array( "id" => "r-event-title-input", "name" => "r-event-title", "label" => "Event Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "r-event-desc-input", "name" => "r-event-desc", "label" => "Description")); ?>
         <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Edit" )); ?>
     </form>
 

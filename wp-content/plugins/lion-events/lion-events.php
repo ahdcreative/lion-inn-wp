@@ -76,6 +76,7 @@ class LionEvents {
 
         // Add Custom Javascript
         wp_enqueue_script('le-edit-event', plugins_url() . '/lion-events/assets/js/edit-event.js', array('jquery'));
+        wp_enqueue_script('le-r-edit-event', plugins_url() . '/lion-events/assets/js/edit-r-event.js', array('jquery'));
         
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
@@ -162,9 +163,7 @@ class LionEvents {
         echo $tpl->render( 'le-header', $data );
 
         // Render days
-        // echo "<div class='container-fluid'>";
         echo $tpl->render( 'le-regular-events' );
-        // echo "</div>";
     }
 
     /**
