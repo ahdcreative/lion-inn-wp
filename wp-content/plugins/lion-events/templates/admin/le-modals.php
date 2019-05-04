@@ -11,7 +11,7 @@
         <?php echo $tpl->render( 'le-date-input', array( "id" => "event-end-date-input", "name" => "event-end-date", "label" => "Event End Date", "placeholder" => "Enter End Date", "optClasses" => "hideIfSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "single-date-check", "name" => "single-date-event", "label" => "Single Day Event", "optClasses" => "mb-3 isSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "publish-event-check", "name" => "publish-event", "label" => "Publish", "optClasses" => "mb-3" )); ?>
-        <?php echo $tpl->render( 'le-image-select', array( "id" => "add-event-image-select", "label_id" => "add-image-selected-name", "name" => "add-event-image", "label" => "No Image Selected" )); ?>
+        <?php echo $tpl->render( 'le-image-select', array( "id" => "event-image-select", "name" => "event-image", "label" => "placeholder.png", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-sml", "name" => "event-desc-sml", "label" => "Small Description")); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-lrg", "name" => "event-desc-lrg", "label" => "Large Description")); ?>
         <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Add" )); ?>
@@ -30,7 +30,6 @@
         <?php echo $tpl->render( 'le-date-input', array( "id" => "event-end-date-input", "name" => "event-end-date", "label" => "Event End Date", "placeholder" => "Enter End Date", "optClasses" => "hideIfSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "single-date-check", "name" => "single-date-event", "label" => "Single Day Event", "optClasses" => "mb-3 isSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "publish-event-check", "name" => "publish-event", "label" => "Publish", "optClasses" => "mb-3" )); ?>
-        <?php echo $tpl->render( 'le-image-select', array( "id" => "edit-event-image-select", "label_id" => "edit-image-selected-name", "name" => "edit-event-image", "label" => "No Image Selected" )); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-sml", "name" => "event-desc-sml", "label" => "Small Description")); ?>
         <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input-lrg", "name" => "event-desc-lrg", "label" => "Large Description")); ?>
         <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Edit" )); ?>

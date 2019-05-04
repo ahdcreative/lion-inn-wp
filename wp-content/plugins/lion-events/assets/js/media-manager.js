@@ -4,45 +4,63 @@
  */
 jQuery(function($) {
 
-    /**
-     * Add Event Media Modal
-     */
-    $('#add-event-image-select').on('click', function() {
-        var images = wp.media({
-            title: "Select Event Image",
-            multiple: false
-        }).open().on('select', function(e) {
-            var selectedImage = images.state().get('selection').first();
-            selectedImage = selectedImage.toJSON();
-
-            // Strip url so we only have the last part
-            var url_segments = selectedImage.url.split("/");
-            var image_url = url_segments.pop(); 
-
-            // Set url as value of hidden input value ready for POST request to add to DB
-            $('input[name="add-event-image"').val(image_url);
-            $('#add-image-selected-name').text(image_url);
+    $('input#hjb01_media_manager').click(function(e) {
+        e.preventDefault();
+        var image_frame;
+        if(image_frame){
+            image_frame.open();
+        }
+        // Define image_frame as wp.media object
+        image_frame = wp.media({
+            title: 'Select Media',
+            multiple : false,
+            library : {
+                type : 'image',
+            }
         });
-    });
 
-    /**
-     * Edit Event Media Modal
-     */
-    $('#edit-event-image-select').on('click', function() {
-        var images = wp.media({
-            title: "Select Event Image",
-            multiple: false
-        }).open().on('select', function(e) {
-            var selectedImage = images.state().get('selection').first();
-            selectedImage = selectedImage.toJSON();
-
-            // Strip url so we only have the last part
-            var url_segments = selectedImage.url.split("/");
-            var image_url = url_segments.pop();
-
-            $('input[name="edit-event-image"').val(image_url);
-            $('#edit-image-selected-name').text(image_url);         
+        image_frame.on('close',function() {
+            // On close, get selections and save to the hidden input
+            // plus other AJAX stuff to refresh the image preview
+            var selection =  image_frame.state().get('selection');
+            var gallery_ids = new Array();
+            var my_index = 0;
+            selection.each(function(attachment) {
+                gallery_ids[my_index] = attachment['id'];
+                my_index++;
+            });
+            var ids = gallery_ids.join(",");
+            jQuery('input#hjb01_image_id').val(ids);
+            Refresh_Image(ids);
         });
+
+        image_frame.on('open',function() {
+            // On open, get the id from the hidden input
+            // and select the appropiate images in the media manager
+            var selection =  image_frame.state().get('selection');
+            var ids = jQuery('input#hjb01_image_id').val().split(',');
+            ids.forEach(function(id) {
+                var attachment = wp.media.attachment(id);
+                attachment.fetch();
+                selection.add( attachment ? [ attachment ] : [] );
+            });
+        });
+
+        image_frame.open();
     });
+  
+    // Ajax request to refresh the image preview
+    function Refresh_Image(the_id){
+        var data = {
+            action: 'hjb01_get_image',
+            id: the_id
+        };
+
+        jQuery.get(ajaxurl, data, function(response) {
+            if(response.success === true) {
+                jQuery('#hjb01-preview-image').replaceWith( response.data.image );
+            }
+        });
+    }
 
 });
