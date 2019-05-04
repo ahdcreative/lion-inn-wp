@@ -137,7 +137,7 @@ class LionEvents {
  */
 if (class_exists( 'LionEvents' )) {
     $lionEvents = new LionEvents();
-    // $lionEvents->register();
+    $lionEvents->register();
 }
 
 /**
