@@ -19,7 +19,7 @@ jQuery(function($) {
      * The span with .toPublish is only rendered if the item set to be published.
      */
     function setCheckbox($inputName, $className, $caller) {
-        $checked = ($($caller).parent().siblings($className).length)?(1):(0);
+        $checked = ($($caller).siblings($className).length)?(1):(0);
         ($checked)?($('input[name='+$inputName+']').prop('checked', true)):($('input[name='+$inputName+']').prop('checked', false));
 
         return $checked;
@@ -32,6 +32,15 @@ jQuery(function($) {
         $value = $($caller).parent().siblings('.'+$inputName).text();
         $('input[name='+$inputName+']').val($value);
     }
+
+    /**
+     * Set date input value
+     */
+    function setDateInput($inputName, $caller) {
+        $value = $($caller).parent().parent().siblings().children('.'+$inputName).text();
+        $separatedDate = $value.split("/");
+        $('input[name='+$inputName+']').val($separatedDate[2] + "-" + $separatedDate[1] + "-" + $separatedDate[0]);
+    }
     
     /**
      * Handle Add, Edit & Delete Forms
@@ -40,18 +49,30 @@ jQuery(function($) {
         setPostVar("add-event", this);
         // Ensure form values are empty
         $('input[name="event-name"]').val('');
-        $('input[name="event-date"]').val('');
+        $('input[name="event-start-date"]').val('');
+        $('input[name="event-end-date"]').val('');
+        $('input[name="single-date-event"]').prop('checked', false);
         $('input[name="publish-event"]').prop('checked', true);
         $('textarea[name="event-desc-sml"]').val('');
         $('textarea[name="event-desc-lrg"]').val('');
+
+        // Ensure all form inputs are being shown
+        $(".hideIfSingleDate").show(this.unchecked);
     });
     $(".edit-event").on("click", function() {
         setPostVar("edit-event", this);
         
         // Set form values to current item values
         setTextInput("event-name", this);
-        setTextInput("event-date", this);
+        setDateInput("event-start-date", this);
+        setDateInput("event-end-date", this);
+        $isSingleDayEvent = setCheckbox("single-date-event", ".isSingleDayEvent", this);
         setCheckbox("publish-event", ".toPublish", this);
+
+        // Hide end date if single event day is ticked
+        if($isSingleDayEvent) {
+            $(".hideIfSingleDate").hide(this.unchecked);
+        }
 
         $desc_sml = $(this).parent().siblings(".desc-sml").text();
         $('textarea[name="event-desc-sml"]').val($desc_sml);
@@ -62,5 +83,11 @@ jQuery(function($) {
     $(".delete-event").on("click", function() {
         setPostVar("delete-event", this);
     });
-    
+
+    /**
+     * Hide End Date Input when Checkbox Clicked
+     */
+    $(".isSingleDate").click(function() {
+        $(".hideIfSingleDate").toggle(this.unchecked);
+    });
 });

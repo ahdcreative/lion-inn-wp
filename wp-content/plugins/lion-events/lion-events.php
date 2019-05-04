@@ -105,7 +105,7 @@ class LionEvents {
         echo $tpl->render( 'le-modals' );
 
         // Print Header section of Admin Page
-        $data = array ('title' => 'Events', 'desc' => "Create and manage events from this page. Click 'Add Event' below to create a new menu. Select an event from the list below to edit a event.");
+        $data = array ('title' => 'Events', 'desc' => "Create and manage events from this page. Click 'Add Event' below to create a new menu. Select an event from the list below to edit it.");
         echo $tpl->render( 'le-header', $data );
         
         // Display add event button
