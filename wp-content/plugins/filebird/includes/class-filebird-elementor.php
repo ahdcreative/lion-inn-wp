@@ -52,7 +52,7 @@ class FileBird_Elementor{
             echo '/* ]]> */';
             echo '</script>';
 
-        // wp_enqueue_media();
+        wp_enqueue_media();
 
         wp_register_script( 'filebird-builder-util-elementor', NJT_FILEBIRD_PLUGIN_URL . '/admin/js/filebird-util.js', array( 'jquery' ) );
         wp_enqueue_script( 'filebird-builder-util-elementor' );

@@ -80,8 +80,6 @@ class LionEvents {
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 
-        // WordPress media scripts
-        // wp_enqueue_media();
         // Custom script that will interact with wp.media
         wp_enqueue_script( 'le-media-manager', plugins_url( '/assets/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
     

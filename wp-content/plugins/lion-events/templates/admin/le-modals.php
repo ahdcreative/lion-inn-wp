@@ -1,4 +1,9 @@
-<?php $tpl = new LETemplate( __DIR__ . '/forms' ); ?>
+<?php 
+    $tpl = new LETemplate( __DIR__ . '/forms' ); 
+    
+    // Enqueue functionality needed for media library
+    wp_enqueue_media();
+?>
 
 <!-- Add Event Modal -->
 <div id="add-event-modal" style="display:none;">
