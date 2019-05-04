@@ -18,27 +18,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'event_start_date' => $_POST["event-start-date"],
             'event_end_date' => $_POST["event-end-date"],
             'image_url' => $_POST["add-event-image"],
+            'image_height' => $_POST["add-event-img-height"],
+            'image_width' => $_POST["add-event-img-width"],
             'isSingleDayEvent' => (isset($_POST["single-date-event"]))?(1):(0),
-            'description_sml' => $_POST["event-desc-sml"],
-            'description_lrg' => $_POST["event-desc-lrg"],
+            'description' => $_POST["event-desc"],
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
             'toPublish' => (isset($_POST["publish-event"]))?(1):(0)
         );
 
-        $db->insert("event", $params);
+        $db->insert("u_event", $params);
         return;
     }
     // Edit Event
     if(isset($_POST["edit-event"])) {
-        $db->update("event", array(
+        $db->update("u_event", array(
                 'name' => $_POST["event-name"],
                 'event_start_date' => $_POST["event-start-date"],
                 'image_url' => $_POST["edit-event-image"],
+                'image_height' => $_POST["edit-event-img-height"],
+                'image_width' => $_POST["edit-event-img-width"],
                 'event_end_date' => (isset($_POST["single-date-event"]))?("0000-00-00"):($_POST["event-end-date"]),
                 'isSingleDayEvent' => (isset($_POST["single-date-event"]))?(1):(0),
-                'description_sml' => $_POST["event-desc-sml"],
-                'description_lrg' => $_POST["event-desc-lrg"],
+                'description' => $_POST["event-desc"],
                 'date_updated' => current_time( 'mysql' ), 
                 'editor' => get_current_user_id(),
                 'toPublish' => (isset($_POST["publish-event"]))?(1):(0)
@@ -49,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // Delete Event
     if(isset($_POST["delete-event"])) {
-        $db->delete("event", array(
+        $db->delete("u_event", array(
             'id' => $_POST["delete-event"]
         ));
         return;

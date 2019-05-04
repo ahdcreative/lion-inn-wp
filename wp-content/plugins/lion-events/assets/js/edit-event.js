@@ -64,11 +64,12 @@ jQuery(function($) {
         $('input[name="event-start-date"]').val('');
         $('input[name="event-end-date"]').val('');
         $('input[name="add-event-image"]').val('');
+        $('input[name="add-event-img-height"]').val('');
+        $('input[name="add-event-img-width"]').val('');
         $('#add-image-selected-name').text('No Image Selected');
         $('input[name="single-date-event"]').prop('checked', false);
         $('input[name="publish-event"]').prop('checked', true);
-        $('textarea[name="event-desc-sml"]').val('');
-        $('textarea[name="event-desc-lrg"]').val('');
+        $('textarea[name="event-desc"]').val('');
 
         // Ensure all form inputs are being shown
         $(".hideIfSingleDate").show(this.unchecked);
@@ -91,11 +92,8 @@ jQuery(function($) {
             $(".hideIfSingleDate").show(this.unchecked);
         }
 
-        $desc_sml = $(this).parent().siblings(".desc-sml").text();
-        $('textarea[name="event-desc-sml"]').val($desc_sml);
-
-        $desc_lrg = $(this).parent().siblings(".desc-lrg").text();
-        $('textarea[name="event-desc-lrg"]').val($desc_lrg);        
+        $desc = $(this).parent().siblings(".desc").text();
+        $('textarea[name="event-desc"]').val($desc);    
     });    
     $(".delete-event").on("click", function() {
         setPostVar("delete-event", this);
