@@ -162,7 +162,9 @@ class LionEvents {
         echo $tpl->render( 'le-header', $data );
 
         // Render days
+        // echo "<div class='container-fluid'>";
         echo $tpl->render( 'le-regular-events' );
+        // echo "</div>";
     }
 
     /**

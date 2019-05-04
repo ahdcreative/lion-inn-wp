@@ -5,6 +5,7 @@
     wp_enqueue_media();
 ?>
 
+<!-- UPCOMING EVENTS -->
 <!-- Add Event Modal -->
 <div id="add-event-modal" style="display:none;">
 
@@ -23,7 +24,7 @@
 
 </div>
 
-<!-- Edit Menu Modal -->
+<!-- Edit Event Modal -->
 <div id="edit-event-modal" style="display:none;">
     
     <form action="#" method="post">
@@ -41,13 +42,28 @@
 
 </div>
 
-<!-- Delete Menu Modal -->
+<!-- Delete Event Modal -->
 <div id="delete-event-modal" style="display:none;">
 
     <form action="#" method="post" class="row d-flex p-3">
         <h3 class="mb-4">Are you sure you want to delete this?</h3>
         <input type="hidden" name="delete-event" /> <br/>
         <input type="submit" value="Delete" class="btn btn-danger ml-auto" />
+    </form>
+
+</div>
+
+
+<!-- REGULAR EVENTS -->
+<!-- Edit Regular Weekly Event Modal -->
+<div id="edit-r-event-modal" style="display:none;">
+    
+    <form action="#" method="post">
+        <h3 class="mb-4">Edit Event</h3>
+        <input type="hidden" name="edit-r-event" />
+        <?php echo $tpl->render( 'le-text-input', array( "id" => "r-event-name-input", "name" => "r-event-name", "label" => "Event Name", "placeholder" => "Enter Name" )); ?>
+        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "r-desc-input", "name" => "r-event-desc", "label" => "Description")); ?>
+        <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Edit" )); ?>
     </form>
 
 </div>

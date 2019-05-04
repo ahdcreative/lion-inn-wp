@@ -1,18 +1,22 @@
 <?php $tpl = new LETemplate( __DIR__ . '/items' ); ?>
 
-<div class="accordion" id="regular-events">
+<div class="container-fluid">
 
-    <!-- Print Regular Events Days -->
-    <?php
+    <div class="accordion row" id="regular-events">
 
-    $db = new LESQLManager();
+        <!-- Print Regular Events Days -->
+        <?php
 
-    $days = $db->get( "r_event" );
+        $db = new LESQLManager();
 
-    foreach($days as $day) {
-        echo $tpl->render( 'le-day' , $day );
-    }
+        $days = $db->get( "r_event" );
 
-    ?>
+        foreach($days as $day) {
+            echo $tpl->render( 'le-day' , $day );
+        }
 
+        ?>
+
+    </div>
+    
 </div>
