@@ -10,8 +10,8 @@ if (class_exists( 'LionMenu' )) {
 } else {
 
     echo "<h3>Class doesn't exist (i.e. plugin not installed or something).</h3>";
-    log_me("ERROR :- LionMenu Class does not exist.  Object cannot be created.");
-    console_log("LionMenu class tried to create but failed - class doesn't exist.");
+    log_me("ERROR :- LionMenu Class Does not exist.  Object cannot be created.");
+    console_log("Class doesn't exist.");
 
 }
 ?>

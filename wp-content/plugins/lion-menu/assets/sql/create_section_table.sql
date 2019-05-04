@@ -6,7 +6,7 @@ CREATE TABLE tableplaceholder (
     date_updated datetime, 
     author int(3) NOT NULL,
     editor int(3),
-    side boolean NOT NULL,
+    side boolean NOT NULL DEFAULT 0,
     toPublish boolean NOT NULL DEFAULT 1,
     parent_menu mediumint(9) NOT NULL,
     PRIMARY KEY  (id),
