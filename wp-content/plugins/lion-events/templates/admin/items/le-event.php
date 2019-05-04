@@ -3,16 +3,6 @@
     // Debugging functions
     require_once(plugin_dir_path(__DIR__) . '../../includes/le-debug.php');
 
-    $image_id = get_option( 'myprefix_image_id' );
-    le_console_log($image_id);
-    if( intval( $image_id ) > 0 ) {
-        // Change with the image size you want to use
-        $image = wp_get_attachment_image( $image_id, 'medium', false, array( 'id' => 'myprefix-preview-image', 'class' => 'event-image' ) );
-    } else {
-        // Some default image
-        $image = '<img id="myprefix-preview-image" src="http://localhost/lion-inn-wp/wp-content/uploads/2019/04/rugby.jpg" class="event-image" />';
-    }
-
     $tpl = new LMTemplate( __DIR__ ); 
 
     $name = str_replace('\\', '', $name);
@@ -56,15 +46,9 @@
 
         <!-- Event Image -->
         <div class="image col-10 col-lg-6">
-            <?php echo $image; ?>
-            <input type="hidden" name="myprefix_image_id" id="myprefix_image_id" value="<?php echo esc_attr( $image_id ); ?>" class="regular-text" />
-            <input type='button' class="button-primary mt-1" value="<?php esc_attr_e( 'Select Image', 'mytextdomain' ); ?>" id="myprefix_media_manager"/>
-        </div> 
-
-        <!-- <div class="image col-10 col-lg-6">
             <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e2/be/d8/angel-s-steak-pub-interior.jpg" alt="Image of the Burns Poster" class="event-image" />
-        </div>    -->
-        
+        </div>
+
         <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
             <!-- Event Name -->
             <span class="mb-0 mt-1 mt-lg-0 event-name purple-font"><?php echo $name; ?></span>            

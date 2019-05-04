@@ -42,7 +42,6 @@ class LionEvents {
      */
     public function register() {
         add_action('admin_enqueue_scripts', array($this, 'enqueue'));  
-        add_action('wp_ajax_myprefix_get_image', 'myprefix_get_image');
     }
 
     /**
@@ -80,11 +79,6 @@ class LionEvents {
         
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
-
-        // Enqueue WordPress media scripts
-        wp_enqueue_media();
-        // Enqueue custom script that will interact with wp.media
-        wp_enqueue_script( 'le-media-manager', plugins_url( '/assets/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
     }
     
     /**
@@ -116,8 +110,6 @@ class LionEvents {
         
         // Display add event button
         echo $tpl->render( 'le-event-buttons' );
-
-        echo $event->render( 'le-image-test' );
         
         // Get Events
         $events = $this->db->get( 'event' );
@@ -130,19 +122,6 @@ class LionEvents {
                 echo $event->render( 'le-event' , $ev );
             }
             echo "</ul>";
-        }
-    }
-
-    // Ajax action to refresh the user image
-    function myprefix_get_image() {
-        if(isset($_GET['id']) ){
-            $image = wp_get_attachment_image( filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT ), 'medium', false, array( 'id' => 'myprefix-preview-image' ) );
-            $data = array(
-                'image' => $image,
-            );
-            wp_send_json_success( $data );
-        } else {
-            wp_send_json_error();
         }
     }
 
