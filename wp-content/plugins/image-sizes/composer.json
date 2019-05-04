@@ -1,0 +1,17 @@
+{
+    "name": "WPpeople/Image_Size",
+    "authors": [
+        {
+            "name": "Nazmul Ahsan",
+            "email": "n.mukto@gmail.com"
+        }
+    ],
+    "require": {
+            "tareq1988/wordpress-settings-api-class": "dev-master"
+        },
+    "autoload": {
+    	"psr-4": {
+    		"WPpeople\\Image_Size\\" : "includes/"
+    	}
+    }
+}
