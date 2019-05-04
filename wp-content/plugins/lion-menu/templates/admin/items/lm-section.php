@@ -13,8 +13,8 @@
 
     <!-- 
         Publish / Not Published Icon 
-        I think this needs a of explanation.
-        if the parent isn't published:
+        I think this needs a bit of explanation.
+        If the parent isn't published:
             but the current section is set to be published in the DB,
             ensure the toPublish class is still set, as this is used to
             populate the edit section modal form correctly.

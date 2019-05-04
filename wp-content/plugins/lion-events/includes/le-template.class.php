@@ -22,7 +22,7 @@ class LETemplate {
 		if ( $folder ) {
 			$this->set_folder( $folder );
 		}
-    }
+	}
     
 	/**
 	 * Simple method for updating the base folder where templates are located.

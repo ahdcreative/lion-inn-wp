@@ -149,7 +149,6 @@ class LionEvents {
     public function regular_events_init() {
 
         $tpl = new LETemplate( __DIR__ . '/templates/admin' );
-        $event = new LETemplate( __DIR__ . '/templates/admin/items' );
 
         // Render POST & GET request handlers
         echo $tpl->render( 'post' );
@@ -163,7 +162,7 @@ class LionEvents {
         echo $tpl->render( 'le-header', $data );
 
         // Render days
-        echo $event->render( 'le-regular-events' );
+        echo $tpl->render( 'le-regular-events' );
     }
 
     /**
