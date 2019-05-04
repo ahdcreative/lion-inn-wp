@@ -2,8 +2,9 @@
     include( __DIR__ . "/months.php" );
     // Debugging functions
     require_once(plugin_dir_path(__DIR__) . '../../includes/le-debug.php');
+    require_once(plugin_dir_path(__DIR__) . '../../includes/le-functions.php');
 
-    $tpl = new LMTemplate( __DIR__ ); 
+    $tpl = new LMTemplate( __DIR__ );
 
     $name = str_replace('\\', '', $name);
 
@@ -46,9 +47,10 @@
 
         <!-- Event Image -->
         <div class="image col-10 col-lg-6">
-            <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e2/be/d8/angel-s-steak-pub-interior.jpg" alt="Image of the Burns Poster" class="event-image" />
+            <img id="<?php echo $id ?>" src="<?php echo content_url() . '/uploads/' . $image_url; ?>" alt="<?php echo $name ?>" class="event-image" />
+            <span hidden class="event-image-url"><?php echo $image_url; ?></span>
         </div>
-
+        
         <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
             <!-- Event Name -->
             <span class="mb-0 mt-1 mt-lg-0 event-name purple-font"><?php echo $name; ?></span>            
