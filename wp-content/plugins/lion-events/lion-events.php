@@ -35,14 +35,14 @@ class LionEvents {
 
         // Setup Admin Pages
         add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
-        add_action('wp_ajax_hjb01_get_image', 'hjb01_get_image');
     }
 
     /**
      * Register Assets
      */
     public function register() {
-        add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue'));  
+        add_action('wp_ajax_myprefix_get_image', 'myprefix_get_image');
     }
 
     /**
@@ -116,6 +116,8 @@ class LionEvents {
         
         // Display add event button
         echo $tpl->render( 'le-event-buttons' );
+
+        echo $event->render( 'le-image-test' );
         
         // Get Events
         $events = $this->db->get( 'event' );
@@ -132,9 +134,9 @@ class LionEvents {
     }
 
     // Ajax action to refresh the user image
-    function hjb01_get_image() {
+    function myprefix_get_image() {
         if(isset($_GET['id']) ){
-            $image = '<img id="<?php echo $id ?>" src="http://localhost/lion-inn-wp/wp-content/uploads/xmas-stock.png" alt="$name" class="event-image" />';
+            $image = wp_get_attachment_image( filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT ), 'medium', false, array( 'id' => 'myprefix-preview-image' ) );
             $data = array(
                 'image' => $image,
             );

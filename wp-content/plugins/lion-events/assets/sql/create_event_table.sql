@@ -3,7 +3,6 @@ CREATE TABLE tableplaceholder (
     name VARCHAR(40),
     event_start_date date NOT NULL,
     event_end_date date,
-    image_url VARCHAR(30),
     isSingleDayEvent boolean NOT NULL,
     date_created datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
     date_updated datetime, 

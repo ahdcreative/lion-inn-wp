@@ -1,2 +1,0 @@
-<input type='button' class="button-primary mt-1" value="<?php esc_attr_e( 'Select Image', 'mytextdomain' ); ?>" id="hjb01_media_manager"/>
-<label class="form-check-label" for="<?php echo $id; ?>"><?php echo $label; ?></label>
