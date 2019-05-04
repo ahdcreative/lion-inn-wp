@@ -2,18 +2,6 @@
 /**
  * Template Name: Home
  */
-
-if (class_exists( 'LionEvents' )) {
-
-    $lionMenu = new LionEvents();
-
-} else {
-
-    echo "<h3>Class doesn't exist (i.e. plugin not installed or something).</h3>";
-    log_me("ERROR :- LionEvents Class does not exist.  Object cannot be created.");
-    console_log("LionEvents class tried to create but failed - class doesn't exist.");
-
-}
 ?>
 
 <?php get_header(); ?>
@@ -398,22 +386,218 @@ if (class_exists( 'LionEvents' )) {
                     <h2 class="row montserrat event-sub-heading mb-0">Upcoming Events</h2>
                     <hr class="row mt-2"/>
 
-                    <?php
+                    <!-- DEC 24 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">DEC</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">24</p>
+                        </div>
 
-                        if(method_exists($lionEvents, 'render_events')) {
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/xmas-meal.png" alt="Placeholder Event Image" class="event-image" />
+                        </div>
 
-                            $lionEvents->render_events();
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0">Christmas Eve</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Open 12:00pm - 12:00am
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Carols around the fire. <br/>
+                                Grand Christmas Raffle at 6:00pm. <br/>
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
 
-                        } else {
+                    <hr />
 
-                            echo "<h3>Error loading events.</h3>";
-                            log_me("ERROR :- LionEvents events could not be loaded.");
-                            console_log("Error loading events.");
+                    <!-- DEC 25 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">DEC</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">25</p>
+                        </div>
 
-                        }
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/xmas-stock.png" alt="Placeholder Event Image" class="event-image" />
+                        </div>
 
-                    ?>
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0">Christmas Day</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Open 12:00pm - 2:00pm
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Show off your new Christmas Jumper whilst your lunch is cooking.
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
 
+                    <hr />
+
+                    <!-- DEC 26 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">DEC</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">26</p>
+                        </div>
+
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/rugby.jpg" alt="Placeholder Event Image" class="event-image" />
+                        </div>
+
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0 mb-0 mt-1 mt-lg-0">Boxing Day</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Open 12:00pm - 5:00pm
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Boxing Day & Village Rugby Match. <br />
+                                Food available until 4:00pm. <br />
+                                Advisable to book.
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <!-- DEC 27 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">DEC</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">27</p>
+                        </div>
+
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/xmas-quiz.png" alt="Placeholder Event Image" class="event-image" />
+                        </div>
+
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0">Christmas Quiz</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Open 12:00pm - 12:00am
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Christmas Quiz. <br />
+                                Fun begins at 8:00pm.
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <!-- DEC 28 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">DEC</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">28</p>
+                        </div>
+
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/karaoke.png" alt="Placeholder Event Image" class="event-image" />
+                        </div>
+
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0">Christmas Karaokee</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Open 12:00pm - 12:00am
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Christmas Karaokee. <br />
+                                Pain begins at 9:00pm.
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <!-- DEC 31 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">DEC</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">31</p>
+                        </div>
+
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/nye-stock.png" alt="Placeholder Event Image" class="event-image" />
+                        </div>
+
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0">New Years Eve</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Open 12:00pm - 12:00am
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Food available 12:00pm - 6:00pm. <br />
+                                Party and food to see into the new year. <br />
+                                Come and meet the rest of the village. Free Entry.
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
+
+                    <!-- JAN 01 Event -->
+                    <div class="row mt-3">
+                        <div class="date col-2 col-lg-1">
+                            <p class="month mb-0">JAN</p>
+                            <hr class="text-left bg-light my-0"/>
+                            <p class="day mt-0">01</p>
+                        </div>
+
+                        <div class="image col-10 col-lg-5">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/closed.png" alt="Placeholder Event Image" class="event-image" />
+                        </div>
+
+                        <div class="info col-8 offset-2 col-lg-4 offset-lg-0">
+                            <h2 class="event-title mb-0 mt-1 mt-lg-0">New Years Day</h2>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p class="my-1 mt-lg-0">
+                                Sorry, Closed All Day.
+                            </p>
+                            <hr class="text-left bg-light my-1 my-lg-2"/>
+                            <p>
+                                Back to normal Wednesday 2nd January.
+                            </p>
+                        </div>
+                        <div class="more col-5 offset-2 offset-lg-0 col-md-2 col-lg-2 d-flex flex-column">
+                            <a href="#" class="mt-auto ml-lg-auto"><!-- More Info... --></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
