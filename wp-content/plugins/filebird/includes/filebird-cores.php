@@ -52,11 +52,11 @@ function filebird_register_scripts(){
 	echo '/* ]]> */';
 	echo '</script>';
 	add_action('wp_enqueue_scripts', function(){
-		wp_enqueue_media();
+		// wp_enqueue_media();
 	});
 
 
-	wp_enqueue_media();
+	// wp_enqueue_media();
 	add_thickbox();
 	
 	wp_register_style( 'filebird-builder-style', NJT_FILEBIRD_PLUGIN_URL . '/admin/css/filebird-elementor.css');
