@@ -28,6 +28,18 @@
             <p class="month mb-0 fs-12"><?php echo $startmonth ?></p>
             <hr class="text-left bg-light my-0 hr-date"/>
             <p class="day mt-0"><?php echo $startday ?></p>
+
+            <?php
+                if($event_end_date !== "0000-00-00") {
+                    echo "
+                        <p class='my-2'>to</p>
+                        <p class='month mb-0 fs-12'>$endmonth</p>
+                        <hr class='text-left bg-light my-0 hr-date'/>
+                        <p class='day mt-0'>$endday</p>
+                    ";
+                }
+            ?>
+
             <span hidden class="event-start-date"><?php echo $startday . "/" . $startmonthnum . "/" . $startyear; ?></span>
             <span hidden class="event-end-date"><?php echo $endday . "/" . $endmonthnum . "/" . $endyear; ?></span>
         </div>

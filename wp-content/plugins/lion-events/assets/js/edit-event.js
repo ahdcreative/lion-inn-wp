@@ -72,6 +72,8 @@ jQuery(function($) {
         // Hide end date if single event day is ticked
         if($isSingleDayEvent) {
             $(".hideIfSingleDate").hide(this.unchecked);
+        } else {
+            $(".hideIfSingleDate").show(this.unchecked);
         }
 
         $desc_sml = $(this).parent().siblings(".desc-sml").text();
