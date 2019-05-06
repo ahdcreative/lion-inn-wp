@@ -91,3 +91,31 @@ img.icon {
 .image .event-image {
     width: 100% !important;
 }
+
+/**
+ * Regular Events Page 
+ */
+/* Whole Card */
+div.card {
+    border-radius: 0;
+}
+
+/* Card Header / Day */
+button.r-event-day-text.btn-link {
+    color: #673ab7 !important;
+    border-radius: 0;
+    text-decoration: none;
+}
+button.r-event-day-text.btn-link:hover,
+button.r-event-day-text.btn-link.active {
+    color: white !important;
+    background-color: #673ab7 !important;
+}
+div.r-event-day.card-header {
+    border-bottom: 0;
+}
+
+/* Card Body / Event Info */
+div.r-event-body.show {
+    border-top: 0.25rem !important;
+}

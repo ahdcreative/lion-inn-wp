@@ -23,7 +23,6 @@ jQuery(function($) {
      */
     function setRegularEventTitle($inputName, $caller) {
         $value = $($caller).parent().siblings(".title").text();
-        console.log($value);
         $('input[name='+$inputName+']').val($value);
     }
 
@@ -32,7 +31,7 @@ jQuery(function($) {
      * So it's ready for the POST to DB
      */
     function setRegularEventDesc($inputName, $caller) {
-        $desc = $($caller).parent().parent().siblings(".row").children(".description").text();
+        $desc = $($caller).parent().parent().siblings(".description").text();
         $('textarea[name='+$inputName+']').froalaEditor('html.set', $desc);
     }
 
@@ -45,5 +44,25 @@ jQuery(function($) {
         
         setRegularEventTitle('r-event-title', this);
         setRegularEventDesc('r-event-desc', this);
-    }); 
+    });
+
+
+    /**
+     * Styling Tweaks for Regular Events Page
+     * Remove active class from other days,
+     * and set it for the day clicked
+     */
+    $('.r-event-day-text').on('click', function() {
+        // If the day clicked is already active then just remove the class
+        // i.e. user closing the active day
+        if($(this).hasClass('active')) {
+            $('.r-event-day-text').removeClass('active');
+        } 
+        // Else the user has clicked another day to open without closing the
+        // one that is already open
+        else {
+            $('.r-event-day-text').removeClass('active');
+            $(this).toggleClass('active');
+        }
+    });
 });

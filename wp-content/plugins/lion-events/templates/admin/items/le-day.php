@@ -3,16 +3,16 @@
 <div class="card m-0 p-0 col-8">
 
     <!-- Day Button -->
-    <div class="card-header" id="<?php echo strtolower($day); ?>">
+    <div class="r-event-day card-header bg-white p-0" id="<?php echo strtolower($day); ?>">
         <div>
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#<?php echo $day . $id; ?>" aria-expanded="true" aria-controls="<?php echo $day . $id; ?>">
+            <button class="btn btn-link r-event-day-text py-3 text-left w-100 h-100" type="button" data-toggle="collapse" data-target="#<?php echo $day . $id; ?>" aria-expanded="true" aria-controls="<?php echo $day . $id; ?>">
                 <?php echo $day; ?>
             </button>            
         </div>
     </div>
 
     <!-- Content for that day's event -->
-    <div id="<?php echo $day . $id; ?>" class="collapse hide pl-4" aria-labelledby="<?php echo strtolower($day); ?>" data-parent="#regular-events">
+    <div id="<?php echo $day . $id; ?>" class="collapse r-event-body hide pl-4" aria-labelledby="<?php echo strtolower($day); ?>" data-parent="#regular-events">
         <div class="card-body">
             <div class="row">
                 <!-- Event Title -->
@@ -24,8 +24,9 @@
                 </div>
             </div>
             <!-- Event Description -->
-            <div class="row">
-                <p class="description"><?php echo $description; ?></p>
+            <!-- $description gets printed in <p> tags as they are included in the DB string -->
+            <div class="row description">
+                <?php echo $description; ?>
             </div>            
         </div>
     </div>

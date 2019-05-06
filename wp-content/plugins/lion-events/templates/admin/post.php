@@ -61,7 +61,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Regular Event
     if(isset($_POST["edit-r-event"])) {
         $db->update("r_event", array(
-            'day' => $_POST["r-event-day"],
             'title' => $_POST["r-event-title"],
             'description' => $_POST["r-event-desc"]
         ), 
