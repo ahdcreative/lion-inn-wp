@@ -145,6 +145,24 @@ class LionEvents {
     }
 
     /**
+     * Render Event(s)
+     */
+    public function render_events() {
+        $tpl = new LETemplate( __DIR__ . '/templates/front-end' );
+
+        $events = $this->db->get( "u_event" , array ( "toPublish" => 1 ) );      
+                
+        if(!$events) {
+            echo "There are no upcoming events.";
+            return;
+        } else {
+            foreach($events as $ev) {
+                echo $tpl->render( 'event' , $ev );
+            }
+        }
+    }
+
+    /**
      * Regular Events Subpage
      */
     public function regular_events_init() {
@@ -167,23 +185,44 @@ class LionEvents {
     }
 
     /**
-     * Render Event(s)
+     * Render Regular Events Tabs in Front-End
      */
-    public function render_events() {
+    public function render_r_events_nav() {
         $tpl = new LETemplate( __DIR__ . '/templates/front-end' );
 
-        $events = $this->db->get( "u_event" , array ( "toPublish" => 1 ) );      
+        $r_events = $this->db->get( "r_event" );      
                 
-        if(!$events) {
-            echo "There are no upcoming events.";
+        if(!$r_events) {
+            echo "There are no regular events at the moment.";
             return;
         } else {
-            foreach($events as $ev) {
-                echo $tpl->render( 'event' , $ev );
+            $i = 0;
+            foreach($r_events as $ev) {
+                $ev->isActive = $i++;
+                echo $tpl->render( 'r_event_tab' , $ev );
             }
         }
     }
 
+    /**
+     * Render Regular Events section in Front-End
+     */
+    public function render_r_events() {
+        $tpl = new LETemplate( __DIR__ . '/templates/front-end' );
+
+        $r_events = $this->db->get( "r_event" );      
+                
+        if(!$r_events) {
+            echo "There are no regular events at the moment.";
+            return;
+        } else {
+            $i = 0;
+            foreach($r_events as $ev) {
+                $ev->isActive = $i++;
+                echo $tpl->render( 'r_event' , $ev );
+            }
+        }
+    }
     
 }
 

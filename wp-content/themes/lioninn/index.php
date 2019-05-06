@@ -287,6 +287,24 @@ if (class_exists( 'LionEvents' )) {
 
                     <!-- Clickable Tabs -->
                     <ul class="nav nav-tabs row week-days text-center" id="myTab" role="tablist">
+                        
+                        <?php
+
+                        // if(method_exists($lionEvents, 'render_r_events_nav')) {
+
+                        //     $lionEvents->render_r_events_nav();
+
+                        // } else {
+
+                        //     echo "<h3>Error loading events nav.</h3>";
+                        //     log_me("ERROR :- LionEvents regular events nav could not be loaded.");
+                        //     console_log("Error loading regular events nav.");
+
+                        // }
+
+                        ?>
+
+
                         <li class="nav-item col-1 p-0">
                             <a class="nav-link active p-0 d-flex flex-column" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-selected="true">
                                 <i class="fas fa-microphone-alt m-auto"></i>
@@ -327,69 +345,23 @@ if (class_exists( 'LionEvents' )) {
                     <!-- Event information -->
                     <div class="tab-content row week-days" id="myTabContent" style="background-color: #FFF;">
                         <div class="col-1"></div> <!-- Empty div to help format page - align event info -->
-                        <div class="tab-pane fade show active my-4" id="monday" role="tabpanel" aria-labelledby="monday-tab">
-                            <h3>Open Mic Night</h3>
-                            <p class="mt-3 mb-2">
-                                Come along the 1st & 3rd Monday night every month.
-                            </p>
-                            <p>
-                                If you play an instrument or sing, or just enjoy entertaining come along fun begins at 8.30pm.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade my-4" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
-                            <h3>Cribb</h3>
-                            <p class="mt-3 mb-2">
-                                The Lion Inn participates in the local cribb league during the winter.
-                            </p>
-                            <p>
-                                During the summer an in-house friendly ladder league is run - all are welcome.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade my-4" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
-                            <h3>Quiz</h3>
-                            <p class="mt-3 mb-2">
-                                The Lion Inn participates in the local quiz league during the winter.
-                            </p>
-                            <p>
-                                During the summer on the 1st & 3rd Wednesday The Lion Inn hosts a friendly quiz night - all are welcome.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade my-4" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
-                            <h3>Darts</h3>
-                            <p class="mt-3 mb-2">
-                                The Lion Inn participates in the local darts league during the winter.
-                            </p>
-                            <p>
-                                During the summer the darts team practice all are welcome to join in and take on the team members.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade my-4" id="friday" role="tabpanel" aria-labelledby="friday-tab">
-                            <h3>Fish on Friday</h3>
-                            <p class="mt-3 mb-2">
-                                Come along every Friday.
-                            </p>
-                            <p>
-                                A choice of plaice or cod for £7.50.  Served with chips and peas (garden / mushy).  6:30 - 8:30pm.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade my-4" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
-                            <h3>No Regular Events</h3>
-                            <p class="mt-3 mb-2">
-                                No regular events happen on a Saturday.
-                            </p>
-                            <p>
-                                Food is served as normal, until 9:30pm.  The pub closes at midnight.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade my-4" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
-                            <h3>Twilight Jazz</h3>
-                            <p class="mt-3 mb-2">
-                                Come along on the 2nd Sunday of every month.
-                            </p>
-                            <p>
-                                If you enjoy jazz, this is the night for you. Come and join us.  Fun begins at 5pm.
-                            </p>
-                        </div>
+
+                        <?php
+
+                        if(method_exists($lionEvents, 'render_r_events')) {
+
+                            $lionEvents->render_r_events();
+
+                        } else {
+
+                            echo "<h3>Error loading regular events.</h3>";
+                            log_me("ERROR :- LionEvents regular events could not be loaded.");
+                            console_log("Error loading events.");
+
+                        }
+
+                        ?>
+                        
                     </div>
 
                 </div>
@@ -406,8 +378,8 @@ if (class_exists( 'LionEvents' )) {
 
                         } else {
 
-                            echo "<h3>Error loading events.</h3>";
-                            log_me("ERROR :- LionEvents events could not be loaded.");
+                            echo "<h3>Error loading upcoming events.</h3>";
+                            log_me("ERROR :- LionEvents upcoming events could not be loaded.");
                             console_log("Error loading events.");
 
                         }
