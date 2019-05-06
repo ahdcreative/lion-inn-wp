@@ -69,7 +69,7 @@ jQuery(function($) {
         $('#add-image-selected-name').text('No Image Selected');
         $('input[name="single-date-event"]').prop('checked', false);
         $('input[name="publish-event"]').prop('checked', true);
-        $('textarea[name="event-desc"]').val('');
+        $('textarea[name="event-desc"]').froalaEditor('html.set', '');
 
         // Ensure all form inputs are being shown
         $(".hideIfSingleDate").show(this.unchecked);
@@ -93,7 +93,7 @@ jQuery(function($) {
         }
 
         $desc = $(this).parent().siblings(".desc").text();
-        $('textarea[name="event-desc"]').val($desc);    
+        $('textarea[name="event-desc"]').froalaEditor('html.set', $desc);
     });    
     $(".delete-event").on("click", function() {
         setPostVar("delete-event", this);

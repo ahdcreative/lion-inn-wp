@@ -33,8 +33,7 @@ jQuery(function($) {
      */
     function setRegularEventDesc($inputName, $caller) {
         $desc = $($caller).parent().parent().siblings(".row").children(".description").text();
-        console.log($desc);
-        $('textarea[name='+$inputName+']').val($desc); 
+        $('textarea[name='+$inputName+']').froalaEditor('html.set', $desc);
     }
 
     /**
