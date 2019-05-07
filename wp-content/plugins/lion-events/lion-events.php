@@ -82,6 +82,7 @@ class LionEvents {
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 
         // Custom script that will interact with wp.media
+        wp_enqueue_media();
         wp_enqueue_script( 'le-media-manager', plugins_url( '/assets/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
     
         // Froala WYSIWYG Editor
@@ -96,7 +97,7 @@ class LionEvents {
         wp_enqueue_style('froala-code-view-css',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/plugins/code_view.min.css');
         wp_enqueue_script('froala-word-paste-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/word_paste.min.js');
         // Custom script to enable editor
-        wp_enqueue_script('enable-editor', plugins_url() . '/lion-events/assets/js/wysiwyg.js', array('jquery'));    
+        wp_enqueue_script('enable-editor', plugins_url() . '/lion-events/assets/js/wysiwyg.js', array('jquery'));
     }
     
     /**
