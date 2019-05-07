@@ -290,22 +290,21 @@ if (class_exists( 'LionEvents' )) {
                         
                         <?php
 
-                        // if(method_exists($lionEvents, 'render_r_events_nav')) {
+                        if(method_exists($lionEvents, 'render_r_events_nav')) {
 
-                        //     $lionEvents->render_r_events_nav();
+                            $lionEvents->render_r_events_nav();
 
-                        // } else {
+                        } else {
 
-                        //     echo "<h3>Error loading events nav.</h3>";
-                        //     log_me("ERROR :- LionEvents regular events nav could not be loaded.");
-                        //     console_log("Error loading regular events nav.");
+                            echo "<h3>Error loading events nav.</h3>";
+                            log_me("ERROR :- LionEvents regular events nav could not be loaded.");
+                            console_log("Error loading regular events nav.");
 
-                        // }
+                        }
 
                         ?>
 
-
-                        <li class="nav-item col-1 p-0">
+                        <!-- <li class="nav-item col-1 p-0">
                             <a class="nav-link active p-0 d-flex flex-column" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-selected="true">
                                 <i class="fas fa-microphone-alt m-auto"></i>
                             </a>
@@ -339,7 +338,7 @@ if (class_exists( 'LionEvents' )) {
                             <a class="nav-link p-0 d-flex flex-column" id="sunday-tab" data-toggle="tab" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">
                                 <i class="fas fa-music m-auto"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
 
                     <!-- Event information -->
