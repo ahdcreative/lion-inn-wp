@@ -1,8 +1,5 @@
 <?php 
-    $tpl = new LETemplate( __DIR__ . '/forms' ); 
-    
-    // Enqueue functionality needed for media library
-    wp_enqueue_media();
+    $tpl = new LETemplate( __DIR__ . '/forms' );
 ?>
 
 <!-- UPCOMING EVENTS -->
@@ -62,7 +59,8 @@
         <h3 class="mb-4">Edit Event</h3>
         <input type="hidden" name="edit-r-event" />
         <?php echo $tpl->render( 'le-text-input', array( "id" => "r-event-title-input", "name" => "r-event-title", "label" => "Event Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "r-event-desc-input", "name" => "r-event-desc", "label" => "Description")); ?>
+        <?php echo $tpl->render( 'le-image-select', array( "id" => "edit-event-icon-select", "label_id" => "edit-icon-selected-name", "name" => "edit-event-icon", "label" => "No Image Selected" )); ?>
+        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "r-event-desc-input", "name" => "r-event-desc", "label" => "Description", "optClasses" => "mt-3" )); ?>
         <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Edit" )); ?>
     </form>
 

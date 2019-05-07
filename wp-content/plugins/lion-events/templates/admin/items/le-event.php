@@ -49,7 +49,6 @@
             if($image_width >= $image_height) {
                 echo $tpl->render( 'le-hrztl-img', array('id' => $id, 'image_url' => $image_url, 'name' => $name));
             } else {
-                le_console_log($image_url);
                 echo $tpl->render( 'le-vert-img', array('id' => $id, 'image_url' => $image_url, 'name' => $name));
             }
         ?>        

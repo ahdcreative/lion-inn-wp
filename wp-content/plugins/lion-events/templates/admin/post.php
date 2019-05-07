@@ -61,12 +61,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Edit Regular Event
     if(isset($_POST["edit-r-event"])) {
         $db->update("r_event", array(
-            'title' => $_POST["r-event-title"],
-            'description' => $_POST["r-event-desc"]
-        ), 
-        array('id' => $_POST["edit-r-event"])
-    );
-    return;
+                'title' => $_POST["r-event-title"],
+                'description' => $_POST["r-event-desc"],
+                'icon_url' => $_POST["edit-event-icon"]
+            ), 
+            array('id' => $_POST["edit-r-event"])
+        );
+        return;
     }
 
 }

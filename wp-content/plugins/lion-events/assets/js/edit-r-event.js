@@ -36,6 +36,19 @@ jQuery(function($) {
     }
 
     /**
+     * Set Image URL
+     */
+    function setIconUrl($iconUrl, $caller) {
+        $value = $($caller).parent().siblings().children('.'+$iconUrl).text();
+        // Set POST var to current image url
+        $('input[name="edit-event-icon"]').val($value);
+        // Set label text to show current image url
+        $('#edit-icon-selected-name').text($value);
+
+        console.log($value);
+    }
+
+    /**
      * Set Edit Regular Event Modal Content
      * When 'Edit' Icon is clicked on a days event.
      */
@@ -43,6 +56,7 @@ jQuery(function($) {
         setRegularEventId("edit-r-event", this);
         
         setRegularEventTitle('r-event-title', this);
+        setIconUrl("event-icon-url", this);
         setRegularEventDesc('r-event-desc', this);
     });
 

@@ -15,6 +15,8 @@
     <div id="<?php echo $day . $id; ?>" class="collapse r-event-body hide pl-4" aria-labelledby="<?php echo strtolower($day); ?>" data-parent="#regular-events">
         <div class="card-body">
             <div class="row">
+                <!-- Icon -->
+                <?php echo $tpl->render( 'le-r-event-icon', array('id' => $id, 'icon_url' => $icon_url, 'name' => $day)); ?>
                 <!-- Event Title -->
                 <h3 class="title"><?php echo $title; ?></h3>
                 <!-- Icons -->
@@ -27,11 +29,8 @@
             <!-- $description gets printed in <p> tags as they are included in the DB string -->
             <div class="row description">
                 <?php echo $description; ?>
-            </div>            
+            </div>
         </div>
     </div>
 
 </div>
-
-
-
