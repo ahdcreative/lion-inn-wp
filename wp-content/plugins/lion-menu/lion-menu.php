@@ -69,13 +69,6 @@ class LionMenu {
         // Add Main CSS
         wp_enqueue_style('lm-style', plugins_url() . '/lion-menu/assets/css/style.css');
 
-        /**
-         * **** VERY IMPORTANT ****
-         * jqeury-ui-mouse MUST be deregistered to prevent sortable.min.js from being enqueued
-         * sortable.min.js blocks the functionality of jquery-sortable and essentially
-         * breaks our menu.
-         */   
-        wp_deregister_script('jquery-ui-mouse');
         // Add JQuery Sortable
         wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
 
@@ -90,6 +83,16 @@ class LionMenu {
         
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+    }
+
+    /**
+     * **** VERY IMPORTANT ****
+     * jqeury-ui-mouse MUST be deregistered to prevent sortable.min.js from being enqueued
+     * sortable.min.js blocks the functionality of jquery-sortable and essentially
+     * breaks our menu.
+     */
+    public function deregister_wp_sortable() {
+        wp_deregister_script('jquery-ui-mouse');
     }
     
     /**
