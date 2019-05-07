@@ -70,6 +70,12 @@ class LionMenu {
         wp_enqueue_style('lm-style', plugins_url() . '/lion-menu/assets/css/style.css');
 
         // Add JQuery Sortable
+        /**
+         * **** VERY IMPORTANT ****
+         * sortable.min.js blocks the functionality of jquery-sortable and essentially
+         * breaks our menu.  So we have completely commented out that file to prevent it blocking.
+         * IF the menu stops working - it's probably because any update has uncommented this out.
+         */ 
         wp_enqueue_script('jquery-sortable', plugins_url() . '/lion-menu/assets/js/jquery-sortable.js', array('jquery'));
 
         // Add Custom Javascript
@@ -83,16 +89,6 @@ class LionMenu {
         
         // Font Awesome
         wp_enqueue_style('fa-icons', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
-    }
-
-    /**
-     * **** VERY IMPORTANT ****
-     * jqeury-ui-mouse MUST be deregistered to prevent sortable.min.js from being enqueued
-     * sortable.min.js blocks the functionality of jquery-sortable and essentially
-     * breaks our menu.
-     */
-    public function deregister_wp_sortable() {
-        wp_deregister_script('jquery-ui-mouse');
     }
     
     /**
