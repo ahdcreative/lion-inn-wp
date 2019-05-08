@@ -104,5 +104,6 @@ jQuery(function($) {
      */
     $(".isSingleDate").click(function() {
         $(".hideIfSingleDate").toggle(this.unchecked);
+        $('input[name="event-end-date"]').val('');
     });
 });
