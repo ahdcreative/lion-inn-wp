@@ -59,12 +59,14 @@ jQuery(function($) {
 
     /**
      * Edit Regular Event Icon Media Modal
+     * Open media library manager and handle selected image
+     * Filter only icons and prevent the ability to change the filter
      */
     $('#edit-event-icon-select').on('click', function() {
         var images = wp.media({
             title: "Select Event Icon",
             multiple: false
-        }).open().on('select', function(e) {
+        }).open().on('select', function(e) {            
             var selectedImage = images.state().get('selection').first();
             selectedImage = selectedImage.toJSON();
 
@@ -72,13 +74,15 @@ jQuery(function($) {
             var url_segments = selectedImage.url.split("/");
             var image_url = url_segments.pop();
 
-            var height = selectedImage.height;
-            var width = selectedImage.width;
-
             // Set url, height and width as value of hidden input values ready for POST request to add to DB
             $('input[name="edit-event-icon"').val(image_url);
             $('#edit-icon-selected-name').text(image_url);
         });
+
+        // Set filter to only icons - 'Icons' category has a value of '10' for some reason
+        $("select#media-attachment-filters").val("10").change();
+        // Hide selects so user cannot change filter
+        $("div.media-toolbar-secondary").hide();
     });
 
 });

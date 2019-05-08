@@ -44,8 +44,6 @@ jQuery(function($) {
         $('input[name="edit-event-icon"]').val($value);
         // Set label text to show current image url
         $('#edit-icon-selected-name').text($value);
-
-        console.log($value);
     }
 
     /**
