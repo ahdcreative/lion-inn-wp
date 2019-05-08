@@ -303,42 +303,7 @@ if (class_exists( 'LionEvents' )) {
                         }
 
                         ?>
-
-                        <!-- <li class="nav-item col-1 p-0">
-                            <a class="nav-link active p-0 d-flex flex-column" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-selected="true">
-                                <i class="fas fa-microphone-alt m-auto"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-1 p-0">
-                            <a class="nav-link p-0 d-flex flex-column" id="tuesday-tab" data-toggle="tab" href="#tuesday" role="tab" aria-controls="tuesday" aria-selected="false">
-                                <img class="m-auto" src="<?php echo get_bloginfo('template_directory'); ?>/images/cards.png" alt="Image of Card Deck" />
-                            </a>
-                        </li>
-                        <li class="nav-item col-1 p-0">
-                            <a class="nav-link p-0 d-flex flex-column" id="wednesday-tab" data-toggle="tab" href="#wednesday" role="tab" aria-controls="wednesday" aria-selected="false">
-                                <i class="fas fa-question-circle m-auto"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-1 p-0">
-                            <a class="nav-link p-0 d-flex flex-column" id="thursday-tab" data-toggle="tab" href="#thursday" role="tab" aria-controls="thursday" aria-selected="false">
-                                <img class="m-auto" src="<?php echo get_bloginfo('template_directory'); ?>/images/darts.png" alt="Image of Dart Board" />
-                            </a>
-                        </li>
-                        <li class="nav-item col-1 p-0">
-                            <a class="nav-link p-0 d-flex flex-column" id="friday-tab" data-toggle="tab" href="#friday" role="tab" aria-controls="friday" aria-selected="false">
-                                <i class="fas fa-fish m-auto"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-1 p-0">
-                            <a class="nav-link p-0 d-flex flex-column" id="saturday-tab" data-toggle="tab" href="#saturday" role="tab" aria-controls="saturday" aria-selected="false">
-                                <i class="fas fa-minus m-auto"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-1 p-0">
-                            <a class="nav-link p-0 d-flex flex-column" id="sunday-tab" data-toggle="tab" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">
-                                <i class="fas fa-music m-auto"></i>
-                            </a>
-                        </li> -->
+                        
                     </ul>
 
                     <!-- Event information -->
