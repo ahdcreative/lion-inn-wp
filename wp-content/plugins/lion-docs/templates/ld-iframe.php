@@ -1,0 +1,1 @@
+<iframe src='<?php echo $pdf; ?>' title='Documentation Frame' id='Docs' name='Docs'><iframe>

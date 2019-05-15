@@ -76,29 +76,14 @@ class LionDocs {
      * Initialise Admin Page with Menu-related content
      */
     public function docs_init() {
-        $pdf = plugins_url() . '/lion-docs/docs/test.pdf';
-        $pdf2 = plugins_url() . '/lion-docs/docs/test2.pdf';
-
         $tpl = new LDTemplate( __DIR__ . '/templates' );
 
         // Print Header section of Admin Page
         $data = array ('title' => 'HowTo Articles', 'desc' => "Select a different HowTo article from the left-side navigation.");
         echo $tpl->render( 'ld-header', $data );
 
-        echo "
-            <div class='container-fluid'>
-                <div class='row py-3'>
-                    <div class='col-2'>
-                        <h3>Side Navigation</h3>
-                        <a href='$pdf' target='Docs'>Test 1</a><br/>
-                        <a href='$pdf2' target='Docs'>Test 2</a>
-                    </div>
-                    <div class='col' id='main'>
-                        <iframe src='$pdf' title='Documentation Frame' id='Docs' name='Docs'><iframe>
-                    </div>
-                </div>
-            </div>
-        ";
+        // Render side nav & doc iframe
+        echo $tpl->render( 'ld-docs' );
     }
     
 }
