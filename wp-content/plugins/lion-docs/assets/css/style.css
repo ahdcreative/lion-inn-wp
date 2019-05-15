@@ -1,0 +1,13 @@
+/**
+ * iframe
+ */
+#Docs {
+    box-sizing: border-box;
+    position: fixed;
+    left: 500px; 
+    width: calc(100% - 500px);
+    border-top: 1px solid #666;
+    top: 20vh;
+    bottom: 0;
+    height: 80vh;
+}
