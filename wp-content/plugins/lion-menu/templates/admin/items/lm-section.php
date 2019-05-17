@@ -11,7 +11,9 @@
     <!-- Section Name -->
     <span class="ml-3 section-name"><?php echo $name; ?></span>
 
-    <!-- 
+    <!-- Icons -->
+    <div class='float-right'>
+        <!-- 
         Publish / Not Published Icon 
         I think this needs a bit of explanation.
         If the parent isn't published:
@@ -25,21 +27,18 @@
         This ensures that when the user re-publishes a menu,
         the same settings are used as were before for each
         individual menu item.
-    -->
-    <?php
-    if(!$isParentPublished) {
-        $publishClass = ($toPublish ? 'toPublish' : '');
-        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass ml-2", "tooltip" => "Not Published"));
-        $toPublish = $isParentPublished;
-    } else if($toPublish) {
-        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
-    } else {
-        echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
-    }
-    ?>
-
-    <!-- Icons -->
-    <div class='float-right'>
+        -->
+        <?php
+        if(!$isParentPublished) {
+            $publishClass = ($toPublish ? 'toPublish' : '');
+            echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass mr-3", "tooltip" => "Not Published"));
+            $toPublish = $isParentPublished;
+        } else if($toPublish) {
+            echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish mr-3", "tooltip" => "Published"));
+        } else {
+            echo $icon_tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle mr-3", "tooltip" => "Not Published"));
+        }
+        ?>
         <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "add-item", "modal" => "add-item-modal", "tooltip" => "Add Item", "iClasses" => "fa-plus mr-3", "w" => "550", "h" => "500" )); ?>
         <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "edit-section", "modal" => "edit-section-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "400", "h" => "250" )); ?>
         <?php echo $icon_tpl->render( 'lm-icon-link', array( "aClasses" => "delete-section", "modal" => "delete-section-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>

@@ -11,22 +11,6 @@
     <!-- Subitem Name -->
     <span class="ml-3 subitem-name"><?php echo $name; ?></span>
 
-    <!-- 
-        Publish / Not Published Icon 
-        Refer to lm-section.php comment for explanation of below if else.
-    -->
-    <?php
-    if(!$isParentPublished) {
-        $publishClass = ($toPublish ? 'toPublish' : '');
-        echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass ml-2", "tooltip" => "Not Published"));
-        $toPublish = $isParentPublished;
-    } else if($toPublish) {
-        echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish ml-2", "tooltip" => "Published"));
-    } else {
-        echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle ml-2", "tooltip" => "Not Published"));
-    }
-    ?>
-
     <!-- Subitem Price -->
     <?php 
     if((!is_null($price)) && ($price !== "0.00")) {
@@ -41,6 +25,21 @@
     
     <!-- Icons -->
     <div class='float-right'>
+        <!-- 
+        Publish / Not Published Icon 
+        Refer to lm-section.php comment for explanation of below if else.
+        -->
+        <?php
+        if(!$isParentPublished) {
+            $publishClass = ($toPublish ? 'toPublish' : '');
+            echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle $publishClass mr-3", "tooltip" => "Not Published"));
+            $toPublish = $isParentPublished;
+        } else if($toPublish) {
+            echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-check-circle toPublish mr-3", "tooltip" => "Published"));
+        } else {
+            echo $tpl->render( 'lm-icon', array( "classes" => "fas fa-times-circle mr-3", "tooltip" => "Not Published"));
+        }
+        ?>
         <?php echo $tpl->render( 'lm-icon-link', array( "aClasses" => "edit-subitem", "modal" => "edit-subitem-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "550", "h" => "350" )); ?>
         <?php echo $tpl->render( 'lm-icon-link', array( "aClasses" => "delete-subitem", "modal" => "delete-subitem-modal", "tooltip" => "Delete", "iClasses" => "fa-trash-alt", "w" => "275", "h" => "215" )); ?>
     </div>

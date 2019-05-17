@@ -19,7 +19,7 @@ jQuery(function($) {
      * The span with .toPublish is only rendered if the item set to be published.
      */
     function setCheckbox($inputName, $className, $caller) {
-        $checked = ($($caller).parent().siblings($className).length)?(1):(0);
+        $checked = ($($caller).siblings($className).length)?(1):(0);
         ($checked)?($('input[name='+$inputName+']').prop('checked', true)):($('input[name='+$inputName+']').prop('checked', false));
 
         return $checked;
@@ -55,7 +55,8 @@ jQuery(function($) {
         setPostVar("add-section", this);
         // Ensure form values are empty
         $('input[name="section-name"]').val('');
-        $('input[name="section-side"]').prop('checked', false);
+        $('id[name="section-left-radio"]').prop('checked', true);
+        $('id[name="section-right-radio"]').prop('checked', false);
         $('input[name="publish-section"]').prop('checked', true);
     });
     $(".edit-section").on("click", function() {

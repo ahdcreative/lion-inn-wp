@@ -36,8 +36,8 @@
         <h3 class="mb-4">Add Section</h3>
         <input type="hidden" name="add-section" /> 
         <?php echo $tpl->render( 'lm-text-input', array( "id" => "section-name-input", "name" => "section-name", "label" => "Section Name", "placeholder" => "Enter Name" )); ?>
-        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-left-radio", "name" => "section-side", "label" => "Left", "value" => 0 )); ?>
-        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-right-radio", "name" => "section-side", "label" => "Right", "value" => 1 )); ?>
+        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-left-radio", "name" => "section-side", "label" => "Left", "value" => 0, "checked" => 1 )); ?>
+        <?php echo $tpl->render( 'lm-radio-input', array( "id" => "section-right-radio", "name" => "section-side", "label" => "Right", "value" => 1, "checked" => 0 )); ?>
         <?php echo $tpl->render( 'lm-checkbox-input', array( "id" => "publish-section-check", "name" => "publish-section", "label" => "Publish", "optClasses" => "ml-5 mb-3" )); ?>
         <?php echo $tpl->render( 'lm-form-buttons', array( "value" => "Add" )); ?>
     </form>
