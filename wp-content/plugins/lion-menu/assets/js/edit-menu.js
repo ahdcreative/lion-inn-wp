@@ -55,8 +55,8 @@ jQuery(function($) {
         setPostVar("add-section", this);
         // Ensure form values are empty
         $('input[name="section-name"]').val('');
-        $('id[name="section-left-radio"]').prop('checked', true);
-        $('id[name="section-right-radio"]').prop('checked', false);
+        $('input[id="section-left-radio"]').prop('checked', true);
+        $('input[id="section-right-radio"]').prop('checked', false);
         $('input[name="publish-section"]').prop('checked', true);
     });
     $(".edit-section").on("click", function() {
