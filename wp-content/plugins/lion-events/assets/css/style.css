@@ -56,6 +56,9 @@ i.fa-check-circle {
 .purple-font {
     color: #673ab7 !important;
 }
+.grey-font {
+    color: #7c7c7c !important;
+}
 
 .event-name, p.day {
     font-size: 26pt !important;

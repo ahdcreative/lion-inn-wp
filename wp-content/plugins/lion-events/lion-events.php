@@ -115,7 +115,7 @@ class LionEvents {
     public function events_init() {
         
         $tpl = new LETemplate( __DIR__ . '/templates/admin' );
-        $event = new LETemplate( __DIR__ . '/templates/admin/items' );
+        // $event = new LETemplate( __DIR__ . '/templates/admin/items' );
 
         // Render POST & GET request handlers
         echo $tpl->render( 'post' );
@@ -132,17 +132,19 @@ class LionEvents {
         echo $tpl->render( 'le-event-buttons' );
         
         // Get Events
-        $events = $this->db->get( 'u_event' );
-        if(!$events) {
-            echo "You have not created any events.";
-            return;
-        } else {
-            echo "<ul>";
-            foreach($events as $ev) {
-                echo $event->render( 'le-event' , $ev );
-            }
-            echo "</ul>";
-        }
+        // $events = $this->db->get( 'u_event' );
+        // if(!$events) {
+        //     echo "You have not created any events.";
+        //     return;
+        // } else {
+        //     echo "<ul>";
+        //     foreach($events as $ev) {
+        //         echo $event->render( 'le-event' , $ev );
+        //     }
+        //     echo "</ul>";
+        // }
+
+        echo $tpl->render( 'le-upcoming-events' );
     }
 
     /**

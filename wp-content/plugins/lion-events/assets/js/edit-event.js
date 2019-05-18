@@ -11,7 +11,7 @@ jQuery(function($) {
      * When $(.iconClicked) {set hidden input value ready to parent item's ID for form submission} 
      */
     function setPostVar($inputName, $caller) {
-        $parentListItemId = $($caller).closest("li").data("id");
+        $parentListItemId = $($caller).closest(".card-body").data("id");
         $('input[name='+$inputName+']').val($parentListItemId);
     }
 
