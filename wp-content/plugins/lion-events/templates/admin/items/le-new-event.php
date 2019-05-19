@@ -45,7 +45,7 @@
     </div>
 
     <!-- Content for that event -->
-    <div id="<?php echo 'event-' . $id; ?>" class="collapse show r-event-body" aria-labelledby="<?php echo strtolower($id); ?>" data-parent="#upcoming-events">
+    <div id="<?php echo 'event-' . $id; ?>" class="collapse hide r-event-body" aria-labelledby="<?php echo strtolower($id); ?>" data-parent="#upcoming-events">
         <div class="card-body pl-3" data-id='<?php echo $id; ?>'>
             <div class="row">    
                 <div class="date">
