@@ -12,7 +12,7 @@
         $events = $db->get( "u_event" );
 
         foreach($events as $ev) {
-            echo $tpl->render( 'le-new-event' , $ev );
+            echo $tpl->render( 'le-event' , $ev );
         }
 
         ?>
