@@ -130,20 +130,8 @@ class LionEvents {
         
         // Display add event button
         echo $tpl->render( 'le-event-buttons' );
-        
-        // Get Events
-        // $events = $this->db->get( 'u_event' );
-        // if(!$events) {
-        //     echo "You have not created any events.";
-        //     return;
-        // } else {
-        //     echo "<ul>";
-        //     foreach($events as $ev) {
-        //         echo $event->render( 'le-event' , $ev );
-        //     }
-        //     echo "</ul>";
-        // }
 
+        // Render list of events
         echo $tpl->render( 'le-upcoming-events' );
     }
 
