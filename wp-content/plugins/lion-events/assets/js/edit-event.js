@@ -30,7 +30,7 @@ jQuery(function($) {
      * Set text input value to $inputName
      */
     function setTextInput($inputName, $caller) {
-        $value = $($caller).parent().siblings('.'+$inputName).text();
+        $value = $($caller).parent().parent().siblings('.info').children('.'+$inputName).text();
         $('input[name='+$inputName+']').val($value);
     }
 
@@ -52,6 +52,14 @@ jQuery(function($) {
         $('input[name="edit-event-image"]').val($value);
         // Set label text to show current image url
         $('#edit-image-selected-name').text($value);
+    }
+
+    /**
+     * Set textarea input value
+     */
+    function setTextareaInput($inputName, $caller) {
+        $desc = $($caller).parent().parent().siblings('.info').children('.desc').text();
+        $('textarea[name='+$inputName+']').froalaEditor('html.set', $desc);
     }
     
     /**
@@ -84,16 +92,14 @@ jQuery(function($) {
         setImageUrl("event-image-url", this);
         $isSingleDayEvent = setCheckbox("single-date-event", ".isSingleDayEvent", this);
         setCheckbox("publish-event", ".toPublish", this);
+        setTextareaInput('event-desc', this);
 
         // Hide end date if single event day is ticked
         if($isSingleDayEvent) {
             $(".hideIfSingleDate").hide(this.unchecked);
         } else {
             $(".hideIfSingleDate").show(this.unchecked);
-        }
-
-        $desc = $(this).parent().siblings(".desc").text();
-        $('textarea[name="event-desc"]').froalaEditor('html.set', $desc);
+        }        
     });    
     $(".delete-event").on("click", function() {
         setPostVar("delete-event", this);
