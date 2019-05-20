@@ -73,7 +73,7 @@ jQuery(function($) {
         $('html, body').animate({});
         
         // define areas for when it should scroll up and down
-        var bodyRect = document.body.getBoundingClientRect();
+        var bodyRect = document.body.getBoundingClientRect(); // get screen / window size
         var bottomArea = bodyRect.height - 50;
         var topArea = 100;
         
@@ -83,16 +83,16 @@ jQuery(function($) {
             // scroll down when cursor is near bottom of screen
             if (elemRect.top > bottomArea) {
                 $('html, body').animate({
-                    scrollTop: 10000 // adjust number of px to scroll down
-                }, 20000); // increase this to slow scroll
+                    scrollTop: 10000 // adjust - number of px to scroll down
+                }, 20000); // increase this to slow the scroll
             }
             // scroll up when cursor is near top of screen
             else if (elemRect.top < topArea) {
                 console.log(elemRect.top + '<' + topArea);
                 // Up
                 $('html, body').animate({
-                    scrollTop: 0
-                }, 7000);
+                    scrollTop: 0 // 0 = top
+                }, 7000); // again, adjust for speed
             }
             // ensure no scroll animation is happening when mouse is anywhere other than top or bottom areas
             else {
