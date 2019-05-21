@@ -58,7 +58,15 @@
         case "NAV":
             $i = 1;
             foreach($listOf as $nav_item) {
+                // set first as active
                 $nav_item->isFirst = ($i == 1)?(1):(0);
+                // >5 menu's, change col widths on xs, sm & md devices
+                if(sizeof($listOf) <= 5) {
+                    $nav_item->classes = 'col';
+                } else {
+                    $nav_item->classes = 'col-3';
+                }
+
                 echo $tpl->render( 'nav-item' , $nav_item );
                 $i++;
             }
