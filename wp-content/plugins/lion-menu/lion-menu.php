@@ -188,7 +188,7 @@ class LionMenu {
     public function render_menu() {
         $tpl = new LMTemplate( __DIR__ . '/templates/front-end' );
 
-        $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
+        $menus = $this->db->get( "menu" , array ( "toPublish" => 1 ) );
                 
         echo $tpl->render( 'list' , array( "listOf" => $menus, "type" => "MENUS", "classes" => " " ));
     }
@@ -199,7 +199,7 @@ class LionMenu {
     public function render_menu_nav() {
         $tpl = new LMTemplate( __DIR__ . '/templates/front-end' );
 
-        $nav = $this->db->get( "menu" );      
+        $nav = $this->db->get( "menu" , array ( "toPublish" => 1 ) );      
                 
         echo $tpl->render( 'list' , array( "listOf" => $nav, "type" => "NAV", "classes" => " " ));
     }
