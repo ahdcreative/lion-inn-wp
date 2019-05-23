@@ -22,7 +22,7 @@
                 <!-- Icons -->
                 <div class="mt-1 ml-3" data-id="<?php echo $id; ?>">
                     <?php echo $tpl->render( 'le-icon', array( "classes" => "fas fa-check-circle toPublish mr-3", "tooltip" => "Published")); ?>            
-                    <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-r-event", "modal" => "edit-r-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "600", "h" => "400" )); ?>
+                    <?php echo $tpl->render( 'le-icon-link', array( "aClasses" => "edit-r-event", "modal" => "edit-r-event-modal", "tooltip" => "Edit", "iClasses" => "fa-edit mr-3", "w" => "600", "h" => "500" )); ?>
                 </div>
             </div>
             <!-- Event Description -->
