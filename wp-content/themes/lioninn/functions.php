@@ -1,23 +1,76 @@
 <?php
 
 /**
- * Add widgets option to sidebar
+ * Remove unneeded role types
  */
-function arphabet_widgets_init() {
-
-	register_sidebar( array(
-		'name'          => 'Home right sidebar',
-		'id'            => 'home_right_1',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
-	) );
-
+function remove_roles() {
+    if( get_role('subscriber') ){
+        remove_role( 'subscriber' );
+    }
+    if( get_role('author') ){
+        remove_role( 'author' );
+    }
+    if( get_role('contributor') ){
+        remove_role( 'contributor' );
+    }
 }
-add_action( 'widgets_init', 'arphabet_widgets_init' );
+add_action( 'admin_menu', 'remove_roles' );
 
+/**
+ * Remove Posts and Comments from sidebar menu
+ * Not needed for this site
+ * 
+ * NOTE :- Some pages are removed via the User Role Editor plugin
+ */
+function remove_menu_pages() {
+    /**
+     * Hide for everyone
+     */
+    remove_menu_page( 'edit.php' );
+    remove_menu_page( 'edit-comments.php' );
+    remove_menu_page( 'tools.php' );
 
+    $user = wp_get_current_user();
+    if(isset($user->roles[0])) { 
+        $current_role = $user->roles[0];
+    } else {
+        $current_role = 'no_role';
+    }
+
+    /**
+     * Hide for Owners
+     */
+    if($current_role == 'owner') {
+        remove_menu_page( 'image-sizes' );
+        remove_menu_page( 'versionpress' );
+    }
+
+    /**
+     * Hide for Editors
+     */
+    if($current_role == 'editor') {
+        remove_menu_page( 'image-sizes' );
+        remove_menu_page( 'versionpress' );
+        remove_menu_page( 'users.php' );
+        remove_menu_page( 'options-general.php' );
+    }
+}
+add_action( 'admin_menu', 'remove_menu_pages' );
+
+/**
+ * Remove Sub Pages that aren't needed
+ * 
+ * NOTE :- Some subpages are removed via the User Role Editor plugin
+ */
+function remove_submenu_pages() {
+    remove_submenu_page( 'themes.php', 'theme-editor.php' );
+    remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+    remove_submenu_page( 'tools.php', 'tools.php' );
+    remove_submenu_page( 'tools.php', 'import.php' );
+    remove_submenu_page( 'tools.php', 'export.php' );
+    remove_submenu_page( 'tools.php', 'tools.php?page=export_personal_data' );
+}
+add_action( 'admin_menu', 'remove_submenu_pages', 110 );
 
 /**
  * Print to debug.log file
