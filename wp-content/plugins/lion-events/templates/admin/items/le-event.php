@@ -6,6 +6,7 @@
     $tpl = new LETemplate( __DIR__ );
 
     $name = str_replace('\\', '', $name);
+    $description = str_replace('\\', '', $description);
 
     $startdate = explode('-', $event_start_date);
     $startyear = $startdate[0];

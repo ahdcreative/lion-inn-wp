@@ -1,4 +1,9 @@
-<?php $tpl = new LETemplate( __DIR__ ); ?>
+<?php 
+    $tpl = new LETemplate( __DIR__ ); 
+    
+    $title = str_replace('\\', '', $title);
+    $description = str_replace('\\', '', $description);
+?>
 
 <div class="card m-0 p-0 col-8">
 
@@ -28,7 +33,7 @@
             <!-- Event Description -->
             <!-- $description gets printed in <p> tags as they are included in the DB string -->
             <div class="row description">
-                <?php echo $description; ?>
+                <span class="my-1 mt-lg-0 desc"><?php echo $description; ?></span>
             </div>
         </div>
     </div>
