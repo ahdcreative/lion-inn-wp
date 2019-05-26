@@ -28,7 +28,6 @@ function remove_menu_pages() {
      */
     remove_menu_page( 'edit.php' );
     remove_menu_page( 'edit-comments.php' );
-    remove_menu_page( 'tools.php' );
 
     $user = wp_get_current_user();
     if(isset($user->roles[0])) { 
@@ -43,6 +42,7 @@ function remove_menu_pages() {
     if($current_role == 'owner') {
         remove_menu_page( 'image-sizes' );
         remove_menu_page( 'versionpress' );
+        remove_menu_page( 'tools.php' );
     }
 
     /**
@@ -53,6 +53,7 @@ function remove_menu_pages() {
         remove_menu_page( 'versionpress' );
         remove_menu_page( 'users.php' );
         remove_menu_page( 'options-general.php' );
+        remove_menu_page( 'tools.php' );
     }
 }
 add_action( 'admin_menu', 'remove_menu_pages' );

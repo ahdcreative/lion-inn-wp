@@ -97,7 +97,6 @@ class LionMenu {
      * Create Subpages
      */
     public function admin_menu_pages() {
-        //, plugins_url() . '/lion-menu/assets/images/menu-icon.png'
         add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ), ' ' );
         add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
     }
