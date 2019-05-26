@@ -97,17 +97,30 @@ class LionMenu {
      * Create Subpages
      */
     public function admin_menu_pages() {
-        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ), plugins_url() . '/lion-menu/assets/images/utensils-solid.svg' );
+        //, plugins_url() . '/lion-menu/assets/images/menu-icon.png'
+        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ), ' ' );
         add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
     }
 
+    /**
+     * Set Icon to FontAwesome cutlery icon
+     * Change to blue version when hovered
+     */
     public function set_icon() {
         echo 
         "<style type='text/css' media='screen'>
-            #adminmenu .toplevel_page_lm-menu-page div.wp-menu-image img {
-                filter: grayscale(100%) !important;
-                height: 28px;
-                width: 28px;
+            #adminmenu .toplevel_page_lm-menu-page div.wp-menu-image {
+                background-image: url(" . plugins_url() . '/lion-menu/assets/images/menu-icon.png' . ");
+                background-size: 16px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            #adminmenu #toplevel_page_lm-menu-page:hover div.wp-menu-image {
+                background-image: url(" . plugins_url() . '/lion-menu/assets/images/menu-icon-hover.png' . ");
+                background-size: 16px;
+                background-repeat: no-repeat;
+                background-position: center;
             }
      	</style>";
     }
