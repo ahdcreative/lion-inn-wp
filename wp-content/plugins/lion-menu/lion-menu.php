@@ -35,6 +35,7 @@ class LionMenu {
 
         // Setup Admin Pages
         add_action('admin_menu', array( $this, 'admin_menu_pages' ) );
+        add_action('admin_head', array( $this, 'set_icon' ));
     }
 
     /**
@@ -96,8 +97,19 @@ class LionMenu {
      * Create Subpages
      */
     public function admin_menu_pages() {
-        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ) );
+        add_menu_page( 'Menu Page', 'Menu', 'manage_options', 'lm-menu-page', array( $this, 'menu_init' ), plugins_url() . '/lion-menu/assets/images/utensils-solid.svg' );
         add_submenu_page( 'lm-menu-page', 'Menu Edit Subpage', 'Edit Menu', 'manage_options', 'lm-menu-edit-subpage', array( $this, 'edit_menu_init' ) );
+    }
+
+    public function set_icon() {
+        echo 
+        "<style type='text/css' media='screen'>
+            #adminmenu .toplevel_page_lm-menu-page div.wp-menu-image img {
+                filter: grayscale(100%) !important;
+                height: 28px;
+                width: 28px;
+            }
+     	</style>";
     }
     
     /**

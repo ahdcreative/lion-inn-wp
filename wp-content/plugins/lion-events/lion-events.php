@@ -105,7 +105,7 @@ class LionEvents {
      * Create Subpages
      */
     public function admin_menu_pages() {
-        add_menu_page( 'Events Page', 'Events', 'manage_options', 'le-events-page', array( $this, 'events_init' ) );
+        add_menu_page( 'Events Page', 'Events', 'manage_options', 'le-events-page', array( $this, 'events_init' ), 'dashicons-calendar' );
         add_submenu_page( 'le-events-page', 'Regular Events Subpage', 'Regular Events', 'manage_options', 'le-r-events-edit-subpage', array( $this, 'regular_events_init' ) );
     }
     
