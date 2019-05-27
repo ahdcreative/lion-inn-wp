@@ -85,17 +85,9 @@ class LionEvents {
         wp_enqueue_media();
         wp_enqueue_script( 'le-media-manager', plugins_url( '/assets/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
     
-        // Froala WYSIWYG Editor
-        wp_enqueue_style('froala-editor', 'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_editor.min.css');
-        wp_enqueue_style('froala-style', 'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_style.min.css');
-        wp_enqueue_script('froala-js', 'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/froala_editor.min.js', array('jquery'));
-        // Froala Plugins
-        wp_enqueue_script('froala-links',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/link.min.js');
-        wp_enqueue_script('froala-help-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/help.min.js');
-        wp_enqueue_style('froala-help-css',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/plugins/help.min.css');
-        wp_enqueue_script('froala-code-view-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/code_view.min.js');
-        wp_enqueue_style('froala-code-view-css',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/plugins/code_view.min.css');
-        wp_enqueue_script('froala-word-paste-js',  'https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/js/plugins/word_paste.min.js');
+        // Quill WYSIWYG Editor
+        wp_enqueue_style('quill-editor', 'https://cdn.quilljs.com/1.3.6/quill.snow.css');
+        wp_enqueue_script('quill-js', 'https://cdn.quilljs.com/1.3.6/quill.js', array('jquery'));
         // Custom script to enable editor
         wp_enqueue_script('enable-editor', plugins_url() . '/lion-events/assets/js/wysiwyg.js', array('jquery'));
     }

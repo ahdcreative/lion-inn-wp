@@ -15,7 +15,7 @@
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "single-date-check", "name" => "single-date-event", "label" => "Single Day Event", "optClasses" => "mb-3 isSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "publish-event-check", "name" => "publish-event", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'le-image-select', array( "id" => "add-event-image-select", "label_id" => "add-image-selected-name", "name" => "add-event-image", "label" => "No Image Selected", "height" => "add-event-img-height", "width" => "add-event-img-width" )); ?>
-        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input", "name" => "event-desc", "label" => "Description")); ?>
+        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "u-event-add-desc-input", "name" => "event-desc", "label" => "Description")); ?>
         <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Add" )); ?>
     </form>
 
@@ -33,7 +33,7 @@
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "single-date-check", "name" => "single-date-event", "label" => "Single Day Event", "optClasses" => "mb-3 isSingleDate" )); ?>
         <?php echo $tpl->render( 'le-checkbox-input', array( "id" => "publish-event-check", "name" => "publish-event", "label" => "Publish", "optClasses" => "mb-3" )); ?>
         <?php echo $tpl->render( 'le-image-select', array( "id" => "edit-event-image-select", "label_id" => "edit-image-selected-name", "name" => "edit-event-image", "label" => "No Image Selected", "height" => "edit-event-img-height", "width" => "edit-event-img-width" )); ?>
-        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "desc-input", "name" => "event-desc", "label" => "Description")); ?>
+        <?php echo $tpl->render( 'le-textarea-input', array( "id" => "u-event-edit-desc-input", "name" => "event-desc", "label" => "Description")); ?>
         <?php echo $tpl->render( 'le-form-buttons', array( "value" => "Edit" )); ?>
     </form>
 

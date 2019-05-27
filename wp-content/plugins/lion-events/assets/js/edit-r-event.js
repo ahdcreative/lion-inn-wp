@@ -4,7 +4,12 @@
  * Also sets form values in modals when EDIT is clicked on an item.
  * The .parent() / .sibling() paths start from the icon that was clicked.
  */
+
 jQuery(function($) {
+
+    var regular_events = new Quill('textarea#r-event-desc-input', {
+        theme: 'snow'
+    });
 
     /**
      * Set edit-r-event POST var with the ID
@@ -32,7 +37,9 @@ jQuery(function($) {
      */
     function setRegularEventDesc($inputName, $caller) {
         $desc = $($caller).parent().parent().siblings(".description").text();
-        $('textarea[name='+$inputName+']').froalaEditor('html.set', $desc);
+        $('textarea[name='+$inputName+']').val($desc.trim());
+        
+        // regular_events.setText('Hello');
     }
 
     /**
