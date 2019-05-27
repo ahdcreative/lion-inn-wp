@@ -8,7 +8,7 @@ $default = plugins_url() . '/lion-docs/docs/pdf/general/accessing-the-admin-pane
 <div class='container-fluid'>
     <div class='row py-3'>
         <div class='col-2'>
-            <h3>Side Navigation</h3>
+            <h3>HowTo Articles</h3>
             
             <?php echo $nav->render('ld-nav'); ?>
         </div>

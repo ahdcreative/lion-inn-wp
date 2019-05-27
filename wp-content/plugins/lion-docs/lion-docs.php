@@ -78,10 +78,6 @@ class LionDocs {
     public function docs_init() {
         $tpl = new LDTemplate( __DIR__ . '/templates' );
 
-        // Print Header section of Admin Page
-        $data = array ('title' => 'HowTo Articles', 'desc' => "Select a different HowTo article from the left-side navigation.");
-        echo $tpl->render( 'ld-header', $data );
-
         // Render side nav & doc iframe
         echo $tpl->render( 'ld-docs' );
     }
