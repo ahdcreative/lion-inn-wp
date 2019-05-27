@@ -43,6 +43,8 @@ function remove_menu_pages() {
         remove_menu_page( 'image-sizes' );
         remove_menu_page( 'versionpress' );
         remove_menu_page( 'tools.php' );
+        remove_menu_page( 'options-general.php' );
+        remove_menu_page( 'edit.php?post_type=udb_widgets' );        
     }
 
     /**
