@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'image_height' => $_POST["add-event-img-height"],
             'image_width' => $_POST["add-event-img-width"],
             'isSingleDayEvent' => (isset($_POST["single-date-event"]))?(1):(0),
-            'description' => $_POST["event-desc"],
+            'description' => $_POST["add-event-desc"],
             'date_created' => current_time( 'mysql' ), 
             'author' => get_current_user_id(),
             'toPublish' => (isset($_POST["publish-event"]))?(1):(0)
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'image_width' => $_POST["edit-event-img-width"],
                 'event_end_date' => (isset($_POST["single-date-event"]))?("0000-00-00"):($_POST["event-end-date"]),
                 'isSingleDayEvent' => (isset($_POST["single-date-event"]))?(1):(0),
-                'description' => $_POST["event-desc"],
+                'description' => $_POST["edit-event-desc"],
                 'date_updated' => current_time( 'mysql' ), 
                 'editor' => get_current_user_id(),
                 'toPublish' => (isset($_POST["publish-event"]))?(1):(0)

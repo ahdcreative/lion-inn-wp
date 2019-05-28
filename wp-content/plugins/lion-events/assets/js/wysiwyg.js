@@ -3,13 +3,13 @@
  */
 jQuery(function($) {
 
-    function quillEditor(caller) {
-        return new Quill(caller, {
-            theme: 'snow'
-        });
-    }
-
-    // var regular_events = quillEditor('textarea#r-event-desc-input');
-    var upcoming_event_add = quillEditor('textarea#u-event-add-desc-input');
-    var upcoming_event_edit = quillEditor('textarea#u-event-edit-desc-input');
+    $('textarea.desc-editor').summernote({
+        height: 130,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', ]],
+            ['font', ['strikethrough', 'superscript',]],
+            ['media', ['hr']]
+        ]
+    });
+    
 });

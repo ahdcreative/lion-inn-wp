@@ -58,8 +58,8 @@ jQuery(function($) {
      * Set textarea input value
      */
     function setTextareaInput($inputName, $caller) {
-        $desc = $($caller).parent().parent().siblings('.info').children('.desc').text();
-        $('textarea[name='+$inputName+']').froalaEditor('html.set', $desc);
+        $desc = $($caller).parent().parent().siblings('.info').children('.desc').html();
+        $('textarea[name='+$inputName+']').summernote('code', $desc);
     }
     
     /**
@@ -77,7 +77,7 @@ jQuery(function($) {
         $('#add-image-selected-name').text('No Image Selected');
         $('input[name="single-date-event"]').prop('checked', false);
         $('input[name="publish-event"]').prop('checked', true);
-        $('textarea[name="event-desc"]').froalaEditor('html.set', '');
+        $('textarea[name="add-event-desc"]').summernote('code', '');
 
         // Ensure all form inputs are being shown
         $(".hideIfSingleDate").show(this.unchecked);
@@ -92,7 +92,7 @@ jQuery(function($) {
         setImageUrl("event-image-url", this);
         $isSingleDayEvent = setCheckbox("single-date-event", ".isSingleDayEvent", this);
         setCheckbox("publish-event", ".toPublish", this);
-        setTextareaInput('event-desc', this);
+        setTextareaInput('edit-event-desc', this);
 
         // Hide end date if single event day is ticked
         if($isSingleDayEvent) {

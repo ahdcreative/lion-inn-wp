@@ -7,10 +7,6 @@
 
 jQuery(function($) {
 
-    var regular_events = new Quill('textarea#r-event-desc-input', {
-        theme: 'snow'
-    });
-
     /**
      * Set edit-r-event POST var with the ID
      * of that day so that the right day is 
@@ -36,10 +32,8 @@ jQuery(function($) {
      * So it's ready for the POST to DB
      */
     function setRegularEventDesc($inputName, $caller) {
-        $desc = $($caller).parent().parent().siblings(".description").text();
-        $('textarea[name='+$inputName+']').val($desc.trim());
-        
-        // regular_events.setText('Hello');
+        $desc = $($caller).parent().parent().siblings(".description").html();
+        $('textarea[name='+$inputName+']').summernote('code', $desc);
     }
 
     /**
@@ -64,7 +58,6 @@ jQuery(function($) {
         setIconUrl("event-icon-url", this);
         setRegularEventDesc('r-event-desc', this);
     });
-
 
     /**
      * Styling Tweaks for Regular Events Page
