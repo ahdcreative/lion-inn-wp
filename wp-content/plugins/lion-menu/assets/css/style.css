@@ -31,7 +31,7 @@ ol.nested-sortable li {
  * Ensures that the multi-nested lists work.
  * Removing this will break the functionality of the moveable lists.
  */
-.no-position:not(.dragged) {
+.no-position * :not(.dragged) {
     position: initial;
 }
 
