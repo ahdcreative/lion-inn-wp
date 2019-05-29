@@ -92,6 +92,7 @@
                     <?php echo $nav->render('ld-nav-link', array('filename' => plugins_url() . '/lion-docs/docs/pdf/menu/reorder-content-up-and-down.pdf', 'title' => 'Moving Up & Down' )); ?>
                     <?php echo $nav->render('ld-nav-link', array('filename' => plugins_url() . '/lion-docs/docs/pdf/menu/reorder-content-sections.pdf', 'title' => 'Moving Sections' )); ?>
                     <?php echo $nav->render('ld-nav-link', array('filename' => plugins_url() . '/lion-docs/docs/pdf/menu/reorder-content-items.pdf', 'title' => 'Moving Items' )); ?>
+                    <?php echo $nav->render('ld-nav-link', array('filename' => plugins_url() . '/lion-docs/docs/pdf/menu/reorder-content-subitems.pdf', 'title' => 'Moving Subitems' )); ?>
                     <?php echo $nav->render('ld-nav-link', array('filename' => plugins_url() . '/lion-docs/docs/pdf/menu/reorder-content-moving-sides.pdf', 'title' => 'Moving Sides' )); ?>
                 </div>
             </div>
