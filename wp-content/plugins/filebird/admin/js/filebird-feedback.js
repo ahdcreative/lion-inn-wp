@@ -1,7 +1,7 @@
 jQuery(window).load(function () {
   const apiUrl = "https://preview.ninjateam.org/filebird/wp-json/filebird/v1/add";
-  const TB_WIDTH = 520;
-  const TB_HEIGHT = 320;
+  const TB_WIDTH = 500;
+  const TB_HEIGHT = 330;
   var urlRedirect = '';
   let selected = 'Unselected', key = 'none';
 
@@ -32,7 +32,7 @@ jQuery(window).load(function () {
         .getAttribute("href");
       tb_show(
         "Quick Feedback - FileBird",
-        "#TB_inline?height=370&amp;width=490&amp;inlineId=filebird-feedback-window"
+        "#TB_inline?height=370&amp;width=470&amp;inlineId=filebird-feedback-window"
       );
       $("#TB_window").css({
         marginLeft: "-" + parseInt(TB_WIDTH / 2, 10) + "px",
