@@ -6,8 +6,8 @@ jQuery(function($) {
     $('textarea.desc-editor').summernote({
         height: 130,
         toolbar: [
-            ['style', ['bold', 'italic', 'underline', ]],
-            ['font', ['strikethrough', 'superscript',]],
+            ['style', ['bold', 'italic', 'underline']],
+            ['font', ['superscript']],
             ['media', ['hr']]
         ]
     });
