@@ -5,7 +5,7 @@
     $name = str_replace('\\', '', $name);
 ?>
 
-<li class='list-group-item list-group-item-action no-position' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>' data-side='<?php echo $side; ?>'>
+<li class='list-group-item list-group-item-action no-position section' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>' data-side='<?php echo $side; ?>'>
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
     <!-- Section Name -->
@@ -54,7 +54,7 @@
 
     $items = $db->get( "item" , array( "parent_section" => $id ));
 
-    echo $list_tpl->render( 'lm-list' , array( "listOf" => $items,  "type" => "ITEMS", "isParentPublished" => $toPublish, "classes" => "list-group my-2" ));    
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $items,  "type" => "ITEMS", "isParentPublished" => $toPublish, "classes" => "list-group my-2 items-list" ));    
 
     ?>
 </li>
