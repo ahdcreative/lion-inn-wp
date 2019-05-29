@@ -2,38 +2,38 @@
 * Upload sidebar styles
 */
 /** WordPress styles **/
-#wpbody-content{
+body.wp-admin.upload-php #wpbody-content{
     position: relative;
 }
 
-.wrap:after{
+body.wp-admin.upload-php .wrap:after{
 	content: "";
 	clear: both;
 	display: block;
 }
 
-.wrap{
+body.wp-admin.upload-php .wrap{
 	float: right;
 	width: 100%;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: 0;
-}
-.wrap.appended{
+} 
+body.wp-admin.upload-php .wrap.appended{
 	padding: 0 20px 0 10px;
     flex: 1 1 auto;
     margin-top: -20px !important;
 }
-.attachments{height: 0;}
-.wrap.appended .notice{display: none;}
-.media-frame.mode-grid .media-toolbar{
-	/* height: 50px !important; */
-}
-.view-switch a:before{
+body.wp-admin.upload-php .attachments{height: 0;}
+body.wp-admin.upload-php .wrap.appended .notice{display: none;}
+/* .media-frame.mode-grid .media-toolbar{
+	height: 50px !important;
+} */
+body.wp-admin.upload-php .view-switch a:before{
 	line-height: 28px
 }
-body{ position: relative; }
+body.wp-admin.upload-php{ position: relative; }
 html.wp-toolbar #vakata-dnd,html.wp-toolbar .vakata-context,html.wp-toolbar #jstree-marker{
 	transform: translateY(-32px);
 }
@@ -41,7 +41,7 @@ html.wp-toolbar #vakata-dnd,html.wp-toolbar .vakata-context,html.wp-toolbar #jst
 
 /** Media styles **/
 .filebird_sidebar{
-	/*float: left;*/
+	/*float: left;*/  
     flex: 0 0 auto;
 	width: 250px;
 	position: relative;
@@ -130,7 +130,7 @@ html.wp-toolbar #vakata-dnd,html.wp-toolbar .vakata-context,html.wp-toolbar #jst
     margin-top: 12px;
     height: 48px;
     padding-top: 10px;
-    min-width: 240px;
+    min-width: 225px;
 }
 .filebird_toolbar .nt_main_button_icon{
     position: relative;
@@ -148,6 +148,7 @@ html.wp-toolbar #vakata-dnd,html.wp-toolbar .vakata-context,html.wp-toolbar #jst
 }
 
 .filebird_toolbar .nt_main_button_icon span{
+  font-weight: normal !important;
 	position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -211,7 +212,7 @@ content: attr(data-number);
 /** Drag **/
 #njt-filebird-attachment{
 	position: fixed;
-	z-index: 9999;
+	z-index: 9999999999;
 	padding: 5px 10px;
 	background: #0073aa;
 	color: #ffffff;
@@ -220,7 +221,7 @@ content: attr(data-number);
 	font-size: 14px;
 	line-height: 24px;
 	box-shadow: 0 1px 0 #ccc;
-	display: none;
+  display: none;
 }
 .njt-filebird-loader{
 	width: 0;
@@ -286,17 +287,17 @@ content: attr(data-number);
 }
 .jstree-default .jstree-icon:empty{display:none;}
 .jstree-default > .jstree-container-ul > .jstree-node{margin-top: 5px; padding-left: 6px;}
-.wpmediacategory-filter{display: none !important;}
+body.wp-admin.upload-php .wpmediacategory-filter{display: none !important;}
 .media-frame.mode-grid .attachments-browser{height: auto;}
-.wrap-all {
+body.wp-admin.upload-php .wrap-all {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
-.wrap-all .error{
+body.wp-admin.upload-php .wrap-all .error{
     display: none;
 }
-.wrap-all .njt-splitter {
+body.wp-admin.upload-php .wrap-all .njt-splitter {
 	position: relative;
 	float: left;
     flex: 0 0 auto;
@@ -319,8 +320,8 @@ content: attr(data-number);
     margin-top: -20px;
     transition: margin-top 300ms;
 } */
-
-.wrap-all .njt-splitter:before{
+ 
+body.wp-admin.upload-php .wrap-all .njt-splitter:before{
 	content: '';
     width: 1px;
     position: absolute;
@@ -332,13 +333,13 @@ content: attr(data-number);
     z-index: -1;
     border-right: 1px solid #f7f7f7;
 }
-.njt-expand{
+body.wp-admin.upload-php .njt-expand{
     height: 38px;
     display: none;
     margin-top: 45px;
     margin-left: -2px;
 }
-.njt-expand:before{
+body.wp-admin.upload-php .njt-expand:before{
 	content: "\f148";
     display: block;
     width: 20px;
@@ -357,22 +358,23 @@ content: attr(data-number);
 #njt-filebird-folderTree{max-height: calc(100vh - 250px); padding-left: 10px;}
 #update-folders{padding-left: 10px;}
 #njt-filebird-folderTree .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-    background-color: #0073aa;
+    background-color: #c1c1c1;
+}
+#njt-filebird-folderTree .mCSB_scrollTools .mCSB_draggerRail{
+    background-color:rgba(208,208,208,.4);
 }
 @media only screen and (max-width: 667px){
-    .filebird_sidebar {
+  body.wp-admin.upload-php .filebird_sidebar {
 	    width: 100%;
 	}
-	.wrap.appended {
+	body.wp-admin.upload-php .wrap.appended {
 	    width: 100%;
 	    padding-left: 0;
 	}
-	#wpbody-content:before{display: none;}
-
+	body.wp-admin.upload-php #wpbody-content:before{display: none;}
 }
 
 /* Fixed Sidebar and Splitter */
-.filebird_sidebar_fixed{
+body.wp-admin.upload-php .filebird_sidebar_fixed{
     position: fixed;
-   
 }

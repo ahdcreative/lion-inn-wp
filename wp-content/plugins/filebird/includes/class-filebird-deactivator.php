@@ -20,17 +20,19 @@
  * @subpackage FileBird/includes
  * @author     Ninja Team <support@ninjateam.org>
  */
-class FileBird_Deactivator {
+class FileBird_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function deactivate()
+    {
 
-	}
+    }
 
 }

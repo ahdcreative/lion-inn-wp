@@ -2,7 +2,7 @@
 Contributors: ninjateam
 Tags: wordpress media library folders, wordpress download media library, wordpress media folder, wordpress media folders, wordpress media library, wordpress media library plugin, wordpress real media library, wordpress file manager
 Requires at least: 3.0
-Tested up to: 5.1
+Tested up to: 5.2.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,10 +38,10 @@ You can create unlimited folders/subfolders for all your media files. Lite versi
 As WordPress default, you are allowed to only upload the most commonly used file types. With this plugin, you can manually manage most of allowed file types.
 
 <strong>COMPATIBLE WITH ELEMENTOR PAGE BUILDER</strong><br>
-Compatible with Elementor plugin, top #1 WordPress page builder.
+Compatible with Elementor - Top #1 WordPress page builder.
 
 <strong>COMPATIBLE WITH BEAVER BUILDER</strong><br>
-Compatible with Beaver Builder plugin.
+Compatible with Beaver Builder - One of the popular page builder plugins for WordPress.
 
 <strong>COMPATIBLE WITH VISUAL COMPOSER PAGE BUILDER</strong><br>
 Compatible with Visual Composer page builder plugin.
@@ -49,8 +49,20 @@ Compatible with Visual Composer page builder plugin.
 <strong>COMPATIBLE WITH DIVI BUILDER (PRO)</strong><br>
 Compatible with Divi Builder plugin from ElegantThemes.
 
-<strong>COMPATIBLE WITH WP BAKERY BUILDER (PRO)</strong><br>
-Compatible with WP Bakery page builder plugin, top #1 page builder selling on Codecanyon.
+<strong>COMPATIBLE WITH WP BAKERY PAGE BUILDER (PRO)</strong><br>
+Compatible with WP Bakery page builder plugin, top #1 page builder selling on CodeCanyon.
+
+<strong>COMPATIBLE WITH WPML</strong><br>
+Best WP plugin to translate and display your website in any languages.
+
+<strong>COMPATIBLE WITH POLYLANG</strong><br>
+A plugin allows you to create a bilingual or multilingual WordPress site.
+
+<strong>COMPATIBLE WITH GUTENBERG</strong><br>
+Support new editor Gutenberg from WordPress 5.0.
+
+<strong>COMPATIBLE WITH CLASSIC EDITOR</strong><br>
+Support old WordPress editor to display tree view folders.
 
 <strong>3RD PARTY COMPATIBILITY</strong><br>
 This plugin is compatible with most of themes or plugins.
@@ -101,7 +113,7 @@ No, it does not. The image is still displayed correctly on the site frontend.
 Yes, FileBird is free to use with 10 folders/categories
 
 = Should I purchase a paid plan? =
-If you have a large files and want to use more than 10 folders/categories, you can [upgrade to PRO version here](https://goo.gl/QwcB5B)
+If you have a large files and want to use more than 10 folders/categories, you can [upgrade to PRO version here](https://codecanyon.net/item/media-folders-manager-for-wordpress/21715379)
 
 == Screenshots ==
 1. Full control of your files
@@ -110,6 +122,24 @@ If you have a large files and want to use more than 10 folders/categories, you c
 4. Bulk selectto move / delete files
 
 == Changelog ==
+= 2.0 =
+May 29, 2019 - Version 2.0
+* Added: Treeview interface in page, post, custom post type
+* Added: Treeview interface in Divi Builder, Beaver Builder, Visual Composer, WPBakery Page Builder, Elementor Builder
+* Added: Treeview interface for Gutenberg
+* Added: Bulk auto deselect when change folder
+* Added: Compatible with WPML 4.x version
+* Fixed: WPML 3.9 conflict
+* Fixed: Move one file not click image
+* Fixed: CSS over when edit folder 
+* Fixed: Load too much database
+* Fixed: Treeview interface Elementor Builder
+* Fixed: Upload images
+* Improved: No load FileBird files on frontend if not use builder
+* Improved: Optimize FileBird
+* Improved: UI/UX
+* Removed: Unused files
+
 = 1.8 =
 Mar 13, 2019 – Version 1.8
 * Added: Compatible with Elementor

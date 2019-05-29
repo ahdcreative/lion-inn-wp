@@ -20,17 +20,19 @@
  * @subpackage FileBird/includes
  * @author     Ninja Team <support@ninjateam.org>
  */
-class FileBird_Activator {
+class FileBird_Activator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function activate()
+    {
 
-	}
+    }
 
 }
