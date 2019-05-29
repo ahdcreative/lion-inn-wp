@@ -85,7 +85,7 @@
 .filebird_tree .edit-folder-wrap input, .new-folder-wrap input{
     margin-left: 40px;
     padding: 6px;
-    width: calc(100% - 46px);
+    width: 78%;
 }
 .filebird_tree .edit-folder-wrap .action, .new-folder-wrap .action{
     margin-left: 40px;

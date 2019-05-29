@@ -6,13 +6,14 @@
 .media-frame select.attachment-filters {
   max-width: 30% !important;
 }
-
 .njt-filebird-editcategory-filter {
   position: relative;
   z-index: 1;
-  width: 150px;
 }
-
+.media-frame select,
+.wp-admin .media-frame .wpmediacategory-filter {
+  margin-top: 11px;
+}
 .attachments-browser .attachments-category,
 .attachments-browser .njt-filebird-editcategory-filter {
   display: none;
@@ -20,75 +21,54 @@
 .compat-item tr.compat-field-nt_wmc_folder {
   display: none;
 }
-button.swal2-confirm.bnt-upgrade.swal2-styled {
-  background: #82b440;
-  margin-bottom: 15px;
-  -webkit-box-shadow: 0 2px 0 #6f9a37;
-  box-shadow: 0 2px 0 #6f9a37;
-}
-button.swal2-confirm.bnt-upgrade.swal2-styled:hover {
-  background: #7bac39;
-  background-image: none !important;
-}
-div#swal2-content {
-  font-size: 15px;
-  line-height: 22px;
-}
-button.swal2-cancel.btn-text.swal2-styled {
-  display: none !important;
-}
-.upgrade-description {
-  text-align: left;
-  margin-left: 100px;
-  margin-top: 17px;
-  margin-bottom: 0;
-}
+button.swal2-confirm.bnt-upgrade.swal2-styled{background: #82b440; margin-bottom: 15px; -webkit-box-shadow: 0 2px 0 #6f9a37; box-shadow: 0 2px 0 #6f9a37;}
+button.swal2-confirm.bnt-upgrade.swal2-styled:hover{background: #7bac39; background-image:none !important;}
+div#swal2-content {font-size: 15px; line-height: 22px;}
+button.swal2-cancel.btn-text.swal2-styled {display: none !important;}
+.upgrade-description{text-align: left; margin-left: 100px; margin-top: 17px; 
+    margin-bottom: 0;}
 .swal2-popup .swal2-title {
   line-height: 28px;
 }
 
-.swal2-container {
-  z-index: 999999 !important;
-}
-
-.wp-admin.upload-php .update-nag,
-.wp-admin.upload-php .updated {
-  display: none;
+.wp-admin.upload-php .update-nag, .updated{
+	display: none;
 }
 
 /* FILEBIRD FEEDBACK */
-.filebird-feedback-title {
+.filebird-feedback-title{
   font-weight: bold;
 }
 
 p.filebird-feedback-title {
-  margin: 8px 0;
+    margin: 8px 0;
 }
 
-#feedback-suggest-plugin,
-#feedback-description {
+#feedback-suggest-plugin, #feedback-description{
   width: 100%;
 }
 
-.filebird-feedback-item,
-.filebird-feedback-title {
+.filebird-feedback-item, .filebird-feedback-title{
   margin: 0;
 }
 
-.filebird-feedback-action {
+.filebird-feedback-action{
   margin-top: 10px;
 }
 
-.filebird-feedback-action button {
+.filebird-feedback-action button{
   display: inline-flex !important;
   vertical-align: middle !important;
 }
 
-.filebird-feedback-action #feedback-skip {
-  margin-left: 170px;
+.filebird-feedback-action #feedback-skip{
+  margin-left: 190px;
   opacity: 0.8;
   color: #555d66;
-  border: none;
+  border:none;
   background: none;
   cursor: pointer;
 }
+
+
+
