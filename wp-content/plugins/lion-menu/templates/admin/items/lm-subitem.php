@@ -4,7 +4,7 @@
     $name = str_replace('\\', '', $name);
 ?>
 
-<li class='list-group-item list-group-item-action' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>'>
+<li class='list-group-item list-group-item-action subitem' data-id='<?php echo $id; ?>' data-name='<?php echo $name; ?>'>
 
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>

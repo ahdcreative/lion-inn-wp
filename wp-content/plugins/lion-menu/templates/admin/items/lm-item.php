@@ -22,7 +22,7 @@
     $description = str_replace('\\', '', $description);
 ?>
 
-<li class="list-group-item list-group-item-action <?php echo $bg; ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
+<li class="list-group-item list-group-item-action no-position item <?php echo $bg; ?>" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>">
 
     <!-- Hamburger -->
     <i class="fas fa-bars"></i>
@@ -87,7 +87,7 @@
 
     $subitems = $db->get( "subitem" , array ( "parent_item" => $id ) );
 
-    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "isParentPublished" => $toPublish, "classes" => "list-group", "isSubsec" => $isSubsectionTitle, "isNote" => $isNote ));
+    echo $list_tpl->render( 'lm-list' , array( "listOf" => $subitems,  "type" => "SUBITEMS", "isParentPublished" => $toPublish, "classes" => "list-group subitems-list", "isSubsec" => $isSubsectionTitle, "isNote" => $isNote ));
 
     ?>
 
