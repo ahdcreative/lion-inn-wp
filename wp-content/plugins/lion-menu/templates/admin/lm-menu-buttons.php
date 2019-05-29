@@ -8,9 +8,7 @@
 
     <!-- Add Menu Button -->
     <!-- Loads Add Menu Modal in lm-modals.php when clicked -->
-    <button type="button" class="btn btn-lion-purple">
-        <a href="#TB_inline?&width=400&height=250&inlineId=add-menu-modal" class="thickbox button-link add-menu">Add Menu</a>
-    </button>
+    <a href="#TB_inline?&width=400&height=250&inlineId=add-menu-modal" class="thickbox btn btn-lion-purple mx-3 add-menu">Add Menu</a>
 
 </div>
 
