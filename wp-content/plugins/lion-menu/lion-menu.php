@@ -194,9 +194,9 @@ class LionMenu {
 
             echo "<div class='row'>";
 
-            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 0, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-3 pr-4 sections-list" ));
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 0, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-3 pr-4" ));
 
-            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 1, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-4 sections-list" ));
+            echo $tpl->render( 'lm-list' , array( "listOf" => $sections, "type" => "SECTIONS", "side" => 1, "isParentPublished" => $menu->toPublish, "classes" => "nested-sortable vertical ml-0 list-group col-6 pl-4" ));
             
             echo "</div>";
         } else {

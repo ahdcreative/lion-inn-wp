@@ -30,27 +30,9 @@ jQuery(function($) {
     var nested = $('ol.nested-sortable').sortable({
         group: 'serialization',
         handle: '.fa-bars',
-        isValidTarget: function ($item, container) {
-            if($item.hasClass('section')) {
-                if(container.el.hasClass('sections-list')) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if($item.hasClass('item')) {
-                if(container.el.hasClass('items-list')) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if($item.hasClass('subitem')) {
-                if(container.el.hasClass('subitems-list')) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        },
+        // isValidTarget: function ($item, container) {
+        //     return true
+        // },
         afterMove: function (placeholder, container) {
             if(oldContainer != container){
                 if(oldContainer) {
@@ -103,13 +85,13 @@ jQuery(function($) {
             
             // scroll down when cursor is near bottom of screen
             if (elemRect.top > bottomArea) {
-                // Down
                 $('html, body').animate({
                     scrollTop: 10000 // adjust - number of px to scroll down
                 }, 20000); // increase this to slow the scroll
             }
             // scroll up when cursor is near top of screen
             else if (elemRect.top < topArea) {
+                console.log(elemRect.top + '<' + topArea);
                 // Up
                 $('html, body').animate({
                     scrollTop: 0 // 0 = top
