@@ -60,8 +60,8 @@ class LionDocs {
 
         // Add Bootstrap CSS & JS & PopperJS
         wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
-        wp_enqueue_style('bs-css', plugins_url() . '/lion-events/assets/css/bootstrap.min.css');
-        wp_enqueue_script('bs-js', plugins_url() . '/lion-events/assets/js/bootstrap.min.js');
+        wp_enqueue_style('bs-css', plugins_url() . '/lion-docs/assets/css/bootstrap.min.css');
+        wp_enqueue_script('bs-js', plugins_url() . '/lion-docs/assets/js/bootstrap.min.js');
     }
     
     /**

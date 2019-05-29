@@ -30,6 +30,9 @@ jQuery(function($) {
     var nested = $('ol.nested-sortable').sortable({
         group: 'serialization',
         handle: '.fa-bars',
+        // isValidTarget: function ($item, container) {
+        //     return true
+        // },
         afterMove: function (placeholder, container) {
             if(oldContainer != container){
                 if(oldContainer) {
