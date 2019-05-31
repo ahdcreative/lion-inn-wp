@@ -86,8 +86,8 @@ class LionEvents {
         wp_enqueue_script( 'le-media-manager', plugins_url( '/assets/js/media-manager.js' , __FILE__ ), array('jquery'), '0.1' );
     
         // Summernote WYSIWYG Editor
-        wp_enqueue_style('summernote-css', 'https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css');
-        wp_enqueue_script('summernote-js', 'https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js', array('jquery'));
+        wp_enqueue_style('summernote-css', plugins_url() . '/lion-events/assets/css/summernote-lite.css');
+        wp_enqueue_script('summernote-js', plugins_url() . '/lion-events/assets/js/summernote-lite.js', array('jquery'));
         // Custom script to enable editor
         wp_enqueue_script('enable-editor', plugins_url() . '/lion-events/assets/js/wysiwyg.js', array('jquery'));
     }

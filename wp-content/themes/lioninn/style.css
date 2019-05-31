@@ -83,6 +83,10 @@ Tags: bootstrap, restaurant, pub
 .events .upcoming .info p {
   line-height: 2;
 }
+.events .upcoming .info div {
+  line-height: 2;
+  font-size: 10pt !important;
+}
 
 .events .upcoming .info hr {
   width: 10%;
