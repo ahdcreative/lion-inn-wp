@@ -30,7 +30,7 @@ jQuery(function($) {
         });
 
         // Change to media library tab
-        $('.media-menu-item').toggleClass('active');
+        //$('.media-menu-item').toggleClass('active');
         // Set filter to only event images - 'Events' category has a value of '11' for some reason
         $("select#media-attachment-filters").val("5").change();
         // Hide selects so user cannot change filter
@@ -67,7 +67,7 @@ jQuery(function($) {
         });
 
         // Change to media library tab
-        $('.media-menu-item').toggleClass('active');
+        //$('.media-menu-item').toggleClass('active');
         // Set filter to only event images - 'Events' category has a value of '11' for some reason
         $("select#media-attachment-filters").val("5").change();
         // Hide selects so user cannot change filter
@@ -102,7 +102,7 @@ jQuery(function($) {
         });
 
         // Change to media library tab
-        $('.media-menu-item').toggleClass('active');
+        //$('.media-menu-item').toggleClass('active');
         // Set filter to only icons - 'Icons' category has a value of '10' for some reason
         $("select#media-attachment-filters").val("6").change();
         // Hide selects so user cannot change filter
